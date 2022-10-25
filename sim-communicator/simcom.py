@@ -18,13 +18,23 @@ class SimulatedCamera:
         size = int(size_str)
         frame_data = self.soc.recv(size)
         return frame_data
+    def move_to(self, location):
+        s = "move;%s;"%location
+        self.soc.sendall(s.encode("utf-8"))
     def close(self):
         self.soc.sendall(b"exit;")
         self.soc.close()
 
 if __name__=="__main__":
     sc = SimulatedCamera()
+
     frame = sc.get_frame()
     image = Image.open(io.BytesIO(frame))
-    sc.close()
     image.save("./img.png")
+
+    sc.move_to(2)
+    frame = sc.get_frame()
+    image = Image.open(io.BytesIO(frame))
+    image.save("./img2.png")
+
+    sc.close()

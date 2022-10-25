@@ -14,9 +14,12 @@ public class RemoteCamera : MonoBehaviour
     byte[] currentImageBuffer;
     Socket conn;
     bool destroyFlag;
+    int currentLocation;
+    GameObject locations;
     // Start is called before the first frame update
     void Setup()
     {
+        locations = GameObject.Find("ViewPoints");
         cam = GetComponent<Camera>(); 
         currentImageBuffer = RenderFrame();
     }
@@ -27,6 +30,12 @@ public class RemoteCamera : MonoBehaviour
         var bs = RenderFrame();
         lock(currentImageBuffer){
             bs.CopyTo(currentImageBuffer,0);
+        }
+
+        if (currentLocation < locations.transform.childCount && currentLocation >= 0){
+            var currentTransform = locations.transform.GetChild(currentLocation);
+            transform.position = currentTransform.position;
+            transform.rotation = currentTransform.rotation;
         }
     }
 
@@ -64,7 +73,6 @@ public class RemoteCamera : MonoBehaviour
 
     public void SocketConnectionThread(){
         var data = "";
-        var dataSize = 0;
         while (true){
             var bs = new byte[1];
             var numBs = conn.Receive(bs);
@@ -94,6 +102,23 @@ public class RemoteCamera : MonoBehaviour
                             conn.Close();
                             destroyFlag = true;
                             return;
+                        case "move":
+                            Debug.Log("Client requested move");
+                            var dataPos = "";
+                            while (true){
+                                var bsPos = new byte[1];
+                                var numBsPos = conn.Receive(bsPos);
+                                var s = Encoding.ASCII.GetString(bsPos, 0, numBsPos);
+                                if (s == ";") break;
+                                dataPos += s;
+                            }
+                            try{
+                                var dataPosNum = Int32.Parse(dataPos);
+                                currentLocation = dataPosNum;
+                            } catch (Exception e){
+                                Debug.Log("Malformed move message sent, ignoring");
+                            }
+                            break;
                     }
                 }
             }
