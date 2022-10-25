@@ -27,8 +27,8 @@
       <constraint type="must-start-on" time="20230502T000000Z"/>
     </task>
     <task id="3" name="Phase 1" note="" work="518400" start="20221025T000000Z" end="20221110T170000Z" work-start="20221025T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="4" name="Unity Sim" note="" work="144000" start="20221025T000000Z" end="20221031T170000Z" work-start="20221025T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="5" name="Python Link" note="" work="86400" start="20221031T170000Z" end="20221103T170000Z" work-start="20221101T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="4" name="Unity Sim" note="" work="144000" start="20221025T000000Z" end="20221031T170000Z" work-start="20221025T080000Z" percent-complete="35" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="5" name="Python Link" note="" work="86400" start="20221031T170000Z" end="20221103T170000Z" work-start="20221101T080000Z" percent-complete="52" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="4" type="FS"/>
         </predecessors>
