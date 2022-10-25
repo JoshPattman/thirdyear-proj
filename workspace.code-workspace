@@ -1,0 +1,10 @@
+{
+    "folders": [
+		{
+			"path": "sim/Assets/Scripts"
+		},
+		{
+			"path": "sim-communicator"
+		}
+	]
+}
