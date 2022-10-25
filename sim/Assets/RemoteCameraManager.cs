@@ -10,7 +10,7 @@ using System.Text;
 
 public class RemoteCameraManager : MonoBehaviour
 {
-    public int port = 9876;
+    public int port = 8088;
     ConcurrentQueue<Socket> newSockets;
     public RemoteCamera prefab;
     // Start is called before the first frame update
@@ -34,16 +34,21 @@ public class RemoteCameraManager : MonoBehaviour
     }
 
     void ListenForNewSockets(){
+        Debug.Log("Listening thread up");
         IPHostEntry host = Dns.GetHostEntry("localhost");
         IPAddress addr = host.AddressList[0];
         IPEndPoint localEP = new IPEndPoint(addr, port);
+        Debug.Log("Found hosting address");
+        Debug.Log(localEP);
         Socket listener = new Socket(addr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         listener.Bind(localEP);
         // Max 10 sockets waiting at once
         listener.Listen(10);
+        Debug.Log("Listening");
         while(true){
             try{
                 newSockets.Enqueue(listener.Accept());
+                Debug.Log("New Socket");
             } catch(Exception e){
                 Debug.Log(e);
             }

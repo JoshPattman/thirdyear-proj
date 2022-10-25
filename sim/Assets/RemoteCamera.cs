@@ -13,8 +13,9 @@ public class RemoteCamera : MonoBehaviour
     Camera cam;
     byte[] currentImageBuffer;
     Socket conn;
+    bool destroyFlag;
     // Start is called before the first frame update
-    void Start()
+    void Setup()
     {
         cam = GetComponent<Camera>(); 
         currentImageBuffer = RenderFrame();
@@ -22,6 +23,7 @@ public class RemoteCamera : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (destroyFlag) Destroy(gameObject);
         var bs = RenderFrame();
         lock(currentImageBuffer){
             bs.CopyTo(currentImageBuffer,0);
@@ -54,6 +56,7 @@ public class RemoteCamera : MonoBehaviour
     }
 
     public void StartSocketConnection(Socket c){
+        Setup();
         conn = c;
         Thread t = new Thread(new ThreadStart(SocketConnectionThread));
         t.Start();
@@ -61,40 +64,37 @@ public class RemoteCamera : MonoBehaviour
 
     public void SocketConnectionThread(){
         var data = "";
-        var commandMode = true;
         var dataSize = 0;
         while (true){
             var bs = new byte[1];
             var numBs = conn.Receive(bs);
             data += Encoding.ASCII.GetString(bs, 0, numBs);
             // If we are awaiting a command
-            if (commandMode){
+            if (data.Length > 0){
                 if (data[data.Length-1] == ';'){
                     // A command is now in the buffer string
                     var cmd = data.Substring(0, data.Length-1);
+                    data = "";
                     switch (cmd){
                         // The client wants a snapshot
                         case "data":
+                            Debug.Log("Client requested frame");
                             var imgBuf = new byte[currentImageBuffer.Length];
                             lock(currentImageBuffer){
                                 currentImageBuffer.CopyTo(imgBuf, 0);
                             }
                             conn.Send(Encoding.ASCII.GetBytes(imgBuf.Length.ToString()+";"));
                             conn.Send(imgBuf);
+                            Debug.Log("Served frame");
                             break;
                         // The client has left
                         case "exit":
+                            Debug.Log("Client requested quit");
                             conn.Shutdown(SocketShutdown.Both);
                             conn.Close();
-                            // TODO: Tidy up by deleting the camera (must do this in main thread)
+                            destroyFlag = true;
                             return;
-                            break;
                     }
-                }
-            } else{
-                // Otherwise we are awaiting an amount of data
-                if (data[data.Length] >= dataSize){
-                    // Do stuff with this data
                 }
             }
         }
