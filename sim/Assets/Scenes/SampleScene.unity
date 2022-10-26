@@ -155,6 +155,7 @@ Transform:
   - {fileID: 211016009}
   - {fileID: 97799772}
   - {fileID: 1474473065}
+  - {fileID: 962485105}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -361,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97799772}
   m_Layer: 0
-  m_Name: 2
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211016009}
   m_Layer: 0
-  m_Name: 1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3078,6 +3079,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935735541}
   m_CullTransparentMesh: 1
+--- !u!1 &962485104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 962485105}
+  m_Layer: 0
+  m_Name: 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &962485105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962485104}
+  m_LocalRotation: {x: -0, y: -0.55114925, z: -0, w: 0.8344067}
+  m_LocalPosition: {x: 25.247, y: 5.064, z: 30.185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19550888}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -66.892, z: 0}
 --- !u!1001 &993808221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3361,8 +3393,8 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 59
-  m_DetailObjectDensity: 0.188
+  m_DetailObjectDistance: 51
+  m_DetailObjectDensity: 0.241
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
@@ -4194,7 +4226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474473065}
   m_Layer: 0
-  m_Name: 3
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
