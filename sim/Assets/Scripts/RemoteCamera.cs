@@ -11,31 +11,41 @@ using System.Text;
 public class RemoteCamera : MonoBehaviour
 {
     Camera cam;
+    object currentImageBufferLock;
     byte[] currentImageBuffer;
     Socket conn;
     bool destroyFlag;
     int currentLocation;
+    int numLocations;
     GameObject locations;
+    bool isSetup;
     // Start is called before the first frame update
     void Setup()
     {
+        if (isSetup) return;
+        currentImageBufferLock = new object();
+        isSetup = true;
         locations = GameObject.Find("ViewPoints");
+        numLocations = locations.transform.childCount;
         cam = GetComponent<Camera>(); 
         currentImageBuffer = RenderFrame();
     }
 
     // Update is called once per frame
     void Update() {
+        Setup();
         if (destroyFlag) Destroy(gameObject);
-        var bs = RenderFrame();
-        lock(currentImageBuffer){
-            bs.CopyTo(currentImageBuffer,0);
-        }
 
-        if (currentLocation < locations.transform.childCount && currentLocation >= 0){
+        numLocations = locations.transform.childCount;
+        if (currentLocation < numLocations && currentLocation >= 0){
             var currentTransform = locations.transform.GetChild(currentLocation);
             transform.position = currentTransform.position;
             transform.rotation = currentTransform.rotation;
+        }
+
+        var bs = RenderFrame();
+        lock(currentImageBufferLock){
+            currentImageBuffer = bs;
         }
     }
 
@@ -87,8 +97,9 @@ public class RemoteCamera : MonoBehaviour
                         // The client wants a snapshot
                         case "data":
                             Debug.Log("Client requested frame");
-                            var imgBuf = new byte[currentImageBuffer.Length];
-                            lock(currentImageBuffer){
+                            byte[] imgBuf;
+                            lock(currentImageBufferLock){
+                                imgBuf = new byte[currentImageBuffer.Length];
                                 currentImageBuffer.CopyTo(imgBuf, 0);
                             }
                             conn.Send(Encoding.ASCII.GetBytes(imgBuf.Length.ToString()+";"));
@@ -112,12 +123,16 @@ public class RemoteCamera : MonoBehaviour
                                 if (s == ";") break;
                                 dataPos += s;
                             }
+                            Debug.Log("Client wanted move to "+dataPos);
                             try{
                                 var dataPosNum = Int32.Parse(dataPos);
                                 currentLocation = dataPosNum;
                             } catch (Exception e){
                                 Debug.Log("Malformed move message sent, ignoring");
                             }
+                            break;
+                        case "num":
+                            conn.Send(Encoding.ASCII.GetBytes(numLocations.ToString()+";"));
                             break;
                     }
                 }
