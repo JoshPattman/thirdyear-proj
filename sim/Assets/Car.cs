@@ -18,6 +18,8 @@ public class Car : MonoBehaviour
 
     public GameObject[] models;
 
+    public GameObject[] crashParticles;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,26 +29,30 @@ public class Car : MonoBehaviour
     }
 
     void Update(){
-        var laneOffset = Vector3.Cross((targetPoint.transform.position - lastPoint.transform.position).normalized, Vector3.up) * roadWidth;
-        var dir = Vector3.ProjectOnPlane((targetPoint.transform.position+laneOffset) - transform.position, Vector3.up);
-        Debug.DrawLine(transform.position, transform.position+dir, Color.green);
-        if (dir.magnitude < waypointDist){
-            Waypoint nextPoint = lastPoint;
-            while (nextPoint == lastPoint) nextPoint = targetPoint.nextPoints[Random.Range(0, targetPoint.nextPoints.Length)];
-            lastPoint = targetPoint;
-            targetPoint = nextPoint;
+        if (!hasCrashed){
+            var laneOffset = Vector3.Cross((targetPoint.transform.position - lastPoint.transform.position).normalized, Vector3.up) * roadWidth;
+            var dir = Vector3.ProjectOnPlane((targetPoint.transform.position+laneOffset) - transform.position, Vector3.up);
+            Debug.DrawLine(transform.position, transform.position+dir, Color.green);
+            if (dir.magnitude < waypointDist){
+                Waypoint nextPoint = lastPoint;
+                while (nextPoint == lastPoint) nextPoint = targetPoint.nextPoints[Random.Range(0, targetPoint.nextPoints.Length)];
+                lastPoint = targetPoint;
+                targetPoint = nextPoint;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        var laneOffset = Vector3.Cross((targetPoint.transform.position - lastPoint.transform.position).normalized, Vector3.up) * roadWidth;
-        var dir = Vector3.ProjectOnPlane((targetPoint.transform.position+laneOffset) - transform.position, Vector3.up);
-        rb.angularVelocity = GetTorqueFor(Quaternion.LookRotation(dir), turnSpeed);
-        if (rb.angularVelocity.magnitude > turnSpeed/2){
-            rb.velocity = transform.forward * speed / 3;
-        } else{
-            rb.velocity = transform.forward * speed;
+        if (!hasCrashed){
+            var laneOffset = Vector3.Cross((targetPoint.transform.position - lastPoint.transform.position).normalized, Vector3.up) * roadWidth;
+            var dir = Vector3.ProjectOnPlane((targetPoint.transform.position+laneOffset) - transform.position, Vector3.up);
+            rb.angularVelocity = GetTorqueFor(Quaternion.LookRotation(dir), turnSpeed);
+            if (rb.angularVelocity.magnitude > turnSpeed/2){
+                rb.velocity = transform.forward * speed / 3;
+            } else{
+                rb.velocity = transform.forward * speed;
+            }
         }
     }
 
@@ -58,6 +64,16 @@ public class Car : MonoBehaviour
         if (angle > 180) angle -= 360;
         if (angle > maxAngle) angle = maxAngle;
         if (angle < -maxAngle) angle = -maxAngle;
-        return axis*angle;
+        var aa = axis*angle;
+        if (aa.magnitude > 0.01) return aa;
+        return Vector3.zero;
+    }
+
+    void OnCollisionEnter(Collision col){
+        if (col.body && !hasCrashed && col.body.gameObject.tag == "car"){
+            hasCrashed = true;
+            Debug.Log("Crash");
+            crashParticles[Random.Range(0, crashParticles.Length)].SetActive(true);
+        }
     }
 }
