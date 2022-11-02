@@ -1,6 +1,7 @@
 import socket
 import io
 import PIL.Image as Image
+import threading
 
 class SimulatedCamera:
     def __init__(self, host="localhost", port=8088):
@@ -40,14 +41,25 @@ class SimulatedCamera:
         self.soc.close()
 
 
+def get_frame_from(cam_pos):
+    sc = SimulatedCamera()
+    sc.move_to(cam_pos)
+    frame = sc.get_frame()
+    image = Image.open(io.BytesIO(frame))
+    image.save("./imgs/img%s.png"%cam_pos)
+    sc.close()
+
 if __name__=="__main__":
     sc = SimulatedCamera()
-
     num_locations = sc.get_num_locations()
-    for i in range(num_locations):
-        sc.move_to(i)
-        frame = sc.get_frame()
-        image = Image.open(io.BytesIO(frame))
-        image.save("./imgs/img%s.png"%i)
-
     sc.close()
+
+    threads = []
+
+    for i in range(num_locations):
+        x = threading.Thread(target=get_frame_from, args=(i,))
+        x.start()
+        threads.append(x)
+
+    for t in threads:
+        t.join()
