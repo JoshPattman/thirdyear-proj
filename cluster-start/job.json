@@ -1,0 +1,11 @@
+[
+    {
+        "cmd":"./test.sh",
+        "arg":["josh"],
+        "out":"./outfile.txt"
+    },
+    {
+        "cmd":"./test.sh",
+        "arg":["vonnie"]
+    }
+]
