@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "node.py", line 16, in <module>
+    gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+NameError: name 'tf' is not defined

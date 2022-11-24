@@ -1,0 +1,12 @@
+[
+    {
+        "cmd":"python",
+        "arg":["node.py", "9000"],
+        "out":"./logs/node-1.txt"
+    },
+    {
+        "cmd":"python",
+        "arg":["node.py", "9001"],
+        "out":"./logs/node-2.txt"
+    }
+]
