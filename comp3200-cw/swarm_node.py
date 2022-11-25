@@ -1,13 +1,12 @@
-import protocol
-import socket
-from keras.datasets import mnist
+import protocol_v2 as protocol
 import numpy as np
-import threading, time
+import threading, time, socket
 from queue import Queue
 
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
 from keras import Model
+from keras.datasets import mnist
 from keras.models import clone_model
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
