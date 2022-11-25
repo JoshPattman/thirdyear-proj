@@ -2,6 +2,7 @@ import protocol_v2 as protocol
 import numpy as np
 import threading, time, socket
 from queue import Queue
+from datetime import datetime
 
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
@@ -33,13 +34,14 @@ class Node:
     def __init__(self, port, neighbors_addresses, model_ref=None):
         self.port=port
         self.neighbors_addresses = neighbors_addresses
-        self.updates_queue = Queue()
+        self.weights_lock = threading.Lock()
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         if model_ref == None:
             self.model = new_model()
         else:
             self.model=clone_model(model_ref)
         self.model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
+        self.update_last_model_weights()
         self.log("Starting update thread")
         threading.Thread(target=self.listener_loop).start()
         threading.Thread(target=self.update_loop).start()
@@ -53,50 +55,65 @@ class Node:
                     num_correct += 1
             return (100*num_correct/len(self.test_Y))
         self.log("Initial accuracy: %s"%get_accuracy())
-        for i in range(1):
-            self.send_to_neighbors()
+        # How many times are we going to loop
+        for i in range(10):
+            # Do a step of training
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            # Update the cached model weights that get sent to other nodes
+            self.update_last_model_weights()
+            # Test accuracy
             self.log("Accuracy: %s"%get_accuracy())
-            
-    def listener_loop(self):
-        self.log("Listening for connections")
-        s = protocol.new_soc()
-        s.bind(("", self.port))
-        s.listen()
-        def handle(soc, addr):
-            self.log("%s has connected"%(addr,))
-            try:
-                with soc:
-                    weights = protocol.read_model_weights(soc)
-                self.updates_queue.put(weights)
-                self.log("Added wights from %s to queue"%(addr,))
-            except Exception as e:
-                self.log("Failure when communicating with %s: %s"%(addr, e), is_err=True)
-        while True:
-            soc, addr = s.accept()
-            threading.Thread(target=handle, args=(soc,addr)).start()
+            # Get all other weights
+            weightsQ = Queue()
+            def add_weights_to_q(addr):
+                try:
+                    w = protocol.request_model_weights(addr)
+                    weightsQ.put(w)
+                except Exception as e:
+                    self.log("Failed to get weights from %s: %s"%(addr, e),is_err=True)
+                    weightsQ.put(None)
+            for n in self.neighbors_addresses:
+                threading.Thread(target=add_weights_to_q, args=(n,)).start()
+            tstart = datetime.now()
+            while weightsQ.qsize() < len(self.neighbors_addresses):
+                time.sleep(0.1)
+                if (datetime.now() - tstart).total_seconds() >= 5:
+                    break
+            recv_weights = []
+            while weightsQ.qsize() > 0:
+                recv_weights.append(weightsQ.get())
+            self.log("Finished recieving weights")
+            # Merge weights together
+            with self.weights_lock:
+                new_w = []
+                for ai in range(len(self.last_weights)):
+                    a_w = []
+                    for bi in range(len(self.last_weights[ai])):
+                        total = np.copy(self.last_weights[ai][bi])
+                        for rw in recv_weights:
+                            total += rw[ai][bi]
+                        av = total/(len(recv_weights)+1)
+                        a_w.append(av)
+                    new_w.append(a_w)
+            self.log("Applying average weights")
+            for layer in range(len(self.model.layers)):
+                self.model.layers[layer].set_weights(new_w[layer])
+            # Test accuracy again
+            self.log("Testing second accuracy")
+            self.log("Accuracy after avg: %s"%get_accuracy())
         
-    def send_to_neighbors(self):
-        weights = []
-        for layer in self.model.layers:
-            weights.append(layer.get_weights())
-        def send_to_neighbor(addr):
-            try:
-                s = protocol.new_soc()
-                s.connect(addr)
-                with s:
-                    protocol.send_model_weights(s, weights)
-                #self.log("Sent weights to %s"%addr)
-            except Exception as e:
-                self.log("Could not send weights to %s: %s"%(addr,e), is_warn=True)
-        threads = []
-        for n in self.neighbors_addresses:
-            t = threading.Thread(target=send_to_neighbor, args=(n,))
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
-        self.log("Finished sending weights to all neighbors")
+    def listener_loop(self):
+        self.log("Listening for weight requests")
+        def get_json_last_weights():
+            with self.weights_lock:
+                return protocol.json_model_weights(self.last_weights)
+        protocol.start_listen_server(get_json_last_weights, self.port)
+        
+    def update_last_model_weights(self):
+        with self.weights_lock:
+            self.last_weights = []
+            for layer in self.model.layers:
+                self.last_weights.append(layer.get_weights())
         
     def log(self, msg, is_err=False, is_warn=False):
         reset="\033[0m"

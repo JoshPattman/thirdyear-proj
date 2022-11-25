@@ -4,7 +4,10 @@ import socket
 from flask import Flask
 import requests
 import logging
+import os
 
+
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
 logging.getLogger("requests").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
@@ -20,11 +23,11 @@ def request_model_weights(addr):
     resp = requests.get("http://"+addr+"/get_weights")
     return read_model_weights_json(resp.json())
 
-def start_listen_server(fn_get_weights, port):
+def start_listen_server(fn_get_json_weights, port):
     app = Flask(__name__)
     
     @app.route("/get_weights")
     def handler_get_weights():
-        return json.dumps(json_model_weights(fn_get_weights()))
+        return json.dumps(fn_get_json_weights())
     
     app.run(port=port)
