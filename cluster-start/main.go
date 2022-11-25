@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -13,6 +14,7 @@ import (
 
 var processes = []*exec.Cmd{}
 var lock = sync.Mutex{}
+var stdoutChan = make(chan string, 5)
 
 func main() {
 	// Parse args
@@ -54,14 +56,19 @@ func main() {
 			defer lock.Unlock()
 			fmt.Println("Starting ", n)
 			cmd := exec.Command(n.Command, n.Args...)
+			var outputStream io.Writer
 			if n.Output != "" {
 				if outfile, err := os.Create(n.Output); err != nil {
 					return err
 				} else {
-					cmd.Stdout = outfile
-					cmd.Stderr = outfile
+					outputStream = outfile
 				}
 			}
+			if n.Show {
+				outputStream = NewScreenWriter(outputStream)
+			}
+			cmd.Stdout = outputStream
+			cmd.Stderr = outputStream
 			processes = append(processes, cmd)
 			return cmd.Start()
 		}()
@@ -72,14 +79,17 @@ func main() {
 		}
 	}
 
-	// Wait forever
-	<-make(chan bool)
+	for {
+		msg := <-stdoutChan
+		fmt.Print(msg)
+	}
 }
 
 type Node struct {
 	Command string   `json:"cmd"`
 	Args    []string `json:"arg"`
 	Output  string   `json:"out"`
+	Show    bool     `json:"show"`
 }
 
 func (n Node) String() string {
@@ -89,4 +99,37 @@ func (n Node) String() string {
 func fail(s string) {
 	fmt.Println(s)
 	os.Exit(1)
+}
+
+type ScreenWriter struct {
+	Next   io.Writer
+	stream chan byte
+}
+
+func NewScreenWriter(w io.Writer) io.Writer {
+	sw := &ScreenWriter{w, make(chan byte, 100)}
+	go sw.readStream()
+	return sw
+}
+
+func (sr *ScreenWriter) Write(ps []byte) (n int, err error) {
+	for _, p := range ps {
+		sr.stream <- p
+	}
+	if sr.Next != nil {
+		return sr.Next.Write(ps)
+	}
+	return len(ps), nil
+}
+
+func (sr *ScreenWriter) readStream() {
+	buf := []byte{}
+	for {
+		b := <-sr.stream
+		buf = append(buf, b)
+		if b == '\n' {
+			stdoutChan <- string(buf)
+			buf = []byte{}
+		}
+	}
 }

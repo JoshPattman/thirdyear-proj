@@ -2,7 +2,8 @@
     {
         "cmd":"python",
         "arg":["node.py", "9000"],
-        "out":"./logs/node-1.txt"
+        "out":"./logs/node-1.txt",
+        "show":true
     },
     {
         "cmd":"python",

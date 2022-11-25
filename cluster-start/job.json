@@ -2,7 +2,8 @@
     {
         "cmd":"./test.sh",
         "arg":["josh"],
-        "out":"./outfile.txt"
+        "out":"./outfile.txt",
+        "show":true
     },
     {
         "cmd":"./test.sh",

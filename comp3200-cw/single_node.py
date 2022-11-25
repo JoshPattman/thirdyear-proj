@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[ ]:
+
+
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
+
+
 # In[6]:
 
 
@@ -43,35 +50,39 @@ from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
 
 
-# In[28]:
+# In[38]:
 
 
 inp = Input((28,28))
 out = Reshape((28,28,1))(inp)
 out = Conv2D(16, (3,3), activation="relu")(out)
+out = Conv2D(16, (3,3), activation="relu")(out)
 out = Flatten()(out)
 out = Dense(128, activation="relu")(out)
 out = Dense(10, activation="sigmoid")(out)
 model = Model(inputs=inp, outputs=out)
-model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(from_logits=True), metrics=[SparseCategoricalAccuracy()])
+model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
 model.summary()
 
 
-# In[ ]:
+# In[39]:
 
 
-model.fit(train_X, train_Y, epochs=10)
+model.fit(train_X, train_Y, epochs=3)
 
 
-# In[19]:
+# In[40]:
 
 
 preds = model.predict(test_X)
 
 
-# In[20]:
+# In[41]:
 
 
-for i in range(100):
-    print(test_Y[i], np.argmax(preds[i]))
+num_correct = 0
+for i in range(len(test_Y)):
+    if np.argmax(preds[i]) == test_Y[i]:
+        num_correct += 1
+print("Accuracy: %s"%(100*num_correct/len(test_Y)))
 
