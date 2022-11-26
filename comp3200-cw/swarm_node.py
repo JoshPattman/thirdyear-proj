@@ -1,6 +1,6 @@
 import protocol_v2 as protocol
 import numpy as np
-import threading, time, socket
+import threading, time, socket, random
 from queue import Queue
 from datetime import datetime
 
@@ -31,11 +31,14 @@ def new_model():
 
 class Node:
     # This will start the node listening
-    def __init__(self, port, neighbors_addresses, model_ref=None):
+    def __init__(self, port, neighbors_addresses, model_ref=None, num_train_samples=10000):
         self.port=port
         self.neighbors_addresses = neighbors_addresses
         self.weights_lock = threading.Lock()
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
+        train_subset = [random.randint(0,len(self.train_X)-1) for x in range(num_train_samples)]
+        self.train_X = np.array([self.train_X[s] for s in train_subset])
+        self.train_Y = np.array([self.train_Y[s] for s in train_subset])
         if model_ref == None:
             self.model = new_model()
         else:
@@ -74,7 +77,9 @@ class Node:
                     break
             recv_weights = []
             while weightsQ.qsize() > 0:
-                recv_weights.append(weightsQ.get())
+                w = weightsQ.get()
+                if w is not None:
+                    recv_weights.append(w)
             # Merge weights together
             with self.weights_lock:
                 new_w = []
