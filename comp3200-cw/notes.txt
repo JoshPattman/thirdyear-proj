@@ -1,1 +1,2 @@
 Ite seems that not having all training cycles synced is actually beneficial?!
+Averaging actually cause the test accuacy to exceed the performace any network had by single training alone!!
