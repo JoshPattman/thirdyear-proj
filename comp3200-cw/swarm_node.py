@@ -47,14 +47,7 @@ class Node:
         threading.Thread(target=self.update_loop).start()
     
     def update_loop(self):
-        def get_accuracy():
-            preds = self.model.predict(self.test_X, verbose=False)
-            num_correct = 0
-            for i in range(len(self.test_Y)):
-                if np.argmax(preds[i]) == self.test_Y[i]:
-                    num_correct += 1
-            return (100*num_correct/len(self.test_Y))
-        self.log("Initial accuracy: %s"%get_accuracy())
+        self.evaluate_performance("no training")
         # How many times are we going to loop
         for i in range(10):
             # Do a step of training
@@ -62,7 +55,7 @@ class Node:
             # Update the cached model weights that get sent to other nodes
             self.update_last_model_weights()
             # Test accuracy
-            self.log("Accuracy: %s"%get_accuracy())
+            self.evaluate_performance("pre avg", color="\033[035m")
             # Get all other weights
             weightsQ = Queue()
             def add_weights_to_q(addr):
@@ -82,7 +75,6 @@ class Node:
             recv_weights = []
             while weightsQ.qsize() > 0:
                 recv_weights.append(weightsQ.get())
-            self.log("Finished recieving weights")
             # Merge weights together
             with self.weights_lock:
                 new_w = []
@@ -95,12 +87,10 @@ class Node:
                         av = total/(len(recv_weights)+1)
                         a_w.append(av)
                     new_w.append(a_w)
-            self.log("Applying average weights")
             for layer in range(len(self.model.layers)):
                 self.model.layers[layer].set_weights(new_w[layer])
             # Test accuracy again
-            self.log("Testing second accuracy")
-            self.log("Accuracy after avg: %s"%get_accuracy())
+            self.evaluate_performance("post avg", color="\033[034m")
         
     def listener_loop(self):
         self.log("Listening for weight requests")
@@ -114,6 +104,16 @@ class Node:
             self.last_weights = []
             for layer in self.model.layers:
                 self.last_weights.append(layer.get_weights())
+                
+    def evaluate_performance(self, tag, color="\033[0m"):
+        tstart = datetime.now()
+        preds = self.model.predict(self.test_X, verbose=False)
+        tdiff = round((datetime.now()-tstart).total_seconds(),2)
+        num_correct = 0
+        for i in range(len(self.test_Y)):
+            if np.argmax(preds[i]) == self.test_Y[i]:
+                num_correct += 1
+        self.log(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,100*num_correct/len(self.test_Y)))
         
     def log(self, msg, is_err=False, is_warn=False):
         reset="\033[0m"
