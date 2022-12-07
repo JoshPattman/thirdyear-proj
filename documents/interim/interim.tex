@@ -1,0 +1,143 @@
+\documentclass[12pt,a4paper,titlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+
+
+\begin{document}
+	\begin{titlepage}
+		\centering\Large{Electronics and Computer Science Faculty of Engineering and Physical Sciences University of Southampton}
+		\\[3cm]
+		\centering\Large{Josh Pattman} \\
+		\centering\Large{12 December 2022} \\
+		\centering\huge\textbf{Investigating Optimisations Of Swarm Learning With Respect To Real World Challenges}
+		\\[3cm]
+		\centering\Large{Project Supervisor: Mohammad Soorati}
+		\centering\Large{Second Examiner: ?}
+		\\[3cm]
+		\centering\huge{A project progress report submitted for the award of \textbf{Computer Science with Artificial Intelligence}}
+	\end{titlepage}
+
+
+	\chapter*{Abstract}
+	UP TO 200 WORDS
+
+	\tableofcontents
+	
+	
+	\chapter{Project Goals}
+	\section{Problem}
+	\section{Proposed Solution}
+	\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally.}
+	
+	To begin, a basic form of swarm learning will be implemented. It will be extremely simple, and used as a basic proof of concept. Following this, real world constraints such as bandwidth limits, unevenly distributed features, and sparsely connected networks of agents, will be added sequentially. After the addition of each new constraint, mitigations and testing will be done to minimise the effect of the constraint. This will result in a robust framework of algorithms and improvements for swarm learning that could be applied to many real world problems.
+	
+	\section{Focussing On Project Goals}
+	The plan for this project went through multiple iterations before the final plan was formulated:
+	\begin{enumerate}
+		\item The initial plan was to \emph{control a swarm of drones to detect objects such as natural disasters or people needing help, whilst also improving accuracy of the model over time}
+		\item After discussion, the plan was changed to be \emph{perform edge processing and distributed object detection on many camera perspectives of an environment to decide where disasters are happening, whilst learning to improve the model over time}
+		\item Following the initial research phase, the plan was narrowed to \emph{explore ways to optimise swarm learning for distributed detection of a simple abstract object}
+		\item Finally, after the second phase of research, the settled upon plan became \emph{Investigate possible optimisations of the swarm learning algorithm}. This is the current plan.
+	\end{enumerate}
+	The shift of focus away from object detection and towards swarm learning is mainly for two reasons:
+	\begin{enumerate}
+		\item The author finds the swarm learning aspect of the project to be the most interesting part, especially after researching the subject
+		\item A general framework of improvements and algorithms on swarm learning is much more useful to the real world than an implementation on a simple simulation.
+	\end{enumerate}
+
+	\section{Risk Assessment}
+	\subsection{Personal Issues}
+	\subsubsection{Description}
+	This risk entails all personal issues which cause the author to be unable to do work, such as illness.
+	\subsubsection{Risk Calculations}
+	\emph{Severity (1-5):} 3 \\
+	\emph{Likelihood (1-5):} 3 \\
+	\emph{Overall Risk (1-25):} \textbf{9}
+	\subsubsection{Mitigation}
+	As many sections and modules as possible from the codebase will be designed to have minimal requirements from other sections. This means that, even if the author is unable to work for a period of time, some less important sections can be skipped with minimal effect on the reset of the project.
+	\subsection{Hardware Failure - Local Computer}
+	\subsubsection{Description}
+	This risk entails a failure on the authors local computer of any kind, such as a graphics card or storage breakage.
+	\subsubsection{Risk Calculations}
+	\emph{Severity (1-5):} 4 \\
+	\emph{Likelihood (1-5):} 2 \\
+	\emph{Overall Risk (1-25):} \textbf{8}
+	\subsubsection{Mitigation}
+	To mitigate storage based failures, the project will be regularly backed up to \emph{GitHub}. If a core component of the work computer breaks, the author has access to a personal laptop and the \emph{Zepler Labs}. The deep learning environment along with dependencies is backed up to the authors \emph{Google Drive} in the form of a docker image, so that switching to a new computer would be a smooth process.
+	\subsection{Hardware Failure - Iridis 5}
+	\subsubsection{Description}
+	This risk entails a failure on the \emph{Iridis 5 Compute Cluster} which prevents it from being accessed by the author.
+	\subsubsection{Risk Calculations}
+	\emph{Severity (1-5):} 5 \\
+	\emph{Likelihood (1-5):} 1 \\
+	\emph{Overall Risk (1-25):} \textbf{5}
+	\subsubsection{Mitigation}
+	\emph{Iridis 5} will play a key role in this project when simulating large numbers of agents at once. However, it is possible to simulate lower numbers (around 10) agents at the same time on the authors local machine with a basic dataset. This could be a temporary solution if \emph{Iridis 5} went down for a short time. However, for a more permanent solution, funding may be acquired from the university to run the project on a cluster of \emph{AWS} servers, as the author has some experience in that field. 
+	
+	\chapter{Background and Report of Literature Search}
+	\section{Literature Review}
+	\subsection{A survey on federated learning \cite{survey_on_fed_learning}}
+	\begin{itemize}
+		\item Introduction to fed learning
+		\item Understand basic concept of fed learning
+		\item Had potential use cases for fed learning
+	\end{itemize}
+
+	\subsection{Swarm Learning for decentralized and confidential clinical machine learning \cite{swarm_learning}}
+	\begin{itemize}
+		\item Introduced to swarm learning
+		\item Showed benefits of sward/federated learning over conventional central learning
+		\item Helped me to understand how swarm learning can improve federated learning
+	\end{itemize}
+
+	\subsection {Federated learning in Robotic and Autonomous Systems \cite{fed_in_robotics}}
+	\begin{itemize}
+		\item Introduced to using federated learning in robotics
+		\item Real world reasons that federated learning is useful in the field of robotics
+		\item Horizontal/vertical federated learning
+		\item Brief look at federated object detection
+		\item Practical challenges of federated (model upload time, etc)
+	\end{itemize}
+
+	\subsection{Decentralized Federated Learning: A Segmented Gossip Approach \cite{gossip_learning}}
+	\begin{itemize}
+		\item Problem of bandwidth for federated learning
+		\item Had a very cool novel idea that every step each node only needs to pull a segment of the network. This reduces bandwidth and should deffo be somthing to try
+	\end{itemize}
+
+	\subsection{Multi-Center Federated Learning \cite{multi_center_fed_learning}}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	
+	\subsection{FedBN: Federated Learning On Non-IID Features via Local Batch Normalization \cite{fedbn}}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\subsection{Personalized Federated Learning with Theoretical Guarantees: A Model-Agnostic Meta-Learning Approach \cite{model_agnostic_meta_learning}}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	
+	\chapter{Report on Technical Progress}
+	\section{Implementation 1 - Basic MNIST classifier}
+	A simple \emph{mnist} classifier was built using \emph{Keras} in \emph{Python}. There was only one agent which trained on the dataset, and the main reason for this was to get a baseline for the swarm learning to compete against.
+	\section{Implementation 2 - Simple swarm learning}
+	Using \emph{Implementation 1} as a base, a swarm of agents was created. Each agent had access to the whole dataset for training. Every agent also could communicate with every other agent. The agents acted in a loop, where they would each first train for one epoch on their copy of the training set, and then would average their models weights with all of their neighbours weights. This implementation was run on the authors local computer, so could not run more than 5 agents without serious performance problems.
+	
+	All 5 agents did mange to reach the same level of accuracy on the test set as \emph{Implementation 1}. However, the agents took more time and total epochs to reach this accuracy.
+	
+	The agents seemed to reach the final accuracy in fewer training steps if the agents training loops were offset by even intervals of time. The author hypothesizes that this may be because when the agents training is synced, some of the agents may skip the just completed training when requesting updates, which can cause training epochs to effectively be lost. This effect needs further investigation.
+	\section{Implementation 3 - Reduced dataset swarm learning}
+	Building on \emph{Implementation 2}, this implementation was mainly focussed around reducing the amount of data each agent gets to train on. 2000 samples were selected randomly for each agent from the training set, and these never changed. When the agents were not allowed to communicate, their test accuracy almost always stayed below 90 percent. However, when the agents shared their networks, they achieved much higher test accuracies. Interestingly, the improvement in accuracy after the 90 percent point slowed down significantly.
+	
+	\chapter{Plan of Remaining Work}
+	
+	\bibliographystyle{ieeetr}
+	\bibliography{interim}{}
+\end{document}

@@ -1,0 +1,72 @@
+\begin{thebibliography}{1}
+
+\bibitem{survey_on_fed_learning}
+C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
+  learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.
+
+\bibitem{swarm_learning}
+S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
+  V.~Garg, R.~Sarveswara, K.~H{\"a}ndler, P.~Pickkers, N.~A. Aziz, S.~Ktena,
+  F.~Tran, M.~Bitzer, S.~Ossowski, N.~Casadei, C.~Herr, D.~Petersheim,
+  U.~Behrends, F.~Kern, T.~Fehlmann, P.~Schommers, C.~Lehmann, M.~Augustin,
+  J.~Rybniker, J.~Altm{\"u}ller, N.~Mishra, J.~P. Bernardes, B.~Kr{\"a}mer,
+  L.~Bonaguro, J.~Schulte-Schrepping, E.~De~Domenico, C.~Siever, M.~Kraut,
+  M.~Desai, B.~Monnet, M.~Saridaki, C.~M. Siegel, A.~Drews, M.~Nuesch-Germano,
+  H.~Theis, J.~Heyckendorf, S.~Schreiber, S.~Kim-Hellmuth, P.~Balfanz,
+  T.~Eggermann, P.~Boor, R.~Hausmann, H.~Kuhn, S.~Isfort, J.~C. Stingl,
+  G.~Schmalzing, C.~K. Kuhl, R.~R{\"o}hrig, G.~Marx, S.~Uhlig, E.~Dahl,
+  D.~M{\"u}ller-Wieland, M.~Dreher, N.~Marx, J.~Nattermann, D.~Skowasch,
+  I.~Kurth, A.~Keller, R.~Bals, P.~N{\"u}rnberg, O.~Rie{\ss}, P.~Rosenstiel,
+  M.~G. Netea, F.~Theis, S.~Mukherjee, M.~Backes, A.~C. Aschenbrenner, T.~Ulas,
+  A.~Angelov, A.~Bartholom{\"a}us, A.~Becker, D.~Bezdan, C.~Blumert,
+  E.~Bonifacio, P.~Bork, B.~Boyke, H.~Blum, T.~Clavel, M.~Colome-Tatche,
+  M.~Cornberg, I.~A. De~La Rosa~Vel{\'a}zquez, A.~Diefenbach, A.~Dilthey,
+  N.~Fischer, K.~F{\"o}rstner, S.~Franzenburg, J.-S. Frick, G.~Gabernet,
+  J.~Gagneur, T.~Ganzenmueller, M.~Gauder, J.~Gei{\ss}ert, A.~Goesmann,
+  S.~G{\"o}pel, A.~Grundhoff, H.~Grundmann, T.~Hain, F.~Hanses, U.~Hehr,
+  A.~Heimbach, M.~Hoeper, F.~Horn, D.~H{\"u}bschmann, M.~Hummel, T.~Iftner,
+  A.~Iftner, T.~Illig, S.~Janssen, J.~Kalinowski, R.~Kallies, B.~Kehr, O.~T.
+  Keppler, C.~Klein, M.~Knop, O.~Kohlbacher, K.~K{\"o}hrer, J.~Korbel, P.~G.
+  Kremsner, D.~K{\"u}hnert, M.~Landthaler, Y.~Li, K.~U. Ludwig, O.~Makarewicz,
+  M.~Marz, A.~C. McHardy, C.~Mertes, M.~M{\"u}nchhoff, S.~Nahnsen,
+  M.~N{\"o}then, F.~Ntoumi, J.~Overmann, S.~Peter, K.~Pfeffer, I.~Pink, A.~R.
+  Poetsch, U.~Protzer, A.~P{\"u}hler, N.~Rajewsky, M.~Ralser, K.~Reiche,
+  S.~Ripke, U.~N. da~Rocha, A.-E. Saliba, L.~E. Sander, B.~Sawitzki,
+  S.~Scheithauer, P.~Schiffer, J.~Schmid-Burgk, W.~Schneider, E.-C. Schulte,
+  A.~Sczyrba, M.~L. Sharaf, Y.~Singh, M.~Sonnabend, O.~Stegle, J.~Stoye,
+  J.~Vehreschild, T.~P. Velavan, J.~Vogel, S.~Volland, M.~von Kleist,
+  A.~Walker, J.~Walter, D.~Wieczorek, S.~Winkler, J.~Ziebuhr, M.~M.~B.
+  Breteler, E.~J. Giamarellos-Bourboulis, M.~Kox, M.~Becker, S.~Cheran, M.~S.
+  Woodacre, E.~L. Goh, J.~L. Schultze, C.-. A.~S. (COVAS), and D.~C.-. O.~I.
+  (DeCOI), ``Swarm learning for decentralized and confidential clinical machine
+  learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
+
+\bibitem{fed_in_robotics}
+Y.~Xianjia, J.~P. Queralta, J.~Heikkonen, and T.~Westerlund, ``Federated
+  learning in robotic and autonomous systems,'' {\em Procedia Computer
+  Science}, vol.~191, pp.~135--142, 2021.
+\newblock The 18th International Conference on Mobile Systems and Pervasive
+  Computing (MobiSPC), The 16th International Conference on Future Networks and
+  Communications (FNC), The 11th International Conference on Sustainable Energy
+  Information Technology.
+
+\bibitem{gossip_learning}
+C.~Hu, J.~Jiang, and Z.~Wang, ``Decentralized federated learning: A segmented
+  gossip approach,'' 2019.
+
+\bibitem{multi_center_fed_learning}
+M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
+  federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
+
+\bibitem{fedbn}
+X.~Li, M.~Jiang, X.~Zhang, M.~Kamp, and Q.~Dou, ``Fedbn: Federated learning on
+  non-iid features via local batch normalization,'' 2021.
+
+\bibitem{model_agnostic_meta_learning}
+A.~Fallah, A.~Mokhtari, and A.~Ozdaglar, ``Personalized federated learning with
+  theoretical guarantees: A model-agnostic meta-learning approach,'' in {\em
+  Advances in Neural Information Processing Systems} (H.~Larochelle,
+  M.~Ranzato, R.~Hadsell, M.~Balcan, and H.~Lin, eds.), vol.~33,
+  pp.~3557--3568, Curran Associates, Inc., 2020.
+
+\end{thebibliography}

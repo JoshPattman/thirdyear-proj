@@ -18,6 +18,18 @@ def thread_print(x):
     with print_lock:
         print(x)
         
+def log(sender, msg, is_err=False, is_warn=False):
+        reset="\033[0m"
+        error="\033[031m"
+        warn="\033[033m"
+        log="\033[036m"
+        if is_err:
+            thread_print(f"{error}[%s] ERROR >{reset} %s"%(sender, msg))
+        elif is_warn:
+            thread_print(f"{warn}[%s] WARN  >{reset} %s"%(sender, msg))
+        else:
+            thread_print(f"{log}[%s] LOG   >{reset} %s"%(sender, msg))
+        
 def new_model():
     inp = Input((28,28))
     out = Reshape((28,28,1))(inp)
@@ -121,13 +133,4 @@ class Node:
         self.log(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,100*num_correct/len(self.test_Y)))
         
     def log(self, msg, is_err=False, is_warn=False):
-        reset="\033[0m"
-        error="\033[031m"
-        warn="\033[033m"
-        log="\033[036m"
-        if is_err:
-            thread_print(f"{error}[%s] ERROR >{reset} %s"%(self.port, msg))
-        elif is_warn:
-            thread_print(f"{warn}[%s] WARN  >{reset} %s"%(self.port, msg))
-        else:
-            thread_print(f"{log}[%s] LOG   >{reset} %s"%(self.port, msg))
+        log(self.port, msg, is_err=is_err, is_warn=is_warn)
