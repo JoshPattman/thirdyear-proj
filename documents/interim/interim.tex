@@ -9,16 +9,16 @@
 
 \begin{document}
 	\begin{titlepage}
-		\centering\Large{Electronics and Computer Science Faculty of Engineering and Physical Sciences University of Southampton}
+		\centering\Large\emph{Electronics and Computer Science Faculty of Engineering and Physical Sciences University of Southampton}
 		\\[3cm]
 		\centering\Large{Josh Pattman} \\
 		\centering\Large{12 December 2022} \\
 		\centering\huge\textbf{Investigating Optimisations Of Swarm Learning With Respect To Real World Challenges}
-		\\[3cm]
+		\\[4cm]
 		\centering\Large{Project Supervisor: Mohammad Soorati}
 		\centering\Large{Second Examiner: ?}
 		\\[3cm]
-		\centering\huge{A project progress report submitted for the award of \textbf{Computer Science with Artificial Intelligence}}
+		\centering\Large{A project progress report submitted for the award of \textbf{Computer Science with Artificial Intelligence}}
 	\end{titlepage}
 
 
@@ -30,10 +30,30 @@
 	
 	\chapter{Project Goals}
 	\section{Problem}
-	\section{Proposed Solution}
-	\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally.}
+	Currently, there is more data stored around the world than ever before. However, there are also many recent regulations that prevent the data from being used by machine learning algorithms. In many cases, this is beacuse the data owners are not comfortable or able to send the data to a central server for processing and training. The result of this is that either each data owner has to train their own inferior models, or no models are trained at all due to the lack of data.
 	
-	To begin, a basic form of swarm learning will be implemented. It will be extremely simple, and used as a basic proof of concept. Following this, real world constraints such as bandwidth limits, unevenly distributed features, and sparsely connected networks of agents, will be added sequentially. After the addition of each new constraint, mitigations and testing will be done to minimise the effect of the constraint. This will result in a robust framework of algorithms and improvements for swarm learning that could be applied to many real world problems.
+	In addition to this, the world also has more electronic devices than ever before. As these devices become more and more powerful, using each device to train a machine learning model on a small amount of data becomes a possibility. However, these devices will still not outperform a fast computer alone.
+	
+	\section{Proposed Solution}
+	Swarm learning is a type of machine learning which uses multiple devices or agents to train a machine learning model. It is similar to federated learning in this repect. However, swarm learning is a completely decentralised algorithm, where the agents decide how to train. This contrasts federated learning which requires a central server to work. One of the main features of swarm learning is that data never has to be shared amongst the agents in the learning network, which is excellent for the protection of private data. For this reason, swarm learning seems to fit the problem well, but there is another issue with swarm learning: it is still a relatively new algorithm and it faces many real world challenges that have only been adressed in isolation by existing research.
+	
+	\section{Goals}
+	\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally, and eventaully arriving at a robust swarm learning algorithm that adresses many real world issues in one.}
+	
+	\begin{enumerate}
+		\item Create a working implementation on a simple dataset of swarm learning
+		\item Incrementally add real world problems to the swarm learning algorithm
+		\item Mitigate the effects of the problem on the accuracy of the algorithm by implementing either novel ideas or methods from existing literature.
+		\item Ensure that the end product is as reproducable as possible such that it can be re-implemented for specific use cases.
+	\end{enumerate}
+	\subsubsection{Problems}
+	Below are some real world problems with swarm learning. This is not a comprehensive list and more problems could be researched if nescesary.
+	\begin{itemize}
+		\item \textbf{Unevenly distributed features/local bias} - This is where feature in the dataset are not distributed evently between agents. For instance, when classifying mnist, one agent may see more 7s and one may see more 2s.
+		\item \textbf{Sparsely connected networks} - This refers to a situation where each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbors.
+		\item \textbf{Data transfer limits} - This is a situation where an agent may not be able to send an entrire neural network over the internet, due to connection speed.
+		\item \textbf{Low processing power agents} - This situation is where agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have accsess to a GPU.
+	\end{itemize}	
 	
 	\section{Focussing On Project Goals}
 	The plan for this project went through multiple iterations before the final plan was formulated:
@@ -78,21 +98,20 @@
 	\subsubsection{Mitigation}
 	\emph{Iridis 5} will play a key role in this project when simulating large numbers of agents at once. However, it is possible to simulate lower numbers (around 10) agents at the same time on the authors local machine with a basic dataset. This could be a temporary solution if \emph{Iridis 5} went down for a short time. However, for a more permanent solution, funding may be acquired from the university to run the project on a cluster of \emph{AWS} servers, as the author has some experience in that field. 
 	
-	\chapter{Background and Report of Literature Search}
+	\chapter{Background and Literature Review}
+	\section{Background Research}
+	\subsection{Keras and Python}
+	What i did to learn keras and python and prepare myself
+	\subsection{Iridis 5}
+	What i did to learn about using iridis 5 and prep
 	\section{Literature Review}
 	\subsection{A survey on federated learning \cite{survey_on_fed_learning}}
-	\begin{itemize}
-		\item Introduction to fed learning
-		\item Understand basic concept of fed learning
-		\item Had potential use cases for fed learning
-	\end{itemize}
+	This paper is a good introductory piece to the field of federated learning. It covers a wide range of topics, without going into too much detail, which was useful to direct the author into reading more specific papers. The paper also has a basic introduction to how federated learning works, and also some potential use cases for federated learning. All in all, this paper helped point the author in the right direction for further research.
 
 	\subsection{Swarm Learning for decentralized and confidential clinical machine learning \cite{swarm_learning}}
-	\begin{itemize}
-		\item Introduced to swarm learning
-		\item Showed benefits of sward/federated learning over conventional central learning
-		\item Helped me to understand how swarm learning can improve federated learning
-	\end{itemize}
+	Despite the fact that this paper focusses on a medical use case, it is a good introductory piece to the topic of swarm learning. A theme of the paper is privacy, and how it can affect the training speed of models. The paper points out that due to privacy legislation, sharing data between hospitals is not possibly, which can mean that training machine learning models does not reach an optimal outcome. However, a solution is proposed in the form of swarm learning: effectively a decentralised form of federated learning. It is shown that swarm learning can outperform the models trained at individual hospitals without communication.
+	
+	The paper also gives a good high level summary of how the swarm learning algorithm works. This was particularly useful in giving the author a basic understanding of swarm learning to prepare for further research.
 
 	\subsection {Federated learning in Robotic and Autonomous Systems \cite{fed_in_robotics}}
 	\begin{itemize}
@@ -136,7 +155,27 @@
 	\section{Implementation 3 - Reduced dataset swarm learning}
 	Building on \emph{Implementation 2}, this implementation was mainly focussed around reducing the amount of data each agent gets to train on. 2000 samples were selected randomly for each agent from the training set, and these never changed. When the agents were not allowed to communicate, their test accuracy almost always stayed below 90 percent. However, when the agents shared their networks, they achieved much higher test accuracies. Interestingly, the improvement in accuracy after the 90 percent point slowed down significantly.
 	
-	\chapter{Plan of Remaining Work}
+	\chapter{Project Planning}
+	\section{Planned Phases of the Project}
+	The project is split up into a number of phases, each of which must be completed sequentially. During these phases the interim report and final report will be developed as a skeleton in parralell.
+	\begin{enumerate}
+		\item Research - This phase consists of finding and reading existing literature. It is at this time that the project idea is developed fully.
+		\item Simple Implementation - In this phase, a proof of concept implementation will be deveolped. It will entail a simple swarm learning algorithm learning on a basic dataset, without any complex problems. This implementation will be build upon in further phases.
+		\item Interim Report - This phase is focussed on filling out and finalising the interim report.
+		\item Main development - In this phase, the iterative development of the swarm learning algorithm will occur. This is actually a repetition of four sub-phases:
+		\begin{enumerate}
+			\item Further research on real-world problem
+			\item Implement real-world problem and test current solution
+			\item Implement mitigations and test / evaluate
+			\item Document any discoveries and evaluations of mitigations
+		\end{enumerate}
+		\item Final report - In this phase, the final report will be written up.
+		\item Housekeeping - This is the final phase wihch is used for any extra jobs that were not able to be completed in other phases.
+	\end{enumerate}
+	\section{Completed Work}
+	INSERT GANT CHART HERE
+	\section{Remaining Work}
+	INSERT GANT CHART HERE
 	
 	\bibliographystyle{ieeetr}
 	\bibliography{interim}{}
