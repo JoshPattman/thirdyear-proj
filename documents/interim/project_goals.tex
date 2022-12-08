@@ -1,0 +1,69 @@
+\chapter{Project Goals}
+\section{Problem}
+Currently, there is more data stored around the world than ever before. However, there are also many recent regulations that prevent the data from being used by machine learning algorithms. In many cases, this is because the data owners are not comfortable or able to send the data to a central server for processing and training. The result of this is that either each data owner has to train their own inferior models, or no models are trained at all due to the lack of data.
+
+In addition to this, the world also has more electronic devices than ever before. As these devices become more and more powerful, using each device to train a machine learning model on a small amount of data becomes a possibility. However, these devices will still not outperform a fast computer alone.
+
+\section{Proposed Solution}
+Swarm learning is a type of machine learning which uses multiple devices or agents to train a machine learning model. It is similar to federated learning in this repect. However, swarm learning is a completely decentralised algorithm, where the agents decide how to train. This contrasts federated learning which requires a central server to work. One of the main features of swarm learning is that data never has to be shared amongst the agents in the learning network, which is excellent for the protection of private data. For this reason, swarm learning seems to fit the problem well, but there is another issue with swarm learning: it is still a relatively new algorithm and it faces many real world challenges that have only been adressed in isolation by existing research.
+
+\section{Goals}
+\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally, and eventaully arriving at a robust swarm learning algorithm that adresses many real world issues in one.}
+
+\begin{enumerate}
+	\item Create a working implementation on a simple dataset of swarm learning
+	\item Incrementally add real world problems to the swarm learning algorithm
+	\item Mitigate the effects of the problem on the accuracy of the algorithm by implementing either novel ideas or methods from existing literature.
+	\item Ensure that the end product is as reproducable as possible such that it can be re-implemented for specific use cases.
+\end{enumerate}
+\subsubsection{Problems}
+Below are some real world problems with swarm learning. This is not a comprehensive list and more problems could be researched if nescesary.
+\begin{itemize}
+	\item \textbf{Unevenly distributed features/local bias} - This is where feature in the dataset are not distributed evently between agents. For instance, when classifying mnist, one agent may see more 7s and one may see more 2s.
+	\item \textbf{Sparsely connected networks} - This refers to a situation where each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbors.
+	\item \textbf{Data transfer limits} - This is a situation where an agent may not be able to send an entrire neural network over the internet, due to connection speed.
+	\item \textbf{Low processing power agents} - This situation is where agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have accsess to a GPU.
+\end{itemize}	
+
+\section{Focussing On Project Goals}
+The plan for this project went through multiple iterations before the final plan was formulated:
+\begin{enumerate}
+	\item The initial plan was to \emph{control a swarm of drones to detect objects such as natural disasters or people needing help, whilst also improving accuracy of the model over time}
+	\item After discussion, the plan was changed to be \emph{perform edge processing and distributed object detection on many camera perspectives of an environment to decide where disasters are happening, whilst learning to improve the model over time}
+	\item Following the initial research phase, the plan was narrowed to \emph{explore ways to optimise swarm learning for distributed detection of a simple abstract object}
+	\item Finally, after the second phase of research, the settled upon plan became \emph{Investigate possible optimisations of the swarm learning algorithm}. This is the current plan.
+\end{enumerate}
+The shift of focus away from object detection and towards swarm learning is mainly for two reasons:
+\begin{enumerate}
+	\item The author finds the swarm learning aspect of the project to be the most interesting part, especially after researching the subject
+	\item A general framework of improvements and algorithms on swarm learning is much more useful to the real world than an implementation on a simple simulation.
+\end{enumerate}
+
+\section{Risk Assessment}
+\subsection{Personal Issues}
+\subsubsection{Description}
+This risk entails all personal issues which cause the author to be unable to do work, such as illness.
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 3 \\
+\emph{Likelihood (1-5):} 3 \\
+\emph{Overall Risk (1-25):} \textbf{9}
+\subsubsection{Mitigation}
+As many sections and modules as possible from the codebase will be designed to have minimal requirements from other sections. This means that, even if the author is unable to work for a period of time, some less important sections can be skipped with minimal effect on the reset of the project.
+\subsection{Hardware Failure - Local Computer}
+\subsubsection{Description}
+This risk entails a failure on the authors local computer of any kind, such as a graphics card or storage breakage.
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 4 \\
+\emph{Likelihood (1-5):} 2 \\
+\emph{Overall Risk (1-25):} \textbf{8}
+\subsubsection{Mitigation}
+To mitigate storage based failures, the project will be regularly backed up to \emph{GitHub}. If a core component of the work computer breaks, the author has access to a personal laptop and the \emph{Zepler Labs}. The deep learning environment along with dependencies is backed up to the authors \emph{Google Drive} in the form of a docker image, so that switching to a new computer would be a smooth process.
+\subsection{Hardware Failure - Iridis 5}
+\subsubsection{Description}
+This risk entails a failure on the \emph{Iridis 5 Compute Cluster} which prevents it from being accessed by the author.
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 5 \\
+\emph{Likelihood (1-5):} 1 \\
+\emph{Overall Risk (1-25):} \textbf{5}
+\subsubsection{Mitigation}
+\emph{Iridis 5} will play a key role in this project when simulating large numbers of agents at once. However, it is possible to simulate lower numbers (around 10) agents at the same time on the authors local machine with a basic dataset. This could be a temporary solution if \emph{Iridis 5} went down for a short time. However, for a more permanent solution, funding may be acquired from the university to run the project on a cluster of \emph{AWS} servers, as the author has some experience in that field. 
