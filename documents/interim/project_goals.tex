@@ -38,32 +38,3 @@ The shift of focus away from object detection and towards swarm learning is main
 	\item The author finds the swarm learning aspect of the project to be the most interesting part, especially after researching the subject
 	\item A general framework of improvements and algorithms on swarm learning is much more useful to the real world than an implementation on a simple simulation.
 \end{enumerate}
-
-\section{Risk Assessment}
-\subsection{Personal Issues}
-\subsubsection{Description}
-This risk entails all personal issues which cause the author to be unable to do work, such as illness.
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 3 \\
-\emph{Likelihood (1-5):} 3 \\
-\emph{Overall Risk (1-25):} \textbf{9}
-\subsubsection{Mitigation}
-As many sections and modules as possible from the codebase will be designed to have minimal requirements from other sections. This means that, even if the author is unable to work for a period of time, some less important sections can be skipped with minimal effect on the reset of the project.
-\subsection{Hardware Failure - Local Computer}
-\subsubsection{Description}
-This risk entails a failure on the authors local computer of any kind, such as a graphics card or storage breakage.
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 4 \\
-\emph{Likelihood (1-5):} 2 \\
-\emph{Overall Risk (1-25):} \textbf{8}
-\subsubsection{Mitigation}
-To mitigate storage based failures, the project will be regularly backed up to \emph{GitHub}. If a core component of the work computer breaks, the author has access to a personal laptop and the \emph{Zepler Labs}. The deep learning environment along with dependencies is backed up to the authors \emph{Google Drive} in the form of a docker image, so that switching to a new computer would be a smooth process.
-\subsection{Hardware Failure - Iridis 5}
-\subsubsection{Description}
-This risk entails a failure on the \emph{Iridis 5 Compute Cluster} which prevents it from being accessed by the author.
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 5 \\
-\emph{Likelihood (1-5):} 1 \\
-\emph{Overall Risk (1-25):} \textbf{5}
-\subsubsection{Mitigation}
-\emph{Iridis 5} will play a key role in this project when simulating large numbers of agents at once. However, it is possible to simulate lower numbers (around 10) agents at the same time on the authors local machine with a basic dataset. This could be a temporary solution if \emph{Iridis 5} went down for a short time. However, for a more permanent solution, funding may be acquired from the university to run the project on a cluster of \emph{AWS} servers, as the author has some experience in that field. 

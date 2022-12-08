@@ -1,44 +1,49 @@
-\chapter{Background and Literature Review}
+\chapter{Background}
 \section{Background Research}
-\subsection{Keras and Python}
-What i did to learn keras and python and prepare myself
-\subsection{Iridis 5}
-What i did to learn about using iridis 5 and prep
-\section{Literature Review}
-\subsection{A survey on federated learning \cite{survey_on_fed_learning}}
-This paper is a good introductory piece to the field of federated learning. It covers a wide range of topics, without going into too much detail, which was useful to direct the author into reading more specific papers. The paper also has a basic introduction to how federated learning works, and also some potential use cases for federated learning. All in all, this paper helped point the author in the right direction for further research.
+\subsection{Federated Learning}
+% Introduce federated learning
+Many modern machine learning algorithms require vast volumes of diverse data to perform optimally. Real world data is often distributed around multiple organisations who are not able to share the data between them due to privacy regulations, which can limit machine learning models from reaching their full potential. Federated Learning (FL) \cite{survey_on_fed_learning} is a technique in machine learning that aims to train a single model using all of the available data across organisations, without ever requiring data to be shared between parties. \\
 
-\subsection{Swarm Learning for decentralized and confidential clinical machine learning \cite{swarm_learning}}
-Despite the fact that this paper focusses on a medical use case, it is a good introductory piece to the topic of swarm learning. A theme of the paper is privacy, and how it can affect the training speed of models. The paper points out that due to privacy legislation, sharing data between hospitals is not possibly, which can mean that training machine learning models does not reach an optimal outcome. However, a solution is proposed in the form of swarm learning: effectively a decentralised form of federated learning. It is shown that swarm learning can outperform the models trained at individual hospitals without communication.
+% Intro on how fed learning works and different types
+There are a multitude of published FL frameworks with different merits and drawbacks \cite{survey_on_fed_learning}[p.~12]. Federated Averaging (FedAvg) \cite{fed_learning} is a commonly used yet simple framework, which breaks training into iterations where three steps take place:
+\begin{enumerate}
+	\item A copy of the current model is sent to each agent
+	\item Each agent performs some training with their copy of the model and their own private data
+	\item The trained models from each agent are sent back to the server to aggregate into a global model
+\end{enumerate}
+The global model improves over time, and after a certain number of steps, the training is complete and the global model is the final output. \\
 
-The paper also gives a good high level summary of how the swarm learning algorithm works. This was particularly useful in giving the author a basic understanding of swarm learning to prepare for further research.
+TODO: \cite{simfl}
+% Specify why federated learning is better than conventional learning
+As it does not require data to be shared between agents, FL is naturally beneficially for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location. However, as FL performs training on multiple agents in parallel, TODO FIX ME: it can be cheaper to implemnt/more efficient with available resources.
 
-\subsection {Federated learning in Robotic and Autonomous Systems \cite{fed_in_robotics}}
-\begin{itemize}
-	\item Introduced to using federated learning in robotics
-	\item Real world reasons that federated learning is useful in the field of robotics
-	\item Horizontal/vertical federated learning
-	\item Brief look at federated object detection
-	\item Practical challenges of federated (model upload time, etc)
-\end{itemize}
+\subsection{Swarm Learning}
+% Introduce swarm learning
+Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates in a completely distributed and decentralised manner. It differs from decentralised FL techniques such as SimFL \cite{simfl} by not using a leader election technique. In contrast, SL methods usually use a blockchain based system to coordinate an agreed upon global model. SL does however still work in training iterations, but each agent does not have to perform iterations at the same time:
+\begin{enumerate}
+	\item An agent obtains a copy of the current model from the blockchain
+	\item The agent performs some training with their copy of the model and their own private data
+	\item The updated model is merged with the current model on the blockchain and sent back to the blockchain for other agents to use
+\end{enumerate}
+The model on the blockchain will improve over time, and after a certain number of steps the blockchain model is the final output. \\
 
-\subsection{Decentralized Federated Learning: A Segmented Gossip Approach \cite{gossip_learning}}
-\begin{itemize}
-	\item Problem of bandwidth for federated learning
-	\item Had a very cool novel idea that every step each node only needs to pull a segment of the network. This reduces bandwidth and should deffo be somthing to try
-\end{itemize}
+% Specify why swarm learning is better than conventional learning or federated learning
+SL shares many of the same benefits of FL over conventional learning, however it also improves upon FL in some respects. The dispensing of a central server means that SL is more robust to failures than centralised FL such as FedAvg \cite{fed_learning}. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of agents are sparsely connected, as data would not be needed to be forwarded around the network as frequently, as opposed to distributed FL techniques such as SimFL \cite{simfl} CITE ME.
 
-\subsection{Multi-Center Federated Learning \cite{multi_center_fed_learning}}
-\begin{itemize}
-	\item 
-\end{itemize}
+\subsection{Challenges for Federated and Swarm Learning}
+There are many challenges that one may face when trying to implement FL or SL as opposed to a conventional learning system. However, many of the proposed algorithms are designed for FL, and have not been adapted to work or tested with SL yet.
 
-\subsection{FedBN: Federated Learning On Non-IID Features via Local Batch Normalization \cite{fedbn}}
-\begin{itemize}
-	\item 
-\end{itemize}
+\subsubsection{Unevenly distributed features/local bias}
+\cite{multi_center_fed_learning}
+\cite{fedbn}
+\cite{model_agnostic_meta_learning}
 
-\subsection{Personalized Federated Learning with Theoretical Guarantees: A Model-Agnostic Meta-Learning Approach \cite{model_agnostic_meta_learning}}
-\begin{itemize}
-	\item 
-\end{itemize}
+\subsubsection{Training speed}
+
+\subsubsection{Sparsely connected networks}
+
+\subsubsection{Data transfer limits}
+In the real world, it is sometimes not possible to transfer entire models between agents on a regular basis, due to data transfer limits. It has been proposed that a possible solution to use FedAvg \cite{fed_learning}, but only transfer segments of the network at each training step \cite{gossip_learning}. This approach outperformed FedAvg by a factor of between 2.25 and 3.01 with respect to training speed, caused by the removal of the central server bottleneck and reduced data transferred \cite{gossip_learning}[section.~5.2].
+
+\subsubsection{Low processing power agents}
+\cite{fed_in_robotics}

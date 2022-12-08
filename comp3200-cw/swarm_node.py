@@ -48,7 +48,7 @@ class Node:
         self.neighbors_addresses = neighbors_addresses
         self.weights_lock = threading.Lock()
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
-        train_subset = [random.randint(0,len(self.train_X)-1) for x in range(num_train_samples)]
+        train_subset = random.sample(range(len(self.train_X)), num_train_samples)#[random.randint(0,len(self.train_X)-1) for x in range(num_train_samples)]
         self.train_X = np.array([self.train_X[s] for s in train_subset])
         self.train_Y = np.array([self.train_Y[s] for s in train_subset])
         if model_ref == None:
@@ -58,19 +58,24 @@ class Node:
         self.model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
         self.update_last_model_weights()
         self.log("Starting update thread")
+        self.train_times = []
+        self.train_accuracies = []
+        self.start_time = datetime.now()
         threading.Thread(target=self.listener_loop).start()
         threading.Thread(target=self.update_loop).start()
     
     def update_loop(self):
-        self.evaluate_performance("no training")
+        self.start_time = datetime.now()
+        self.evaluate_performance("no training", include_sample=True)
         # How many times are we going to loop
-        for i in range(10):
+        i = 0
+        while True:
             # Do a step of training
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
             # Update the cached model weights that get sent to other nodes
             self.update_last_model_weights()
             # Test accuracy
-            self.evaluate_performance("pre avg", color="\033[035m")
+            self.evaluate_performance("pre avg step (%s)"%i, color="\033[035m")
             # Get all other weights
             weightsQ = Queue()
             def add_weights_to_q(addr):
@@ -107,7 +112,10 @@ class Node:
             for layer in range(len(self.model.layers)):
                 self.model.layers[layer].set_weights(new_w[layer])
             # Test accuracy again
-            self.evaluate_performance("post avg", color="\033[034m")
+            self.evaluate_performance("post avg nstep (%s)"%i, color="\033[034m", include_sample=True)
+            if (datetime.now()-self.start_time).total_seconds() > 240:
+                break
+            i += 1
         
     def listener_loop(self):
         self.log("Listening for weight requests")
@@ -122,7 +130,7 @@ class Node:
             for layer in self.model.layers:
                 self.last_weights.append(layer.get_weights())
                 
-    def evaluate_performance(self, tag, color="\033[0m"):
+    def evaluate_performance(self, tag, color="\033[0m", include_sample=False):
         tstart = datetime.now()
         preds = self.model.predict(self.test_X, verbose=False)
         tdiff = round((datetime.now()-tstart).total_seconds(),2)
@@ -130,7 +138,11 @@ class Node:
         for i in range(len(self.test_Y)):
             if np.argmax(preds[i]) == self.test_Y[i]:
                 num_correct += 1
-        self.log(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,100*num_correct/len(self.test_Y)))
+        accuracy = 100*num_correct/len(self.test_Y)
+        if include_sample:
+            self.train_times.append((datetime.now()-self.start_time).total_seconds())
+            self.train_accuracies.append(accuracy)
+        self.log(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,accuracy))
         
     def log(self, msg, is_err=False, is_warn=False):
         log(self.port, msg, is_err=is_err, is_warn=is_warn)

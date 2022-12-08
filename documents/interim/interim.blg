@@ -1,42 +1,44 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: interim.aux
-A level-1 auxiliary file: project_goals.aux
 A level-1 auxiliary file: bg_lit_review.aux
+A level-1 auxiliary file: project_goals.aux
 A level-1 auxiliary file: progress.aux
 A level-1 auxiliary file: planning.aux
 The style file: ieeetr.bst
 Database file #1: interim.bib
-You've used 7 entries,
+Warning--I didn't find a database entry for "simfl"
+Warning--empty journal in fed_learning
+You've used 8 entries,
             1876 wiz_defined-function locations,
-            524 strings with 8939 characters,
-and the built_in function-call counts, 4400 in all, are:
-= -- 188
-> -- 655
+            529 strings with 9134 characters,
+and the built_in function-call counts, 4587 in all, are:
+= -- 199
+> -- 672
 < -- 0
-+ -- 220
-- -- 213
-* -- 515
-:= -- 845
-add.period$ -- 8
-call.type$ -- 7
-change.case$ -- 7
++ -- 226
+- -- 218
+* -- 531
+:= -- 878
+add.period$ -- 9
+call.type$ -- 8
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 93
-empty$ -- 177
-format.name$ -- 213
-if$ -- 850
+cite$ -- 9
+duplicate$ -- 102
+empty$ -- 194
+format.name$ -- 218
+if$ -- 890
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 5
-newline$ -- 25
-num.names$ -- 9
-pop$ -- 27
+int.to.str$ -- 8
+missing$ -- 6
+newline$ -- 28
+num.names$ -- 10
+pop$ -- 33
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 75
+skip$ -- 76
 stack$ -- 0
 substring$ -- 116
 swap$ -- 43
@@ -44,7 +46,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 18
-width$ -- 8
-write$ -- 68
+warning$ -- 1
+while$ -- 19
+width$ -- 9
+write$ -- 75
+(There were 2 warnings)

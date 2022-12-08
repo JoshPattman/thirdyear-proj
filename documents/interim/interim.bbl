@@ -4,6 +4,11 @@
 C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
   learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.
 
+\bibitem{fed_learning}
+H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y. Arcas,
+  ``Communication-efficient learning of deep networks from decentralized
+  data,'' 2016.
+
 \bibitem{swarm_learning}
 S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
   V.~Garg, R.~Sarveswara, K.~H{\"a}ndler, P.~Pickkers, N.~A. Aziz, S.~Ktena,
@@ -41,19 +46,6 @@ S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
   (DeCOI), ``Swarm learning for decentralized and confidential clinical machine
   learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
 
-\bibitem{fed_in_robotics}
-Y.~Xianjia, J.~P. Queralta, J.~Heikkonen, and T.~Westerlund, ``Federated
-  learning in robotic and autonomous systems,'' {\em Procedia Computer
-  Science}, vol.~191, pp.~135--142, 2021.
-\newblock The 18th International Conference on Mobile Systems and Pervasive
-  Computing (MobiSPC), The 16th International Conference on Future Networks and
-  Communications (FNC), The 11th International Conference on Sustainable Energy
-  Information Technology.
-
-\bibitem{gossip_learning}
-C.~Hu, J.~Jiang, and Z.~Wang, ``Decentralized federated learning: A segmented
-  gossip approach,'' 2019.
-
 \bibitem{multi_center_fed_learning}
 M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
   federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
@@ -68,5 +60,18 @@ A.~Fallah, A.~Mokhtari, and A.~Ozdaglar, ``Personalized federated learning with
   Advances in Neural Information Processing Systems} (H.~Larochelle,
   M.~Ranzato, R.~Hadsell, M.~Balcan, and H.~Lin, eds.), vol.~33,
   pp.~3557--3568, Curran Associates, Inc., 2020.
+
+\bibitem{gossip_learning}
+C.~Hu, J.~Jiang, and Z.~Wang, ``Decentralized federated learning: A segmented
+  gossip approach,'' 2019.
+
+\bibitem{fed_in_robotics}
+Y.~Xianjia, J.~P. Queralta, J.~Heikkonen, and T.~Westerlund, ``Federated
+  learning in robotic and autonomous systems,'' {\em Procedia Computer
+  Science}, vol.~191, pp.~135--142, 2021.
+\newblock The 18th International Conference on Mobile Systems and Pervasive
+  Computing (MobiSPC), The 16th International Conference on Future Networks and
+  Communications (FNC), The 11th International Conference on Sustainable Energy
+  Information Technology.
 
 \end{thebibliography}
