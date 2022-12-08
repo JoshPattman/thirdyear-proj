@@ -4,7 +4,7 @@
 A simple \emph{mnist} classifier was built using \emph{Keras} in \emph{Python}. There was only one agent which trained on the dataset, and the main reason for this was to get a baseline for the swarm learning to compete against.
 
 \section{Simple swarm learning}
-Using the same model for each agent as used in the \emph{Basic MNIST classifier}, a swarm of agents was created. Each agent had access to the whole dataset for training. Every agent also could communicate with every other agent. The agents acted in a loop, where they would each first train for one epoch on their copy of the training set, and then would average their models weights with all of their neighbours weights. This implementation consisted of 5 agents.
+Using the same model for each agent as used in the \emph{Basic MNIST classifier}, a swarm of agents was created. Each agent had access to the whole dataset for training. Every agent also could communicate with every other agent. The agents acted in a loop, where they would each first train for one epoch on their copy of the training set, and then would average their models weights with all of their neighbours weights. This implementation consisted of 5 agents. The following graphs showing the multiple agent accuracy show only the accuracy of one agent in the swarm, but all of the agents had similar results.
 
 \includegraphics[width=\textwidth]{accuracy_60k}
 
