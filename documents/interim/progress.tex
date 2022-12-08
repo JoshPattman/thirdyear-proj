@@ -9,25 +9,3 @@ All 5 agents did mange to reach the same level of accuracy on the test set as \e
 The agents seemed to reach the final accuracy in fewer training steps if the agents training loops were offset by even intervals of time. The author hypothesizes that this may be because when the agents training is synced, some of the agents may skip the just completed training when requesting updates, which can cause training epochs to effectively be lost. This effect needs further investigation.
 \section{Implementation 3 - Reduced dataset swarm learning}
 Building on \emph{Implementation 2}, this implementation was mainly focussed around reducing the amount of data each agent gets to train on. 2000 samples were selected randomly for each agent from the training set, and these never changed. When the agents were not allowed to communicate, their test accuracy almost always stayed below 90 percent. However, when the agents shared their networks, they achieved much higher test accuracies. Interestingly, the improvement in accuracy after the 90 percent point slowed down significantly.
-
-\chapter{Project Planning}
-\section{Planned Phases of the Project}
-The project is split up into a number of phases, each of which must be completed sequentially. During these phases the interim report and final report will be developed as a skeleton in parralell.
-\begin{enumerate}
-	\item Research - This phase consists of finding and reading existing literature. It is at this time that the project idea is developed fully.
-	\item Simple Implementation - In this phase, a proof of concept implementation will be deveolped. It will entail a simple swarm learning algorithm learning on a basic dataset, without any complex problems. This implementation will be build upon in further phases.
-	\item Interim Report - This phase is focussed on filling out and finalising the interim report.
-	\item Main development - In this phase, the iterative development of the swarm learning algorithm will occur. This is actually a repetition of four sub-phases:
-	\begin{enumerate}
-		\item Further research on real-world problem
-		\item Implement real-world problem and test current solution
-		\item Implement mitigations and test / evaluate
-		\item Document any discoveries and evaluations of mitigations
-	\end{enumerate}
-	\item Final report - In this phase, the final report will be written up.
-	\item Housekeeping - This is the final phase wihch is used for any extra jobs that were not able to be completed in other phases.
-\end{enumerate}
-\section{Completed Work}
-INSERT GANT CHART HERE
-\section{Remaining Work}
-INSERT GANT CHART HERE

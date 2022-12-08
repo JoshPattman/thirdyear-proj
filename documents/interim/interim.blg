@@ -4,11 +4,12 @@ The top-level auxiliary file: interim.aux
 A level-1 auxiliary file: project_goals.aux
 A level-1 auxiliary file: bg_lit_review.aux
 A level-1 auxiliary file: progress.aux
+A level-1 auxiliary file: planning.aux
 The style file: ieeetr.bst
 Database file #1: interim.bib
 You've used 7 entries,
             1876 wiz_defined-function locations,
-            523 strings with 8927 characters,
+            524 strings with 8939 characters,
 and the built_in function-call counts, 4400 in all, are:
 = -- 188
 > -- 655
