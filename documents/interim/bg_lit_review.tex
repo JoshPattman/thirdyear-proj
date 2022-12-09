@@ -13,13 +13,12 @@ There are a multitude of published FL frameworks with different merits and drawb
 \end{enumerate}
 The global model improves over time, and after a certain number of steps, the training is complete and the global model is the final output. \\
 
-TODO: \cite{simfl}
 % Specify why federated learning is better than conventional learning
-As it does not require data to be shared between agents, FL is naturally beneficially for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location. However, as FL performs training on multiple agents in parallel, TODO FIX ME: it can be cheaper to implemnt/more efficient with available resources.
+As it does not require data to be shared between agents, FL is naturally beneficially for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \citeme. However, as FL performs training on multiple agents in parallel, it can make better use of available training resources in situations where processing power is distributed among multiple nodes \citeme. 
 
 \subsection{Swarm Learning}
 % Introduce swarm learning
-Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates in a completely distributed and decentralised manner. It differs from decentralised FL techniques such as SimFL \cite{simfl} by not using a leader election technique. In contrast, SL methods usually use a blockchain based system to coordinate an agreed upon global model. SL does however still work in training iterations, but each agent does not have to perform iterations at the same time:
+Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates in a completely distributed and decentralised manner. In contrast to FL, SL methods usually use a blockchain based system to coordinate an agreed upon global model \citeme. Similarly to FL though, SL uses repeated iterations during training, but each agent does not have to perform iterations in a synchronised manner:
 \begin{enumerate}
 	\item An agent obtains a copy of the current model from the blockchain
 	\item The agent performs some training with their copy of the model and their own private data
@@ -28,22 +27,26 @@ Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates 
 The model on the blockchain will improve over time, and after a certain number of steps the blockchain model is the final output. \\
 
 % Specify why swarm learning is better than conventional learning or federated learning
-SL shares many of the same benefits of FL over conventional learning, however it also improves upon FL in some respects. The dispensing of a central server means that SL is more robust to failures than centralised FL such as FedAvg \cite{fed_learning}. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of agents are sparsely connected, as data would not be needed to be forwarded around the network as frequently, as opposed to distributed FL techniques such as SimFL \cite{simfl} CITE ME.
+SL shares many of the same benefits of FL over conventional learning, however it also improves upon FL in some respects. The dispensing of a central server means that SL is more robust to failures than centralised FL such as FedAvg \citeme. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of agents are sparsely connected, as data would not be needed to be forwarded around the network as frequently, as opposed to distributed FL techniques \citeme. Finally, as SL removes the need for a server, performance bottlenecks for very large networks become less of a problem.
 
 \subsection{Challenges for Federated and Swarm Learning}
 There are many challenges that one may face when trying to implement FL or SL as opposed to a conventional learning system. However, many of the proposed algorithms are designed for FL, and have not been adapted to work or tested with SL yet.
 
-\subsubsection{Unevenly distributed features/local bias}
+\subsubsection{Training Overhead}
+Due to the fact that FL and SL require communication between multiple agents, there is an inherent overhead cost that stems from data transfer time and synchronisation of agents. Due to the fact that FL is centralised, the problem of server bottlenecking can also become an issue. This is one area that SL improves over conventional FL. One solution proposed which could lead to reduced bottlenecks is to split the agents into groups each with their own central server, then allow those servers to communicate with a core server \cite{multi_center_fed_learning}. This has the potential to reduce bottlenecks as no single server has to talk to all edge agents at once.
+
+\subsubsection{Unevenly Distributed Labels and Features - Non-IID Data}
+When a dataset is collected from different sources and locations, it will have a certain distribution of features and labels. However, the distribution of features and labels may be different from each of the different sources it was collected from. For example, if a dataset contained security camera footage of car and bus crashes, some locations may have more of one type of crash than another (labels). The different locations may also have cameras with different brightnesses or contrasts (features). For SL and FL, . There is a large amount of research being done into this area with many different approaches.
+
 \cite{multi_center_fed_learning}
-\cite{fedbn}
 \cite{model_agnostic_meta_learning}
+\cite{fedbn}
 
-\subsubsection{Training speed}
+\subsubsection{Sparsely Connected Networks}
+For FL, ideally every agent would be able to have direct communication with the central server. Similarly for SL in the best case, every agent would have direct communication with every other agent. These cases are rarely ever realised however. The affect of having a sparsely connected network is more detrimental to FL than SL mainly because FL needs server communication, but SL and blockchain have been proven to work in sparse settings. This can however still slow the training of SL \citeme.
 
-\subsubsection{Sparsely connected networks}
+\subsubsection{Data Transfer Limits}
+In the real world, it is sometimes not possible to transfer entire models between agents on a regular basis, due to data transfer limits. It has been proposed that a possible solution could be to use FedAvg \cite{fed_learning}, but only transfer segments of the network at each training step \cite{gossip_learning}. This approach outperformed FedAvg by a factor of between 2.25 and 3.01 with respect to training speed, due to the removal of the central server bottleneck and reduced data transferred \cite{gossip_learning}[section.~5.2].
 
-\subsubsection{Data transfer limits}
-In the real world, it is sometimes not possible to transfer entire models between agents on a regular basis, due to data transfer limits. It has been proposed that a possible solution to use FedAvg \cite{fed_learning}, but only transfer segments of the network at each training step \cite{gossip_learning}. This approach outperformed FedAvg by a factor of between 2.25 and 3.01 with respect to training speed, caused by the removal of the central server bottleneck and reduced data transferred \cite{gossip_learning}[section.~5.2].
-
-\subsubsection{Low processing power agents}
-\cite{fed_in_robotics}
+\subsubsection{Low Processing Power Agents}
+FL and SL are promising techniques for robotic systems \cite{fed_in_robotics}. However, edge robotics often do not have the same high level of processing power as a central machine learning server. For this reason, it is imperative that FL and SL systems are as efficient as possible with the results of their training as to minimise the loss caused by reduction in processing power.

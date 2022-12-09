@@ -3,39 +3,39 @@
 \contentsline {subsection}{\numberline {1.1.1}Federated Learning}{3}{}%
 \contentsline {subsection}{\numberline {1.1.2}Swarm Learning}{4}{}%
 \contentsline {subsection}{\numberline {1.1.3}Challenges for Federated and Swarm Learning}{4}{}%
-\contentsline {subsubsection}{Unevenly distributed features/local bias}{4}{}%
-\contentsline {subsubsection}{Training speed}{5}{}%
-\contentsline {subsubsection}{Sparsely connected networks}{5}{}%
-\contentsline {subsubsection}{Data transfer limits}{5}{}%
-\contentsline {subsubsection}{Low processing power agents}{5}{}%
-\contentsline {chapter}{\numberline {2}Project Goals}{6}{}%
-\contentsline {section}{\numberline {2.1}Problem}{6}{}%
-\contentsline {section}{\numberline {2.2}Proposed Solution}{6}{}%
-\contentsline {section}{\numberline {2.3}Goals}{7}{}%
-\contentsline {subsubsection}{Problems}{7}{}%
-\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{8}{}%
-\contentsline {chapter}{\numberline {3}Progress of Implementations}{9}{}%
-\contentsline {section}{\numberline {3.1}Basic MNIST classifier}{9}{}%
-\contentsline {section}{\numberline {3.2}Simple swarm learning}{9}{}%
-\contentsline {section}{\numberline {3.3}Reduced dataset swarm learning}{10}{}%
-\contentsline {chapter}{\numberline {4}Project Planning}{13}{}%
-\contentsline {section}{\numberline {4.1}Planned Phases of the Project}{13}{}%
-\contentsline {section}{\numberline {4.2}Completed Work}{14}{}%
-\contentsline {section}{\numberline {4.3}Remaining Work}{14}{}%
-\contentsline {section}{\numberline {4.4}Risk Assessment}{14}{}%
-\contentsline {subsection}{\numberline {4.4.1}Personal Issues}{14}{}%
-\contentsline {subsubsection}{Description}{14}{}%
-\contentsline {subsubsection}{Risk Calculations}{14}{}%
-\contentsline {subsubsection}{Mitigation}{15}{}%
-\contentsline {subsection}{\numberline {4.4.2}Hardware Failure - Local Computer}{15}{}%
-\contentsline {subsubsection}{Description}{15}{}%
-\contentsline {subsubsection}{Risk Calculations}{15}{}%
-\contentsline {subsubsection}{Mitigation}{15}{}%
-\contentsline {subsection}{\numberline {4.4.3}Hardware Failure - Iridis 5}{15}{}%
-\contentsline {subsubsection}{Description}{15}{}%
-\contentsline {subsubsection}{Risk Calculations}{15}{}%
-\contentsline {subsubsection}{Mitigation}{16}{}%
-\contentsline {subsection}{\numberline {4.4.4}Algorithm Fails to Work}{16}{}%
+\contentsline {subsubsection}{Training Overhead}{5}{}%
+\contentsline {subsubsection}{Unevenly Distributed Labels and Features - Non-IID Data}{5}{}%
+\contentsline {subsubsection}{Sparsely Connected Networks}{5}{}%
+\contentsline {subsubsection}{Data Transfer Limits}{5}{}%
+\contentsline {subsubsection}{Low Processing Power Agents}{6}{}%
+\contentsline {chapter}{\numberline {2}Project Goals}{7}{}%
+\contentsline {section}{\numberline {2.1}Problem}{7}{}%
+\contentsline {section}{\numberline {2.2}Proposed Solution}{7}{}%
+\contentsline {section}{\numberline {2.3}Goals}{8}{}%
+\contentsline {subsubsection}{Problems}{8}{}%
+\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{9}{}%
+\contentsline {chapter}{\numberline {3}Progress of Implementations}{10}{}%
+\contentsline {section}{\numberline {3.1}Basic MNIST classifier}{10}{}%
+\contentsline {section}{\numberline {3.2}Simple swarm learning}{10}{}%
+\contentsline {section}{\numberline {3.3}Reduced dataset swarm learning}{11}{}%
+\contentsline {chapter}{\numberline {4}Project Planning}{14}{}%
+\contentsline {section}{\numberline {4.1}Planned Phases of the Project}{14}{}%
+\contentsline {section}{\numberline {4.2}Completed Work}{15}{}%
+\contentsline {section}{\numberline {4.3}Remaining Work}{15}{}%
+\contentsline {section}{\numberline {4.4}Risk Assessment}{16}{}%
+\contentsline {subsection}{\numberline {4.4.1}Personal Issues}{16}{}%
 \contentsline {subsubsection}{Description}{16}{}%
 \contentsline {subsubsection}{Risk Calculations}{16}{}%
 \contentsline {subsubsection}{Mitigation}{16}{}%
+\contentsline {subsection}{\numberline {4.4.2}Hardware Failure - Local Computer}{17}{}%
+\contentsline {subsubsection}{Description}{17}{}%
+\contentsline {subsubsection}{Risk Calculations}{17}{}%
+\contentsline {subsubsection}{Mitigation}{17}{}%
+\contentsline {subsection}{\numberline {4.4.3}Hardware Failure - Iridis 5}{17}{}%
+\contentsline {subsubsection}{Description}{17}{}%
+\contentsline {subsubsection}{Risk Calculations}{17}{}%
+\contentsline {subsubsection}{Mitigation}{17}{}%
+\contentsline {subsection}{\numberline {4.4.4}Algorithm Fails to Work}{18}{}%
+\contentsline {subsubsection}{Description}{18}{}%
+\contentsline {subsubsection}{Risk Calculations}{18}{}%
+\contentsline {subsubsection}{Mitigation}{18}{}%

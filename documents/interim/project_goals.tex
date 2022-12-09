@@ -5,24 +5,24 @@ Currently, there is more data stored around the world than ever before. However,
 In addition to this, the world also has more electronic devices than ever before. As these devices become more and more powerful, using each device to train a machine learning model on a small amount of data becomes a possibility. However, these devices will still not outperform a fast computer alone.
 
 \section{Proposed Solution}
-Swarm learning is a type of machine learning which uses multiple devices or agents to train a machine learning model. It is similar to federated learning in this repect. However, swarm learning is a completely decentralised algorithm, where the agents decide how to train. This contrasts federated learning which requires a central server to work. One of the main features of swarm learning is that data never has to be shared amongst the agents in the learning network, which is excellent for the protection of private data. For this reason, swarm learning seems to fit the problem well, but there is another issue with swarm learning: it is still a relatively new algorithm and it faces many real world challenges that have only been adressed in isolation by existing research.
+Swarm learning is a type of machine learning which uses multiple devices or agents to train a machine learning model. It is similar to federated learning in this respect. However, swarm learning is a completely decentralised algorithm, where the agents decide how to train. This contrasts federated learning which requires a central server to work. One of the main features of swarm learning is that data never has to be shared amongst the agents in the learning network, which is excellent for the protection of private data. For this reason, swarm learning seems to fit the problem well, but there is another issue with swarm learning: it is still a relatively new algorithm and it faces many real world challenges that have only been addressed in isolation by existing research.
 
 \section{Goals}
-\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally, and eventaully arriving at a robust swarm learning algorithm that adresses many real world issues in one.}
+\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally, and eventually arriving at a robust swarm learning algorithm that addresses many real world issues in one.}
 
 \begin{enumerate}
 	\item Create a working implementation on a simple dataset of swarm learning
 	\item Incrementally add real world problems to the swarm learning algorithm
 	\item Mitigate the effects of the problem on the accuracy of the algorithm by implementing either novel ideas or methods from existing literature.
-	\item Ensure that the end product is as reproducable as possible such that it can be re-implemented for specific use cases.
+	\item Ensure that the end product is as reproducible as possible such that it can be re-implemented for specific use cases.
 \end{enumerate}
 \subsubsection{Problems}
-Below are some real world problems with swarm learning. This is not a comprehensive list and more problems could be researched if nescesary.
+Below are some real world problems with swarm learning. This is not a comprehensive list and more problems could be researched if necessary.
 \begin{itemize}
-	\item \textbf{Unevenly distributed features/local bias} - This is where feature in the dataset are not distributed evently between agents. For instance, when classifying mnist, one agent may see more 7s and one may see more 2s.
-	\item \textbf{Sparsely connected networks} - This refers to a situation where each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbors.
-	\item \textbf{Data transfer limits} - This is a situation where an agent may not be able to send an entrire neural network over the internet, due to connection speed.
-	\item \textbf{Low processing power agents} - This situation is where agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have accsess to a GPU.
+	\item \textbf{Unevenly distributed features/local bias} - This is where feature in the dataset are not distributed evenly between agents. For instance, when classifying mnist, one agent may see more 7s and one may see more 2s.
+	\item \textbf{Sparsely connected networks} - This refers to a situation where each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbours.
+	\item \textbf{Data transfer limits} - This is a situation where an agent may not be able to send an entire neural network over the internet, due to connection speed.
+	\item \textbf{Low processing power agents} - This situation is where agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have access to a GPU.
 \end{itemize}	
 
 \section{Focussing On Project Goals}
