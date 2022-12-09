@@ -6,7 +6,7 @@
 \contentsline {subsubsection}{Training Overhead}{5}{}%
 \contentsline {subsubsection}{Unevenly Distributed Labels and Features - Non-IID Data}{5}{}%
 \contentsline {subsubsection}{Sparsely Connected Networks}{5}{}%
-\contentsline {subsubsection}{Data Transfer Limits}{5}{}%
+\contentsline {subsubsection}{Data Transfer Limits}{6}{}%
 \contentsline {subsubsection}{Low Processing Power Agents}{6}{}%
 \contentsline {chapter}{\numberline {2}Project Goals}{7}{}%
 \contentsline {section}{\numberline {2.1}Problem}{7}{}%
