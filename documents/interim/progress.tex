@@ -1,24 +1,24 @@
 \chapter{Progress of Implementations}
 
 \section{Basic MNIST classifier}
-A simple \emph{mnist} classifier was built using \emph{Keras} in \emph{Python}. There was only one agent which trained on the dataset, and the main reason for this was to get a baseline for the swarm learning to compete against. This solution was trained on a single \emph{GTX 1660}.
+A basic MNIST classifier was constructed using Keras in Python. The classifier consisted of a single agent that trained on the dataset. The primary motivation for this approach was to establish a baseline for comparison with the performance of the swarm learning algorithm. This solution was trained on a single GTX 1660.
 
 \section{Simple swarm learning}
-Using the same model for each agent as used in the \emph{Basic MNIST classifier}, a swarm of agents was created. Each agent had access to the whole dataset for training. Every agent also could communicate with every other agent. The agents acted in a loop, where they would each first train for one epoch on their copy of the training set, and then would average their models weights with all of their neighbours weights. This implementation consisted of 5 agents, all of whom had to share a single \emph{GTX 1660} between them. The following graphs showing the multiple agent accuracy show only the accuracy of one agent in the swarm, but all of the agents had similar results.
+In this experiment, a swarm of agents was created using the same model as that used in the Basic MNIST classifier. Each agent had access to the entire dataset for training, and all agents were able to communicate with each other. The agents operated in a loop, where they would each train for one epoch on their own copy of the training set, and then average their model weights with those of their neighbours. This implementation involved a total of five agents, who shared a single GTX 1660 among them. The graphs below, which depict the accuracy of the a single agent from the swarm, and also the accuracy of the lone agent.
 
 \includegraphics[width=\textwidth]{accuracy_60k}
 
-To start off with, the swarm was a lot slower to increase its accuracy than the single agent algorithm, which is likely due to the higher overhead of running swarm learning. After some time, the swarm increased in accuracy to the same point as the single agent. However, after reaching this point, the single agent started to overfit but the swarm continued to increase in accuracy. The swam eventually settled upon a higher accuracy than the single agent ever achieved.
+At the outset, the swarm's progress in terms of accuracy was slower than that of the single agent algorithm, which may be attributed to the additional computational overhead associated with swarm learning. After a certain period, the swarm's accuracy improved to the same level as that of the single agent. However, while the single agent began to exhibit signs of overfitting, the swarm's accuracy continued to increase. Ultimately, the swarm achieved a higher level of accuracy than the single agent.
 
-The agents seemed to reach the final accuracy in fewer training steps if the agents training loops were offset by even intervals of time. The author hypothesizes that this may be because when the agents training is synced, some of the agents may skip the just completed training when requesting updates, which can cause training epochs to effectively be lost. This effect needs further investigation.
+It was observed that the agents achieved their final accuracy in a reduced number of training steps when their training loops were offset by even intervals of time. The author posits that this may be due to the potential loss of training epochs when the agents' training is synced, as some of the agents may skip the most recent training when requesting updates. Further investigation is necessary to confirm this hypothesis.
 
 \section{Reduced dataset swarm learning}
-This experiment was focussed around reducing the amount of data each agent gets to train on. A number of samples were selected randomly for each agent from the training set, and these never changed throughout training. This test was run for 2000 and 500 samples per agent.
+The focus of this experiment was to investigate the impact of reducing the amount of data available for training each agent. For this purpose, a fixed number of samples were randomly selected from the training set for each agent, and these samples were not altered throughout the training process. The experiment was conducted with 2000 and 500 samples per agent.
 
 \includegraphics[width=\textwidth]{accuracy_2k}
 
 \includegraphics[width=\textwidth]{accuracy_500}
 
-In both cases, the swarm took a lot longer to reach its peak accuracy, nevertheless, the swarm exceeded the peak accuracy of the lone agent by about 5\%-10\%.
+In both cases, it was observed that the swarm required a longer time to reach its maximum accuracy. However, when it did, the swarm's peak accuracy exceeded that of the single agent by approximately 5\%-10\%.
 
-On both graphs, there is a spike in accuracy near the start of swarm training, then a reduction in accuracy, then a stable increase. This is caused by new agents with untrained networks joining the swarm and adding effectively a random model to the pool of weights. An easy fix for this would to make an agent that has just joined the network request a model from its neighbours immediately, and use that as a base network. This has not been implemented due to time constraints. 
+The graphs for both cases show a spike in accuracy near the start of swarm training, followed by a decrease in accuracy, and then a stable increase. This is likely due to the inclusion of new agents with untrained networks, which effectively add a random model to the pool of weights. A simple solution to this problem would be to have newly joined agents immediately request a model from their neighbouring agents and use that as their base network. This approach has not been implemented due to time constraints.

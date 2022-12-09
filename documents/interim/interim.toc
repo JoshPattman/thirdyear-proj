@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {2.2}Proposed Solution}{7}{}%
 \contentsline {section}{\numberline {2.3}Goals}{8}{}%
 \contentsline {subsubsection}{Problems}{8}{}%
-\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{9}{}%
+\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{8}{}%
 \contentsline {chapter}{\numberline {3}Progress of Implementations}{10}{}%
 \contentsline {section}{\numberline {3.1}Basic MNIST classifier}{10}{}%
 \contentsline {section}{\numberline {3.2}Simple swarm learning}{10}{}%
@@ -31,11 +31,7 @@
 \contentsline {subsubsection}{Description}{17}{}%
 \contentsline {subsubsection}{Risk Calculations}{17}{}%
 \contentsline {subsubsection}{Mitigation}{17}{}%
-\contentsline {subsection}{\numberline {4.4.3}Hardware Failure - Iridis 5}{17}{}%
+\contentsline {subsection}{\numberline {4.4.3}Algorithm Fails to Work}{17}{}%
 \contentsline {subsubsection}{Description}{17}{}%
 \contentsline {subsubsection}{Risk Calculations}{17}{}%
 \contentsline {subsubsection}{Mitigation}{17}{}%
-\contentsline {subsection}{\numberline {4.4.4}Algorithm Fails to Work}{18}{}%
-\contentsline {subsubsection}{Description}{18}{}%
-\contentsline {subsubsection}{Risk Calculations}{18}{}%
-\contentsline {subsubsection}{Mitigation}{18}{}%

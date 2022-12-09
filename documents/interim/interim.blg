@@ -8,45 +8,45 @@ A level-1 auxiliary file: planning.aux
 The style file: ieeetr.bst
 Database file #1: interim.bib
 Warning--empty journal in fed_learning
-You've used 8 entries,
+You've used 7 entries,
             1876 wiz_defined-function locations,
-            528 strings with 9129 characters,
-and the built_in function-call counts, 4587 in all, are:
-= -- 199
-> -- 672
+            520 strings with 8791 characters,
+and the built_in function-call counts, 4100 in all, are:
+= -- 155
+> -- 644
 < -- 0
-+ -- 226
-- -- 218
-* -- 531
-:= -- 878
-add.period$ -- 9
-call.type$ -- 8
-change.case$ -- 8
++ -- 217
+- -- 210
+* -- 490
+:= -- 810
+add.period$ -- 8
+call.type$ -- 7
+change.case$ -- 7
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 102
-empty$ -- 194
-format.name$ -- 218
-if$ -- 890
+cite$ -- 8
+duplicate$ -- 80
+empty$ -- 153
+format.name$ -- 210
+if$ -- 775
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 6
-newline$ -- 28
-num.names$ -- 10
-pop$ -- 33
+int.to.str$ -- 7
+missing$ -- 5
+newline$ -- 25
+num.names$ -- 7
+pop$ -- 28
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 76
+skip$ -- 58
 stack$ -- 0
-substring$ -- 116
-swap$ -- 43
+substring$ -- 76
+swap$ -- 32
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 19
-width$ -- 9
-write$ -- 75
+while$ -- 14
+width$ -- 8
+write$ -- 64
 (There was 1 warning)

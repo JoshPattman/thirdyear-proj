@@ -50,13 +50,6 @@ S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
 M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
   federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
 
-\bibitem{model_agnostic_meta_learning}
-A.~Fallah, A.~Mokhtari, and A.~Ozdaglar, ``Personalized federated learning with
-  theoretical guarantees: A model-agnostic meta-learning approach,'' in {\em
-  Advances in Neural Information Processing Systems} (H.~Larochelle,
-  M.~Ranzato, R.~Hadsell, M.~Balcan, and H.~Lin, eds.), vol.~33,
-  pp.~3557--3568, Curran Associates, Inc., 2020.
-
 \bibitem{fedbn}
 X.~Li, M.~Jiang, X.~Zhang, M.~Kamp, and Q.~Dou, ``Fedbn: Federated learning on
   non-iid features via local batch normalization,'' 2021.
