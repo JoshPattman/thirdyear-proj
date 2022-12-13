@@ -1,52 +1,54 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: interim.aux
+A level-1 auxiliary file: soo.aux
 A level-1 auxiliary file: bg_lit_review.aux
 A level-1 auxiliary file: project_goals.aux
 A level-1 auxiliary file: progress.aux
 A level-1 auxiliary file: planning.aux
 The style file: ieeetr.bst
 Database file #1: interim.bib
+Warning--empty booktitle in gdpr
 Warning--empty journal in fed_learning
-You've used 7 entries,
+You've used 16 entries,
             1876 wiz_defined-function locations,
-            520 strings with 8791 characters,
-and the built_in function-call counts, 4100 in all, are:
-= -- 155
-> -- 644
+            571 strings with 10687 characters,
+and the built_in function-call counts, 6836 in all, are:
+= -- 410
+> -- 775
 < -- 0
-+ -- 217
-- -- 210
-* -- 490
-:= -- 810
-add.period$ -- 8
-call.type$ -- 7
-change.case$ -- 7
++ -- 264
+- -- 248
+* -- 696
+:= -- 1199
+add.period$ -- 17
+call.type$ -- 16
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 80
-empty$ -- 153
-format.name$ -- 210
-if$ -- 775
+cite$ -- 18
+duplicate$ -- 222
+empty$ -- 408
+format.name$ -- 248
+if$ -- 1430
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 5
-newline$ -- 25
-num.names$ -- 7
-pop$ -- 28
+int.to.str$ -- 16
+missing$ -- 14
+newline$ -- 52
+num.names$ -- 16
+pop$ -- 66
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 58
+skip$ -- 144
 stack$ -- 0
-substring$ -- 76
-swap$ -- 32
+substring$ -- 263
+swap$ -- 86
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 14
-width$ -- 8
-write$ -- 64
-(There was 1 warning)
+warning$ -- 2
+while$ -- 41
+width$ -- 18
+write$ -- 150
+(There were 2 warnings)

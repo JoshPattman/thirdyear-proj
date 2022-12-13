@@ -1,13 +1,34 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{gdpr}
+M.~Kop, ``Machine learning \& eu data sharing practices,'' Stanford-Vienna
+  Transatlantic Technology Law Forum, Transatlantic Antitrust~…, 2020.
+
+\bibitem{data_volume}
+G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
+  privacy-preserving and federated machine learning in medical imaging,'' {\em
+  Nature Machine Intelligence}, vol.~2, no.~6, pp.~305--311, 2020.
 
 \bibitem{survey_on_fed_learning}
 C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
   learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.
 
+\bibitem{fed_table_survey}
+Q.~Li, Z.~Wen, Z.~Wu, S.~Hu, N.~Wang, Y.~Li, X.~Liu, and B.~He, ``A survey on
+  federated learning systems: vision, hype and reality for data privacy and
+  protection,'' {\em IEEE Transactions on Knowledge and Data Engineering},
+  2021.
+
 \bibitem{fed_learning}
 H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y. Arcas,
   ``Communication-efficient learning of deep networks from decentralized
   data,'' 2016.
+
+\bibitem{leaderelec_car}
+J.-H. Chen, M.-R. Chen, G.-Q. Zeng, and J.-S. Weng, ``Bdfl: a
+  byzantine-fault-tolerance decentralized federated learning method for
+  autonomous vehicle,'' {\em IEEE Transactions on Vehicular Technology},
+  vol.~70, no.~9, pp.~8639--8652, 2021.
 
 \bibitem{swarm_learning}
 S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
@@ -46,9 +67,29 @@ S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
   (DeCOI), ``Swarm learning for decentralized and confidential clinical machine
   learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
 
+\bibitem{swarm_resil}
+J.~C. Varughese, R.~Thenius, T.~Schmickl, and F.~Wotawa, ``Quantification and
+  analysis of the resilience of two swarm intelligent algorithms.,'' in {\em
+  GCAI}, pp.~148--161, 2017.
+
+\bibitem{leaderelection}
+J.~Augustine, T.~Kulkarni, and S.~Sivasubramaniam, ``Leader election in sparse
+  dynamic networks with churn,'' in {\em 2015 IEEE International Parallel and
+  Distributed Processing Symposium}, pp.~347--356, IEEE, 2015.
+
 \bibitem{multi_center_fed_learning}
 M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
   federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
+
+\bibitem{noniid_bad}
+Y.~Zhao, M.~Li, L.~Lai, N.~Suda, D.~Civin, and V.~Chandra, ``Federated learning
+  with non-iid data,'' {\em arXiv preprint arXiv:1806.00582}, 2018.
+
+\bibitem{survey_noniid}
+V.~Kulkarni, M.~Kulkarni, and A.~Pant, ``Survey of personalization techniques
+  for federated learning,'' in {\em 2020 Fourth World Conference on Smart
+  Trends in Systems, Security and Sustainability (WorldS4)}, pp.~794--797,
+  IEEE, 2020.
 
 \bibitem{fedbn}
 X.~Li, M.~Jiang, X.~Zhang, M.~Kamp, and Q.~Dou, ``Fedbn: Federated learning on
@@ -66,5 +107,10 @@ Y.~Xianjia, J.~P. Queralta, J.~Heikkonen, and T.~Westerlund, ``Federated
   Computing (MobiSPC), The 16th International Conference on Future Networks and
   Communications (FNC), The 11th International Conference on Sustainable Energy
   Information Technology.
+
+\bibitem{fed_iot}
+A.~Imteaj, U.~Thakker, S.~Wang, J.~Li, and M.~H. Amini, ``A survey on federated
+  learning for resource-constrained iot devices,'' {\em IEEE Internet of Things
+  Journal}, vol.~9, no.~1, pp.~1--24, 2021.
 
 \end{thebibliography}

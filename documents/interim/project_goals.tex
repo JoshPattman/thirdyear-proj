@@ -1,40 +1,29 @@
 \chapter{Project Goals}
 \section{Problem}
-Currently, there is more data stored around the world than ever before. However, there are also many recent regulations that prevent the data from being used by machine learning algorithms. In many cases, this is because the data owners are not comfortable or able to send the data to a central server for processing and training. The result of this is that either each data owner has to train their own inferior models, or no models are trained at all due to the lack of data.
+Currently, there is more data stored around the world than ever before. However, there are also many recent regulations that prevent the data from being used by machine learning algorithms. In many cases, this is because the data owners are not legally able to send the data to a central server for processing and training. The result of this is that either each data owner has to train their own inferior models, or no models are trained at all due to the lack of data.
 
-In addition to this, the world also has more electronic devices than ever before. As these devices become more and more powerful, using each device to train a machine learning model on a small amount of data becomes a possibility. However, these devices will still not outperform a fast computer alone.
+In short, the world contains vast amounts of data divided into data islands, with few efficient methods to processing the data. If used correctly, this data could improve lives.
 
 \section{Proposed Solution}
-One of the key features of swarm learning is that data never needs to be shared among the agents in the learning network, which is beneficial for the protection of private data. Given this, swarm learning seems well-suited to the problem at hand. In addition, swarm learning may be able to more effectively utilize the processing power of a network of connected devices. However, swarm learning is still a relatively new algorithm and faces many real-world challenges that have only been addressed individually in existing research.
+One of the key features of SL is that data never needs to be shared among the agents in the learning network, which is beneficial for the protection of private data. Given this, SL seems well-suited to the problem at hand. In addition, SL may be able to more effectively utilize the processing power of a network of connected devices. However, SL is still a relatively new algorithm and faces many real-world challenges that have only been addressed individually in existing research.
 
 \section{Goals}
-\textbf{To investigate possible optimisations of the swarm learning algorithm on simple problems, whilst adding real world constraints incrementally, and eventually arriving at a robust swarm learning algorithm that addresses many real world issues in one.}
+To investigate possible optimisations of the SL algorithm on simple problems, whilst adding real world constraints incrementally, and eventually arriving at a robust SL algorithm that addresses many real world issues in one.
 
 \begin{enumerate}
-	\item Create a working implementation on a simple dataset of swarm learning
-	\item Incrementally add real world problems to the swarm learning algorithm
-	\item Mitigate the effects of the problem on the accuracy of the algorithm by implementing either novel ideas or methods from existing literature.
-	\item Ensure that the end product is as reproducible as possible such that it can be re-implemented for specific use cases.
+	\item Create an SL model on a simple dataset such as MNIST without any real world constraints
+	\item Incrementally add real world problems (listed below) to the SL algorithm
+	\item Mitigate the effects of each problem by implementing either novel ideas or methods from existing literature
+	\item Ensure that the end product is as reproducible as possible such that it can be re-implemented for specific use cases
 \end{enumerate}
-\subsubsection{Problems}
-Below are some real world problems with swarm learning. This is not a comprehensive list and more problems could be researched if necessary.
+\subsubsection{Real-Word Problems}
+Below are some common real-world problems that effect SL:
 \begin{itemize}
-	\item \textbf{Unevenly distributed features/local bias} - This is where feature in the dataset are not distributed evenly between agents. For instance, when classifying mnist, one agent may see more 7s and one may see more 2s.
-	\item \textbf{Sparsely connected networks} - This refers to a situation where each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbours.
-	\item \textbf{Data transfer limits} - This is a situation where an agent may not be able to send an entire neural network over the internet, due to connection speed.
-	\item \textbf{Low processing power agents} - This situation is where agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have access to a GPU.
+	\item \textbf{Unevenly distributed features/local bias} - Features in the dataset are not distributed evenly between agents. For instance, when classifying MNIST (a dataset that contains images of digits 0-9), one agent may see more 7s and one may see more 2s
+	\item \textbf{Sparsely connected networks} - Each agent does not have direct communication with every other agent, but instead can only communicate with a few neighbours
+	\item \textbf{Data transfer limits} - An agent may not be able to send an entire model over the internet, due to connection speed
+	\item \textbf{Low processing power agents} - Agents have much lower processing power than a standard machine that one may train a model on. For example, agents may not have access to a GPU
 \end{itemize}	
 
 \section{Focussing On Project Goals}
-The plan for this project went through multiple iterations before the final plan was formulated:
-\begin{enumerate}
-	\item The initial plan was to \emph{control a swarm of drones to detect objects such as natural disasters or people needing help, whilst also improving accuracy of the model over time}
-	\item After discussion, the plan was changed to be \emph{perform edge processing and distributed object detection on many camera perspectives of an environment to decide where disasters are happening, whilst learning to improve the model over time}
-	\item Following the initial research phase, the plan was narrowed to \emph{explore ways to optimise swarm learning for distributed detection of a simple abstract object}
-	\item Finally, after the second phase of research, the settled upon plan became \emph{Investigate possible optimisations of the swarm learning algorithm}. This is the current plan.
-\end{enumerate}
-The shift of focus away from object detection and towards swarm learning is mainly for two reasons:
-\begin{enumerate}
-	\item The author finds the swarm learning aspect of the project to be the most interesting part, especially after researching the subject
-	\item A general framework of improvements and algorithms on swarm learning is much more useful to the real world than an implementation on a simple simulation.
-\end{enumerate}
+At the outset, the project goal covered a very wide topic and was unachievable: It was to \emph{control a swarm of drones to detect objects such as natural disasters, whilst also improving accuracy of the model over time}. However, following multiple stages of research and meetings, the idea was focussed into a smaller, achievable goal. The shift in focus from object detection to SL was primarily motivated by the author's interest in the potential usefulness of a general framework for SL algorithms.

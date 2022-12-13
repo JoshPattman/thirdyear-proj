@@ -1,37 +1,38 @@
-\contentsline {chapter}{\numberline {1}Background}{3}{}%
-\contentsline {section}{\numberline {1.1}Background Research}{3}{}%
-\contentsline {subsection}{\numberline {1.1.1}Federated Learning}{3}{}%
-\contentsline {subsection}{\numberline {1.1.2}Swarm Learning}{4}{}%
-\contentsline {subsection}{\numberline {1.1.3}Challenges for Federated and Swarm Learning}{4}{}%
-\contentsline {subsubsection}{Training Overhead}{5}{}%
-\contentsline {subsubsection}{Unevenly Distributed Labels and Features - Non-IID Data}{5}{}%
-\contentsline {subsubsection}{Sparsely Connected Networks}{5}{}%
-\contentsline {subsubsection}{Data Transfer Limits}{6}{}%
-\contentsline {subsubsection}{Low Processing Power Agents}{6}{}%
-\contentsline {chapter}{\numberline {2}Project Goals}{7}{}%
-\contentsline {section}{\numberline {2.1}Problem}{7}{}%
-\contentsline {section}{\numberline {2.2}Proposed Solution}{7}{}%
-\contentsline {section}{\numberline {2.3}Goals}{8}{}%
-\contentsline {subsubsection}{Problems}{8}{}%
-\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{8}{}%
-\contentsline {chapter}{\numberline {3}Progress of Implementations}{10}{}%
-\contentsline {section}{\numberline {3.1}Basic MNIST classifier}{10}{}%
-\contentsline {section}{\numberline {3.2}Simple swarm learning}{10}{}%
-\contentsline {section}{\numberline {3.3}Reduced dataset swarm learning}{11}{}%
+\contentsline {chapter}{\numberline {1}Background}{4}{}%
+\contentsline {section}{\numberline {1.1}Background Research}{4}{}%
+\contentsline {subsection}{\numberline {1.1.1}Federated Learning}{4}{}%
+\contentsline {subsection}{\numberline {1.1.2}Swarm Learning}{5}{}%
+\contentsline {subsection}{\numberline {1.1.3}Challenges for Federated and Swarm Learning}{6}{}%
+\contentsline {subsubsection}{Training Overhead}{6}{}%
+\contentsline {subsubsection}{Unevenly Distributed Labels and Features - Non-IID Data}{6}{}%
+\contentsline {subsubsection}{Sparsely Connected Networks}{7}{}%
+\contentsline {subsubsection}{Data Transfer Limits}{7}{}%
+\contentsline {subsubsection}{Low Processing Power Agents}{7}{}%
+\contentsline {chapter}{\numberline {2}Project Goals}{9}{}%
+\contentsline {section}{\numberline {2.1}Problem}{9}{}%
+\contentsline {section}{\numberline {2.2}Proposed Solution}{9}{}%
+\contentsline {section}{\numberline {2.3}Goals}{9}{}%
+\contentsline {subsubsection}{Real-Word Problems}{10}{}%
+\contentsline {section}{\numberline {2.4}Focussing On Project Goals}{10}{}%
+\contentsline {chapter}{\numberline {3}Progress of Implementations}{11}{}%
+\contentsline {section}{\numberline {3.1}Basic MNIST classifier}{11}{}%
+\contentsline {section}{\numberline {3.2}Simple swarm learning}{11}{}%
+\contentsline {section}{\numberline {3.3}Reduced dataset swarm learning}{12}{}%
 \contentsline {chapter}{\numberline {4}Project Planning}{14}{}%
 \contentsline {section}{\numberline {4.1}Planned Phases of the Project}{14}{}%
-\contentsline {section}{\numberline {4.2}Completed Work}{15}{}%
+\contentsline {section}{\numberline {4.2}Completed Work}{14}{}%
 \contentsline {section}{\numberline {4.3}Remaining Work}{15}{}%
-\contentsline {section}{\numberline {4.4}Risk Assessment}{16}{}%
-\contentsline {subsection}{\numberline {4.4.1}Personal Issues}{16}{}%
-\contentsline {subsubsection}{Description}{16}{}%
+\contentsline {section}{\numberline {4.4}Risk Assessment}{15}{}%
+\contentsline {subsection}{\numberline {4.4.1}Personal Issues}{15}{}%
+\contentsline {subsubsection}{Description}{15}{}%
 \contentsline {subsubsection}{Risk Calculations}{16}{}%
 \contentsline {subsubsection}{Mitigation}{16}{}%
-\contentsline {subsection}{\numberline {4.4.2}Hardware Failure - Local Computer}{17}{}%
+\contentsline {subsection}{\numberline {4.4.2}Hardware Failure}{16}{}%
+\contentsline {subsubsection}{Description}{16}{}%
+\contentsline {subsubsection}{Risk Calculations}{16}{}%
+\contentsline {subsubsection}{Mitigation}{17}{}%
+\contentsline {subsection}{\numberline {4.4.3}Algorithm Does Not Work Work}{17}{}%
 \contentsline {subsubsection}{Description}{17}{}%
 \contentsline {subsubsection}{Risk Calculations}{17}{}%
 \contentsline {subsubsection}{Mitigation}{17}{}%
-\contentsline {subsection}{\numberline {4.4.3}Algorithm Fails to Work}{17}{}%
-\contentsline {subsubsection}{Description}{17}{}%
-\contentsline {subsubsection}{Risk Calculations}{17}{}%
-\contentsline {subsubsection}{Mitigation}{17}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{18}{}%

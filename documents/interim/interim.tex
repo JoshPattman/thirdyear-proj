@@ -5,35 +5,44 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{cite}
+\usepackage{subcaption}
 \graphicspath{ {./figures/} }
 
 \newcommand{\citeme}[0]{\textbf{\emph{CITEME}}}
 \newcommand{\todo}[1]{\textbf{\emph{TODO: } #1}}
 
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+
 
 \begin{document}
 	\begin{titlepage}
 		\centering\Large\emph{Electronics and Computer Science Faculty of Engineering and Physical Sciences University of Southampton}
-		\\[3cm]
+		\\[2cm]
 		\centering\Large{Josh Pattman} \\
 		\centering\Large{12 December 2022} \\
 		\centering\huge\textbf{Investigating Optimisations Of Swarm Learning With Respect To Real World Challenges}
-		\\[4cm]
-		\centering\Large{Project Supervisor: Mohammad Soorati}
-		\centering\Large{Second Examiner: ?}
-		\\[3cm]
+		\\[2cm]
+		\centering{\large{Project Supervisor:} \linebreak \Large{Dr Mohammad Soorati - \emph{m.soorati@soton.ac.uk}}} \\[1cm]
+		\centering{\large{Second Examiner:} \linebreak \Large{Dr Jo Grundy - \emph{j.grundy@soton.ac.uk}}}
+		\\[2cm]
 		\centering\Large{A project progress report submitted for the award of \textbf{Computer Science with Artificial Intelligence}}
 	\end{titlepage}
 
+	\include{soo}
+
 
 	\chapter*{Abstract}	
-	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands without ever sharing the data. This approach protects privacy by keeping the data decentralized. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. The present paper conducts experiments with swarm learning and discusses the results. The experiments focus on adapting swarm learning for real-life situations and addressing issues that arise when applying swarm learning to certain use-cases. Furthermore, this paper examines methods for improving the performance of swarm learning when compared to standard centralized learning, demonstrating that it is a promising technique not only for protecting privacy, but also for making better use of available computing power.
+	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands without ever sharing the data. This approach protects privacy by keeping the data decentralized. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. The goal of this project is to design and implement a swarm learning algorithm, then test the algorithm in multiple scenarios inspired by the real world. The algorithm will then be evaluated against other machine learning techniques to investigate if swarm learning is a viable technology for the modern world.
 
 	\tableofcontents
 	\include{bg_lit_review}
 	\include{project_goals}
 	\include{progress}
 	\include{planning}
+	\chapter{Conclusion}
+	In conclusion, this paper has shown that SL has the potential to outperform conventional machine learning methods in some cases. While SL presents its own challenges, a plan has been proposed to address these issues and prepare SL for real-world applications. Preliminary testing has been encouraging, and future experiments may provide further evidence of the superiority of SL over conventional machine learning.
 	
 	\bibliographystyle{ieeetr}
 	\bibliography{interim}{}
