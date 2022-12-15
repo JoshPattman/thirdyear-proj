@@ -2,21 +2,35 @@ import numpy as np
 from threading import Lock
 
 class SwarmParamDistributor:
-    def __init__(self, num_params, backend, diff_weight=1, neighbor_full_sync_weight=0.5, use_updated_params=True):
+    def __init__(self, initial_model_params, backend, diff_weight=1, neighbor_full_sync_weight=0.5, use_updated_params=True, sync_initial_params=True):
         self.training_params_lock = Lock()
         self.updated_params_lock = Lock()
-        self.training_params = np.zeros(num_params)
-        self.updated_params = np.zeros(num_params)
+        self.training_params = np.copy(initial_model_params)
+        self.updated_params = np.copy(initial_model_params)
 
         self.diff_weight = diff_weight
         self.neighbor_full_sync_weight = neighbor_full_sync_weight
 
         self.backend=backend
-        backend.register_diff_callback(self.on_recv_diff)
+        self.backend.set_expected_length(self.training_params.shape[0])
+
+        if sync_initial_params:
+            neighbor_params = self.backend.query_params()
+            # Only bother if we actually got a response
+            if len(neighbor_params) > 0:
+                total_neighbor_params = np.zeros_like(self.training_params)
+                for p in neighbor_params:
+                    total_neighbor_params += p
+                avg_neighbor_params = total_neighbor_params / len(neighbor_params)
+                self.training_params = np.copy(avg_neighbor_params)
+                self.updated_params = np.copy(avg_neighbor_params)
+
+        # Threading only starts below here
+        self.backend.register_diff_callback(self.on_recv_diff)
         if use_updated_params:
-            backend.register_param_function(self.get_updated_params)
+            self.backend.register_param_function(self.get_updated_params)
         else:
-            backend.register_param_function(self.get_training_params)
+            self.backend.register_param_function(self.get_training_params)
 
     def sync(self, full_model_sync=True):
         # Update to latest diffs
@@ -40,12 +54,12 @@ class SwarmParamDistributor:
     def update_params(self, new_params, send_updates=True):
         # We add the diffs to both the training paramters and also the updated parameters otherwise they will be lost on next sync
         with self.training_params_lock:
-            if not new_params.shape == self.training_params.shape:
-                raise ValueError("Not correct shape of parameters")
+            if new_params.shape != self.training_params.shape:
+                raise ValueError("incorrect shape")
             diffs = new_params - self.training_params
             self.training_params += diffs
         with self.updated_params_lock:
-            self.update_params += diffs
+            self.updated_params += diffs
         if send_updates:
             self.backend.send_diffs(diffs)
 
@@ -64,6 +78,8 @@ class SwarmParamDistributor:
 class DummyBackend:
     def __init__(self):
         pass
+    def set_expected_length(self, n):
+        pass
     def register_diff_callback(self, f):
         pass
     def register_param_function(self, f):
@@ -71,7 +87,16 @@ class DummyBackend:
     def query_params(self):
         return []
     def send_diffs(self, ds):
-        pass
+        print("Send diffs %s"%ds)
 
 if __name__ == "__main__":
-    SwarmParamDistributor(10, DummyBackend())
+    spd = SwarmParamDistributor(np.array([1,2,3]), DummyBackend())
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.update_params(np.array([3,3,3]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.on_recv_diff(np.array([10,0,0]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.update_params(np.array([4,3,3]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.sync()
+    print(spd.get_training_params(), spd.get_updated_params())
