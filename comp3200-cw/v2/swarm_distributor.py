@@ -4,7 +4,7 @@ from queue import Queue
 from threading import Lock
 
 class ParamDistributor:
-    def __init__(self, num_params, diff_weight=1, neighbor_full_sync_weight=0.5):
+    def __init__(self, num_params, local_address, diff_weight=1, neighbor_full_sync_weight=0.5):
         self.local_params_lock = Lock()
         self.local_params = np.zeros(num_params)
         self.diffs_queue = Queue()
@@ -82,7 +82,7 @@ class ParamDistributor:
 
 if __name__ == "__main__":
     print("Checking")
-    p = ParamDistributor(10)
+    p = ParamDistributor(10, "8888")
     p.reset_params(np.random.uniform(size=(10,)))
     p.set_updated_params()
     print(p.get_current_params())
