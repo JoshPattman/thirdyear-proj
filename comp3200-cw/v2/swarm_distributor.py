@@ -1,88 +1,102 @@
 import numpy as np
-
-from queue import Queue
 from threading import Lock
 
-class ParamDistributor:
-    def __init__(self, num_params, local_address, diff_weight=1, neighbor_full_sync_weight=0.5):
-        self.local_params_lock = Lock()
-        self.local_params = np.zeros(num_params)
-        self.diffs_queue = Queue()
+class SwarmParamDistributor:
+    def __init__(self, initial_model_params, backend, diff_weight=1, neighbor_full_sync_weight=0.5, use_updated_params=True, sync_initial_params=True):
+        self.training_params_lock = Lock()
+        self.updated_params_lock = Lock()
+        self.training_params = np.copy(initial_model_params)
+        self.updated_params = np.copy(initial_model_params)
+
         self.diff_weight = diff_weight
         self.neighbor_full_sync_weight = neighbor_full_sync_weight
 
-    # Reset the local parameters to provided ones without sending any model updates
-    def reset_params(self, params):
-        with self.local_params_lock:
-            if not params.shape == self.local_params.shape:
-                raise ValueError("Not correct shape of parameters")
-            self.local_params = np.copy(params)
+        self.backend=backend
+        self.backend.set_expected_length(self.training_params.shape[0])
 
-    # Get the most recent parameters
-    def get_current_params(self):
-        with self.local_params_lock:
-            return np.copy(self.local_params)
+        if sync_initial_params:
+            neighbor_params = self.backend.query_params()
+            # Only bother if we actually got a response
+            if len(neighbor_params) > 0:
+                total_neighbor_params = np.zeros_like(self.training_params)
+                for p in neighbor_params:
+                    total_neighbor_params += p
+                avg_neighbor_params = total_neighbor_params / len(neighbor_params)
+                self.training_params = np.copy(avg_neighbor_params)
+                self.updated_params = np.copy(avg_neighbor_params)
 
-    # Set the local params to our new updated parameters, then send diffs to all neighbors
-    def set_updated_params(self, new_params, send_updates=True):
-        with self.local_params_lock:
-            if not new_params.shape == self.local_params.shape:
-                raise ValueError("Not correct shape of parameters")
-            diffs = new_params - self.local_params
-            self.local_params = np.copy(new_params)
-        if send_updates:
-            self.send_all_neighbor_diffs(diffs)
-    
-    # Sync local parameters with neighbors. This will add up all the neighbor diffs then apply them. If full_model_sync is specified, full models will be aquired of al neighbors too
-    def sync_params(self, full_model_sync=True, diff_sync=True, max_diffs=100, use_diff_averaging=False):
-        # Create array for storing totals in
-        with self.local_params_lock:
-            total_diff = np.zeros_like(self.local_params)
-        num_diffs = 0
-        if diff_sync:
-            # For as many times as we have diff that is less than max_diffs
-            for _ in range(max_diffs):
-                try:
-                    # This will fail if diff q empty, which will cause the next bit of code to get run
-                    diff = self.diffs_queue.get_nowait()
-                    total_diff += diff
-                    num_diffs += 1
-                except:
-                    break
-            if num_diffs > 0:
-                # we recv some diffs
-                # should we use average or total
-                if use_diff_averaging:
-                    total_diff = total_diff / num_diffs
+        # Threading only starts below here
+        self.backend.register_diff_callback(self.on_recv_diff)
+        if use_updated_params:
+            self.backend.register_param_function(self.get_updated_params)
+        else:
+            self.backend.register_param_function(self.get_training_params)
 
-        #neighbor averaging
-        total_neighbor_params = np.zeros_like(total_diff)
-        num_neighbors=0
+    def sync(self, full_model_sync=True):
+        # Update to latest diffs
+        with self.updated_params_lock:
+            updated_params = np.copy(self.updated_params)
+        # If required, do a full model sync
         if full_model_sync:
-            responses = self.query_all_neighbor_params()
+            responses = self.backend.query_params()
             num_neighbors = len(responses)
+            total_neighbor_params = np.zeros_like(updated_params)
             for r in responses:
                 total_neighbor_params += r
+            if num_neighbors > 0:
+                average_neighbor_params = total_neighbor_params/num_neighbors
+                updated_params = ((1-self.neighbor_full_sync_weight)*updated_params) + (self.neighbor_full_sync_weight*average_neighbor_params)
+        # Copy new parameters into training params
+        with self.training_params_lock:
+            self.training_params = updated_params
 
-        if num_neighbors > 0:
-            average_neighbor_params = total_neighbor_params/num_neighbors
+    # This calculates the diff from the parameters at the last sync
+    def update_params(self, new_params, send_updates=True):
+        # We add the diffs to both the training paramters and also the updated parameters otherwise they will be lost on next sync
+        with self.training_params_lock:
+            if new_params.shape != self.training_params.shape:
+                raise ValueError("incorrect shape")
+            diffs = new_params - self.training_params
+            self.training_params += diffs
+        with self.updated_params_lock:
+            self.updated_params += diffs
+        if send_updates:
+            self.backend.send_diffs(diffs)
 
-        with self.local_params_lock:
-                self.local_params += self.diff_weight * total_diff
-                # We only average when there are some neighbor responses
-                if num_neighbors > 0:
-                    self.local_params = ((1-self.neighbor_full_sync_weight)*self.local_params) + (self.neighbor_full_sync_weight*average_neighbor_params)
+    def on_recv_diff(self, diff):
+        with self.updated_params_lock:
+            self.updated_params += diff * self.diff_weight
 
-    def send_all_neighbor_diffs(self, diffs):
+    def get_training_params(self):
+        with self.training_params_lock:
+            return np.copy(self.training_params)
+
+    def get_updated_params(self):
+        with self.updated_params_lock:
+            return np.copy(self.updated_params)
+
+class DummyBackend:
+    def __init__(self):
         pass
-
-    def query_all_neighbor_params(self):
+    def set_expected_length(self, n):
         pass
-
+    def register_diff_callback(self, f):
+        pass
+    def register_param_function(self, f):
+        pass
+    def query_params(self):
+        return []
+    def send_diffs(self, ds):
+        print("Send diffs %s"%ds)
 
 if __name__ == "__main__":
-    print("Checking")
-    p = ParamDistributor(10, "8888")
-    p.reset_params(np.random.uniform(size=(10,)))
-    p.set_updated_params()
-    print(p.get_current_params())
+    spd = SwarmParamDistributor(np.array([1,2,3]), DummyBackend())
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.update_params(np.array([3,3,3]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.on_recv_diff(np.array([10,0,0]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.update_params(np.array([4,3,3]))
+    print(spd.get_training_params(), spd.get_updated_params())
+    spd.sync()
+    print(spd.get_training_params(), spd.get_updated_params())
