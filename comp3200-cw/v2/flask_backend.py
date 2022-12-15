@@ -6,10 +6,27 @@ import numpy as np
 from queue import Queue
 from threading import Thread
 import time
+import click
+import random
+import string
+from datetime import datetime
 
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
-logging.getLogger("requests").setLevel(logging.WARNING)
-logging.getLogger("urllib3").setLevel(logging.WARNING)
+random.seed(datetime.now().timestamp())
+
+def silence_flask():
+    def secho(text, file=None, nl=None, err=None, color=None, **styles):
+        pass
+
+    def echo(text, file=None, nl=None, err=None, color=None, **styles):
+        pass
+    click.echo = echo
+    click.secho = secho
+    logging.getLogger("requests").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger('werkzeug').setLevel(logging.ERROR)
+
+def get_random_string(n):
+    return ''.join(random.choice(string.ascii_letters) for i in range(n))
 
 class FlaskBackend:
     def __init__(self, port, neighbors, logger=None):
@@ -20,10 +37,11 @@ class FlaskBackend:
         self.port = port
         self.diff_callback = None
         self.param_function = None
-
         self.neighbors = neighbors
 
         self.app = Flask(__name__)
+
+        silence_flask()
 
         # listening for param requests
         @self.app.route("/get_params")
@@ -56,6 +74,7 @@ class FlaskBackend:
     def start(self):
         def start_fn():
             self.app.run(port=self.port)
+        self.logger.info("Starting server")
         Thread(target=start_fn).start()
         time.sleep(1)
         
