@@ -14,6 +14,15 @@ import gzip
 
 random.seed(datetime.now().timestamp())
 
+def json_encode_array(arr):
+    s = "["
+    for e in arr:
+        s += f"{e:.5f},"
+    if len(s) > 1:
+        s = s[:len(s)-1]
+    s += "]"
+    return s
+
 def silence_flask():
     def secho(text, file=None, nl=None, err=None, color=None, **styles):
         pass
@@ -30,7 +39,7 @@ def get_random_string(n):
     return ''.join(random.choice(string.ascii_letters) for i in range(n))
 
 class FlaskBackend:
-    def __init__(self, port, neighbors, logger=None, use_gzip=False):
+    def __init__(self, port, neighbors, logger=None, use_gzip=False, use_fast_arr=True):
         if logger is None:
             logger = logging.getLogger('dummy')
         self.logger = logger
@@ -54,7 +63,10 @@ class FlaskBackend:
             params = self.param_function()
             if not (params.shape[0] == self.expected_length):
                 self.logger.error("That length of params is not correct")
-            data = json.dumps(params.tolist())
+            if use_fast_arr:
+                data = json_encode_array(params)
+            else:
+                data = json.dumps(params.tolist())
 
             if self.use_gzip:
                 compressed = gzip.compress(data.encode('utf8'), 9)
@@ -71,7 +83,7 @@ class FlaskBackend:
         
     def set_expected_length(self, n):
         self.expected_length = n
-        
+
     def register_param_function(self, f):
         self.param_function = f
 

@@ -28,7 +28,6 @@ class SwarmDistributor:
     def sync(self):
         with self.training_params_lock:
             updated_params = np.copy(self.training_params)
-
         responses = self.backend.query_params()
         num_neighbors = len(responses)
         total_neighbor_params = np.zeros_like(updated_params)
