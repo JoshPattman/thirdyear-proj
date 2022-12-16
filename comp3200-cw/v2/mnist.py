@@ -70,7 +70,7 @@ class Node:
         self.model = make_model()
 
         backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(flattener.flatten(self.model), backend, diff_weight=0)
+        self.dist = SwarmDistributor(flattener.flatten(self.model), backend)
         flattener.unflatten(self.model, self.dist.get_training_params())
 
         Thread(target=self.update_loop).start()

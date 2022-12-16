@@ -61,24 +61,6 @@ class FlaskBackend:
                 return compressed
             else:
                 return data
-
-        # listening for diff updates
-        @self.app.route("/add_diff", methods = ["POST"])
-        def handler_add_diff():
-            if self.diff_callback is None:
-                self.logger.error("The diff function has not been set")
-                return "server_error"
-            try:
-                js = request.get_json(force=True)
-                diff = np.array(js)
-                if not (diff.shape[0] == self.expected_length):
-                    raise ValueError("json diff did not have correct length")
-                else:
-                    self.diff_callback(diff)
-                    return "ok"
-            except Exception as e:
-                self.logger.warning("json diff was not in correct format: %s"%e)
-                return "bad_message"
         
     def start(self):
         def start_fn():
@@ -89,8 +71,7 @@ class FlaskBackend:
         
     def set_expected_length(self, n):
         self.expected_length = n
-    def register_diff_callback(self, f):
-        self.diff_callback = f
+        
     def register_param_function(self, f):
         self.param_function = f
 
@@ -127,18 +108,4 @@ class FlaskBackend:
             if not (params is None): 
                 all_params.append(params)
         return all_params
-
-    def send_diffs(self, ds):
-        return
-        data = ds.tolist()
-        if not (len(data) == self.expected_length):
-            self.logger.error("diff length not equal to data length")
-            return
-        def diff_function(addr):
-            try:
-                requests.post(f"http://{addr}/add_diff", json=data)
-            except Exception as e:
-                self.logger.warning("Failed to send diff: %s"%e)
-        for n in self.neighbors:
-            Thread(target=diff_function, args=(n,)).start()
         
