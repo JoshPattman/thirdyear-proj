@@ -27,18 +27,16 @@ class SwarmDistributor:
 
     def sync(self):
         with self.training_params_lock:
-            updated_params = np.copy(self.training_params)
+            num_params = self.training_params.shape[0]
         responses = self.backend.query_params()
         num_neighbors = len(responses)
-        total_neighbor_params = np.zeros_like(updated_params)
+        total_neighbor_params = np.zeros(num_params)
         for r in responses:
             total_neighbor_params += r
         if num_neighbors > 0:
-            average_neighbor_params = total_neighbor_params/num_neighbors
-            updated_params = ((1-self.neighbor_full_sync_weight)*updated_params) + (self.neighbor_full_sync_weight*average_neighbor_params)
-        # Copy new parameters into training params
-        with self.training_params_lock:
-            self.training_params = updated_params
+            total_neighbor_params = total_neighbor_params/num_neighbors
+            with self.training_params_lock:
+                self.training_params = ((1-self.neighbor_full_sync_weight)*self.training_params) + (self.neighbor_full_sync_weight*total_neighbor_params)
 
     # This calculates the diff from the parameters at the last sync
     def update_params(self, new_params, copy=True):
