@@ -91,9 +91,7 @@ class FlaskBackend:
         responses = Queue()
         def request_function(addr):
             try:
-                tstart = datetime.now()
                 response = requests.get(f"http://{addr}/get_params", timeout=10)
-                self.logger.debug("time for model: %s"%(datetime.now() - tstart).total_seconds())
                 if self.use_gzip:
                     decompressed = gzip.decompress(response.content)
                     decoded = decompressed.decode('utf-8')

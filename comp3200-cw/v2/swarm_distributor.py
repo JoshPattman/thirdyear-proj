@@ -25,6 +25,7 @@ class SwarmDistributor:
         # Threading only starts below here
         self.backend.start()
 
+    # Syncs this network with neighboring networks (one way sync, does not change neighbors)
     def sync(self):
         with self.training_params_lock:
             num_params = self.training_params.shape[0]
@@ -38,7 +39,7 @@ class SwarmDistributor:
             with self.training_params_lock:
                 self.training_params = ((1-self.neighbor_full_sync_weight)*self.training_params) + (self.neighbor_full_sync_weight*total_neighbor_params)
 
-    # This calculates the diff from the parameters at the last sync
+    # Updates the parameter cache that is used when other nodes sync
     def update_params(self, new_params, copy=True):
         # We add the diffs to both the training paramters and also the updated parameters otherwise they will be lost on next sync
         with self.training_params_lock:
@@ -46,6 +47,7 @@ class SwarmDistributor:
                 raise ValueError("incorrect shape")
             self.training_params = np.copy(new_params) if copy else new_params
 
+    # Gets the most up to date training params to train with
     def get_training_params(self):
         with self.training_params_lock:
             return np.copy(self.training_params)

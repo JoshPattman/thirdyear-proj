@@ -7,6 +7,7 @@ from colored_log_formatter import ColoredFormatter
 from threading import Thread
 import random
 from datetime import datetime
+from queue import Queue
 
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
@@ -15,12 +16,6 @@ from keras.datasets import mnist
 from keras.models import clone_model
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
-
-def tuple_product(t):
-    x = 1
-    for ta in t:
-        x *= ta
-    return x
 
 class ModelFlattener:
     def __init__(self, example):
@@ -33,6 +28,11 @@ class ModelFlattener:
     def unflatten(self, model, flat_params):
         params = []
         n = 0
+        def tuple_product(t):
+            x = 1
+            for ta in t:
+                x *= ta
+            return x
         for ps in self.params_shapes:
             num_params = tuple_product(ps)
             params.append(np.reshape(flat_params[n:n+num_params], ps))
@@ -52,6 +52,7 @@ def make_model():
     return model
 
 flattener = ModelFlattener(make_model())
+resultsQ = Queue()
 
 class Node:
     def __init__(self, port, neighbors, num_train_samples=60000):
@@ -76,27 +77,31 @@ class Node:
         Thread(target=self.update_loop).start()
 
     def update_loop(self):
-        no_train = self.evaluate_performance("no training")
+        times = []
+        accuracies = []
+        no_train = self.evaluate_performance()
         self.logger.info("ACCURACY (no training): %s"%no_train)
+        times.append(0)
+        accuracies.append(no_train)
+        training_start = datetime.now()
         for loop in range(5):
-            tstart = datetime.now()
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
-            self.logger.debug("time for train: %s"%(datetime.now() - tstart).total_seconds())
             
-            pre = self.evaluate_performance("pre avg step (%s)"%loop, color="\033[035m")
+            pre = 0#self.evaluate_performance()
 
-            tstart_sync = datetime.now()
             self.dist.update_params(flattener.flatten(self.model))
             self.dist.sync()
-            self.logger.debug("time for sync: %s"%(datetime.now() - tstart_sync).total_seconds())
 
             flattener.unflatten(self.model, self.dist.get_training_params())
 
-            post = self.evaluate_performance("post avg step (%s)"%loop, color="\033[034m")
+            post = self.evaluate_performance()
+            times.append((datetime.now()-training_start).total_seconds())
+            accuracies.append(post)
             self.logger.info("ACCURACY (pre avg): %s, (post avg): %s"%(pre, post))
-            self.logger.debug("time for total loop: %s"%(datetime.now() - tstart).total_seconds())
 
-    def evaluate_performance(self, tag, color="\033[0m"):
+        resultsQ.put((times, accuracies))
+
+    def evaluate_performance(self):
         tstart = datetime.now()
         preds = self.model.predict(self.test_X, verbose=False)
         tdiff = round((datetime.now()-tstart).total_seconds(),2)
@@ -106,11 +111,17 @@ class Node:
                 num_correct += 1
         accuracy = 100*num_correct/len(self.test_Y)
         return accuracy
-        print(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,accuracy))
 
 
 
 ports = [9100, 9101, 9102, 9103, 9104]
 for p in ports:
     Node(p, ["localhost:%s"%x for x in ports if x != p])
-print("Started all nets")
+print("Started all nets, waiting for results")
+
+nodes_results = []
+for p in ports:
+    nodes_results.append(resultsQ.get())
+
+print("Finished training:")
+print(nodes_results)
