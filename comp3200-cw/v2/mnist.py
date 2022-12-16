@@ -4,6 +4,9 @@ import time
 import numpy as np
 import logging
 from colored_log_formatter import ColoredFormatter
+from threading import Thread
+import random
+from datetime import datetime
 
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
@@ -45,16 +48,64 @@ def make_model():
     out = Dense(128, activation="relu")(out)
     out = Dense(10, activation="sigmoid")(out)
     model = Model(inputs=inp, outputs=out)
+    model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
     return model
 
 flattener = ModelFlattener(make_model())
 
 class Node:
-    def __init__(self, port, neighbors):
+    def __init__(self, port, neighbors, num_train_samples=60000):
         logger = logging.getLogger("node-%s"%port)
+        logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
         logger.addHandler(ch)
+        self.logger = logger
+
+        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
+        train_subset = random.sample(range(len(self.train_X)), num_train_samples)
+        self.train_X = np.array([self.train_X[s] for s in train_subset])
+        self.train_Y = np.array([self.train_Y[s] for s in train_subset])
+
+        self.model = make_model()
 
         backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(np.array([1,2,3]), backend)
+        self.dist = SwarmDistributor(flattener.flatten(self.model), backend, diff_weight=0)
+        flattener.unflatten(self.model, self.dist.get_training_params())
+
+        Thread(target=self.update_loop).start()
+
+    def update_loop(self):
+        no_train = self.evaluate_performance("no training")
+        self.logger.info("ACCURACY (no training): %s"%no_train)
+        for loop in range(5):
+            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            
+            pre = self.evaluate_performance("pre avg step (%s)"%loop, color="\033[035m")
+
+            self.dist.update_params(flattener.flatten(self.model))
+            self.dist.sync()
+
+            flattener.unflatten(self.model, self.dist.get_training_params())
+
+            post = self.evaluate_performance("post avg step (%s)"%loop, color="\033[034m")
+            self.logger.info("ACCURACY (pre avg): %s, (post avg): %s"%(pre, post))
+
+    def evaluate_performance(self, tag, color="\033[0m"):
+        tstart = datetime.now()
+        preds = self.model.predict(self.test_X, verbose=False)
+        tdiff = round((datetime.now()-tstart).total_seconds(),2)
+        num_correct = 0
+        for i in range(len(self.test_Y)):
+            if np.argmax(preds[i]) == self.test_Y[i]:
+                num_correct += 1
+        accuracy = 100*num_correct/len(self.test_Y)
+        return accuracy
+        print(f"Accuracy {color}(%s)\033[0m <%ss>: {color}%s\033[0m"%(tag,tdiff,accuracy))
+
+
+
+ports = [9100, 9101, 9102, 9103, 9104]
+for p in ports:
+    Node(p, ["localhost:%s"%x for x in ports if x != p])
+print("Started all nets")

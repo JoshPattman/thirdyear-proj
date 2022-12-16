@@ -55,11 +55,11 @@ class FlaskBackend:
             return json.dumps(params.tolist())
 
         # listening for diff updates
-        @self.app.route("/add_diff")
+        @self.app.route("/add_diff", methods = ["POST"])
         def handler_add_diff():
             if self.diff_callback is None:
                 self.logger.error("The diff function has not been set")
-                return
+                return "server_error"
             try:
                 js = request.get_json(force=True)
                 diff = np.array(js)
@@ -67,9 +67,10 @@ class FlaskBackend:
                     raise ValueError("json diff did not have correct length")
                 else:
                     self.diff_callback(diff)
+                    return "ok"
             except Exception as e:
                 self.logger.warning("json diff was not in correct format: %s"%e)
-            
+                return "bad_message"
         
     def start(self):
         def start_fn():
