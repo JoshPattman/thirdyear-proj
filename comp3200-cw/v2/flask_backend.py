@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 import requests
 import logging
 import json
@@ -10,6 +10,7 @@ import click
 import random
 import string
 from datetime import datetime
+import gzip
 
 random.seed(datetime.now().timestamp())
 
@@ -29,7 +30,7 @@ def get_random_string(n):
     return ''.join(random.choice(string.ascii_letters) for i in range(n))
 
 class FlaskBackend:
-    def __init__(self, port, neighbors, logger=None):
+    def __init__(self, port, neighbors, logger=None, use_gzip=False):
         if logger is None:
             logger = logging.getLogger('dummy')
         self.logger = logger
@@ -38,6 +39,7 @@ class FlaskBackend:
         self.diff_callback = None
         self.param_function = None
         self.neighbors = neighbors
+        self.use_gzip = use_gzip
 
         self.app = Flask(__name__)
 
@@ -52,7 +54,13 @@ class FlaskBackend:
             params = self.param_function()
             if not (params.shape[0] == self.expected_length):
                 self.logger.error("That length of params is not correct")
-            return json.dumps(params.tolist())
+            data = json.dumps(params.tolist())
+
+            if self.use_gzip:
+                compressed = gzip.compress(data.encode('utf8'), 9)
+                return compressed
+            else:
+                return data
 
         # listening for diff updates
         @self.app.route("/add_diff", methods = ["POST"])
@@ -91,9 +99,15 @@ class FlaskBackend:
         def request_function(addr):
             try:
                 tstart = datetime.now()
-                js = requests.get(f"http://{addr}/get_params", timeout=10).json()
+                response = requests.get(f"http://{addr}/get_params", timeout=10)
                 self.logger.debug("time for model: %s"%(datetime.now() - tstart).total_seconds())
-                params = np.array(js)
+                if self.use_gzip:
+                    decompressed = gzip.decompress(response.content)
+                    decoded = decompressed.decode('utf-8')
+                    listed = json.loads(decoded)
+                    params = np.array(listed)
+                else:
+                    params = np.array(response.json())
                 if not (params.shape[0] == self.expected_length):
                     raise ValueError("params did not have correct shape")
                 responses.put(params)        
@@ -115,6 +129,7 @@ class FlaskBackend:
         return all_params
 
     def send_diffs(self, ds):
+        return
         data = ds.tolist()
         if not (len(data) == self.expected_length):
             self.logger.error("diff length not equal to data length")
