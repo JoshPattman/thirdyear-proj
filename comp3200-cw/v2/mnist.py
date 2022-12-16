@@ -79,17 +79,22 @@ class Node:
         no_train = self.evaluate_performance("no training")
         self.logger.info("ACCURACY (no training): %s"%no_train)
         for loop in range(5):
+            tstart = datetime.now()
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            self.logger.debug("time for train: %s"%(datetime.now() - tstart).total_seconds())
             
             pre = self.evaluate_performance("pre avg step (%s)"%loop, color="\033[035m")
 
+            tstart_sync = datetime.now()
             self.dist.update_params(flattener.flatten(self.model))
             self.dist.sync()
+            self.logger.debug("time for sync: %s"%(datetime.now() - tstart_sync).total_seconds())
 
             flattener.unflatten(self.model, self.dist.get_training_params())
 
             post = self.evaluate_performance("post avg step (%s)"%loop, color="\033[034m")
             self.logger.info("ACCURACY (pre avg): %s, (post avg): %s"%(pre, post))
+            self.logger.debug("time for total loop: %s"%(datetime.now() - tstart).total_seconds())
 
     def evaluate_performance(self, tag, color="\033[0m"):
         tstart = datetime.now()

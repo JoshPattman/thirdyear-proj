@@ -90,7 +90,9 @@ class FlaskBackend:
         responses = Queue()
         def request_function(addr):
             try:
+                tstart = datetime.now()
                 js = requests.get(f"http://{addr}/get_params", timeout=10).json()
+                self.logger.debug("time for model: %s"%(datetime.now() - tstart).total_seconds())
                 params = np.array(js)
                 if not (params.shape[0] == self.expected_length):
                     raise ValueError("params did not have correct shape")
