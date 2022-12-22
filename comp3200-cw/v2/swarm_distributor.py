@@ -2,7 +2,7 @@ import numpy as np
 from threading import Lock
 
 class SwarmDistributor:
-    def __init__(self, initial_model_params, backend, neighbor_full_sync_weight=0.5, use_updated_params=True, sync_initial_params=True):
+    def __init__(self, initial_model_params, backend, neighbor_full_sync_weight=0.5, sync_initial_params=True):
         self.training_params_lock = Lock()
         self.training_params = np.copy(initial_model_params)
 
