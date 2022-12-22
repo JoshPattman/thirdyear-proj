@@ -85,7 +85,7 @@ class Node:
         accuracies.append(no_train)
         training_start = datetime.now()
         for loop in range(5):
-            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            self.model.fit(self.train_X, self.train_Y, epochs=3, verbose=False)
             
             pre = 0#self.evaluate_performance()
 
@@ -116,7 +116,7 @@ class Node:
 
 ports = [9100, 9101, 9102, 9103, 9104]
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p])
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=500)
 print("Started all nets, waiting for results")
 
 nodes_results = []
