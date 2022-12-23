@@ -22,13 +22,17 @@ from keras.metrics import SparseCategoricalAccuracy
 resultsQ = Queue()
 
 class Node:
-    def __init__(self, port, neighbors, num_train_samples=60000):
+    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now()):
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
         logger.addHandler(ch)
         self.logger = logger
+        self.time_training = 0
+        self.time_syncing = 0
+        self.time_converting = 0
+        self.global_start_time = global_start_time
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         train_subset = random.sample(range(len(self.train_X)), num_train_samples)
@@ -60,21 +64,31 @@ class Node:
         accuracies = []
         no_train = self.evaluate_performance()
         self.logger.info("ACCURACY (no training): %s"%no_train)
-        times.append(0)
+        time_offset = (datetime.now()-self.global_start_time).total_seconds()
+        times.append(time_offset)
         accuracies.append(no_train)
         training_start = datetime.now()
         for loop in range(5):
-            self.model.fit(self.train_X, self.train_Y, epochs=3, verbose=False)
+            temp_timer = datetime.now()
+            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            self.time_training += (datetime.now()-temp_timer).total_seconds()
 
+            temp_timer = datetime.now()
             self.dist.update_params(flatten_model(self.model))
-            self.dist.sync()
+            self.time_converting += (datetime.now()-temp_timer).total_seconds()
 
+            temp_timer = datetime.now()
+            self.dist.sync()
+            self.time_syncing += (datetime.now()-temp_timer).total_seconds()
+
+            temp_timer = datetime.now()
             unflatten_model(self.model, self.dist.get_training_params())
+            self.time_converting += (datetime.now()-temp_timer).total_seconds()
 
             post = self.evaluate_performance()
-            times.append((datetime.now()-training_start).total_seconds())
+            times.append((datetime.now()-training_start).total_seconds()+time_offset)
             accuracies.append(post)
-            self.logger.info("ACCURACY (post avg): %s"%(post))
+            self.logger.info("ACCURACY (post avg): %.4s | T C S %.4ss %.4ss %.4ss"%(post, self.time_training, self.time_converting, self.time_syncing))
 
         resultsQ.put((times, accuracies))
 
@@ -90,8 +104,9 @@ class Node:
 
 
 ports = [9100, 9101, 9102, 9103, 9104]
+start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=500)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=60000, global_start_time=start_time)
 print("Started all nets, waiting for results")
 
 nodes_results = []
