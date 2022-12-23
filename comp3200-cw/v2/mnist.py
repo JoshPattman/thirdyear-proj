@@ -18,21 +18,23 @@ from keras.datasets import mnist
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
 
+def batches(list, chunk_size):
+  for i in range(0, len(list), chunk_size):
+    yield list[i:i + chunk_size]
 
 resultsQ = Queue()
 
 class Node:
-    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now()):
+    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now(), checkpoint_every=-1, batch_size=32):
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
         logger.addHandler(ch)
         self.logger = logger
-        self.time_training = 0
-        self.time_syncing = 0
-        self.time_converting = 0
         self.global_start_time = global_start_time
+        self.checkpoint_every = checkpoint_every
+        self.batch_size = batch_size
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         train_subset = random.sample(range(len(self.train_X)), num_train_samples)
@@ -69,26 +71,25 @@ class Node:
         accuracies.append(no_train)
         training_start = datetime.now()
         for loop in range(5):
-            temp_timer = datetime.now()
-            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
-            self.time_training += (datetime.now()-temp_timer).total_seconds()
+            if self.checkpoint_every == -1:
+                self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False, batch_size=self.batch_size)
+                self.dist.update_params(flatten_model(self.model))
+            else:
+                samples = list(range(len(self.train_X)))
+                random.shuffle(samples)
+                for batchIndexes in batches(samples, self.checkpoint_every*self.batch_size):
+                    xs = np.array([self.train_X[i] for i in batchIndexes])
+                    ys = np.array([self.train_Y[i] for i in batchIndexes])
+                    self.model.fit(xs, ys, epochs=1, verbose=False, batch_size=self.batch_size)
+                    self.dist.update_params(flatten_model(self.model))
 
-            temp_timer = datetime.now()
-            self.dist.update_params(flatten_model(self.model))
-            self.time_converting += (datetime.now()-temp_timer).total_seconds()
-
-            temp_timer = datetime.now()
             self.dist.sync()
-            self.time_syncing += (datetime.now()-temp_timer).total_seconds()
-
-            temp_timer = datetime.now()
             unflatten_model(self.model, self.dist.get_training_params())
-            self.time_converting += (datetime.now()-temp_timer).total_seconds()
 
             post = self.evaluate_performance()
             times.append((datetime.now()-training_start).total_seconds()+time_offset)
             accuracies.append(post)
-            self.logger.info("ACCURACY (post avg): %.4s | T C S %.4ss %.4ss %.4ss"%(post, self.time_training, self.time_converting, self.time_syncing))
+            self.logger.info("ACCURACY (post avg): %.4s"%(post))
 
         resultsQ.put((times, accuracies))
 
@@ -106,7 +107,7 @@ class Node:
 ports = [9100, 9101, 9102, 9103, 9104]
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=60000, global_start_time=start_time)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=500, checkpoint_every=1, batch_size=32, global_start_time=start_time)
 print("Started all nets, waiting for results")
 
 nodes_results = []
