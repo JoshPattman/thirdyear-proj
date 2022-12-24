@@ -44,7 +44,7 @@ class Node:
         self.model = self.make_model()
 
         backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(flatten_model(self.model), backend)
+        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=0.25)
         unflatten_model(self.model, self.dist.get_training_params())
 
         Thread(target=self.update_loop).start()
@@ -70,7 +70,7 @@ class Node:
         times.append(time_offset)
         accuracies.append(no_train)
         training_start = datetime.now()
-        for loop in range(5):
+        for loop in range(20):
             if self.checkpoint_every == -1:
                 self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False, batch_size=self.batch_size)
                 self.dist.update_params(flatten_model(self.model))
@@ -106,8 +106,12 @@ class Node:
 
 ports = [9100, 9101, 9102, 9103, 9104]
 start_time = datetime.now()
+use_neighbors = True
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=500, checkpoint_every=1, batch_size=32, global_start_time=start_time)
+    neighbors = []
+    if use_neighbors:
+        neighbors = ["localhost:%s"%x for x in ports if x != p]
+    Node(p, neighbors, num_train_samples=500, checkpoint_every=1, batch_size=32, global_start_time=start_time)
 print("Started all nets, waiting for results")
 
 nodes_results = []
