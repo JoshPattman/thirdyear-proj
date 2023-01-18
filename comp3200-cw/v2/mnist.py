@@ -8,6 +8,7 @@ from threading import Thread
 import random
 from datetime import datetime
 from queue import Queue
+import sys, json
 
 from flatten_model import flatten_model, unflatten_model
 
@@ -45,7 +46,9 @@ class Node:
         self.dist = SwarmDistributor(flatten_model(self.model), backend)
         unflatten_model(self.model, self.dist.get_training_params())
 
-        Thread(target=self.update_loop).start()
+        start_thread = Thread(target=self.update_loop)
+        start_thread.setDaemon(True)
+        start_thread.start()
 
     def make_model(self):
         inp = Input((28,28))
@@ -102,16 +105,24 @@ class Node:
         return accuracy
 
 
+# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10>
+arg_port, arg_nodes, arg_training_samples, arg_uid = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
 
-ports = [9100, 9101, 9102, 9103, 9104]
+ports = list(range(arg_port, arg_port+arg_nodes))
+print("Running on ports %s"%ports)
+
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=60000, global_start_time=start_time)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time)
 print("Started all nets, waiting for results")
 
 nodes_results = []
 for p in ports:
     nodes_results.append(resultsQ.get())
 
-print("Finished training:")
-print(nodes_results)
+print("Finished training")
+filename = "./data/nodes:%s_samples:%s_uid:%s.json"%(arg_nodes,arg_training_samples,arg_uid)
+print("Saving data log to %s"%filename)
+with open(filename, "w") as f:
+    f.write(json.dumps(nodes_results))
+sys.exit(0)

@@ -78,7 +78,9 @@ class FlaskBackend:
         def start_fn():
             self.app.run(port=self.port)
         self.logger.info("Starting server")
-        Thread(target=start_fn).start()
+        start_thread = Thread(target=start_fn)
+        start_thread.setDaemon(True)
+        start_thread.start()
         time.sleep(1)
         
     def set_expected_length(self, n):
@@ -107,7 +109,9 @@ class FlaskBackend:
                 responses.put(None)
 
         for n in self.neighbors:
-            Thread(target=request_function, args=(n,)).start()
+            start_thread = Thread(target=request_function, args=(n,))
+            start_thread.setDaemon(True)
+            start_thread.start()
 
         while responses.qsize() < len(self.neighbors):
             time.sleep(0.1)
