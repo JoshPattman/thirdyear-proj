@@ -1,25 +1,16 @@
 #!/bin/bash
 
-python mnist.py 9000 5 60000 1
-python mnist.py 9000 5 60000 2
-python mnist.py 9000 5 60000 3
-python mnist.py 9000 5 60000 4
-python mnist.py 9000 5 60000 5
+TODO ADD WEIGHTS
 
-python mnist.py 9000 5 30000 1
-python mnist.py 9000 5 30000 2
-python mnist.py 9000 5 30000 3
-python mnist.py 9000 5 30000 4
-python mnist.py 9000 5 30000 5
 
-python mnist.py 9000 5 5000 1
-python mnist.py 9000 5 5000 2
-python mnist.py 9000 5 5000 3
-python mnist.py 9000 5 5000 4
-python mnist.py 9000 5 5000 5
-
-python mnist.py 9000 5 500 1
-python mnist.py 9000 5 500 2
-python mnist.py 9000 5 500 3
-python mnist.py 9000 5 500 4
-python mnist.py 9000 5 500 5
+for numsamples in 60000 30000 10000 5000 1000 100 10
+do
+    for epochs in 1 2 3 4
+    do
+        for id in 1 2 3 4 5
+        do
+            echo -e "\n\n\n================================================== RUNNING WITH ID $id NUMSAMPLES $numsamples EPOCHS $epochs =============="
+            python mnist.py 9000 5 $numsamples $id $epochs
+        done
+    done
+done

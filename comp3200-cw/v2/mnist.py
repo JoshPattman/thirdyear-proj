@@ -23,7 +23,7 @@ from keras.metrics import SparseCategoricalAccuracy
 resultsQ = Queue()
 
 class Node:
-    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now()):
+    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1):
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
@@ -34,6 +34,7 @@ class Node:
         self.time_syncing = 0
         self.time_converting = 0
         self.global_start_time = global_start_time
+        self.epochs_per_sync = epochs_per_sync
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         train_subset = random.sample(range(len(self.train_X)), num_train_samples)
@@ -73,7 +74,7 @@ class Node:
         training_start = datetime.now()
         for loop in range(5):
             temp_timer = datetime.now()
-            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
             self.time_training += (datetime.now()-temp_timer).total_seconds()
 
             temp_timer = datetime.now()
@@ -105,15 +106,15 @@ class Node:
         return accuracy
 
 
-# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10>
-arg_port, arg_nodes, arg_training_samples, arg_uid = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1>
+arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5])
 
 ports = list(range(arg_port, arg_port+arg_nodes))
 print("Running on ports %s"%ports)
 
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs)
 print("Started all nets, waiting for results")
 
 nodes_results = []
@@ -121,7 +122,7 @@ for p in ports:
     nodes_results.append(resultsQ.get())
 
 print("Finished training")
-filename = "./data/nodes:%s_samples:%s_uid:%s.json"%(arg_nodes,arg_training_samples,arg_uid)
+filename = "./data/nodes:%s_samples:%s_uid:%s_epochs:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps(nodes_results))
