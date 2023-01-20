@@ -23,7 +23,7 @@ from keras.metrics import SparseCategoricalAccuracy
 resultsQ = Queue()
 
 class Node:
-    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1):
+    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1, sync_rate=0.5):
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
@@ -44,7 +44,7 @@ class Node:
         self.model = self.make_model()
 
         backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(flatten_model(self.model), backend)
+        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
         unflatten_model(self.model, self.dist.get_training_params())
 
         start_thread = Thread(target=self.update_loop)
@@ -107,14 +107,15 @@ class Node:
 
 
 # python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1>
-arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5])
+arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs, arg_sync_rate = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5]), float(sys.argv[6])
 
 ports = list(range(arg_port, arg_port+arg_nodes))
 print("Running on ports %s"%ports)
+print("Running with %s nodes, each with %s training samples, and %s epochs per step with sync rate of %s"%(arg_nodes, arg_training_samples, arg_epochs, arg_sync_rate))
 
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs, sync_rate=arg_sync_rate)
 print("Started all nets, waiting for results")
 
 nodes_results = []
@@ -122,7 +123,7 @@ for p in ports:
     nodes_results.append(resultsQ.get())
 
 print("Finished training")
-filename = "./data/nodes:%s_samples:%s_uid:%s_epochs:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs)
+filename = "./data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps(nodes_results))

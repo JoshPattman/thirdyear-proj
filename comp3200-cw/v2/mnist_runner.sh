@@ -1,16 +1,17 @@
 #!/bin/bash
 
-TODO ADD WEIGHTS
 
-
-for numsamples in 60000 30000 10000 5000 1000 100 10
+for numsamples in 60000 30000 10000 1000 100
 do
     for epochs in 1 2 3 4
     do
-        for id in 1 2 3 4 5
+        for id in 1 2 3 4
         do
-            echo -e "\n\n\n================================================== RUNNING WITH ID $id NUMSAMPLES $numsamples EPOCHS $epochs =============="
-            python mnist.py 9000 5 $numsamples $id $epochs
+            for sync in 0.9 0.7 0.5 0.3 0.1
+            do
+                echo -e "\n\n\n================================================== RUNNING WITH ID $id NUMSAMPLES $numsamples EPOCHS $epochs SYNC $sync =============="
+                python mnist.py 9000 5 $numsamples $id $epochs $sync
+            done
         done
     done
 done
