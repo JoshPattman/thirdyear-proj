@@ -73,7 +73,7 @@ class Node:
         accuracies.append(no_train)
         training_start = datetime.now()
         #for loop in range(10):
-        while (datetime.now()-training_start).total_seconds < 250:
+        while (datetime.now()-training_start).total_seconds() < 250:
             temp_timer = datetime.now()
             self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
             self.time_training += (datetime.now()-temp_timer).total_seconds()
