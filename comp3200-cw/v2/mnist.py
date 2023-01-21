@@ -72,7 +72,8 @@ class Node:
         times.append(time_offset)
         accuracies.append(no_train)
         training_start = datetime.now()
-        for loop in range(10):
+        #for loop in range(10):
+        while (datetime.now()-training_start).total_seconds < 250:
             temp_timer = datetime.now()
             self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
             self.time_training += (datetime.now()-temp_timer).total_seconds()
@@ -123,7 +124,7 @@ for p in ports:
     nodes_results.append(resultsQ.get())
 
 print("Finished training")
-filename = "./data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
+filename = "./data_2/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps(nodes_results))
