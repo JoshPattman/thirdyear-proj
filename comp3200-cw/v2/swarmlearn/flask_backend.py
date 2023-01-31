@@ -45,7 +45,6 @@ class FlaskBackend:
         self.logger = logger
         self.expected_length = 0
         self.port = port
-        self.diff_callback = None
         self.param_function = None
         self.neighbors = neighbors
         self.use_gzip = use_gzip
