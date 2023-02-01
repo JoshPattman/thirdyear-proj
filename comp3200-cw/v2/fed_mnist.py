@@ -31,8 +31,18 @@ def make_model():
     model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
     return model
 
+def make_logger(name):
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    ch = logging.StreamHandler()
+    ch.setFormatter(ColoredFormatter())
+    logger.addHandler(ch)
+    return logger
+
 class FedClient:
     def __init__(self, num_train_samples, port, epochs_per_sync=1):
+        self.logger = make_logger("node-%s"%port)
+
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         train_subset = random.sample(range(len(self.train_X)), num_train_samples)
         self.train_X = np.array([self.train_X[s] for s in train_subset])
@@ -49,27 +59,35 @@ class FedClient:
             # return the flattened model
             return flatten_model(model)
 
-        self.client = Client(train_fn, port)
+        self.client = Client(train_fn, port, self.logger)
         self.client.start()
 
 class FedServer:
     def __init__(self, ip, port, nodes_addrs):
+        self.logger = make_logger("node-%s"%port)
+
         self.global_model = make_model()
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
-        self.server = Server(ip, port, nodes_addrs)
+        self.server = Server(ip, port, nodes_addrs, self.logger)
         self.server.start()
-        #Thread(target=self.update_loop, daemon=True).start()
-        self.update_loop()
     
     def update_loop(self):
-        print("Update loop started")
+        times = []
+        accuracies = []
+        times.append(0)
+        accuracies.append(self.evaluate_performance())
+        self.logger.info("Update loop started")
         training_start = datetime.now()
         while (datetime.now()-training_start).total_seconds() < 250:
-            print("Init update loop iteration")
+            self.logger.debug("Init update loop iteration")
             params = self.server.train(flatten_model(self.global_model))
-            print("Finish update loop iteration")
+            self.logger.debug("Finish update loop iteration")
             unflatten_model(self.global_model, params)
-            print(self.evaluate_performance())
+            accuracy = self.evaluate_performance()
+            self.logger.info("ACCURACY: %.4s"%accuracy)
+            times.append((datetime.now()-training_start).total_seconds())
+            accuracies.append(accuracy)
+        return times, accuracies
 
     def evaluate_performance(self):
         preds = self.global_model.predict(self.test_X, verbose=False)
@@ -80,14 +98,25 @@ class FedServer:
         accuracy = 100*num_correct/len(self.test_Y)
         return accuracy
 
-ports = [9011, 9012, 9013, 9014, 9015]
+# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1>
+arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5])
 
-print("Starting clients")
+ports = list(range(arg_port+1, arg_port+arg_nodes+1))
+
+print("Starting clients on ports %s"%ports)
 for p in ports:
-    FedClient(60000, p)
+    FedClient(arg_training_samples, p, epochs_per_sync=arg_epochs)
 print("Clients started")
 time.sleep(3)
 
 print("Starting server")
-FedServer("localhost", 9010, ["http://localhost:%s"%p for p in ports])
+srv = FedServer("localhost", arg_port, ["http://localhost:%s"%p for p in ports])
 print("Server started")
+times, accuracies = srv.update_loop()
+
+print("Finished training")
+filename = "./fed_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, 0)
+print("Saving data log to %s"%filename)
+with open(filename, "w") as f:
+    f.write(json.dumps([(times, accuracies)]))
+sys.exit(0)

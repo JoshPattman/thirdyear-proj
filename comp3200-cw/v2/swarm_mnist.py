@@ -107,7 +107,7 @@ class Node:
         return accuracy
 
 
-# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1>
+# python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1> <sync_rate:0.5>
 arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs, arg_sync_rate = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5]), float(sys.argv[6])
 
 ports = list(range(arg_port, arg_port+arg_nodes))

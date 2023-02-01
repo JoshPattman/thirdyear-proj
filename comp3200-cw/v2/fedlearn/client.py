@@ -10,18 +10,19 @@ from datetime import datetime
 from .shared import *
 
 class Client:
-    def __init__(self, train_function, port, array_json_encode=fast_json_encode_array):
+    def __init__(self, train_function, port, logger, array_json_encode=fast_json_encode_array):
         self.train_function = train_function
         self.app = Flask(__name__)
         self.array_json_encode = array_json_encode
         self.port=port
+        self.logger = logger
 
         silence_flask()
 
         # listening for param requests
         @self.app.route("/train")
         def handler_get_params():
-            print("Client recv params")
+            self.logger.debug("Client recv params")
             # read incoming model params and callback point
             js = request.get_json(force=True)
             params, callback_endpoint, train_id = js["params"], js["callback_endpoint"], js["id"]
@@ -33,14 +34,14 @@ class Client:
                 # data is actually a double encoded json in the response
                 data = self.array_json_encode(params.tolist())
                 requests.get(callback_endpoint, json={"params":data, "id":train_id})
-                print("client send params")
+                self.logger.debug("client send params")
             Thread(target=callback_training, args=(params, callback_endpoint, train_id), daemon=True).start()
-            print("Client done recv params and training start")
+            self.logger.debug("Client done recv params and training start")
             return "ok"
 
     def start(self):
         def start_fn():
             self.app.run(port=self.port)
         Thread(target=start_fn, daemon=True).start()
-        print("Client running on port %s"%self.port)
-        time.sleep(1)
+        self.logger.info("Client running on port %s"%self.port)
+        #time.sleep(1)

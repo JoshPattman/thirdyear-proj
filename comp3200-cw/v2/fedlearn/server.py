@@ -11,8 +11,9 @@ from .shared import *
 
 
 class Server:
-    def __init__(self, ip, port, nodes_addrs, array_json_encode=fast_json_encode_array):
+    def __init__(self, ip, port, nodes_addrs, logger, array_json_encode=fast_json_encode_array):
         self.ip = ip
+        self.logger = logger
         self.port = port
         self.app = Flask(__name__)
         self.array_json_encode = array_json_encode
@@ -51,7 +52,7 @@ class Server:
         send_data = {"params":encoded_params, "callback_endpoint":callback_addr, "id":self.current_id}
         # Send to all neighbors
         for n in self.nodes_addrs:
-            print("Requesting node %s"%n)
+            self.logger.debug("Requesting node %s"%n)
             requests.get(n+"/train", json=send_data)
         
         # Wait for neighbor responses and read them
@@ -60,7 +61,7 @@ class Server:
         all_params = []
         for n in self.nodes_addrs:
             all_params.append(self.recv_params.get())
-
+        self.logger.info("Recv networks from %s nodes"%len(all_params))
         # reset the current id to ignore old nodes
         self.current_id = ""
 
