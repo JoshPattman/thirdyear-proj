@@ -19,6 +19,8 @@ from keras.datasets import mnist
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
 
+import os; os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+
 def make_model():
     inp = Input((28,28))
     out = Reshape((28,28,1))(inp)
