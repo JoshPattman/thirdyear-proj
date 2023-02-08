@@ -23,7 +23,8 @@ from keras.metrics import SparseCategoricalAccuracy
 resultsQ = Queue()
 
 class Node:
-    def __init__(self, port, neighbors, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1, sync_rate=0.5):
+    def __init__(self, port, neighbors, gpu, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1, sync_rate=0.5):
+        self.gpu = gpu
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
@@ -75,7 +76,8 @@ class Node:
         #for loop in range(10):
         while (datetime.now()-training_start).total_seconds() < 250:
             temp_timer = datetime.now()
-            self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
+            with tf.device(self.gpu):
+                self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
             self.time_training += (datetime.now()-temp_timer).total_seconds()
 
             temp_timer = datetime.now()
@@ -90,7 +92,8 @@ class Node:
             unflatten_model(self.model, self.dist.get_training_params())
             self.time_converting += (datetime.now()-temp_timer).total_seconds()
 
-            post = self.evaluate_performance()
+            with tf.device(self.gpu):
+                post = self.evaluate_performance()
             times.append((datetime.now()-training_start).total_seconds()+time_offset)
             accuracies.append(post)
             self.logger.info("ACCURACY (post avg): %.4s | T C S %.4ss %.4ss %.4ss"%(post, self.time_training, self.time_converting, self.time_syncing))
@@ -106,6 +109,14 @@ class Node:
         accuracy = 100*num_correct/len(self.test_Y)
         return accuracy
 
+gpus = [x.name for x in tf.config.list_logical_devices('GPU')]
+g = 0
+print(gpus)
+def next_gpu():
+    global g
+    gpu = gpus[g]
+    g = (1+g)%len(gpus)
+    return gpu
 
 # python mnist.py <port:9000> <nodes:5> <num_train_samples:60000> <uid:10> <epochs:1> <sync_rate:0.5>
 arg_port, arg_nodes, arg_training_samples, arg_uid, arg_epochs, arg_sync_rate = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], int(sys.argv[5]), float(sys.argv[6])
@@ -116,7 +127,7 @@ print("Running with %s nodes, each with %s training samples, and %s epochs per s
 
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs, sync_rate=arg_sync_rate)
+    Node(p, ["localhost:%s"%x for x in ports if x != p], next_gpu(), num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs, sync_rate=arg_sync_rate)
 print("Started all nets, waiting for results")
 
 nodes_results = []
