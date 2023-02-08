@@ -117,7 +117,7 @@ print("Server started")
 times, accuracies = srv.update_loop()
 
 print("Finished training")
-filename = "./fed_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, 0)
+filename = "../data/fed_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, 0)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps([(times, accuracies)]))

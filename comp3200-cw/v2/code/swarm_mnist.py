@@ -135,7 +135,7 @@ for p in ports:
     nodes_results.append(resultsQ.get())
 
 print("Finished training")
-filename = "./swarm_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
+filename = "../data/swarm_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps(nodes_results))
