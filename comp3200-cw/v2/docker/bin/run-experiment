@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Extract image
+docker load -i ./comp3200.tar
+
+# Run container
+# TODO: add this  -u $(id -u):$(id -g)
+# --privileged is needed so we can edit the read only bit of the file system to disable tensorflow crying about numa nodes
+docker run --privileged --gpus all -e PASS="not-used" -p 8888:8888 -it --rm -v /data:/comp3200/data --name jupyter-nb custom-jupyter-notebook
