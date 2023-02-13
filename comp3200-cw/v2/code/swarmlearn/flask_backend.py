@@ -72,14 +72,20 @@ class FlaskBackend:
                 return compressed
             else:
                 return data
+        self.logger.info("Backend ready")
         
     def start(self):
+        self.logger.debug("Backend started")
+
+    def enable_incoming(self):
+        self.logger.debug("Backend enabling")
         def start_fn():
             self.app.run(port=self.port)
-        self.logger.info("Starting server")
+        self.logger.debug("Starting server")
         start_thread = Thread(target=start_fn)
         start_thread.setDaemon(True)
         start_thread.start()
+        self.logger.debug("Backend enabled")
         
     def set_expected_length(self, n):
         self.expected_length = n

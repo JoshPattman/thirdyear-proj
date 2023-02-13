@@ -15,7 +15,7 @@ from flatten_model import flatten_model, unflatten_model
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
 from keras import Model
-from keras.datasets import mnist
+from keras.datasets import fashion_mnist as mnist
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
 
@@ -25,12 +25,9 @@ resultsQ = Queue()
 class Node:
     def __init__(self, port, neighbors, gpu, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1, sync_rate=0.5):
         self.gpu = gpu
-        self.port = port
-        self.epochs_per_sync = epochs_per_sync
-        self.sync_rate = sync_rate
-        self.neighbors = neighbors
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
+        logger.debug("Node starting")
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
         logger.addHandler(ch)
@@ -48,13 +45,10 @@ class Node:
 
         self.model = self.make_model()
 
-        #backend = FlaskBackend(port, neighbors, logger = logger)
-        #self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
-        #unflatten_model(self.model, self.dist.get_training_params())
+        backend = FlaskBackend(port, neighbors, logger = logger)
+        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
 
-        start_thread = Thread(target=self.update_loop)
-        start_thread.setDaemon(True)
-        start_thread.start()
+        logger.debug("Node started")
 
     def make_model(self):
         inp = Input((28,28))
@@ -68,19 +62,27 @@ class Node:
         model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
         return model
 
+    def start_updating(self):
+        self.logger.debug("Node enabling")
+        start_thread = Thread(target=self.update_loop)
+        start_thread.setDaemon(True)
+        start_thread.start()
+        self.logger.debug("Node enabled")
+
     def update_loop(self):
         # Init
-        backend = FlaskBackend(self.port, self.neighbors, logger = self.logger)
-        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=self.sync_rate)
+        self.dist.start()
         unflatten_model(self.model, self.dist.get_training_params())
         # Run updates
         times = []
         accuracies = []
-        no_train = self.evaluate_performance()
+        with tf.device(self.gpu):
+            no_train = self.evaluate_performance()
         self.logger.info("ACCURACY (no training): %s"%no_train)
         time_offset = (datetime.now()-self.global_start_time).total_seconds()
         times.append(0)#time_offset)
         accuracies.append(no_train)
+        time.sleep(5)
         training_start = datetime.now()
         for loop in range(20):
         #while (datetime.now()-training_start).total_seconds() < 250:
@@ -134,10 +136,17 @@ ports = list(range(arg_port, arg_port+arg_nodes))
 print("Running on ports %s"%ports)
 print("Running with %s nodes, each with %s training samples, and %s epochs per step with sync rate of %s"%(arg_nodes, arg_training_samples, arg_epochs, arg_sync_rate))
 
+nodes = []
 start_time = datetime.now()
 for p in ports:
-    Node(p, ["localhost:%s"%x for x in ports if x != p], next_gpu(), num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs, sync_rate=arg_sync_rate)
-print("Started all nets, waiting for results")
+    nodes.append(Node(p, ["localhost:%s"%x for x in ports if x != p], next_gpu(), num_train_samples=arg_training_samples, global_start_time=start_time, epochs_per_sync=arg_epochs, sync_rate=arg_sync_rate))
+print("Starting mother node")
+nodes[0].start_updating()
+time.sleep(5)
+print("Starting child nodes")
+for n in range(1, len(nodes)):
+    nodes[n].start_updating()
+print("Started all nodes, waiting for results")
 
 nodes_results = []
 for p in ports:
