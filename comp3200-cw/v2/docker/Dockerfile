@@ -1,5 +1,7 @@
 FROM custom-jupyter-notebook
 
-COPY ./code /code
+COPY ./code /tf/comp3200/code
 
-CMD "python /code/gpucount.py &> /data/log.txt"
+#ENTRYPOINT "/bin/sh -c"
+CMD "ls ./"
+#CMD "/usr/local/bin/python /tf/comp3200/code/gpucount.py &> /tf/comp3200/data/log.txt"
