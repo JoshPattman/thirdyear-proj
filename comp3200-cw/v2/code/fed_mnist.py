@@ -65,9 +65,10 @@ class FedClient:
         self.client.start()
 
 class FedServer:
-    def __init__(self, ip, port, nodes_addrs):
+    def __init__(self, ip, port, nodes_addrs, epochs_per_sync=1):
         self.logger = make_logger("node-%s"%port)
 
+        self.epochs_per_sync = epochs_per_sync
         self.global_model = make_model()
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
         self.server = Server(ip, port, nodes_addrs, self.logger)
@@ -80,14 +81,15 @@ class FedServer:
         accuracies.append(self.evaluate_performance())
         self.logger.info("Update loop started")
         training_start = datetime.now()
-        while (datetime.now()-training_start).total_seconds() < 250:
+        for loop in range(20):
+        #while (datetime.now()-training_start).total_seconds() < 250:
             self.logger.debug("Init update loop iteration")
             params = self.server.train(flatten_model(self.global_model))
             self.logger.debug("Finish update loop iteration")
             unflatten_model(self.global_model, params)
             accuracy = self.evaluate_performance()
             self.logger.info("ACCURACY: %.4s"%accuracy)
-            times.append((datetime.now()-training_start).total_seconds())
+            times.append((loop+1)*self.epochs_per_sync)#(datetime.now()-training_start).total_seconds())
             accuracies.append(accuracy)
         return times, accuracies
 
@@ -112,7 +114,7 @@ print("Clients started")
 time.sleep(3)
 
 print("Starting server")
-srv = FedServer("localhost", arg_port, ["http://localhost:%s"%p for p in ports])
+srv = FedServer("localhost", arg_port, ["http://localhost:%s"%p for p in ports], epochs_per_sync=arg_epochs)
 print("Server started")
 times, accuracies = srv.update_loop()
 

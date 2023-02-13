@@ -13,7 +13,7 @@ class SwarmDistributor:
         self.backend.register_param_function(self.get_training_params)
 
         if sync_initial_params:
-            neighbor_params = self.backend.query_params()
+            neighbor_params = self.backend.query_params(warn=False)
             # Only bother if we actually got a response
             if len(neighbor_params) > 0:
                 total_neighbor_params = np.zeros_like(self.training_params)

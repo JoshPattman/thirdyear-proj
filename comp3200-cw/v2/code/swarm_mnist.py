@@ -25,6 +25,10 @@ resultsQ = Queue()
 class Node:
     def __init__(self, port, neighbors, gpu, num_train_samples=60000, global_start_time=datetime.now(), epochs_per_sync=1, sync_rate=0.5):
         self.gpu = gpu
+        self.port = port
+        self.epochs_per_sync = epochs_per_sync
+        self.sync_rate = sync_rate
+        self.neighbors = neighbors
         logger = logging.getLogger("node-%s"%port)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
@@ -44,9 +48,9 @@ class Node:
 
         self.model = self.make_model()
 
-        backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
-        unflatten_model(self.model, self.dist.get_training_params())
+        #backend = FlaskBackend(port, neighbors, logger = logger)
+        #self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
+        #unflatten_model(self.model, self.dist.get_training_params())
 
         start_thread = Thread(target=self.update_loop)
         start_thread.setDaemon(True)
@@ -65,16 +69,21 @@ class Node:
         return model
 
     def update_loop(self):
+        # Init
+        backend = FlaskBackend(self.port, self.neighbors, logger = self.logger)
+        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=self.sync_rate)
+        unflatten_model(self.model, self.dist.get_training_params())
+        # Run updates
         times = []
         accuracies = []
         no_train = self.evaluate_performance()
         self.logger.info("ACCURACY (no training): %s"%no_train)
         time_offset = (datetime.now()-self.global_start_time).total_seconds()
-        times.append(time_offset)
+        times.append(0)#time_offset)
         accuracies.append(no_train)
         training_start = datetime.now()
-        #for loop in range(10):
-        while (datetime.now()-training_start).total_seconds() < 250:
+        for loop in range(20):
+        #while (datetime.now()-training_start).total_seconds() < 250:
             temp_timer = datetime.now()
             with tf.device(self.gpu):
                 self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
@@ -94,7 +103,7 @@ class Node:
 
             with tf.device(self.gpu):
                 post = self.evaluate_performance()
-            times.append((datetime.now()-training_start).total_seconds()+time_offset)
+            times.append((loop+1)*self.epochs_per_sync)#(datetime.now()-training_start).total_seconds()+time_offset)
             accuracies.append(post)
             self.logger.info("ACCURACY (post avg): %.4s | T C S %.4ss %.4ss %.4ss"%(post, self.time_training, self.time_converting, self.time_syncing))
 

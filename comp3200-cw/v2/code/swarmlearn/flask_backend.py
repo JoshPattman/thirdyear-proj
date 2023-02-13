@@ -80,7 +80,6 @@ class FlaskBackend:
         start_thread = Thread(target=start_fn)
         start_thread.setDaemon(True)
         start_thread.start()
-        time.sleep(1)
         
     def set_expected_length(self, n):
         self.expected_length = n
@@ -88,7 +87,7 @@ class FlaskBackend:
     def register_param_function(self, f):
         self.param_function = f
 
-    def query_params(self):
+    def query_params(self, warn=False):
         responses = Queue()
         def request_function(addr):
             try:
@@ -104,7 +103,8 @@ class FlaskBackend:
                     raise ValueError("params did not have correct shape")
                 responses.put(params)        
             except Exception as e:
-                self.logger.warning("Failed to get params: %s"%e)
+                if warn:
+                    self.logger.warning("Failed to get params: %s"%e)
                 responses.put(None)
 
         for n in self.neighbors:
