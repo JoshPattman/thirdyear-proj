@@ -15,7 +15,7 @@ from flatten_model import flatten_model, unflatten_model
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
 from keras import Model
-from keras.datasets import mnist
+from keras.datasets import fashion_mnist as mnist
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
 
@@ -66,7 +66,7 @@ class FedClient:
 
 class FedServer:
     def __init__(self, ip, port, nodes_addrs, epochs_per_sync=1):
-        self.logger = make_logger("node-%s"%port)
+        self.logger = make_logger("serv-%s"%port)
 
         self.epochs_per_sync = epochs_per_sync
         self.global_model = make_model()
