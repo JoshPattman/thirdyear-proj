@@ -59,13 +59,14 @@ class FlaskBackend:
             if self.param_function is None:
                 self.logger.error("The param function has not been set")
                 return
-            params = self.param_function()
+            (params, training_counter) = self.param_function()
             if not (params.shape[0] == self.expected_length):
                 self.logger.error("That length of params is not correct")
             if use_fast_arr:
                 data = json_encode_array(params)
             else:
                 data = json.dumps(params.tolist())
+            data = '{"params":%s,"training_counter":%s}'%(data, training_counter)
 
             if self.use_gzip:
                 compressed = gzip.compress(data.encode('utf8'), 9)
@@ -101,13 +102,16 @@ class FlaskBackend:
                 if self.use_gzip:
                     decompressed = gzip.decompress(response.content)
                     decoded = decompressed.decode('utf-8')
-                    listed = json.loads(decoded)
-                    params = np.array(listed)
+                    js = json.loads(decoded)
+                    params = np.array(js['params'])
+                    training_counter = js['training_counter']
                 else:
-                    params = np.array(response.json())
+                    js = json.loads(decoded)
+                    params = np.array(js['params'])
+                    training_counter = js['training_counter']
                 if not (params.shape[0] == self.expected_length):
                     raise ValueError("params did not have correct shape")
-                responses.put(params)        
+                responses.put((params, training_counter))        
             except Exception as e:
                 if warn:
                     self.logger.warning("Failed to get params: %s"%e)
@@ -122,9 +126,12 @@ class FlaskBackend:
             time.sleep(0.1)
 
         all_params = []
+        all_training_counters = []
         for n in self.neighbors:
-            params = responses.get()
-            if not (params is None): 
+            resp = responses.get()
+            if not (resp is None):
+                (params, tc) = resp
                 all_params.append(params)
-        return all_params
+                all_training_counters.append(tc)
+        return (all_params, all_training_counters)
         
