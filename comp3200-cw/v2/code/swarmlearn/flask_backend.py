@@ -94,7 +94,8 @@ class FlaskBackend:
     def register_param_function(self, f):
         self.param_function = f
 
-    def query_params(self, warn=False):
+    def query_params(self, warn=True):
+        #self.logger.warn("requesting from %s"%len(self.neighbors))
         responses = Queue()
         def request_function(addr):
             try:
@@ -106,12 +107,13 @@ class FlaskBackend:
                     params = np.array(js['params'])
                     training_counter = js['training_counter']
                 else:
-                    js = json.loads(decoded)
+                    js = json.loads(response.content)
                     params = np.array(js['params'])
                     training_counter = js['training_counter']
                 if not (params.shape[0] == self.expected_length):
                     raise ValueError("params did not have correct shape")
-                responses.put((params, training_counter))        
+                responses.put((params, training_counter))
+                #self.logger.warn("response")
             except Exception as e:
                 if warn:
                     self.logger.warning("Failed to get params: %s"%e)
