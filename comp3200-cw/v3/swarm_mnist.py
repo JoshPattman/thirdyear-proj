@@ -17,7 +17,7 @@ data_q = Queue()
 
 class Node:
     def __init__(self,num_train_samples=60000, sync_rate=0.6):
-        self.model = make_model()#make_clone_model()
+        self.model = make_clone_model()
         backend = LocalBackend()
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
 
@@ -30,7 +30,7 @@ class Node:
 
         self.sync_rate = sync_rate
 
-        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=6000)
+        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples)
         Thread(target=self.update_loop, daemon=True).start()
     
     def update_loop(self):
