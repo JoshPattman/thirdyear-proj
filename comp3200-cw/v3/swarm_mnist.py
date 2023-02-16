@@ -1,49 +1,23 @@
-import time
 import numpy as np
 import logging
 from colored_log_formatter import ColoredFormatter
 from threading import Thread
 import random
-from datetime import datetime
 from queue import Queue
-import sys, json
+import sys, json, time
 
 from flatten_model import flatten_model, unflatten_model
 from swarm.swarm_dist import SwarmDist, get_random_string
 from swarm.local_backend import LocalBackend
+from model import make_clone_model, get_xy, make_model
 
-import tensorflow as tf
-from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
-from keras import Model
-from keras.models import clone_model
 from keras.datasets import fashion_mnist as mnist
-from keras.losses import SparseCategoricalCrossentropy
-from keras.metrics import SparseCategoricalAccuracy
-import keras
-
-def make_model():
-    inp = Input((28,28))
-    out = Reshape((28,28,1))(inp)
-    out = Conv2D(16, (3,3), activation="relu")(out)
-    out = Conv2D(16, (3,3), activation="relu")(out)
-    out = Flatten()(out)
-    out = Dense(128, activation="relu")(out)
-    out = Dense(10, activation="sigmoid")(out)
-    model = Model(inputs=inp, outputs=out)
-    return model
-
-global_start_model = make_model()
-
-def make_clone_model():
-    m = clone_model(global_start_model)
-    m.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
-    return m
 
 data_q = Queue()
 
 class Node:
     def __init__(self,num_train_samples=60000, sync_rate=0.6):
-        self.model = make_clone_model()
+        self.model = make_model()#make_clone_model()
         backend = LocalBackend()
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
 
@@ -56,12 +30,7 @@ class Node:
 
         self.sync_rate = sync_rate
 
-        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = mnist.load_data()
-        train_subset = random.sample(range(len(self.train_X)), num_train_samples)
-        self.train_X = np.array([self.train_X[s] for s in train_subset])/255
-        self.train_Y = np.array([self.train_Y[s] for s in train_subset])
-        self.test_X = self.test_X/255
-
+        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=6000)
         Thread(target=self.update_loop, daemon=True).start()
     
     def update_loop(self):
@@ -94,6 +63,7 @@ sync_rate = 0.6
 
 for i in range(node_count):
     Node(num_train_samples=int(60000/node_count),sync_rate=sync_rate)
+    time.sleep(2)
 
 results = []
 for i in range(node_count):
@@ -103,7 +73,7 @@ fn = "./data/"+get_random_string(10)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid":"swarm_ic",
+        "exid":"swarm_ic_stag",
         "node_count":node_count,
         "sync_rate":sync_rate,
     }))
