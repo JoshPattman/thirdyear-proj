@@ -38,7 +38,7 @@ class SwarmDistributor:
     def sync(self, use_training_counter=False):
         if not use_training_counter:
             (neighbor_params, neighbor_training_counters) = self.backend.query_params()
-            if len(neighbor_params) > 0:
+            if len(neighbor_params) >= 1:
                 with self.training_params_lock:
                     avg_neighbor_params = np.mean(np.array(neighbor_params), axis=0)
                     self.training_params = ((1-self.neighbor_full_sync_weight)*self.training_params) + (self.neighbor_full_sync_weight*avg_neighbor_params)
@@ -47,10 +47,13 @@ class SwarmDistributor:
             while True:
                 (neighbor_params, neighbor_training_counters) = self.backend.query_params()
                 useful_neighbor_params, useful_neighbor_training_counters = [], []
-                for n in range(len(neighbor_params)):
+                useful_neighbor_params = neighbor_params
+                """for n in range(len(neighbor_params)):
                     if neighbor_training_counters[n] >= self.training_counter:
                         useful_neighbor_params.append(neighbor_params[n])
                         useful_neighbor_training_counters.append(neighbor_training_counters[n])
+                    else:
+                        self.logger.warn("Cant use cause tc=%s"%neighbor_training_counters[n])"""
                 if len(useful_neighbor_params) >= 1:
                     with self.training_params_lock:
                         avg_neighbor_params = np.mean(np.array(useful_neighbor_params), axis=0)
