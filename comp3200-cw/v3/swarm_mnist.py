@@ -9,8 +9,8 @@ from queue import Queue
 import sys, json
 
 from flatten_model import flatten_model, unflatten_model
-from swarm_dist import SwarmDist, get_random_string
-from local_backend import LocalBackend
+from swarm.swarm_dist import SwarmDist, get_random_string
+from swarm.local_backend import LocalBackend
 
 import tensorflow as tf
 from keras.layers import Dense, Input, Flatten, Conv2D, Reshape
