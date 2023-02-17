@@ -70,11 +70,20 @@ class SwarmDist:
                 # Average their params and also their tcs
                 neighbor_params = [x['params'] for x in neighbor_states]
                 neighbor_tcs = [x['tc'] for x in neighbor_states]
-                avg_neighbor_params = np.mean(neighbor_params, axis=0)
-                avg_neighboar_tc = np.mean(neighbor_tcs)
-                with self.local_update_lock:
-                    self.local_params = (1-sync_rate)*self.local_params + sync_rate*avg_neighbor_params
-                    self.training_counter = (1-sync_rate)*self.training_counter + sync_rate*avg_neighboar_tc
+                if sync_rate == 0:
+                    with self.local_update_lock:
+                        neighbor_params.append(np.copy(self.local_params))
+                        neighbor_tcs.append(self.training_counter)
+                        avg_neighbor_params = np.mean(neighbor_params, axis=0)
+                        avg_neighboar_tc = np.mean(neighbor_tcs)
+                        self.local_params = avg_neighbor_params
+                        self.training_counter = avg_neighboar_tc
+                else:
+                    avg_neighbor_params = np.mean(neighbor_params, axis=0)
+                    avg_neighboar_tc = np.mean(neighbor_tcs)
+                    with self.local_update_lock:
+                        self.local_params = (1-sync_rate)*self.local_params + sync_rate*avg_neighbor_params
+                        self.training_counter = (1-sync_rate)*self.training_counter + sync_rate*avg_neighboar_tc
                 return
             # Repeat if we did not have enough neighbors
             time.sleep(1)

@@ -76,7 +76,7 @@ fn = "./data/"+get_random_string(10)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid":"swarm_ic",
+        "exid":"swarm_ic_avg",
         "node_count":node_count,
         "sync_rate":sync_rate,
         "stagger":startup_delay,
