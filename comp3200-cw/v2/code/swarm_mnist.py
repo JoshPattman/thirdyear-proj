@@ -46,7 +46,7 @@ class Node:
         self.model = self.make_model()
 
         backend = FlaskBackend(port, neighbors, logger = logger)
-        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate)
+        self.dist = SwarmDistributor(flatten_model(self.model), backend, neighbor_full_sync_weight=sync_rate, logger=self.logger)
 
         logger.debug("Node started")
 
@@ -86,6 +86,7 @@ class Node:
         training_start = datetime.now()
         for loop in range(20):
         #while (datetime.now()-training_start).total_seconds() < 250:
+            self.logger.debug("Starting training")
             temp_timer = datetime.now()
             with tf.device(self.gpu):
                 self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_sync, verbose=False)
@@ -95,8 +96,9 @@ class Node:
             self.dist.update_params(flatten_model(self.model))
             self.time_converting += (datetime.now()-temp_timer).total_seconds()
 
+            self.logger.debug("Starting syncing")
             temp_timer = datetime.now()
-            self.dist.sync()
+            self.dist.sync()#use_training_counter=True)
             self.time_syncing += (datetime.now()-temp_timer).total_seconds()
 
             temp_timer = datetime.now()
@@ -153,7 +155,7 @@ for p in ports:
     nodes_results.append(resultsQ.get())
 
 print("Finished training")
-filename = "../data/swarm_accuracy_data/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
+filename = "../data/swarm_accuracy_data_tc/nodes:%s_samples:%s_uid:%s_epochs:%s_sync:%s.json"%(arg_nodes,arg_training_samples,arg_uid, arg_epochs, arg_sync_rate)
 print("Saving data log to %s"%filename)
 with open(filename, "w") as f:
     f.write(json.dumps(nodes_results))

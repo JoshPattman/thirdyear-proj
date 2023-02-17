@@ -20,13 +20,13 @@ echo "8/20"
 #python swarm_mnist.py 9000 10 6000 4 1 0.4
 
 echo "9/20"
-#python swarm_mnist.py 9000 10 6000 1 1 0.6
+python swarm_mnist.py 9000 10 6000 1 1 0.6
 echo "10/20"
-#python swarm_mnist.py 9000 10 6000 2 1 0.6
+python swarm_mnist.py 9000 10 6000 2 1 0.6
 echo "11/20"
-#python swarm_mnist.py 9000 10 6000 3 1 0.6
+python swarm_mnist.py 9000 10 6000 3 1 0.6
 echo "12/20"
-#python swarm_mnist.py 9000 10 6000 4 1 0.6
+python swarm_mnist.py 9000 10 6000 4 1 0.6
 
 echo "13/20"
 #python swarm_mnist.py 9000 10 6000 1 1 0.8
@@ -39,11 +39,11 @@ echo "16/20"
 
 # Fed
 echo "17/20"
-python fed_mnist.py 9000 10 6000 1 1
+#python fed_mnist.py 9000 10 6000 1 1
 echo "18/20"
-python fed_mnist.py 9000 10 6000 2 1
+#python fed_mnist.py 9000 10 6000 2 1
 echo "19/20"
-python fed_mnist.py 9000 10 6000 3 1
+#python fed_mnist.py 9000 10 6000 3 1
 echo "20/20"
-python fed_mnist.py 9000 10 6000 4 1
+#python fed_mnist.py 9000 10 6000 4 1
 echo "done"
