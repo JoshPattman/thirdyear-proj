@@ -66,7 +66,7 @@ class SwarmDist:
                     if ns['tc'] >= self.training_counter:
                         neighbor_states.append(ns.copy())
             # Ensure we have enough neighbors to do more training
-            if len(neighbor_states) >= min_neighbors:
+            if len(neighbor_states) > min_neighbors:
                 # Average their params and also their tcs
                 neighbor_params = [x['params'] for x in neighbor_states]
                 neighbor_tcs = [x['tc'] for x in neighbor_states]
