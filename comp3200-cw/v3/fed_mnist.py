@@ -76,7 +76,7 @@ def get_random_string(length):
     result_str = ''.join(random.choice(letters) for i in range(length))
     return result_str
     
-node_count = 10
+node_count = int(sys.argv[1])#10
 
 for i in range(10):
     FedClient()
@@ -90,4 +90,5 @@ with open(fn, "w") as f:
         "exid":"fed",
         "node_count":node_count,
         "sync_rate":0,
+        "stagger":0,
     }))

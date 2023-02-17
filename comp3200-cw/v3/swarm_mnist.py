@@ -58,12 +58,15 @@ class Node:
         accuracy = 100*num_correct/self.test_Y.shape[0]
         return accuracy
 
-node_count = 10
-sync_rate = 0.6
+node_count = int(sys.argv[1])#10
+sync_rate = float(sys.argv[2])#0.6
+startup_delay = float(sys.argv[3])#2
+
+print("Running with nodes %s sync %s startup %s"%(node_count, sync_rate, startup_delay))
 
 for i in range(node_count):
     Node(num_train_samples=int(60000/node_count),sync_rate=sync_rate)
-    time.sleep(2)
+    time.sleep(startup_delay)
 
 results = []
 for i in range(node_count):
@@ -73,7 +76,8 @@ fn = "./data/"+get_random_string(10)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid":"swarm_ic_stag",
+        "exid":"swarm_ic",
         "node_count":node_count,
         "sync_rate":sync_rate,
+        "stagger":startup_delay,
     }))
