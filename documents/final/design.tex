@@ -48,17 +48,26 @@ The training offset $\beta$ is the amount the training counter of a neighbour ca
 An issue with training counter filtering pertains to the presence of runaway nodes. These nodes possess a substantially higher training counter relative to all other nodes in the network, meaning that when filtering is applied, they are left with no neighbours to utilise in the combination step. Consequently, these nodes start to overfit on their own training data, as their model is only exposed to this data, thereby leading to decreased overall performance, as well as potential performance reductions in the rest of the network. To address this problem in the proposed swarm learning algorithm, each node must wait until it has obtained at least $\gamma$ viable neighbours prior to performing the combination step. Although this measure prevents individual nodes from becoming runaway nodes, groups of size $\gamma$ still have the potential to become runaway as a unit. Nevertheless, if $\gamma$ is roughly equivalent to the number of neighbours and all neighbours train at a comparable rate, the issue is minimised.
 
 \section{Sparse Network Behaviour}
+Given the sparsely connected nature of distributed scenarios, it is often the case that nodes only have direct connections to a small subset of their neighbours. To address this issue, this paper proposes several solutions.
 
-\subsection{Sparse Convergence}
-\begin{itemize}
-	\item Do nothing, nodes will eventually converge
-	\item If too sparse, will not converge
-	\item Requires no extra data transmission
-\end{itemize}
+\subsection{Passive Convergence}
+An approach to deal with a sparsely connected network is to use the swarm learning algorithm without any modifications. This approach is effective due to the use of averaging as a combination method. When a node tries to update the global model, its changes will propagate through the network slowly, over many training iterations, even to nodes that are not directly connected. This approach has the advantage of requiring no extra data transmission, resulting in significantly less data traffic compared to other methods.
 
-\subsection{Sparse Relay}
+However, this method also has certain drawbacks. Consider a scenario where the network is comprised of several sparsely connected groups of nodes, where each node in a group is densely connected to other nodes within that group. In this case, it is possible that each group may learn a distinct solution to the problem. This is inefficient because instead of functioning as a cohesive network, there are multiple smaller networks training on the same problem with less data, potentially leading to divergence between groups and resulting in a decrease in overall performance.
+
+
+\subsection{Active Relay}
+The second proposed approach to address the sparsely connected networks is to relay any received model updates, which means that as long as each node has at least one path to reach all other nodes, the network will behave as a dense network. This approach offers theoretical immunity to changes in network topology, but in practice, the network's performance may still decrease compared to a truly dense network due to slower communication times between non-connected nodes. It is also vital that a model update is only kept and relayed if it has a higher training counter than the cached update that the local node already stores. If this rule is not followed, infinite loops can occur in the network, where a model update is repeatedly sent to the same nodes.
+
+The main disadvantage of this approach is the drastic increase in network traffic, which in turn will lead to longer model transfer times. If the swarm learning algorithm is applied to a low power network, such as an IoT network, the increase in network traffic may not be feasible at all.
+
+\subsection{Partial Active Relay}
+A third method proposed to address sparsely connected networks is partial active relay, which strikes a balance between the previous two methods. This approach works similarly to active relay, but introduces a parameter $\delta$. Upon receiving a model update, a node decides whether to relay the update, with the probability of relaying being $\delta$. This parameter allows for customisation of the algorithm to prioritise network traffic or convergence speed, without committing exclusively to either option.
+
+Partial active relay must used with training counter filtering.
 \begin{itemize}
-	\item When recv a model update, check if it is newer than what we already have and is not from us, if it is, ping it to all neighbours
-	\item The whole network acts as if it is dense
-	\item Requires extra transmission
+	\item Only relay $\delta$ percent of updates
+	\item Decreases network traffic
+	\item Still allows some far reaching updates
+	\item Should only be used with tc filtering otherwise long distance nodes will be using old models
 \end{itemize}
