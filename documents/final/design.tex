@@ -64,10 +64,4 @@ The main disadvantage of this approach is the drastic increase in network traffi
 \subsection{Partial Active Relay}
 A third method proposed to address sparsely connected networks is partial active relay, which strikes a balance between the previous two methods. This approach works similarly to active relay, but introduces a parameter $\delta$. Upon receiving a model update, a node decides whether to relay the update, with the probability of relaying being $\delta$. This parameter allows for customisation of the algorithm to prioritise network traffic or convergence speed, without committing exclusively to either option.
 
-Partial active relay must used with training counter filtering.
-\begin{itemize}
-	\item Only relay $\delta$ percent of updates
-	\item Decreases network traffic
-	\item Still allows some far reaching updates
-	\item Should only be used with tc filtering otherwise long distance nodes will be using old models
-\end{itemize}
+When using Partial Active Relay, it is necessary to incorporate training counter filtering. Unlike Active Relay or Passive Convergence, where a node always receives the most recent model update from its neighbours, Partial Active Relay introduces a chance that a model update may not be relayed to distant non-neighbouring nodes, even if an older model update was. As a result, the receiving node may combine an outdated model with its local model, causing slower training. However, training counter filtering ensures that old model updates are ignored, preventing this issue.
