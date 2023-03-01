@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{listings}
 \author{Josh Pattman}
 
 \newcommand{\checkme}{\textcolor{red}{\textbf{\emph{VALIDATE THIS STATEMENT}}}}
@@ -14,19 +15,23 @@
 
 \begin{document}
 	\maketitle
+	\tableofcontents
 	\chapter{Problem and Goals}
 	\chapter{Literature Review}
 	\chapter{Project Management}
 	\chapter{Analysis and Specification of the Solution to the Problem}
 	\chapter{Detailed Design}
 	\include{design}
+	
 	\chapter{Implementation}
 	\include{implementation}
 	
 	\chapter{Testing Strategy and Results}
 	\include{results}
+	
 	\chapter{Critical Evaluation}
 	\chapter{Conclusion and Future Work}
 	\chapter{References}
 	\chapter{Appendices}
+	\include{appendix}
 \end{document}

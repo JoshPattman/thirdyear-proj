@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  28 FEB 2023 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  1 MAR 2023 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -142,42 +142,68 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count272
+\lst@gtempboxa=\box52
+\lst@token=\toks24
+\lst@length=\count273
+\lst@currlwidth=\dimen150
+\lst@column=\count274
+\lst@pos=\count275
+\lst@lostspace=\dimen151
+\lst@width=\dimen152
+\lst@newlines=\count276
+\lst@lineno=\count277
+\lst@maxwidth=\dimen153
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count278
+\lst@skipnumbers=\count279
+\lst@framebox=\box53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count272
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count280
+\l__pdf_internal_box=\box54
 )
-(./final.aux (./design.aux) (./implementation.aux) (./results.aux))
+(./final.aux (./design.aux) (./implementation.aux) (./results.aux)
+(./appendix.aux))
 \openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen150
-\scratchbox=\box53
-\nofMPsegments=\count274
-\nofMParguments=\count275
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen151
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count281
+\scratchdimen=\dimen154
+\scratchbox=\box55
+\nofMPsegments=\count282
+\nofMParguments=\count283
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count284
+\MPscratchDim=\dimen155
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
+\everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -187,109 +213,133 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+\c@lstlisting=\count287
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./final.toc [1
+
+])
+\tf@toc=\write3
+\openout3 = `final.toc'.
+
+ [2]
 Chapter 1.
-[1
-
-]
-Chapter 2.
-[2
-
-]
-Chapter 3.
 [3
 
 ]
-Chapter 4.
+Chapter 2.
 [4
 
 ]
-Chapter 5.
+Chapter 3.
 [5
+
+]
+Chapter 4.
+[6
+
+]
+Chapter 5.
+[7
 
 ]
 \openout2 = `design.aux'.
 
- (./design.tex [6
+ (./design.tex [8
 
-] [7] [8] [9]) [10]
+] [9] [10] [11]) [12]
 Chapter 6.
-[11
+[13
 
 
 
 ]
 \openout2 = `implementation.aux'.
 
- (./implementation.tex) [12
+ (./implementation.tex [14
 
-]
+]) [15]
 Chapter 7.
-[13
+[16
 
 
 
 ]
 \openout2 = `results.aux'.
 
- (./results.tex)
-Chapter 8.
-[14
+ (./results.tex) [17
 
+]
+Chapter 8.
+[18
 
 
 
 ]
 Chapter 9.
-[15
+[19
 
 ]
 Chapter 10.
-[16
+[20
 
 ]
 Chapter 11.
-[17
+[21
 
-] (./final.aux (./design.aux) (./implementation.aux) (./results.aux)) ) 
+]
+\openout2 = `appendix.aux'.
+
+ (./appendix.tex
+Appendix A.
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Overfull \hbox (371.2207pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [22
+
+
+] (./final.aux (./design.aux) (./implementation.aux) (./results.aux)
+(./appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 3369 strings out of 478287
- 47559 string characters out of 5849288
- 340340 words of memory out of 5000000
- 21524 multiletter control sequences out of 15000+600000
+ 5203 strings out of 478287
+ 72068 string characters out of 5849288
+ 556479 words of memory out of 5000000
+ 23333 multiletter control sequences out of 15000+600000
  486015 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,62p,1071b,202s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/sh
-are/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfrm2074.pfb>
-Output written on final.pdf (18 pages, 186211 bytes).
+ 55i,6n,62p,1071b,1220s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
+/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1200
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfrm2074.pfb>
+Output written on final.pdf (23 pages, 214774 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

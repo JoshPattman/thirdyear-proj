@@ -1,0 +1,40 @@
+\contentsline {chapter}{\numberline {1}Problem and Goals}{3}{}%
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{}%
+\contentsline {chapter}{\numberline {3}Project Management}{5}{}%
+\contentsline {chapter}{\numberline {4}Analysis and Specification of the Solution to the Problem}{6}{}%
+\contentsline {chapter}{\numberline {5}Detailed Design}{7}{}%
+\contentsline {section}{\numberline {5.1}Node}{8}{}%
+\contentsline {section}{\numberline {5.2}No Blockchain}{8}{}%
+\contentsline {section}{\numberline {5.3}Training Counter}{9}{}%
+\contentsline {section}{\numberline {5.4}Model Combination Methods}{9}{}%
+\contentsline {subsection}{\numberline {5.4.1}Averaging}{9}{}%
+\contentsline {subsection}{\numberline {5.4.2}Averaging With Learning Rate}{10}{}%
+\contentsline {subsection}{\numberline {5.4.3}Filtering By Training Counter}{10}{}%
+\contentsline {section}{\numberline {5.5}Sparse Network Behaviour}{11}{}%
+\contentsline {subsection}{\numberline {5.5.1}Passive Convergence}{11}{}%
+\contentsline {subsection}{\numberline {5.5.2}Active Relay}{11}{}%
+\contentsline {subsection}{\numberline {5.5.3}Partial Active Relay}{12}{}%
+\contentsline {chapter}{\numberline {6}Implementation}{13}{}%
+\contentsline {section}{\numberline {6.1}Dataset and Machine Learning Model}{14}{}%
+\contentsline {subsection}{\numberline {6.1.1}Dataset}{14}{}%
+\contentsline {subsection}{\numberline {6.1.2}Model}{14}{}%
+\contentsline {section}{\numberline {6.2}Federated Learning}{14}{}%
+\contentsline {subsection}{\numberline {6.2.1}Algorithm}{15}{}%
+\contentsline {subsection}{\numberline {6.2.2}Back-end Distributor}{15}{}%
+\contentsline {subsection}{\numberline {6.2.3}Evaluation}{15}{}%
+\contentsline {section}{\numberline {6.3}Prototype}{15}{}%
+\contentsline {subsection}{\numberline {6.3.1}Algorithm}{15}{}%
+\contentsline {subsection}{\numberline {6.3.2}Back-end Distributor}{15}{}%
+\contentsline {subsection}{\numberline {6.3.3}Evaluation}{15}{}%
+\contentsline {section}{\numberline {6.4}Final}{15}{}%
+\contentsline {subsection}{\numberline {6.4.1}Algorithm}{15}{}%
+\contentsline {subsection}{\numberline {6.4.2}Back-end Distributor}{15}{}%
+\contentsline {subsection}{\numberline {6.4.3}Evaluation}{15}{}%
+\contentsline {chapter}{\numberline {7}Testing Strategy and Results}{16}{}%
+\contentsline {section}{\numberline {7.1}Methods}{17}{}%
+\contentsline {section}{\numberline {7.2}Experiments}{17}{}%
+\contentsline {chapter}{\numberline {8}Critical Evaluation}{18}{}%
+\contentsline {chapter}{\numberline {9}Conclusion and Future Work}{19}{}%
+\contentsline {chapter}{\numberline {10}References}{20}{}%
+\contentsline {chapter}{\numberline {11}Appendices}{21}{}%
+\contentsline {chapter}{\numberline {A}Machine Learning Model}{22}{}%
