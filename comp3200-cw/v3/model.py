@@ -37,3 +37,12 @@ def get_xy(num_train_samples=60000):
     train_Y = np.array([full_train_Y[s] for s in train_subset])
     test_X = np.copy(full_test_X)/255
     return (train_X, train_Y), (test_X, np.copy(full_test_Y))
+
+def evaluate_performance(model):
+    preds = model.predict(full_test_X, verbose=False)
+    num_correct = 0
+    for i in range(len(full_test_Y)):
+        if np.argmax(preds[i]) == full_test_Y[i]:
+            num_correct += 1
+    accuracy = 100*num_correct/full_test_Y.shape[0]
+    return accuracy

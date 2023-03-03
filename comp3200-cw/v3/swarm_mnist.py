@@ -9,14 +9,14 @@ import sys, json, time
 from flatten_model import flatten_model, unflatten_model
 from swarm.swarm_dist import SwarmDist, get_random_string
 from swarm.local_backend import LocalBackend
-from model import make_clone_model, get_xy, make_model
+from model import make_clone_model, get_xy, evaluate_performance
 
 from keras.datasets import fashion_mnist as mnist
 
 data_q = Queue()
 
 class Node:
-    def __init__(self,num_train_samples=60000, sync_rate=0.6, tc_beta=99999999):
+    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8):
         self.model = make_clone_model()
         backend = LocalBackend()
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
@@ -28,8 +28,9 @@ class Node:
         logger.addHandler(ch)
         self.logger = logger
 
-        self.sync_rate = sync_rate
-        self.tc_beta = tc_beta
+        self.alpha = alpha
+        self.beta = beta
+        self.gamma = gamma
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples)
         Thread(target=self.update_loop, daemon=True).start()
@@ -41,10 +42,10 @@ class Node:
         for i in range(20):
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
             self.dist.update_local_params(flatten_model(self.model))
-            self.dist.sync(sync_rate=self.sync_rate, beta=self.tc_beta)
+            self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
             state = self.dist.get_state()
             unflatten_model(self.model, state[0])
-            perf = self.evaluate_performance()
+            perf = self.evaluate_performance()#self.model)
             accuracies.append(perf)
             epochs.append(i+1)
             self.logger.info("accuracy (loop %s, tc %s) - %s"%(i+1, state[1], perf))
@@ -60,15 +61,19 @@ class Node:
         return accuracy
 
 node_count = int(sys.argv[1])
-sync_rate = float(sys.argv[2])
-startup_delay = float(sys.argv[3])
-exid = sys.argv[4]
-tc_beta = float(sys.argv[5])
+startup_delay = float(sys.argv[2])
+num_samples = int(sys.argv[3])
 
-print("Running with nodes %s sync %s startup %s experiment %s beta %s"%(node_count, sync_rate, startup_delay, exid, tc_beta))
+alpha = float(sys.argv[4])
+beta = float(sys.argv[5])
+gamma = float(sys.argv[6])
+
+exid = sys.argv[7]
+
+print(f"Running experiment {exid} with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}")
 
 for i in range(node_count):
-    Node(num_train_samples=int(60000/node_count),sync_rate=sync_rate,tc_beta=tc_beta)
+    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma)
     time.sleep(startup_delay)
 
 results = []
@@ -80,7 +85,4 @@ with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
         "exid": exid,
-        "node_count":node_count,
-        "sync_rate":sync_rate,
-        "stagger":startup_delay,
     }))

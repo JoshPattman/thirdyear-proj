@@ -56,7 +56,8 @@ class SwarmDist:
             tccopy = self.training_counter
         self.backend.distribute_state(self.node_id, np.copy(params), tccopy)
 
-    def sync(self, min_neighbors=8, sync_rate=0.6, max_attempts=10, beta=99999999):
+    def sync(self, alpha=0.6, beta=99999999, gamma=8, use_ASR=True, max_attempts=10):
+        # Only repeat a certain number of times to prevent infinite loops
         for i in range(max_attempts):
             neighbor_states = []
             # Find all neighbor states who are synced up with us
@@ -66,11 +67,11 @@ class SwarmDist:
                     if ns['tc'] + beta >= self.training_counter:
                         neighbor_states.append(ns.copy())
             # Ensure we have enough neighbors to do more training
-            if len(neighbor_states) > min_neighbors:
+            if len(neighbor_states) > gamma:
                 # Average their params and also their tcs
                 neighbor_params = [x['params'] for x in neighbor_states]
                 neighbor_tcs = [x['tc'] for x in neighbor_states]
-                if sync_rate == 0:
+                if not use_ASR:
                     with self.local_update_lock:
                         neighbor_params.append(np.copy(self.local_params))
                         neighbor_tcs.append(self.training_counter)
@@ -82,8 +83,8 @@ class SwarmDist:
                     avg_neighbor_params = np.mean(neighbor_params, axis=0)
                     avg_neighboar_tc = np.mean(neighbor_tcs)
                     with self.local_update_lock:
-                        self.local_params = (1-sync_rate)*self.local_params + sync_rate*avg_neighbor_params
-                        self.training_counter = (1-sync_rate)*self.training_counter + sync_rate*avg_neighboar_tc
+                        self.local_params = (1-alpha)*self.local_params + alpha*avg_neighbor_params
+                        self.training_counter = (1-alpha)*self.training_counter + alpha*avg_neighboar_tc
                 return
             # Repeat if we did not have enough neighbors
             time.sleep(1)

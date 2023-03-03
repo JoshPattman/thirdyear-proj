@@ -1,37 +1,10 @@
 #!/bin/bash
 
-python3 swarm_mnist.py 10 0 0 ex1_swarm_avg 0
-python3 swarm_mnist.py 10 0 0 ex1_swarm_avg 0
-python3 swarm_mnist.py 10 0 0 ex1_swarm_avg 0
-python3 swarm_mnist.py 10 0 0 ex1_swarm_avg 0
-python3 swarm_mnist.py 10 0 0 ex1_swarm_avg 0
-
-python3 swarm_mnist.py 10 0.3 0 ex1_swarm_asr_0.3 0
-python3 swarm_mnist.py 10 0.3 0 ex1_swarm_asr_0.3 0
-python3 swarm_mnist.py 10 0.3 0 ex1_swarm_asr_0.3 0
-python3 swarm_mnist.py 10 0.3 0 ex1_swarm_asr_0.3 0
-python3 swarm_mnist.py 10 0.3 0 ex1_swarm_asr_0.3 0
-
-python3 swarm_mnist.py 10 0.5 0 ex1_swarm_asr_0.5 0
-python3 swarm_mnist.py 10 0.5 0 ex1_swarm_asr_0.5 0
-python3 swarm_mnist.py 10 0.5 0 ex1_swarm_asr_0.5 0
-python3 swarm_mnist.py 10 0.5 0 ex1_swarm_asr_0.5 0
-python3 swarm_mnist.py 10 0.5 0 ex1_swarm_asr_0.5 0
-
-python3 swarm_mnist.py 10 0.7 0 ex1_swarm_asr_0.7 0
-python3 swarm_mnist.py 10 0.7 0 ex1_swarm_asr_0.7 0
-python3 swarm_mnist.py 10 0.7 0 ex1_swarm_asr_0.7 0
-python3 swarm_mnist.py 10 0.7 0 ex1_swarm_asr_0.7 0
-python3 swarm_mnist.py 10 0.7 0 ex1_swarm_asr_0.7 0
-
-python3 swarm_mnist.py 10 0.9 0 ex1_swarm_asr_0.9 0
-python3 swarm_mnist.py 10 0.9 0 ex1_swarm_asr_0.9 0
-python3 swarm_mnist.py 10 0.9 0 ex1_swarm_asr_0.9 0
-python3 swarm_mnist.py 10 0.9 0 ex1_swarm_asr_0.9 0
-python3 swarm_mnist.py 10 0.9 0 ex1_swarm_asr_0.9 0
-
-python3 swarm_mnist.py 10 1 0 ex1_swarm_asr_1 0
-python3 swarm_mnist.py 10 1 0 ex1_swarm_asr_1 0
-python3 swarm_mnist.py 10 1 0 ex1_swarm_asr_1 0
-python3 swarm_mnist.py 10 1 0 ex1_swarm_asr_1 0
-python3 swarm_mnist.py 10 1 0 ex1_swarm_asr_1 0
+for i in {1..5}; do
+    python3 swarm_mnist.py 10 0 6000 0 0 8 ex1_avg
+    python3 swarm_mnist.py 10 0 6000 0 0.3 8 ex1_asr_0.3
+    python3 swarm_mnist.py 10 0 6000 0 0.5 8 ex1_asr_0.5
+    python3 swarm_mnist.py 10 0 6000 0 0.7 8 ex1_asr_0.7
+    python3 swarm_mnist.py 10 0 6000 0 0.9 8 ex1_asr_0.9
+    python3 swarm_mnist.py 10 0 6000 0 1 8 ex1_asr_1.0
+done
