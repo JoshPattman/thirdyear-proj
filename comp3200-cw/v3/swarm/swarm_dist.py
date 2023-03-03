@@ -56,14 +56,14 @@ class SwarmDist:
             tccopy = self.training_counter
         self.backend.distribute_state(self.node_id, np.copy(params), tccopy)
 
-    def sync(self, min_neighbors=8, sync_rate=0.6, max_attempts=10):
+    def sync(self, min_neighbors=8, sync_rate=0.6, max_attempts=10, beta=99999999):
         for i in range(max_attempts):
             neighbor_states = []
             # Find all neighbor states who are synced up with us
             with self.latest_states_lock:
                 for nsid in self.latest_states:
                     ns = self.latest_states[nsid]
-                    if ns['tc'] >= self.training_counter:
+                    if ns['tc'] + beta >= self.training_counter:
                         neighbor_states.append(ns.copy())
             # Ensure we have enough neighbors to do more training
             if len(neighbor_states) > min_neighbors:

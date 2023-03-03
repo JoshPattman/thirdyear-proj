@@ -77,6 +77,7 @@ def get_random_string(length):
     return result_str
     
 node_count = int(sys.argv[1])#10
+exid = sys.argv[2]#"fed"
 
 for i in range(10):
     FedClient()
@@ -87,7 +88,7 @@ fn = "./data/"+get_random_string(10)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid":"fed",
+        "exid":exid,
         "node_count":node_count,
         "sync_rate":0,
         "stagger":0,

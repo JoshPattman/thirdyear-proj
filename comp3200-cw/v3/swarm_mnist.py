@@ -16,7 +16,7 @@ from keras.datasets import fashion_mnist as mnist
 data_q = Queue()
 
 class Node:
-    def __init__(self,num_train_samples=60000, sync_rate=0.6):
+    def __init__(self,num_train_samples=60000, sync_rate=0.6, tc_beta=99999999):
         self.model = make_clone_model()
         backend = LocalBackend()
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
@@ -29,6 +29,7 @@ class Node:
         self.logger = logger
 
         self.sync_rate = sync_rate
+        self.tc_beta = tc_beta
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples)
         Thread(target=self.update_loop, daemon=True).start()
@@ -40,7 +41,7 @@ class Node:
         for i in range(20):
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
             self.dist.update_local_params(flatten_model(self.model))
-            self.dist.sync(sync_rate=self.sync_rate)
+            self.dist.sync(sync_rate=self.sync_rate, beta=self.tc_beta)
             state = self.dist.get_state()
             unflatten_model(self.model, state[0])
             perf = self.evaluate_performance()
@@ -58,14 +59,16 @@ class Node:
         accuracy = 100*num_correct/self.test_Y.shape[0]
         return accuracy
 
-node_count = int(sys.argv[1])#10
-sync_rate = float(sys.argv[2])#0.6
-startup_delay = float(sys.argv[3])#2
+node_count = int(sys.argv[1])
+sync_rate = float(sys.argv[2])
+startup_delay = float(sys.argv[3])
+exid = sys.argv[4]
+tc_beta = float(sys.argv[5])
 
-print("Running with nodes %s sync %s startup %s"%(node_count, sync_rate, startup_delay))
+print("Running with nodes %s sync %s startup %s experiment %s beta %s"%(node_count, sync_rate, startup_delay, exid, tc_beta))
 
 for i in range(node_count):
-    Node(num_train_samples=int(60000/node_count),sync_rate=sync_rate)
+    Node(num_train_samples=int(60000/node_count),sync_rate=sync_rate,tc_beta=tc_beta)
     time.sleep(startup_delay)
 
 results = []
@@ -76,7 +79,7 @@ fn = "./data/"+get_random_string(10)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid":"swarm_ic_avg_lt",
+        "exid": exid,
         "node_count":node_count,
         "sync_rate":sync_rate,
         "stagger":startup_delay,

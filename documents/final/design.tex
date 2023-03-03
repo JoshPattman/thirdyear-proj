@@ -35,10 +35,10 @@ The most rudimentary approach to combination is to compute the average model bet
 \[ m_{local+1} = \mu ( \{ m_{local} \} \cup m_{neighbours} )\]
 This technique is utilized in FedAvg, which is the most simplistic form of federated learning. The benefit of this method is that it necessitates no hyper-parameters, which translates to less tuning required by the programmer. However, this attribute can also be viewed as a drawback, as it affords less flexibility in terms of customization for particular tasks.
 
-\subsection{Averaging With Learning Rate}
+\subsection{Averaging With Synchronisation Rate}
 A more complex approach to combination is to compute the average model of all neighbours, then compute the weighted average between that model and the local model.
 \[ m_{local+1} = (1 - \alpha) * m_{local} + \alpha * \mu ( m_{neighbours} )\]
-The learning rate, denoted as $\alpha$, indicates the degree to which each node adjusts its local model to align with the global model. If $\alpha$ is set too low, each node's model in the network will diverge, resulting in each node becoming trapped at a local minima. On the other hand, if $\alpha$ is too high, the progress achieved by a given node will be discarded at each averaging step, which can result in slower learning. The implications of adjusting this parameter are discussed further in the results section.
+The synchronisation rate, denoted as $\alpha$, indicates the degree to which each node adjusts its local model to align with the global model. If $\alpha$ is set too low, each node's model in the network will diverge, resulting in each node becoming trapped at a local minima. On the other hand, if $\alpha$ is too high, the progress achieved by a given node will be discarded at each averaging step, which can result in slower learning. The implications of adjusting this parameter are discussed further in the results section.
 
 \subsection{Filtering By Training Counter}
 A potential modification to the previously mentioned combination algorithms involves filtering based on the training counter. Specifically, a node may only include its neighbour models if they meet the following statement:
