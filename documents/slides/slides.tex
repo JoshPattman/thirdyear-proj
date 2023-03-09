@@ -1,0 +1,86 @@
+\documentclass{beamer}
+%Information to be included in the title page:
+\title{Swarm Learning - A Fully Decentralised Approach To Machine Learning}
+\author{Josh Pattman}
+\institute{University Of Southampton}
+\date{March 2023}
+
+\begin{document}
+	\frame{\titlepage}
+	
+	\begin{frame}
+		\frametitle{The Problems}
+		\textbf{Privacy}
+		\begin{itemize}
+			\item Data stored in multiple locations
+			\item Cannot share the data between locations for privacy reasons
+			\item \emph{Medical records}
+		\end{itemize}
+		
+		\textbf{Performance}
+		\begin{itemize}
+			\item Machine learning needs lots of processing power
+			\item A supercomputer is not available to many
+			\item However they may have access to many lower power devices (nodes)
+			\item \emph{Company with many unused computers during the night}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Federated Learning - The Current Solution}
+		\begin{itemize}
+			\item A single model is stored on the server
+			\item Each node has its own dataset
+			\begin{itemize}
+				\item This is not shared with other nodes or the server
+			\end{itemize}
+			\item The model can be shared between the server and clients
+			\item \textbf{Goal:} Perform machine learning without sharing the model
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Federated Learning - How Does It Work?}
+		\begin{itemize}
+			\item Many variations of federated learning
+			\begin{itemize}
+				\item One of the originals is \emph{Federated Averaging (FedAvg)}
+				\item Many other algorithms are based off this
+			\end{itemize}
+			\item FedAvg has repeated Training Steps. Each Step:
+			\begin{itemize}
+				\item Server sends model to a set of nodes
+				\item Nodes perform training on the model
+				\item Nodes send their models back to server
+				\item New model is the average (mean) of all nodes models
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Federated Learning - Issues}
+		\begin{itemize}
+			\item Vulnerable to central server going down
+			\item Requires that every node has direct access to the server
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}
+		\frametitle{What is Swarm Learning?}
+		Swarm Learning
+		\begin{itemize}
+			\item Each node has a model
+			\begin{itemize}
+				\item Every model approximates the \emph{global model}
+			\end{itemize}
+			\item Each node has it's own dataset
+			\begin{itemize}
+				\item This dataset cannot be shared with any other nodes
+			\end{itemize}
+			\item The goal is to train the \emph{global model} using all available data
+			\item Additionally, there should be no central server or node acting as a central server 
+		\end{itemize}
+	\end{frame}
+	
+\end{document}

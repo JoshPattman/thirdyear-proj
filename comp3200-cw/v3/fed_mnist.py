@@ -89,7 +89,4 @@ with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
         "exid":exid,
-        "node_count":node_count,
-        "sync_rate":0,
-        "stagger":0,
     }))
