@@ -1,9 +1,15 @@
 \documentclass{beamer}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+
+\usetheme{metropolis}
+
 %Information to be included in the title page:
 \title{Swarm Learning - A Fully Decentralised Approach To Machine Learning}
 \author{Josh Pattman}
 \institute{University Of Southampton}
 \date{March 2023}
+\graphicspath{{plots}}
 
 \begin{document}
 	\frame{\titlepage}
@@ -35,7 +41,7 @@
 				\item This is not shared with other nodes or the server
 			\end{itemize}
 			\item The model can be shared between the server and clients
-			\item \textbf{Goal:} Perform machine learning without sharing the model
+			\item \textbf{Goal:} Perform machine learning without sharing the data
 		\end{itemize}
 	\end{frame}
 
@@ -47,13 +53,13 @@
 				\item One of the originals is \emph{Federated Averaging (FedAvg)}
 				\item Many other algorithms are based off this
 			\end{itemize}
-			\item FedAvg has repeated Training Steps. Each Step:
-			\begin{itemize}
+			\item FedAvg has repeated training steps. Each step:
+			\begin{enumerate}
 				\item Server sends model to a set of nodes
 				\item Nodes perform training on the model
 				\item Nodes send their models back to server
 				\item New model is the average (mean) of all nodes models
-			\end{itemize}
+			\end{enumerate}
 		\end{itemize}
 	\end{frame}
 
@@ -62,24 +68,132 @@
 		\begin{itemize}
 			\item Vulnerable to central server going down
 			\item Requires that every node has direct access to the server
+			\item Few slow nodes slow the whole process down
 		\end{itemize}
 	\end{frame}
 
 
 	\begin{frame}
-		\frametitle{What is Swarm Learning?}
-		Swarm Learning
+		\frametitle{Swarm Learning}
 		\begin{itemize}
-			\item Each node has a model
+			\item Each node has a distinct model, called the \emph{local model}
 			\begin{itemize}
 				\item Every model approximates the \emph{global model}
 			\end{itemize}
-			\item Each node has it's own dataset
+			\item Each node has its own dataset
 			\begin{itemize}
 				\item This dataset cannot be shared with any other nodes
 			\end{itemize}
 			\item The goal is to train the \emph{global model} using all available data
-			\item Additionally, there should be no central server or node acting as a central server 
+			\item No central server or node acting as a central server 
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Swarm Learning - How Does It Work?}
+		\begin{itemize}
+			\item Repeated Training Steps. Each node each step:
+			\begin{enumerate}
+				\item Perform training on the local model
+				\item Send trained model to all neighbours
+				\begin{itemize}
+					\item This will get cached on the neighbour
+				\end{itemize}
+				\item New local model is the combination of all neighbours most recent local models
+			\end{enumerate}
+		\item During step 3, the cached models are used to prevent the node having to wait for responses
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Swarm Learning - Specifics}
+		\begin{itemize}
+			\item Different combination methods
+			\begin{itemize}
+				\item Combine by average
+				\item Combine with learning rate
+			\end{itemize}
+			\item Only combine neighbours who have done more training than this node
+			\item Wait for certain number of neighbours to catch up
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Swarm Learning vs Issues of Federated Learning}
+		\begin{itemize}
+			\item \sout{Vulnerable to central server going down}
+			\begin{itemize}
+				\item No central server - to stop training you would have to take out every node
+			\end{itemize}
+			\item \sout{Requires that every node has direct access to the server}
+			\begin{itemize}
+				\item Swarm learning can function on sparse networks of nodes
+			\end{itemize}
+			\item \sout{Few slow nodes slow the whole process down}
+			\begin{itemize}
+				\item You never have to wait for a node due to caching
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Swarm Learning - Performance}
+		\begin{itemize}
+			\item Many different configurations of the algorithm, can drastically affect performance
+			\begin{itemize}
+				\item In following plots only top 3 in a category have been shown
+				\item For example may find top 3 configurations by 'area under graph'
+			\end{itemize}
+			\item Following plots are \emph{accuracy} of classifying MNIST Fashion, and x axis is number of epochs trained
+			\begin{itemize}
+				\item To make the problem a little harder each node only has 10 percent of the dataset
+			\end{itemize}
+			\item Federated Averaging is also shown
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\includegraphics[width = \textwidth]{fill}
+	\end{frame}
+
+	\begin{frame}
+		\includegraphics[width = \textwidth]{fill_zoom}
+	\end{frame}
+
+	\begin{frame}
+		\includegraphics[width = \textwidth]{stability}
+	\end{frame}
+	
+	\begin{frame}
+		\includegraphics[width = \textwidth]{stability_zoom}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Swarm Learning - Performance}
+		\begin{itemize}
+			\item Those plots were in a densely connected situation
+			\begin{itemize}
+				\item I have not got round to testing sparse networks yet
+			\end{itemize}
+		\item It would also be ideal to test more datasets but I don't think I will be able to due to time constraints
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Conclusion}
+		\begin{itemize}
+			\item Swarm Learning is a promising machine learning algorithm for training a model on data distributed on private data islands
+			\item It addresses some of the issues with Federated Averaging, one of the current techniques
+			\item It does not perform quite as well as Federated Averaging in a densely connected network
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Josh Pattman}
+		Thanks for listening!
+		\begin{itemize}
+			\item LinkedIn: \textbf{linkedin.com/in/josh-pattman}
+			\item GitHub: \textbf{github.com/JoshPattman}
 		\end{itemize}
 	\end{frame}
 	
