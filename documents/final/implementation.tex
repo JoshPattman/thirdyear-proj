@@ -13,16 +13,61 @@ The Keras machine learning framework in Python was utilized to implement the mod
 \section{Federated Learning}
 Federated learning was chosen for comparison of performance against swarm learning. In order to ensure fairness of the comparison, it was necessary to implement the federated learning algorithm from scratch, using the same frameworks and language as the swarm learning algorithm.
 \subsection{Algorithm}
-\subsection{Back-end Distributor}
+\begin{itemize}
+	\item FedAVG
+	\item All nodes train at once
+	\item Flatten model -> send to nodes -> Unflatten model
+\end{itemize}
+\subsection{Back-end}
+\begin{itemize}
+	\item Initially used REST
+	\item REST is a waste as it performs exactly the same when measuring epochs on x axis, but it is much slower
+	\item Switched to a bunch of thread safe queues
+\end{itemize}
 \subsection{Evaluation}
+\begin{itemize}
+	\item Simple form of fed learning
+	\item Is an accurate model when measuring over epochs, but not over time
+\end{itemize}
 
 \section{Prototype}
+\begin{itemize}
+	\item The first prototype was created as a proof-of-concept
+	\item It was not designed to be used in the final results section, but rather to be very modifiable
+\end{itemize}
 \subsection{Algorithm}
-\subsection{Back-end Distributor}
+\begin{itemize}
+	\item Very simplified form of algorithm described in design section
+	\item no beta or gamma
+	\item no training counter
+	\item sync step uses models on demand, not cached models -> slower
+\end{itemize}
 \subsection{Evaluation}
+\begin{itemize}
+	\item Helpful for algorithm development
+	\item Helped create many of the ideas described in design
+	\item Far less performant than fed and final implementation
+	\item Not discussed any further
+\end{itemize}
 
 \section{Final}
+\begin{itemize}
+	\item What was learnt from prototype 1 was taken into account for this
+	\item Designed to be usable and extendable
+	\item The implementation used in results section
+\end{itemize}
 \subsection{Algorithm}
-\subsection{Back-end Distributor}
-when using push on train rather than pull on sync, the latest diffs are more preserved
+\begin{itemize}
+	\item As described in design section
+	\item It was tested using push model before combination and push model after combination. Push before worked better so is used. Hypothesis: The difference in training that this node made is more preserved
+\end{itemize}
+\subsection{Back-end}
+\begin{itemize}
+	\item Same method as fed learning
+\end{itemize}
 \subsection{Evaluation}
+\begin{itemize}
+	\item Good implementation
+	\item Not accurate for time based benchmarks though, as it uses queues instead of real web stuff
+	\item This could be very easily changed due to the design of the code
+\end{itemize}

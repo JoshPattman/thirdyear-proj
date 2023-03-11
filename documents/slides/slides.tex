@@ -14,6 +14,7 @@
 \begin{document}
 	\frame{\titlepage}
 	
+	\section{Why Distributed Machine Learning}
 	\begin{frame}
 		\frametitle{The Problems}
 		\textbf{Privacy}
@@ -32,27 +33,34 @@
 		\end{itemize}
 	\end{frame}
 
+	\section{Federated Learning}
 	\begin{frame}
 		\frametitle{Federated Learning - The Current Solution}
 		\begin{itemize}
 			\item A single model is stored on the server
+			\item Server controls many nodes - computers that can perform training
 			\item Each node has its own dataset
 			\begin{itemize}
 				\item This is not shared with other nodes or the server
 			\end{itemize}
-			\item The model can be shared between the server and clients
-			\item \textbf{Goal:} Perform machine learning without sharing the data
+			\item \textbf{Goal:} Perform machine learning by only sharing the model, not the data
 		\end{itemize}
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Federated Learning - How Does It Work?}
+		\frametitle{Federated Learning - Variations}
 		\begin{itemize}
 			\item Many variations of federated learning
 			\begin{itemize}
 				\item One of the originals is \emph{Federated Averaging (FedAvg)}
 				\item Many other algorithms are based off this
 			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Federated Learning - How Does It Work?}
+		\begin{itemize}
 			\item FedAvg has repeated training steps. Each step:
 			\begin{enumerate}
 				\item Server sends model to a set of nodes
@@ -72,20 +80,21 @@
 		\end{itemize}
 	\end{frame}
 
+	\section{Swarm Learning}
 
 	\begin{frame}
 		\frametitle{Swarm Learning}
 		\begin{itemize}
+			\item No central server/node
 			\item Each node has a distinct model, called the \emph{local model}
 			\begin{itemize}
-				\item Every model approximates the \emph{global model}
+				\item Must keep all local models close to each other
 			\end{itemize}
 			\item Each node has its own dataset
 			\begin{itemize}
 				\item This dataset cannot be shared with any other nodes
 			\end{itemize}
-			\item The goal is to train the \emph{global model} using all available data
-			\item No central server or node acting as a central server 
+			\item The goal is to train all local models using all available data
 		\end{itemize}
 	\end{frame}
 
@@ -97,11 +106,10 @@
 				\item Perform training on the local model
 				\item Send trained model to all neighbours
 				\begin{itemize}
-					\item This will get cached on the neighbour
+					\item This will get saved on the neighbour
 				\end{itemize}
 				\item New local model is the combination of all neighbours most recent local models
 			\end{enumerate}
-		\item During step 3, the cached models are used to prevent the node having to wait for responses
 		\end{itemize}
 	\end{frame}
 
@@ -114,7 +122,7 @@
 				\item Combine with learning rate
 			\end{itemize}
 			\item Only combine neighbours who have done more training than this node
-			\item Wait for certain number of neighbours to catch up
+			\item Wait for certain number of neighbours to catch up with this node
 		\end{itemize}
 	\end{frame}
 
@@ -131,24 +139,26 @@
 			\end{itemize}
 			\item \sout{Few slow nodes slow the whole process down}
 			\begin{itemize}
-				\item You never have to wait for a node due to caching
+				\item You never have to wait for a node to communicate, instead use the most recent model it sent
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
 
+	\section{Results}
+
 	\begin{frame}
 		\frametitle{Swarm Learning - Performance}
 		\begin{itemize}
-			\item Many different configurations of the algorithm, can drastically affect performance
-			\begin{itemize}
-				\item In following plots only top 3 in a category have been shown
-				\item For example may find top 3 configurations by 'area under graph'
-			\end{itemize}
 			\item Following plots are \emph{accuracy} of classifying MNIST Fashion, and x axis is number of epochs trained
 			\begin{itemize}
 				\item To make the problem a little harder each node only has 10 percent of the dataset
 			\end{itemize}
-			\item Federated Averaging is also shown
+			\item Many different configurations of the algorithm, can drastically affect performance
+			\begin{itemize}
+				\item In following plots only top 3 configurations sorted by a specific metric
+				\item For example metric might be 'area under graph'
+			\end{itemize}
+		\item Following plots nodes are densely connected
 		\end{itemize}
 	\end{frame}
 
@@ -168,16 +178,6 @@
 		\includegraphics[width = \textwidth]{stability_zoom}
 	\end{frame}
 
-	\begin{frame}
-		\frametitle{Swarm Learning - Performance}
-		\begin{itemize}
-			\item Those plots were in a densely connected situation
-			\begin{itemize}
-				\item I have not got round to testing sparse networks yet
-			\end{itemize}
-		\item It would also be ideal to test more datasets but I don't think I will be able to due to time constraints
-		\end{itemize}
-	\end{frame}
 
 	\begin{frame}
 		\frametitle{Conclusion}

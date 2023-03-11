@@ -1,0 +1,11 @@
+\section{Why would you choose SL over FL}
+\begin{itemize}
+	\item Can prevent a single slow node from bottlenecking the whole process
+	\item No central server so more fault tolerant
+	\item Can still function if all nodes do not have direct connections to all other nodes (in the case of FL every node must have access to the server)
+\end{itemize}
+\section{Why would you choose FL over SL}
+\begin{itemize}
+	\item Less data transmission ($O(n)$ rather than worst case $O(n^2)$). This effect is less prominent if SL is sparse
+	\item Less complex algorithm -> fewer parameters to tune
+\end{itemize}

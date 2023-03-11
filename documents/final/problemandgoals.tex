@@ -1,0 +1,22 @@
+\section{Problem}
+In the modern world of machine learning, there exist some problems which cannot be solved by conventional machine learning approaches \citeme?.
+
+\subsection{Privacy}
+It is common for data to be stored across multiple locations. Traditionally, all of this data would be consolidated into a single centralized server to facilitate the process of machine learning. However, it may not be possible to do so, given the potential conflict with privacy legislation. For instance, the medical data of patients stored in a hospital cannot be shared with any other entity due to the obligation to maintain patient confidentiality. Therefore, if each hospital were to independently train a machine learning model, the performance would be inferior compared to if they were able to collaborate \citeme.
+
+\subsection{Performance}
+In general, it has been observed that larger machine learning models coupled with more data typically lead to better performance \citeme. However, the use of conventional approaches for training such big models necessitates the requirement of a powerful computer. Most companies, however, do not have access to such a computer. Nevertheless, they may have access to multiple, lower-power computers. For instance, during non-working hours, a company may have hundreds of computers in its offices that are not being used, thus providing an opportunity to utilise the unused processing power.
+
+\section{Goals}
+
+\subsection{Design an Novel Algorithm for Swarm Learning}
+In this project, the primary aim is to design a novel swarm learning algorithm. This algorithm should be based on FedAvg \citeme and Swarm Learning \citeme. However, the algorithm should be fully decentralised, and it should operate without a blockchain.
+
+\subsection{Implement the Algorithm}
+The algorithm should be implemented for performance testing. It should be implemented in an easy-to-understand programming language, making it easy-to-use for a person who wants to integrate it into their project.
+
+\subsection{Test Performance in Situations Where Federated Learning Performs Well}
+It has been demonstrated that Federated Learning is effective in settings where each node has a reliable connection to the server \citeme. It should be shown that the new algorithm can perform well in similar situations, where each node has many stable connections to other nodes in the network.
+
+\subsection{Test Performance in Situations Where Federated Learning Performs Badly}
+Federated learning may not be effective when the server has unreliable connections to the nodes, or when nodes are halted \citeme. Additionally, if the server stops working, federated learning is unable to proceed. The goal is to demonstrate that the new algorithm can achieve successful results in scenarios where nodes frequently drop out of the network, thus making it possible to use the algorithm in cases where federated learning may not be viable.
