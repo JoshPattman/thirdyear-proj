@@ -13,61 +13,28 @@ The Keras machine learning framework in Python was utilized to implement the mod
 \section{Federated Learning}
 Federated learning was chosen for comparison of performance against swarm learning. In order to ensure fairness of the comparison, it was necessary to implement the federated learning algorithm from scratch, using the same frameworks and language as the swarm learning algorithm.
 \subsection{Algorithm}
-\begin{itemize}
-	\item FedAVG
-	\item All nodes train at once
-	\item Flatten model -> send to nodes -> Unflatten model
-\end{itemize}
-\subsection{Back-end}
-\begin{itemize}
-	\item Initially used REST
-	\item REST is a waste as it performs exactly the same when measuring epochs on x axis, but it is much slower
-	\item Switched to a bunch of thread safe queues
-\end{itemize}
+The implemented algorithm worked in the same manner as the algorithm described in the FedAvg paper. However, one modification was made: at the start of each timestep instead of choosing N random nodes to perform training, all nodes were chosen. This means that every available node will perform training at every timestep, which should result in the best possible performance for federated learning, especially give that only 10 nodes could be run at once.
+
+Initially, a REST API was utilised to transfer the model between the server and the client. Nevertheless, this was deemed unnecessary and was supplanted for two reasons. Firstly, the decision was made to measure performance against epochs trained instead of performance against time, which is discussed in further detail in the results section. Secondly, the REST API approach was much slower than the method chosen to replace it, yet it resulted in the same performance measurements when gauged in terms of epochs trained. As a substitute for the REST API, a system of functions was implemented. When a node sent a model to another node, it simply called a function on that node. This was abstracted away from the main algorithm code, thus significantly accelerating training. This enabled a greater number of training runs to be conducted, resulting in more data being collected.
+
 \subsection{Evaluation}
-\begin{itemize}
-	\item Simple form of fed learning
-	\item Is an accurate model when measuring over epochs, but not over time
-\end{itemize}
+This implementation of federated learning is simple yet effective. Though certain simplifications have been made, they should not interfere with the performance of the model in this scenario. It should only be used for testing performance against epochs trained, not against time taken, as the model transfer layer has been simplified.
 
 \section{Prototype}
-\begin{itemize}
-	\item The first prototype was created as a proof-of-concept
-	\item It was not designed to be used in the final results section, but rather to be very modifiable
-\end{itemize}
+It was decided to make an initial, less streamlined, prototype as a proof-of-concept before spending a lot of time creating the final algorithm. This prototype was created to be very modifiable so that changes could easily be made and tested.
+
 \subsection{Algorithm}
-\begin{itemize}
-	\item Very simplified form of algorithm described in design section
-	\item no beta or gamma
-	\item no training counter
-	\item sync step uses models on demand, not cached models -> slower
-\end{itemize}
+This algorithm was a simplified version of that described in the design section. The primary difference was that when a node performed its synchronisation step, it would request the models from each neighbour instead of utilising its cached versions of their models. This had the consequence of slowing down training, as the synchronisation step could not be completed until all nodes had responded. Furthermore, this algorithm did not incorporate the concept of a training counter, meaning that training counter filtering, $\beta$ and $\gamma$ were all absent.
+
 \subsection{Evaluation}
-\begin{itemize}
-	\item Helpful for algorithm development
-	\item Helped create many of the ideas described in design
-	\item Far less performant than fed and final implementation
-	\item Not discussed any further
-\end{itemize}
+This step was beneficial for the progression of the project, as it enabled the author to form the ideas detailed in the design process, which were then implemented in the subsequent step. However, due to the abundance of superfluous code, the algorithm was inefficient and time consuming. For this reason, it was decided not to record the results of this method.
 
 \section{Final}
-\begin{itemize}
-	\item What was learnt from prototype 1 was taken into account for this
-	\item Designed to be usable and extendable
-	\item The implementation used in results section
-\end{itemize}
+In this implementation, what was learnt in the prototype was taken and built upon. The code was streamlined for the purpose of performance testing in the results section. However, the code was still designed to be reusable and easy to read.
+
 \subsection{Algorithm}
-\begin{itemize}
-	\item As described in design section
-	\item It was tested using push model before combination and push model after combination. Push before worked better so is used. Hypothesis: The difference in training that this node made is more preserved
-\end{itemize}
-\subsection{Back-end}
-\begin{itemize}
-	\item Same method as fed learning
-\end{itemize}
+The algorithm is as described in he design section. However, there was one discrepancy which needed to be tested: whether to send model updates to neighbours before or after performing the combination step. Both were tested but pushing model updates before combination seemed to be the more effective method when comparing the accuracy.
+
+The back end for distributing models was implemented as an interface which abstracts how the back end works away from the main algorithm code. In the results section, the same distribution strategy as federated learning was used: calling local functions that simulated a web connection.
 \subsection{Evaluation}
-\begin{itemize}
-	\item Good implementation
-	\item Not accurate for time based benchmarks though, as it uses queues instead of real web stuff
-	\item This could be very easily changed due to the design of the code
-\end{itemize}
+Overall, this implementation of the proposed swarm learning method is satisfactory. It is efficient, reusable and simple to understand and use. Nevertheless, it is not yet suitable for real world applications, as it lacks any security features and there is limited error handling, being designed for use in a controlled testing environment. However, it would not be challenging to incorporate a backend for this code, allowing for communication over the internet.
