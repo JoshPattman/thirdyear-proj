@@ -10,5 +10,8 @@ out = Flatten()(out)
 out = Dense(128, activation="relu")(out)
 out = Dense(10, activation="sigmoid")(out)
 model = Model(inputs=inp, outputs=out)
-model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
+model.compile(
+	optimizer="adam",
+	loss=SparseCategoricalCrossentropy(),
+	metrics=[SparseCategoricalAccuracy()])
 \end{lstlisting}

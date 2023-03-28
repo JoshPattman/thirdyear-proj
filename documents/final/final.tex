@@ -6,7 +6,10 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{cite}
+\usepackage{subfig}
 \author{Josh Pattman}
+
 
 \graphicspath{{./plots/}}
 
@@ -19,7 +22,8 @@
 	\maketitle
 	\tableofcontents
 
-	\chapter{Background and Literature Review}
+	\chapter{Background}
+	\include{background}
 
 	\chapter{Problem and Goals}
 	\include{problemandgoals}
@@ -42,6 +46,9 @@
 	
 	\chapter{Conclusion and Future Work}
 	
-	\chapter{References}
 	\include{appendix}
+	
+	\bibliographystyle{ieeetr}
+	\bibliography{final}{}
+	
 \end{document}

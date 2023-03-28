@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{gdpr}
+M.~Kop, ``Machine learning \& eu data sharing practices,'' Stanford-Vienna
+  Transatlantic Technology Law Forum, Transatlantic Antitrust~…, 2020.
+
+\bibitem{data_volume}
+G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
+  privacy-preserving and federated machine learning in medical imaging,'' {\em
+  Nature Machine Intelligence}, vol.~2, no.~6, pp.~305--311, 2020.
+
+\bibitem{survey_on_fed_learning}
+C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
+  learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.
+
+\bibitem{fed_table_survey}
+Q.~Li, Z.~Wen, Z.~Wu, S.~Hu, N.~Wang, Y.~Li, X.~Liu, and B.~He, ``A survey on
+  federated learning systems: vision, hype and reality for data privacy and
+  protection,'' {\em IEEE Transactions on Knowledge and Data Engineering},
+  2021.
+
+\bibitem{fed_learning}
+H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y. Arcas,
+  ``Communication-efficient learning of deep networks from decentralized
+  data,'' 2016.
+
+\bibitem{leaderelec_car}
+J.-H. Chen, M.-R. Chen, G.-Q. Zeng, and J.-S. Weng, ``Bdfl: a
+  byzantine-fault-tolerance decentralized federated learning method for
+  autonomous vehicle,'' {\em IEEE Transactions on Vehicular Technology},
+  vol.~70, no.~9, pp.~8639--8652, 2021.
+
+\bibitem{swarm_learning}
+S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
+  V.~Garg, R.~Sarveswara, K.~H{\"a}ndler, P.~Pickkers, N.~A. Aziz, S.~Ktena,
+  F.~Tran, M.~Bitzer, S.~Ossowski, N.~Casadei, C.~Herr, D.~Petersheim,
+  U.~Behrends, F.~Kern, T.~Fehlmann, P.~Schommers, C.~Lehmann, M.~Augustin,
+  J.~Rybniker, J.~Altm{\"u}ller, N.~Mishra, J.~P. Bernardes, B.~Kr{\"a}mer,
+  L.~Bonaguro, J.~Schulte-Schrepping, E.~De~Domenico, C.~Siever, M.~Kraut,
+  M.~Desai, B.~Monnet, M.~Saridaki, C.~M. Siegel, A.~Drews, M.~Nuesch-Germano,
+  H.~Theis, J.~Heyckendorf, S.~Schreiber, S.~Kim-Hellmuth, P.~Balfanz,
+  T.~Eggermann, P.~Boor, R.~Hausmann, H.~Kuhn, S.~Isfort, J.~C. Stingl,
+  G.~Schmalzing, C.~K. Kuhl, R.~R{\"o}hrig, G.~Marx, S.~Uhlig, E.~Dahl,
+  D.~M{\"u}ller-Wieland, M.~Dreher, N.~Marx, J.~Nattermann, D.~Skowasch,
+  I.~Kurth, A.~Keller, R.~Bals, P.~N{\"u}rnberg, O.~Rie{\ss}, P.~Rosenstiel,
+  M.~G. Netea, F.~Theis, S.~Mukherjee, M.~Backes, A.~C. Aschenbrenner, T.~Ulas,
+  A.~Angelov, A.~Bartholom{\"a}us, A.~Becker, D.~Bezdan, C.~Blumert,
+  E.~Bonifacio, P.~Bork, B.~Boyke, H.~Blum, T.~Clavel, M.~Colome-Tatche,
+  M.~Cornberg, I.~A. De~La Rosa~Vel{\'a}zquez, A.~Diefenbach, A.~Dilthey,
+  N.~Fischer, K.~F{\"o}rstner, S.~Franzenburg, J.-S. Frick, G.~Gabernet,
+  J.~Gagneur, T.~Ganzenmueller, M.~Gauder, J.~Gei{\ss}ert, A.~Goesmann,
+  S.~G{\"o}pel, A.~Grundhoff, H.~Grundmann, T.~Hain, F.~Hanses, U.~Hehr,
+  A.~Heimbach, M.~Hoeper, F.~Horn, D.~H{\"u}bschmann, M.~Hummel, T.~Iftner,
+  A.~Iftner, T.~Illig, S.~Janssen, J.~Kalinowski, R.~Kallies, B.~Kehr, O.~T.
+  Keppler, C.~Klein, M.~Knop, O.~Kohlbacher, K.~K{\"o}hrer, J.~Korbel, P.~G.
+  Kremsner, D.~K{\"u}hnert, M.~Landthaler, Y.~Li, K.~U. Ludwig, O.~Makarewicz,
+  M.~Marz, A.~C. McHardy, C.~Mertes, M.~M{\"u}nchhoff, S.~Nahnsen,
+  M.~N{\"o}then, F.~Ntoumi, J.~Overmann, S.~Peter, K.~Pfeffer, I.~Pink, A.~R.
+  Poetsch, U.~Protzer, A.~P{\"u}hler, N.~Rajewsky, M.~Ralser, K.~Reiche,
+  S.~Ripke, U.~N. da~Rocha, A.-E. Saliba, L.~E. Sander, B.~Sawitzki,
+  S.~Scheithauer, P.~Schiffer, J.~Schmid-Burgk, W.~Schneider, E.-C. Schulte,
+  A.~Sczyrba, M.~L. Sharaf, Y.~Singh, M.~Sonnabend, O.~Stegle, J.~Stoye,
+  J.~Vehreschild, T.~P. Velavan, J.~Vogel, S.~Volland, M.~von Kleist,
+  A.~Walker, J.~Walter, D.~Wieczorek, S.~Winkler, J.~Ziebuhr, M.~M.~B.
+  Breteler, E.~J. Giamarellos-Bourboulis, M.~Kox, M.~Becker, S.~Cheran, M.~S.
+  Woodacre, E.~L. Goh, J.~L. Schultze, C.-. A.~S. (COVAS), and D.~C.-. O.~I.
+  (DeCOI), ``Swarm learning for decentralized and confidential clinical machine
+  learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
+
+\bibitem{swarm_resil}
+J.~C. Varughese, R.~Thenius, T.~Schmickl, and F.~Wotawa, ``Quantification and
+  analysis of the resilience of two swarm intelligent algorithms.,'' in {\em
+  GCAI}, pp.~148--161, 2017.
+
+\bibitem{leaderelection}
+J.~Augustine, T.~Kulkarni, and S.~Sivasubramaniam, ``Leader election in sparse
+  dynamic networks with churn,'' in {\em 2015 IEEE International Parallel and
+  Distributed Processing Symposium}, pp.~347--356, IEEE, 2015.
+
+\bibitem{blockchain_review}
+D.~Yaga, P.~Mell, N.~Roby, and K.~Scarfone, ``Blockchain technology overview,''
+  tech. rep., oct 2018.
+
+\bibitem{blockchain_scale}
+D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
+  blockchain,'' in {\em Proceedings of the 2020 The 2nd International
+  Conference on Blockchain Technology}, ICBCT'20, (New York, NY, USA),
+  p.~1–6, Association for Computing Machinery, 2020.
+
+\end{thebibliography}

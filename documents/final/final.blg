@@ -1,54 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: final.aux
+A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: problemandgoals.aux
 A level-1 auxiliary file: design.aux
 A level-1 auxiliary file: implementation.aux
 A level-1 auxiliary file: results.aux
 A level-1 auxiliary file: evaluation.aux
 A level-1 auxiliary file: appendix.aux
-I found no \citation commands---while reading file final.aux
-I found no \bibdata command---while reading file final.aux
-I found no \bibstyle command---while reading file final.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            89 strings with 568 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
+The style file: ieeetr.bst
+Database file #1: final.bib
+Warning--empty booktitle in gdpr
+Warning--empty journal in fed_learning
+Warning--empty institution in blockchain_review
+You've used 11 entries,
+            1876 wiz_defined-function locations,
+            552 strings with 9665 characters,
+and the built_in function-call counts, 5559 in all, are:
+= -- 300
+> -- 693
 < -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 235
+- -- 224
+* -- 598
+:= -- 1003
+add.period$ -- 11
+call.type$ -- 11
+change.case$ -- 12
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 14
+duplicate$ -- 174
+empty$ -- 288
+format.name$ -- 224
+if$ -- 1131
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
+int.to.str$ -- 11
+missing$ -- 10
+newline$ -- 36
+num.names$ -- 11
+pop$ -- 44
+preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 0
+skip$ -- 116
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 190
+swap$ -- 72
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+warning$ -- 3
+while$ -- 28
+width$ -- 13
+write$ -- 106
+(There were 3 warnings)
