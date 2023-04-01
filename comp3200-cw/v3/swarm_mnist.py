@@ -18,9 +18,9 @@ import graphs
 data_q = Queue()
 
 class Node:
-    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None):
+    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[]):
         self.model = make_clone_model()
-        backend = LocalBackend()
+        backend = LocalBackend(node_id=node_id, neighbors=neighbors)
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model), node_id=node_id)
 
         logger = logging.getLogger("ND[%s]"%self.dist.node_id)
@@ -80,7 +80,15 @@ connections = graphs.fully_connected_graph(nodes, density=density)
 
 print("Starting nodes...")
 for n in nodes:
-    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n)
+    # Find neighbors
+    neighbors = []
+    for c in connections:
+        if c[0] == n:
+            neighbors.append(c[1])
+        if c[1] == n:
+            neighbors.append(c[0])
+    print("Node %s has neighbors: %s"%(n, neighbors))
+    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors)
     time.sleep(startup_delay)
 
 print("Waiting for nodes to finish...")
