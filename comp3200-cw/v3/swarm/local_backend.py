@@ -24,9 +24,8 @@ class LocalBackend:
     def distribute_state(self, params, training_counter):
         with all_backends_lock:
             for a in all_backends:
-                if a.node_id in self.neighbors:
-                    if not a.update_callback == None:
-                        a.update_callback(self.node_id, params, training_counter)
+                if a.node_id in self.neighbors and a.update_callback is not None:
+                    a.update_callback(self.node_id, params, training_counter)
 
     def set_update_callback(self, callback):
         self.update_callback = callback

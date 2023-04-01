@@ -12,10 +12,11 @@ import numpy as np
 
 def make_model():
     inp = Input((28,28))
-    out = Reshape((28,28,1))(inp)
-    out = Conv2D(16, (3,3), activation="relu")(out)
-    out = Conv2D(16, (3,3), activation="relu")(out)
-    out = Flatten()(out)
+    #out = Reshape((28,28,1))(inp)
+    #out = Conv2D(16, (3,3), activation="relu")(out)
+    #out = Conv2D(16, (3,3), activation="relu")(out)
+    out = Flatten()(inp)
+    out = Dense(256, activation="relu")(out)
     out = Dense(128, activation="relu")(out)
     out = Dense(10, activation="sigmoid")(out)
     model = Model(inputs=inp, outputs=out)
@@ -32,11 +33,13 @@ def make_clone_model():
 (full_train_X, full_train_Y), (full_test_X, full_test_Y) = mnist.load_data()
 
 def get_xy(num_train_samples=60000):
+    (full_train_X, full_train_Y), (full_test_X, full_test_Y) = mnist.load_data()
     train_subset = random.sample(range(len(full_train_X)), num_train_samples)
     train_X = np.array([full_train_X[s] for s in train_subset])/255
     train_Y = np.array([full_train_Y[s] for s in train_subset])
     test_X = np.copy(full_test_X)/255
-    return (train_X, train_Y), (test_X, np.copy(full_test_Y))
+    test_Y = np.copy(full_test_Y)
+    return (train_X, train_Y), (test_X, test_Y)
 
 def evaluate_performance(model):
     preds = model.predict(full_test_X, verbose=False)
