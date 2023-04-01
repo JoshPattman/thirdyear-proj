@@ -16,11 +16,14 @@ class DummyBackend:
         pass
 
 class SwarmDist:
-    def __init__(self, backend, num_parameters, initial_params=None):
+    def __init__(self, backend, num_parameters, initial_params=None, node_id=None):
         self.backend = backend
         self.backend.set_update_callback(self.on_new_params)
 
-        self.node_id = get_random_string(5)
+        if node_id is not None:
+            self.node_id = node_id
+        else:
+            self.node_id = get_random_string(5)
         self.latest_states = {}
         self.latest_states_lock = Lock()
         self.training_counter = 0

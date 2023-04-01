@@ -13,15 +13,17 @@ from model import make_clone_model, get_xy, evaluate_performance
 
 from keras.datasets import fashion_mnist as mnist
 
+import graphs
+
 data_q = Queue()
 
 class Node:
-    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8):
+    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None):
         self.model = make_clone_model()
         backend = LocalBackend()
-        self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
+        self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model), node_id=node_id)
 
-        logger = logging.getLogger("node-%s"%self.dist.node_id)
+        logger = logging.getLogger("ND[%s]"%self.dist.node_id)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
@@ -68,21 +70,33 @@ alpha = float(sys.argv[4])
 beta = float(sys.argv[5])
 gamma = float(sys.argv[6])
 
-exid = sys.argv[7]
+density = float(sys.argv[7])
 
-print(f"Running experiment {exid} with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}")
+print(f"Running experiment with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}, density={density}")
 
-for i in range(node_count):
-    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma)
+nodes = [f"node-%s"%x for x in range(node_count)]
+print("All nodes are: ", nodes)
+connections = graphs.fully_connected_graph(nodes, density=density)
+
+print("Starting nodes...")
+for n in nodes:
+    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n)
     time.sleep(startup_delay)
 
+print("Waiting for nodes to finish...")
 results = []
 for i in range(node_count):
     results.append(data_q.get())
 
-fn = "./data/"+get_random_string(10)+".json"
+fn = "./data/"+get_random_string(15)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
         "nodes_data":results,
-        "exid": exid,
+        "alpha":alpha,
+        "beta":beta,
+        "gamma":gamma,
+        "num_samples":num_samples,
+        "node_count":node_count,
+        "density":density,
+        "startup_delay":startup_delay
     }))
