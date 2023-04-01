@@ -7,8 +7,8 @@ from queue import Queue
 import sys, json, time
 
 from flatten_model import flatten_model, unflatten_model
-from swarm.swarm_dist import SwarmDist, get_random_string
-from swarm.local_backend import LocalBackend
+from swarm.swarm_dist import SwarmDist
+from swarm.local_backend import LocalBackend, get_random_string
 from model import make_clone_model, get_xy, evaluate_performance
 
 from keras.datasets import fashion_mnist as mnist
@@ -21,9 +21,9 @@ class Node:
     def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[]):
         self.model = make_clone_model()
         backend = LocalBackend(node_id=node_id, neighbors=neighbors)
-        self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model), node_id=node_id)
+        self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
 
-        logger = logging.getLogger("ND[%s]"%self.dist.node_id)
+        logger = logging.getLogger("ND[%s]"%self.dist.backend.node_id)
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
@@ -35,6 +35,8 @@ class Node:
         self.gamma = gamma
 
         (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples)
+
+    def begin(self):
         Thread(target=self.update_loop, daemon=True).start()
     
     def update_loop(self):
@@ -47,7 +49,7 @@ class Node:
             self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
             state = self.dist.get_state()
             unflatten_model(self.model, state[0])
-            perf = self.evaluate_performance()#self.model)
+            perf = self.evaluate_performance()
             accuracies.append(perf)
             epochs.append(i+1)
             self.logger.info("accuracy (loop %s, tc %s) - %s"%(i+1, state[1], perf))
@@ -78,7 +80,8 @@ nodes = [f"node-%s"%x for x in range(node_count)]
 print("All nodes are: ", nodes)
 connections = graphs.fully_connected_graph(nodes, density=density)
 
-print("Starting nodes...")
+print("Initialising nodes...")
+node_objects = []
 for n in nodes:
     # Find neighbors
     neighbors = []
@@ -88,7 +91,12 @@ for n in nodes:
         if c[1] == n:
             neighbors.append(c[0])
     print("Node %s has neighbors: %s"%(n, neighbors))
-    Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors)
+    node_objects.append(Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors))
+
+print("Starting nodes...")
+for n in node_objects:
+    n.begin()
+    print("Started node %s"%n.dist.backend.node_id)
     time.sleep(startup_delay)
 
 print("Waiting for nodes to finish...")
