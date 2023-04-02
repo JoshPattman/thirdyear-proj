@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import numpy as np
 import logging
 from colored_log_formatter import ColoredFormatter
@@ -12,6 +15,7 @@ from swarm.local_backend import LocalBackend, get_random_string
 from model import make_clone_model, get_xy, evaluate_performance
 
 from keras.datasets import fashion_mnist as mnist
+import tensorflow as tf
 
 import graphs
 
@@ -42,21 +46,28 @@ class Node:
     def update_loop(self):
         unflatten_model(self.model, self.dist.get_state()[0])
         accuracies = [self.evaluate_performance()]
+        msds = [0]
         epochs = [0]
         for i in range(20):
             self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
             self.dist.update_local_params(flatten_model(self.model))
-            self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
+            msd = self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
             state = self.dist.get_state()
             unflatten_model(self.model, state[0])
             perf = self.evaluate_performance()
             accuracies.append(perf)
             epochs.append(i+1)
-            self.logger.info("accuracy (loop %s, tc %s) - %s"%(i+1, state[1], perf))
-        data_q.put((epochs, accuracies))
+            msds.append(msd)
+            self.logger.info("accuracy (loop %s, tc %s) - %s, msd %s"%(i+1, state[1], perf, msd))
+        data_q.put((epochs, accuracies, msds))
 
     def evaluate_performance(self):
-        preds = self.model.predict(self.test_X, verbose=False)
+        try:
+            with tf.device('/cpu:0'):
+                preds = self.model.predict(self.test_X, verbose=False)
+        except Exception as e:
+            print("ERRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRR Error in prediction\n")
+            raise e
         num_correct = 0
         for i in range(len(self.test_Y)):
             if np.argmax(preds[i]) == self.test_Y[i]:
@@ -107,7 +118,8 @@ for i in range(node_count):
 fn = "./data/"+get_random_string(15)+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
-        "nodes_data":results,
+        "nodes_data":(results[0], results[1]),
+        "msds": (results[0], results[2]),
         "alpha":alpha,
         "beta":beta,
         "gamma":gamma,
