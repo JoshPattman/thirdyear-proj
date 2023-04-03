@@ -5,7 +5,7 @@ startupdelay=0
 numsamples=6000
 
 
-for i in {1..5}; do
+#for i in {1..5}; do
     # Density of the graph
     for density in 0 0.15 0.75 1; do
         # 0.5 0.7 0.9 1 AVG
@@ -19,4 +19,4 @@ for i in {1..5}; do
             done
         done
     done
-done
+#done
