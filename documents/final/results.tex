@@ -8,12 +8,13 @@ For each set of parameters to the algorithm, training was repeated 5 times, and 
 \subsection{Node Counts}
 All experiments were run with 10 nodes, excluding the server when using federated learning. This number was chosen as it was the highest node count that could be achieved without the training machine's resources being exhausted and crashing.
 
-\subsection{Choosing Parameters}
+\section{Experiments on Dense Networks}
+
 The proposed algorithm has three adjustable parameters, each of which can take one of many different values, resulting in a very large search space for optimal parameters. Therefore, rather than changing one parameter at a time and comparing results, it was decided to simulate all possible arrangements of parameters and then apply a grid search to determine the best parameter sets. Conclusions could then be made by analysing the optimal parameter sets and looking for patterns.
 
 However, a scalar metric for performance must be established for grid search to be performed. As each set of parameters produces a graph, not a scalar, a metric function was applied to each graph that would reflect a real-world application. These metrics are discussed in further detail below.
 
-\section{Experiments}
+
 \subsection{Optimising for Peak Accuracy}
 Details:
 \begin{itemize}
@@ -93,3 +94,11 @@ What do each of the parameters do?
 
 \subsection{Comparison with Federated Learning}
 In this experiment, the top parameter sets from each category are shown next to federated learning.
+
+
+\section{Testing Sparsely Connected Networks}
+\begin{itemize}
+	\item Take the top scoring stuff from the last section
+	\item Test on different levels of sparsity with different sparse behaviour algos
+	\item Can compare to FL. Not sure what to do here but oh well. I guess it is just assumes FL can't do this
+\end{itemize}

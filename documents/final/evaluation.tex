@@ -1,10 +1,21 @@
-\section{Why would you choose SL over FL}
+\section{Comparison of SL to FL}
+This report has show that SL has the capability to be a competitor to FL in a distributed learning situation. SL can also be used in some situations where FL cannot. However, there are some clear disadvantages to using SL as opposed to FL.
+\todo{Make this flow better}
+
+\subsection{Advantages of using SL over FL}
+The main advantage to using SL over FL is the ability for SL to function on networks where every node does not have connections to every other node.
+\todo{Write this out}
+
+
 \begin{itemize}
 	\item Can prevent a single slow node from bottlenecking the whole process
 	\item No central server so more fault tolerant
 	\item Can still function if all nodes do not have direct connections to all other nodes (in the case of FL every node must have access to the server)
 \end{itemize}
-\section{Why would you choose FL over SL}
+
+
+\subsection{Disadvantages of using SL over FL}
+\todo{Write this out}
 \begin{itemize}
 	\item Less data transmission ($O(n)$ rather than worst case $O(n^2)$). This effect is less prominent if SL is sparse
 	\item Less complex algorithm -> fewer parameters to tune

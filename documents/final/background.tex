@@ -22,6 +22,7 @@ One branch of FL is distributed federated learning (DFL). This algorithm works i
 % Introduce swarm learning
 Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates in a completely distributed and decentralised manner. SL still allows a network of nodes to collaborate to learn a shared model, but at no point is a central server used or a leader chosen. In contrast to FL, SL methods usually use a blockchain based system to coordinate a global model.
 
+\todo{Change this image}
 \begin{figure}[h]
 	\includegraphics[width=\linewidth]{sl}
 	\caption{Diagram of swarm learning compared to other type of learning taken from \cite{swarm_learning}}. The DNA icon denotes the location of data and the CPU icon denotes the location the model is stored
@@ -41,6 +42,8 @@ The model on the blockchain will improve over time, and after a certain number o
 SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks for very large swarms.
 
 \section{Blockchain}
+\todo{Write this out}
+
 % Breif intro of what a blockcahin is
 Blockchain is ... \cite{blockchain_review}
 

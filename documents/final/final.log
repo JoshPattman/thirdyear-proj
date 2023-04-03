@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  3 APR 2023 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  3 APR 2023 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -312,10 +312,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 <./plots//sl.png, id=28, 1167.36125pt x 379.4175pt>
 File: ./plots//sl.png Graphic file (type png)
 <use ./plots//sl.png>
-Package pdftex.def Info: ./plots//sl.png  used on input line 26.
+Package pdftex.def Info: ./plots//sl.png  used on input line 27.
 (pdftex.def)             Requested size: 390.0pt x 126.75972pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
@@ -377,32 +377,32 @@ Chapter 6.
 <./plots//ex_peak_a.png, id=99, 419.166pt x 328.8285pt>
 File: ./plots//ex_peak_a.png Graphic file (type png)
 <use ./plots//ex_peak_a.png>
-Package pdftex.def Info: ./plots//ex_peak_a.png  used on input line 27.
+Package pdftex.def Info: ./plots//ex_peak_a.png  used on input line 28.
 (pdftex.def)             Requested size: 292.5pt x 229.4659pt.
 <./plots//ex_peak_b.png, id=100, 412.6617pt x 328.8285pt>
 File: ./plots//ex_peak_b.png Graphic file (type png)
 <use ./plots//ex_peak_b.png>
-Package pdftex.def Info: ./plots//ex_peak_b.png  used on input line 29.
+Package pdftex.def Info: ./plots//ex_peak_b.png  used on input line 30.
 (pdftex.def)             Requested size: 292.5pt x 233.0785pt.
 <./plots//ex_aug_a.png, id=101, 419.166pt x 328.8285pt>
 File: ./plots//ex_aug_a.png Graphic file (type png)
 <use ./plots//ex_aug_a.png>
-Package pdftex.def Info: ./plots//ex_aug_a.png  used on input line 52.
+Package pdftex.def Info: ./plots//ex_aug_a.png  used on input line 53.
 (pdftex.def)             Requested size: 292.5pt x 229.4659pt.
 <./plots//ex_aug_b.png, id=102, 412.6617pt x 328.8285pt>
 File: ./plots//ex_aug_b.png Graphic file (type png)
 <use ./plots//ex_aug_b.png>
-Package pdftex.def Info: ./plots//ex_aug_b.png  used on input line 54.
+Package pdftex.def Info: ./plots//ex_aug_b.png  used on input line 55.
 (pdftex.def)             Requested size: 292.5pt x 233.0785pt.
 <./plots//ex_stab_a.png, id=103, 419.166pt x 328.8285pt>
 File: ./plots//ex_stab_a.png Graphic file (type png)
 <use ./plots//ex_stab_a.png>
-Package pdftex.def Info: ./plots//ex_stab_a.png  used on input line 76.
+Package pdftex.def Info: ./plots//ex_stab_a.png  used on input line 77.
 (pdftex.def)             Requested size: 292.5pt x 229.4659pt.
 <./plots//ex_stab_b.png, id=104, 412.6617pt x 328.8285pt>
 File: ./plots//ex_stab_b.png Graphic file (type png)
 <use ./plots//ex_stab_b.png>
-Package pdftex.def Info: ./plots//ex_stab_b.png  used on input line 78.
+Package pdftex.def Info: ./plots//ex_stab_b.png  used on input line 79.
 (pdftex.def)             Requested size: 292.5pt x 233.0785pt.
  [25] [26 <./plots//ex_peak_a.png> <./plots//ex_peak_b.png>] [27 <./plots//ex_a
 ug_a.png> <./plots//ex_aug_b.png>] [28 <./plots//ex_stab_a.png> <./plots//ex_st
@@ -504,7 +504,7 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pf
 b>
-Output written on final.pdf (44 pages, 749868 bytes).
+Output written on final.pdf (44 pages, 767493 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
