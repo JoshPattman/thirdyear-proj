@@ -1,0 +1,48 @@
+\section{Time Management}
+To assist with planning and organisation of this project, Gantt charts were used. These helped to visualise which tasks needed doing, and also if the project progress was ahead or behind schedule. The Gantt for the interim report can be found in appendix \ref{gc-interim} and the final report Gantt can be found at \ref{gc-final}.
+
+The presented charts represent the final iteration of planning. As described in the following section, changes occurred throughout the project and the Gantt charts were adapted accordingly.
+
+\section{Changing Plans}
+At the time of writing the interim report, the project plan was very different to what is presented in this report. Originally, the plan was to implement SL and then to simulate real world problems such as uneven data distribution and sparse networks. However, during the process of implementing the SL algorithm it was apparent that the SL algorithm itself would take a very large amount of time to develop and test. For this reason, the decision was made to refocus the project onto the development of the SL algorithm, and if enough time was available after this, testing a single real world problem may be possible.
+
+Plans were also changed on a smaller scale somewhat regularly. This is due to the experimental nature of this project, and the fact that it was impossible to predict some problems during the planning phase. For example, the parameters $\beta$ and $\gamma$ were not planned for at the start of the project, but whilst experimenting problems arose which seemed like they could be fixed by those parameters. This meant that another implementation had to be created which included those parameters.
+
+\section{Risk Assessment}
+The risk assessment was created early on in the project to mitigate any of the major risks. However, none of the described problems arose to an extent which their mitigation plan needed to be followed.
+\subsection{Personal Issues}
+
+\subsubsection{Description}
+Personal issues which cause the author to be unable to do work, such as illness.
+
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 3 \\
+\emph{Likelihood (1-5):} 3 \\
+\emph{Overall Risk (1-25):} \textbf{9}
+
+\subsubsection{Mitigation}
+The codebase will be designed such that individual sections and modules have minimal dependencies on other sections. This means that, even if the author is unable to work for a period of time, some less critical sections can be omitted without significantly impacting the rest of the project.
+
+\subsection{Hardware Failure}
+\subsubsection{Description}
+Failure on the authors local computer of any kind, such as a graphics card or storage breakage.
+
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 4 \\
+\emph{Likelihood (1-5):} 2 \\
+\emph{Overall Risk (1-25):} \textbf{8}
+
+\subsubsection{Mitigation}
+The project will be regularly backed up to GitHub. If a core component of the work computer breaks, the author has access to a personal laptop and the Zepler Labs. The deep learning environment along with dependencies is backed up to the authors Google Drive in the form of a docker image, so that switching to a new computer would be a smooth process.
+
+\subsection{Algorithm Does Not Work Work}
+\subsubsection{Description}
+The SL algorithm does not function as well as expected.
+
+\subsubsection{Risk Calculations}
+\emph{Severity (1-5):} 5 \\
+\emph{Likelihood (1-5):} 1 \\
+\emph{Overall Risk (1-25):} \textbf{5}
+
+\subsubsection{Mitigation}
+It may be possible to shift the project away from SL and onto distributed FL with leader election. FL is more commonly used and therefore has more literature, meaning that it is more likely to be an achievable goal to implement it.

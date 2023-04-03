@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<project name="" company="" manager="" phase="" project-start="20221015T000000Z" mrproject-version="2" calendar="1">
+  <properties/>
+  <phases/>
+  <calendars>
+    <day-types>
+      <day-type id="0" name="Working" description="A default working day"/>
+      <day-type id="1" name="Nonworking" description="A default non working day"/>
+      <day-type id="2" name="Use base" description="Use day from base calendar"/>
+    </day-types>
+    <calendar id="1" name="Default">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="1" sun="1"/>
+      <overridden-day-types>
+        <overridden-day-type id="0">
+          <interval start="0800" end="1200"/>
+          <interval start="1300" end="1700"/>
+        </overridden-day-type>
+      </overridden-day-types>
+      <days/>
+    </calendar>
+  </calendars>
+  <tasks>
+    <task id="1" name="Deadlines" note="" work="0" start="20221213T000000Z" end="20230502T000000Z" work-start="20221213T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="2" name="Interim Handin" note="" work="0" start="20221213T000000Z" end="20221213T000000Z" work-start="20221213T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+        <constraint type="must-start-on" time="20221213T000000Z"/>
+      </task>
+      <task id="3" name="Final handin" note="" work="0" start="20230502T000000Z" end="20230502T000000Z" work-start="20230502T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+        <constraint type="must-start-on" time="20230502T000000Z"/>
+      </task>
+    </task>
+    <task id="4" name="Interim" note="" work="1612800" start="20221015T000000Z" end="20221212T170000Z" work-start="20221017T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="5" name="Research" note="" work="432000" start="20221015T000000Z" end="20221104T170000Z" work-start="20221017T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="6" name="Broad Research" note="" work="144000" start="20221015T000000Z" end="20221021T170000Z" work-start="20221017T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="7" name="Evaluate Goals" note="" work="28800" start="20221021T170000Z" end="20221024T170000Z" work-start="20221024T080000Z" percent-complete="14" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="6" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="8" name="Focussed Research" note="" work="230400" start="20221024T170000Z" end="20221103T170000Z" work-start="20221025T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="7" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="9" name="Re-Evaluate Goals" note="" work="28800" start="20221103T170000Z" end="20221104T170000Z" work-start="20221104T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="8" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="10" name="Content" note="" work="604800" start="20221104T170000Z" end="20221130T170000Z" work-start="20221107T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="11" name="Report Skeleton" note="" work="86400" start="20221104T170000Z" end="20221109T170000Z" work-start="20221107T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="5" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="12" name="Literature Review" note="" work="144000" start="20221109T170000Z" end="20221116T170000Z" work-start="20221110T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="11" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="13" name="Other Sections" note="" work="288000" start="20221109T170000Z" end="20221123T170000Z" work-start="20221110T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="11" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="14" name="Summarising Implementations" note="" work="86400" start="20221125T170000Z" end="20221130T170000Z" work-start="20221128T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="18" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="15" name="Implementation" note="" work="345600" start="20221109T170000Z" end="20221125T170000Z" work-start="20221110T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="16" name="MNIST Classifier" note="" work="57600" start="20221109T170000Z" end="20221111T170000Z" work-start="20221110T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="11" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="17" name="Swarm MNIST Classifier" note="" work="201600" start="20221111T170000Z" end="20221122T170000Z" work-start="20221114T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="16" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="18" name="Experiemnts" note="" work="86400" start="20221122T170000Z" end="20221125T170000Z" work-start="20221123T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="17" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="19" name="Finalising" note="" work="230400" start="20221130T170000Z" end="20221212T170000Z" work-start="20221201T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="20" name="Formalise Writing" note="" work="172800" start="20221130T170000Z" end="20221208T170000Z" work-start="20221201T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="14" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="21" name="Proof Read" note="" work="57600" start="20221208T170000Z" end="20221212T170000Z" work-start="20221209T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="20" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+    </task>
+    <task id="22" name="Final" note="" work="3254400" start="20221212T170000Z" end="20230501T170000Z" work-start="20221213T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="23" name="Final Content" note="" work="1641600" start="20221212T170000Z" end="20230403T170000Z" work-start="20221213T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="24" name="Report Skeleton" note="" work="144000" start="20221212T170000Z" end="20221219T170000Z" work-start="20221213T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="4" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="25" name="Move Content From Interim" note="" work="201600" start="20221219T170000Z" end="20221228T170000Z" work-start="20221220T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="24" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="26" name="Initial Other Sections" note="" work="432000" start="20230127T170000Z" end="20230217T170000Z" work-start="20230130T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="46" type="FS"/>
+            <predecessor id="1" predecessor-id="25" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="27" name="Design Section (Initial)" note="" work="144000" start="20221228T170000Z" end="20230104T170000Z" work-start="20221229T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="25" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="28" name="Design Section (Re-Evaluated)" note="" work="144000" start="20230216T170000Z" end="20230223T170000Z" work-start="20230217T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="35" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="29" name="Results Section" note="" work="288000" start="20230320T170000Z" end="20230403T170000Z" work-start="20230321T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="41" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="30" name="Final Other Sections" note="" work="288000" start="20230320T170000Z" end="20230403T170000Z" work-start="20230321T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="41" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="31" name="Final Implementation" note="" work="1036800" start="20230127T170000Z" end="20230320T170000Z" work-start="20230130T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="32" name="Re-Implement" note="" work="144000" start="20230127T170000Z" end="20230203T170000Z" work-start="20230130T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="46" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="33" name="Develop Testing Methods" note="" work="144000" start="20230203T170000Z" end="20230210T170000Z" work-start="20230206T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="46" type="FS"/>
+            <predecessor id="1" predecessor-id="32" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="34" name="Test" note="" work="86400" start="20230210T170000Z" end="20230215T170000Z" work-start="20230213T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="33" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="35" name="Evaluate" note="" work="28800" start="20230215T170000Z" end="20230216T170000Z" work-start="20230216T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="34" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="36" name="Implement Changes" note="" work="201600" start="20230216T170000Z" end="20230227T170000Z" work-start="20230217T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="35" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="37" name="Re-Evaluate Testing" note="" work="28800" start="20230227T170000Z" end="20230228T170000Z" work-start="20230228T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="36" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="38" name="Thorough Test" note="" work="144000" start="20230228T170000Z" end="20230307T170000Z" work-start="20230301T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="37" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="39" name="Implement FedAvg" note="" work="144000" start="20230307T170000Z" end="20230314T170000Z" work-start="20230308T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="38" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="40" name="Test FedAvg" note="" work="28800" start="20230314T170000Z" end="20230315T170000Z" work-start="20230315T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="39" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="41" name="General Bug-Fix Time" note="" work="86400" start="20230315T170000Z" end="20230320T170000Z" work-start="20230316T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="40" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="42" name="Finalising" note="" work="576000" start="20230403T170000Z" end="20230501T170000Z" work-start="20230404T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="43" name="Formalise Writing" note="" work="432000" start="20230403T170000Z" end="20230424T170000Z" work-start="20230404T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="23" type="FS"/>
+            <predecessor id="1" predecessor-id="31" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="44" name="Check" note="" work="144000" start="20230424T170000Z" end="20230501T170000Z" work-start="20230425T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="43" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+    </task>
+    <task id="45" name="Exclusion Areas" note="" work="288000" start="20230116T000000Z" end="20230127T170000Z" work-start="20230116T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="46" name="Exam Period" note="" work="288000" start="20230116T000000Z" end="20230127T170000Z" work-start="20230116T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <constraint type="must-start-on" time="20230116T000000Z"/>
+      </task>
+    </task>
+  </tasks>
+  <resource-groups/>
+  <resources/>
+  <allocations/>
+</project>

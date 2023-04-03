@@ -126,5 +126,6 @@ with open(fn, "w") as f:
         "num_samples":num_samples,
         "node_count":node_count,
         "density":density,
-        "startup_delay":startup_delay
+        "startup_delay":startup_delay,
+        "forward_prob":0,
     }))
