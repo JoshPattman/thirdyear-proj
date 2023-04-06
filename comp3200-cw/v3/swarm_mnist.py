@@ -12,7 +12,7 @@ import sys, json, time
 from flatten_model import flatten_model, unflatten_model
 from swarm.swarm_dist import SwarmDist
 from swarm.local_backend import LocalBackend, get_random_string
-from model import make_clone_model, get_xy, evaluate_performance
+from model import make_clone_model, get_xy, evaluate_performance, make_model
 
 from keras.datasets import fashion_mnist as mnist
 import tensorflow as tf
@@ -23,7 +23,7 @@ data_q = Queue()
 
 class Node:
     def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[]):
-        self.model = make_clone_model()
+        self.model = make_clone_model()#make_model()#
         backend = LocalBackend(node_id=node_id, neighbors=neighbors)
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
 
@@ -46,10 +46,11 @@ class Node:
     def update_loop(self):
         unflatten_model(self.model, self.dist.get_state()[0])
         accuracies = [self.evaluate_performance()]
+        self.logger.info("accuracy (pre training) - %s"%accuracies[0])
         msds = [0]
         epochs = [0]
         for i in range(20):
-            self.model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+            self.model.fit(self.train_X, self.train_Y, epochs=5, verbose=False)
             self.dist.update_local_params(flatten_model(self.model))
             msd = self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
             state = self.dist.get_state()
@@ -59,6 +60,7 @@ class Node:
             epochs.append(i+1)
             msds.append(msd)
             self.logger.info("accuracy (loop %s, tc %s) - %s, msd %s"%(i+1, state[1], perf, msd))
+            #unflatten_model(self.model, state[0])
         data_q.put((epochs, accuracies, msds))
 
     def evaluate_performance(self):
@@ -72,8 +74,9 @@ class Node:
         for i in range(len(self.test_Y)):
             if np.argmax(preds[i]) == self.test_Y[i]:
                 num_correct += 1
-        accuracy = 100*num_correct/self.test_Y.shape[0]
+        accuracy = 100.0*float(num_correct)/float(self.test_Y.shape[0])
         return accuracy
+print(sys.argv)
 
 node_count = int(sys.argv[1])
 startup_delay = float(sys.argv[2])
@@ -84,6 +87,8 @@ beta = float(sys.argv[5])
 gamma = float(sys.argv[6])
 
 density = float(sys.argv[7])
+
+filename = sys.argv[8]
 
 print(f"Running experiment with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}, density={density}")
 
@@ -111,15 +116,18 @@ for n in node_objects:
     time.sleep(startup_delay)
 
 print("Waiting for nodes to finish...")
-results = []
+results_epochs = []
+results_accuracies = []
+results_msds = []
 for i in range(node_count):
-    results.append(data_q.get())
+    e, a, m = data_q.get()
+    results_epochs.append(e)
+    results_accuracies.append(a)
+    results_msds.append(m)
 
-fn = "./data/"+get_random_string(15)+".json"
+fn = "./data/"+filename+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
-        "nodes_data":(results[0], results[1]),
-        "msds": (results[0], results[2]),
         "alpha":alpha,
         "beta":beta,
         "gamma":gamma,
@@ -128,4 +136,8 @@ with open(fn, "w") as f:
         "density":density,
         "startup_delay":startup_delay,
         "forward_prob":0,
+        "epochs":results_epochs,
+        "accuracies":results_accuracies,
+        "msds": results_msds,
     }))
+print("Saved results to %s"%fn)

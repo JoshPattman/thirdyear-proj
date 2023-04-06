@@ -1,7 +1,10 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 from model import make_clone_model, get_xy, make_model
 import numpy as np
 
-(train_X, train_Y), (test_X, test_Y) = get_xy(6000)
+(train_X, train_Y), (test_X, test_Y) = get_xy(1000)
 
 model = make_clone_model()
 

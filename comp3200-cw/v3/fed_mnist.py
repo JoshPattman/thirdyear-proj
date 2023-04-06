@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import numpy as np
 import logging
 from colored_log_formatter import ColoredFormatter
@@ -28,7 +31,7 @@ class FedClient:
         #self.logger.debug("starting training")
         model = make_clone_model()
         unflatten_model(model, model_flat)
-        model.fit(self.train_X, self.train_Y, epochs=1, verbose=False)
+        model.fit(self.train_X, self.train_Y, epochs=5, verbose=False)
         model_flat = flatten_model(model)
         self.backend.training_complete(model_flat)
         #self.logger.debug("done training")
@@ -76,17 +79,29 @@ def get_random_string(length):
     result_str = ''.join(random.choice(letters) for i in range(length))
     return result_str
     
-node_count = int(sys.argv[1])#10
-exid = sys.argv[2]#"fed"
+node_count = int(sys.argv[1])
+num_samples = int(sys.argv[2])
+filename = sys.argv[3]
 
 for i in range(10):
     FedClient()
 
 serv = FedServer()
-results = [serv.data_log]
-fn = "./data/"+get_random_string(10)+".json"
+results_epochs, results_accuracies = serv.data_log
+
+fn = "./data/"+filename+".json"
 with open(fn, "w") as f:
     f.write(json.dumps({
-        "nodes_data":results,
-        "exid":exid,
+        "alpha":-1,
+        "beta":-1,
+        "gamma":-1,
+        "num_samples":num_samples,
+        "node_count":node_count,
+        "density":-1,
+        "startup_delay":-1,
+        "forward_prob":-1,
+        "epochs":[results_epochs],
+        "accuracies":[results_accuracies],
+        "msds": [[-1 for e in results_epochs]],
     }))
+print("Saved results to %s"%fn)

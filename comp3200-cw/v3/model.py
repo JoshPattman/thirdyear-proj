@@ -5,6 +5,7 @@ from keras.models import clone_model
 from keras.datasets import fashion_mnist as mnist
 from keras.losses import SparseCategoricalCrossentropy
 from keras.metrics import SparseCategoricalAccuracy
+from keras.optimizers import Adam, SGD
 import keras
 
 import random
@@ -12,15 +13,15 @@ import numpy as np
 
 def make_model():
     inp = Input((28,28))
-    #out = Reshape((28,28,1))(inp)
-    #out = Conv2D(16, (3,3), activation="relu")(out)
-    #out = Conv2D(16, (3,3), activation="relu")(out)
-    out = Flatten()(inp)
+    out = Reshape((28,28,1))(inp)
+    out = Conv2D(16, (3,3), activation="relu")(out)
+    out = Conv2D(16, (3,3), activation="relu")(out)
+    #out = Flatten()(inp)
+    out = Flatten()(out)
     out = Dense(256, activation="relu")(out)
     out = Dense(128, activation="relu")(out)
     out = Dense(10, activation="sigmoid")(out)
     model = Model(inputs=inp, outputs=out)
-    model.compile(optimizer="adam", loss=SparseCategoricalCrossentropy(), metrics=[SparseCategoricalAccuracy()])
     return model
 
 global_start_model = make_model()
