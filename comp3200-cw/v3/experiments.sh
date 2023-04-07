@@ -25,8 +25,8 @@ numsamples=1000
 
 # test2 - 
 # test1 - Testing a stable configuration of the algorithm
-export density=1.0
-export alpha=0.65 beta=0 gamma=3
+export density=0.2
+export alpha=0.0 beta=1 gamma=3
 python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test5.1
 #python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.2
 #python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.3

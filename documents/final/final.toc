@@ -22,8 +22,7 @@
 \contentsline {subsection}{\numberline {4.4.3}Filtering By Training Counter}{15}{}%
 \contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{16}{}%
 \contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{16}{}%
-\contentsline {subsection}{\numberline {4.5.2}Active Relay}{16}{}%
-\contentsline {subsection}{\numberline {4.5.3}Partial Active Relay}{17}{}%
+\contentsline {subsection}{\numberline {4.5.2}Relay}{16}{}%
 \contentsline {chapter}{\numberline {5}Implementation}{18}{}%
 \contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{19}{}%
 \contentsline {subsection}{\numberline {5.1.1}Dataset}{19}{}%
