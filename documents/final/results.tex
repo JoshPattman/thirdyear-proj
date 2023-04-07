@@ -8,97 +8,16 @@ For each set of parameters to the algorithm, training was repeated 5 times, and 
 \subsection{Node Counts}
 All experiments were run with 10 nodes, excluding the server when using federated learning. This number was chosen as it was the highest node count that could be achieved without the training machine's resources being exhausted and crashing.
 
-\section{Experiments on Dense Networks}
+\section{Dense Network Performance}
 
-The proposed algorithm has three adjustable parameters, each of which can take one of many different values, resulting in a very large search space for optimal parameters. Therefore, rather than changing one parameter at a time and comparing results, it was decided to simulate all possible arrangements of parameters and then apply a grid search to determine the best parameter sets. Conclusions could then be made by analysing the optimal parameter sets and looking for patterns.
+make a graph with different convergences for different amounts of data
 
-However, a scalar metric for performance must be established for grid search to be performed. As each set of parameters produces a graph, not a scalar, a metric function was applied to each graph that would reflect a real-world application. These metrics are discussed in further detail below.
+\section{Dense Network Performance with Node Dropout}
 
+the same but this time dropout nodes. Try with and without filtering to show that it increases fault tolerance
 
-\subsection{Optimising for Peak Accuracy}
-Details:
-\begin{itemize}
-	\item Sorted by peak accuracy
-	\item To get the absolutely highest performing models
-\end{itemize}
+\section{Sparse Network Performance}
 
+can only test SL here (i guess you could take average number of neighbours and do fl on that too)
 
-\begin{figure}
-	\centering
-	\subfloat[\centering label 1]{{\includegraphics[width=0.75\textwidth]{ex_peak_a} }}%
-	\qquad
-	\subfloat[\centering label 2]{{\includegraphics[width=0.75\textwidth]{ex_peak_b} }}%
-	\caption{2 Figures side by side}%
-	\label{fig:ex_peak}%
-\end{figure}
-
-Analysis:
-\begin{itemize}
-	\item Not stable
-	\item Slower training at the start
-	\item high alpha, negative beta, low gamma gives the top 3
-	\item the other two have high alpha, 0 beta, high gamma
-	\item not a good metric
-\end{itemize}
-
-\subsection{Optimising for Graph Area}
-Details:
-\begin{itemize}
-	\item Sorted by area under the graph
-	\item To get the fast training and continuously high accuracy
-\end{itemize}
-
-\begin{figure}
-	\centering
-	\subfloat[\centering label 1]{{\includegraphics[width=0.75\textwidth]{ex_aug_a} }}%
-	\qquad
-	\subfloat[\centering label 2]{{\includegraphics[width=0.75\textwidth]{ex_aug_b} }}%
-	\caption{2 Figures side by side}%
-	\label{fig:ex_aug}%
-\end{figure}
-
-Analysis:
-\begin{itemize}
-	\item Noisy but stable overall
-	\item Fast start to training
-	\item high alpha, between -1 and -0.5 beta, 0 gamma
-	\item good if you want fast training, but not good if stability is required
-\end{itemize}
-
-\subsection{Optimising for Stability}
-Details:
-\begin{itemize}
-	\item Sorted by stability (total amount of downwards moment)
-	\item To get stable and non-noisy training
-\end{itemize}
-
-\begin{figure}
-	\centering
-	\subfloat[\centering label 1]{{\includegraphics[width=0.75\textwidth]{ex_stab_a} }}%
-	\qquad
-	\subfloat[\centering label 2]{{\includegraphics[width=0.75\textwidth]{ex_stab_b} }}%
-	\caption{2 Figures side by side}%
-	\label{fig:ex_stab}%
-\end{figure}
-
-Analysis:
-\begin{itemize}
-	\item Smooth training
-	\item No dips - reliable
-	\item high alpha, beta doesnt matter, high gamma
-	\item good if you want fast training, but not good if stability is required
-\end{itemize}
-
-\subsection{Summary of Different Parameters}
-What do each of the parameters do?
-
-\subsection{Comparison with Federated Learning}
-In this experiment, the top parameter sets from each category are shown next to federated learning.
-
-
-\section{Testing Sparsely Connected Networks}
-\begin{itemize}
-	\item Take the top scoring stuff from the last section
-	\item Test on different levels of sparsity with different sparse behaviour algos
-	\item Can compare to FL. Not sure what to do here but oh well. I guess it is just assumes FL can't do this
-\end{itemize}
+\section{Sparse Network Performance with Dropout}
