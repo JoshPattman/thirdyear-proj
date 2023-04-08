@@ -14,9 +14,11 @@ from fed import backend
 from model import make_clone_model, get_xy
 
 class FedClient:
-    def __init__(self):
+    def __init__(self, epochs_per_step=1, num_samples=60000):
         self.backend = backend.Client()
         self.backend.set_train_callback(self.train)
+
+        self.epochs_per_step = epochs_per_step
 
         logger = logging.getLogger("client")
         logger.setLevel(logging.DEBUG)
@@ -25,13 +27,13 @@ class FedClient:
         logger.addHandler(ch)
         self.logger = logger
 
-        (self.train_X, self.train_Y), _ = get_xy(num_train_samples=6000)
+        (self.train_X, self.train_Y), _ = get_xy(num_train_samples=num_samples)
 
     def train(self, model_flat):
         #self.logger.debug("starting training")
         model = make_clone_model()
         unflatten_model(model, model_flat)
-        model.fit(self.train_X, self.train_Y, epochs=5, verbose=False)
+        model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_step, verbose=False)
         model_flat = flatten_model(model)
         self.backend.training_complete(model_flat)
         #self.logger.debug("done training")
@@ -81,10 +83,11 @@ def get_random_string(length):
     
 node_count = int(sys.argv[1])
 num_samples = int(sys.argv[2])
-filename = sys.argv[3]
+epochs_per_step = int(sys.argv[3])
+filename = sys.argv[4]
 
 for i in range(10):
-    FedClient()
+    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples)
 
 serv = FedServer()
 results_epochs, results_accuracies = serv.data_log

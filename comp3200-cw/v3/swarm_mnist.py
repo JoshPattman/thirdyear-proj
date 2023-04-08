@@ -22,10 +22,12 @@ import graphs
 data_q = Queue()
 
 class Node:
-    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[]):
+    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[], epochs_per_step=1):
         self.model = make_clone_model()#make_model()#
         backend = LocalBackend(node_id=node_id, neighbors=neighbors)
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
+
+        self.epochs_per_step = epochs_per_step
 
         logger = logging.getLogger("ND[%s]"%self.dist.backend.node_id)
         logger.setLevel(logging.DEBUG)
@@ -50,7 +52,7 @@ class Node:
         msds = [0]
         epochs = [0]
         for i in range(20):
-            self.model.fit(self.train_X, self.train_Y, epochs=5, verbose=False)
+            self.model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_step, verbose=False)
             self.dist.update_local_params(flatten_model(self.model))
             msd = self.dist.sync(alpha=self.alpha, beta=self.beta, gamma=self.gamma, use_ASR=(not alpha==0))
             state = self.dist.get_state()
@@ -88,9 +90,11 @@ gamma = float(sys.argv[6])
 
 density = float(sys.argv[7])
 
-filename = sys.argv[8]
+epochs_per_step = int(sys.argv[8])
 
-print(f"Running experiment with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}, density={density}")
+filename = sys.argv[9]
+
+print(f"Running experiment with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}, density={density}, epochs_per_step={epochs_per_step}")
 
 nodes = [f"node-%s"%x for x in range(node_count)]
 print("All nodes are: ", nodes)
@@ -107,7 +111,7 @@ for n in nodes:
         if c[1] == n:
             neighbors.append(c[0])
     print("Node %s has neighbors: %s"%(n, neighbors))
-    node_objects.append(Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors))
+    node_objects.append(Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors, epochs_per_step=epochs_per_step))
 
 print("Starting nodes...")
 for n in node_objects:

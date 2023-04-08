@@ -2,33 +2,61 @@
 
 numnodes=10
 startupdelay=0
-numsamples=1000
 
 # Benchmark - See what the performance should be with just one node
 #python3 just_model_mnist.py
 
-# test0 - Testing FL
-#python fed_mnist.py $numnodes $numsamples test0.1
-#python fed_mnist.py $numnodes $numsamples test0.2
-#python fed_mnist.py $numnodes $numsamples test0.3
-#python fed_mnist.py $numnodes $numsamples test0.4
-#python fed_mnist.py $numnodes $numsamples test0.5
+# Tests
+# 1. FL 6000 samples
+# 2. FL 1000 samples
+# 3. FL 100 samples
+# 4. SL 6000 samples
+# 5. SL 1000 samples
+# 6. SL 100 samples
 
-# test1 - Testing a stable configuration of the algorithm
-#export density=1.0
-#export alpha=0.9 beta=0 gamma=4
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test1.1
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test1.2
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test1.3
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test1.4
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test1.5
 
-# test2 - 
-# test1 - Testing a stable configuration of the algorithm
-export density=0.2
-export alpha=0.0 beta=1 gamma=3
-python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test5.1
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.2
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.3
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.4
-#python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density test3.5
+# ------------------------ FL Dense ------------------------
+export numsamples=6000 eps=2
+for i in {1..5}; do
+    python3 fed_mnist.py $numnodes $numsamples $eps test0.$i
+done
+
+export numsamples=1000 eps=5
+for i in {1..5}; do
+    python3 fed_mnist.py $numnodes $numsamples $eps test1.$i
+done
+
+export numsamples=100 eps=15
+for i in {1..5}; do
+    python3 fed_mnist.py $numnodes $numsamples $eps test2.$i
+done
+#
+## ------------------------ SL Dense ------------------------
+#export density=1.0 alpha=0.75 beta=0.5 gamma=8
+#
+#export numsamples=6000 eps=2
+#for i in {1..5}; do
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test3.$i
+#done
+#
+#export numsamples=1000 eps=5
+#for i in {1..5}; do
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test4.$i
+#done
+#
+#export numsamples=100 eps=15
+#for i in {1..5}; do
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test5.$i
+#done
+#
+#export density=1.0 alpha=0.9 beta=0.5 gamma=8
+#export numsamples=100 eps=15
+#for i in {1..5}; do
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test6.$i
+#done
+#
+#export density=1.0 alpha=0.5 beta=0.5 gamma=8
+#export numsamples=100 eps=15
+#for i in {1..5}; do
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test7.$i
+#done

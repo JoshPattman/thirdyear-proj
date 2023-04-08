@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  7 APR 2023 12:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  8 APR 2023 10:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -207,44 +207,52 @@ Package caption Info: listings package is loaded.
 \sf@top=\skip55
 \sf@bottom=\skip56
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count289
+\float@exts=\toks25
+\float@box=\box54
+\@float@everytoks=\toks26
+\@floatcapt=\box55
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count290
+\l__pdf_internal_box=\box56
 )
 (./final.aux (./background.aux) (./problemandgoals.aux) (./design.aux)
 (./implementation.aux) (./results.aux) (./evaluation.aux) (./projectman.aux)
 (./appendix.aux))
 \openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
+\scratchcounter=\count291
 \scratchdimen=\dimen162
-\scratchbox=\box55
-\nofMPsegments=\count291
-\nofMParguments=\count292
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count293
+\scratchbox=\box57
+\nofMPsegments=\count292
+\nofMParguments=\count293
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count294
 \MPscratchDim=\dimen163
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -254,17 +262,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count296
+\c@lstlisting=\count297
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -374,63 +383,62 @@ Chapter 6.
  (./results.tex [24
 
 ]
-<./plots//ex_peak_a.png, id=100, 419.166pt x 328.8285pt>
-File: ./plots//ex_peak_a.png Graphic file (type png)
-<use ./plots//ex_peak_a.png>
-Package pdftex.def Info: ./plots//ex_peak_a.png  used on input line 28.
-(pdftex.def)             Requested size: 292.5pt x 229.4659pt.
-<./plots//ex_peak_b.png, id=101, 412.6617pt x 328.8285pt>
-File: ./plots//ex_peak_b.png Graphic file (type png)
-<use ./plots//ex_peak_b.png>
-Package pdftex.def Info: ./plots//ex_peak_b.png  used on input line 30.
-(pdftex.def)             Requested size: 292.5pt x 233.0785pt.
-<./plots//ex_aug_a.png, id=102, 419.166pt x 328.8285pt>
-File: ./plots//ex_aug_a.png Graphic file (type png)
-<use ./plots//ex_aug_a.png>
-Package pdftex.def Info: ./plots//ex_aug_a.png  used on input line 53.
-(pdftex.def)             Requested size: 292.5pt x 229.4659pt.
-<./plots//ex_aug_b.png, id=103, 412.6617pt x 328.8285pt>
-File: ./plots//ex_aug_b.png Graphic file (type png)
-<use ./plots//ex_aug_b.png>
-Package pdftex.def Info: ./plots//ex_aug_b.png  used on input line 55.
-(pdftex.def)             Requested size: 292.5pt x 233.0785pt.
-<./plots//ex_stab_a.png, id=104, 419.166pt x 328.8285pt>
-File: ./plots//ex_stab_a.png Graphic file (type png)
-<use ./plots//ex_stab_a.png>
-Package pdftex.def Info: ./plots//ex_stab_a.png  used on input line 77.
-(pdftex.def)             Requested size: 292.5pt x 229.4659pt.
-<./plots//ex_stab_b.png, id=105, 412.6617pt x 328.8285pt>
-File: ./plots//ex_stab_b.png Graphic file (type png)
-<use ./plots//ex_stab_b.png>
-Package pdftex.def Info: ./plots//ex_stab_b.png  used on input line 79.
-(pdftex.def)             Requested size: 292.5pt x 233.0785pt.
- [25] [26 <./plots//ex_peak_a.png> <./plots//ex_peak_b.png>] [27 <./plots//ex_a
-ug_a.png> <./plots//ex_aug_b.png>] [28 <./plots//ex_stab_a.png> <./plots//ex_st
-ab_b.png>]) [29]
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+[]\T1/cmr/m/n/12 Dataset
+ []
+
+
+Overfull \hbox (1.91772pt too wide) in paragraph at lines 41--47
+[][] 
+ []
+
+[25]
+<./plots//aeg1.png, id=103, 419.166pt x 316.5426pt>
+File: ./plots//aeg1.png Graphic file (type png)
+<use ./plots//aeg1.png>
+Package pdftex.def Info: ./plots//aeg1.png  used on input line 54.
+(pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
+<./plots//aeg2.png, id=104, 419.166pt x 316.5426pt>
+File: ./plots//aeg2.png Graphic file (type png)
+<use ./plots//aeg2.png>
+Package pdftex.def Info: ./plots//aeg2.png  used on input line 61.
+(pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
+ [26 <./plots//aeg1.png>]
+<./plots//aeg3.png, id=109, 419.166pt x 316.5426pt>
+File: ./plots//aeg3.png Graphic file (type png)
+<use ./plots//aeg3.png>
+Package pdftex.def Info: ./plots//aeg3.png  used on input line 68.
+(pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
+ [27 <./plots//aeg2.png> <./plots//aeg3.png>]
+Overfull \hbox (42.56648pt too wide) in paragraph at lines 75--75
+[]\T1/cmr/bx/n/17.28 Dense Net-work Per-for-mance with Node Dropout 
+ []
+
+) [28]
 Chapter 7.
-[30
+[29
 
 
 
 ]
 \openout2 = `evaluation.aux'.
 
- (./evaluation.tex) [31
+ (./evaluation.tex) [30
 
 ]
 Chapter 8.
-[32
+[31
 
 
 
 ]
 \openout2 = `projectman.aux'.
 
- (./projectman.tex [33
+ (./projectman.tex [32
 
-] [34]) [35]
+] [33]) [34]
 Chapter 9.
-[36
+[35
 
 
 
@@ -441,15 +449,15 @@ Chapter 9.
 Appendix A.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [37
+) [36
 
 
 ]
 Appendix B.
-[38
+[37
 
 ]
-<./plots//gannt-interim.png, id=157, 1817.79124pt x 572.1375pt>
+<./plots//gannt-interim.png, id=147, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 23.
@@ -458,8 +466,8 @@ Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 23.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[39 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=162, 1731.46875pt x 776.9025pt>
+[38 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=152, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 28.
@@ -468,27 +476,27 @@ Package pdftex.def Info: ./plots//gannt-final.png  used on input line 28.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[40 <./plots//gannt-final.png>]) (./final.bbl
+[39 <./plots//gannt-final.png>]) (./final.bbl
 Underfull \hbox (badness 2368) in paragraph at lines 4--6
 \T1/cmr/m/n/12 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
 
-[41
+[40
 
 
 
-] [42]) [43] (./final.aux (./background.aux) (./problemandgoals.aux)
+] [41]) [42] (./final.aux (./background.aux) (./problemandgoals.aux)
 (./design.aux) (./implementation.aux) (./results.aux) (./evaluation.aux)
 (./projectman.aux) (./appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 6966 strings out of 478287
- 107183 string characters out of 5849288
- 577175 words of memory out of 5000000
- 25047 multiletter control sequences out of 15000+600000
- 487462 words of font info for 72 fonts, out of 8000000 for 9000
+ 6995 strings out of 478287
+ 107275 string characters out of 5849288
+ 578687 words of memory out of 5000000
+ 25073 multiletter control sequences out of 15000+600000
+ 486699 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,10n,79p,1071b,1224s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,79p,1071b,1224s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-supe
 r/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/s
@@ -499,15 +507,14 @@ t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.
 pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texm
 f/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pf
-b>
-Output written on final.pdf (44 pages, 767188 bytes).
+/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfti1200.pfb>
+Output written on final.pdf (43 pages, 593115 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 233 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
