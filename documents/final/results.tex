@@ -1,28 +1,22 @@
 \todo{Write this section out properly}
 \section{Methods}
 \subsection{Metrics}
-For each graph, the x axis signifies number of epochs of training, and the y axis signifies accuracy. Accuracy is calculated after the synchronisation step, by checking the number of correct predictions on an unseen test set.
+The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of MNIST since it is a balanced dataset. The accuracy of each node is computed after each training step using the test subset of MNIST, and none of the nodes are ever provided access to the test set for training.
 
 \subsection{Data Collection}
-For each set of parameters to the algorithm, training was repeated 5 times, and the accuracies for each node from every run were recorded. For each timestep, the accuracy was taken to be the median accuracy between all nodes across all runs at that timestep. This helped to reduce noise in the performance metrics.
+The training process for each experiment was conducted five times, and the resulting accuracies of every node were recorded. To mitigate the impact of training noise on the performance graphs, the accuracy value for each time step was calculated as the median accuracy across all nodes and runs at that time step.
 
 \subsection{Node Counts}
-All experiments were run with 10 nodes, excluding the server when using federated learning. This number was chosen as it was the highest node count that could be achieved without the training machine's resources being exhausted and crashing.
+The experiments were conducted using 10 nodes, with the exception of the server in cases where FL was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
 
 \subsection{Algorithm Configurations}
-In the each of the following experiments, the algorithm is configured with a specific set of parameters. These parameters were found heuristically, by making an initial guess and testing, then tweaking the parameters until a good result was found. Doing a full investigation into the optimal set of parameters for a specific type of problem is not in the scope of this paper, meaning that it is entirely possible that swarm learning could perform better with more well tuned parameters.
+In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that swarm learning could yield better results with more precisely tuned parameters.
 
 \subsection{Data Per Node}
-Each experiment tests the algorithm performance with three different volumes of data per node. These are all much less than the full MNIST dataset as the algorithm is expected to be use in situations where data assess for a single node is limited. A subsection of the data is taken for each node by randomly sampling the number of datapoints at the start of training. Each nodes data never changes throughout training. Multiple nodes can contain the same datapoint, and on the flip side, a datapoint is not guaranteed to be seen by a node.
+The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST dataset, as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant.
 
-Due to the small size of the dataset, each training loop a node will perform more than one epoch of training. The number of epochs of training a node performs per training step is know as Epochs per Step (EPS). Through testing, it was found that both SL and FL benefit from higher EPS, sometimes more so than increasing the number of training steps.
-
-The three levels of data volume with their respective EPS are shown in table \ref{epsparams}
-\begin{itemize}
-	\item 6000 - This is 1/10th of the whole dataset. There are 10 nodes. - 2 epochs per update
-	\item 1000 - Lower amount of data - 5 epochs per update
-	\item 100 - Extreme case - ? epochs per update
-\end{itemize}
+\subsection{Epochs}
+Due to the limited size of the dataset, a single node executes more than one epoch of training in each training loop. The number of epochs carried out by a node per training step will be referred to as Epochs per Step (EPS). Empirical testing has indicated that both SL and FL exhibit improved performance with higher EPS, at times surpassing the gains from increasing the number of training steps. Moreover, the utilization of higher EPS was favoured due to its reduced training time, compared to increasing the number of training steps. The three levels of data volume with their respective EPS are shown in table \ref{epsparams}
 
 \begin{table}[H]
 	\begin{tabular}{p{1.5cm}|l|p{10cm}}
@@ -34,9 +28,11 @@ The three levels of data volume with their respective EPS are shown in table \re
 \end{table}
 
 \section{Dense Network Performance}
-An important benchmark for the swarm learning algorithm is to test the performance in the best possible case: a network of nodes where every node is directly connected to every other node. The equivalent topology for federated learning is that every node is directly connected to the server.
+An important benchmark for the swarm learning algorithm is to test the performance in the best possible case: a network of nodes where every node is directly connected to every other node. The equivalent topology for federated learning is that every node is directly connected to the server. This is important as it allows SL to be directly compared to FL, when both algorithms are working in there ideal conditions.
 
-The parameters for the SL algorithm were chosen based on the authors past experience with testing the algorithm. The parameters are shown in table \ref{slparamsDNP}.
+A crucial experiment for evaluating the efficacy of the SL algorithm involves assessing its performance under optimal circumstances, specifically within a network of nodes wherein each node is directly connected to every other node. In FL, the analogous topology involves direct connections between each node and the server. This comparison is significant as it facilitates a direct evaluation of the SL and FL algorithms under their respective ideal conditions.
+
+The selection of the parameters for the SL algorithm was based on the authors prior experience in testing the algorithm. These parameters are presented in Table \ref{slparamsDNP}.
 \begin{table}[H]
 	\begin{tabular}{p{0.5cm}|l|p{11cm}}
 		P & Value & Reason \\ \hline \hline
@@ -47,7 +43,7 @@ The parameters for the SL algorithm were chosen based on the authors past experi
 	\caption{The chosen parameters for the SL algorithm} \label{slparamsDNP}
 \end{table}
 
-For SL, the nodes were all configured to connect to every other node in the network. For FL, each node was configured to have a direct connection to the server.
+\subsection{Results}
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples}} \\
@@ -70,7 +66,15 @@ For SL, the nodes were all configured to connect to every other node in the netw
 	\label{aeg3}
 \end{figure}
 
-\todo{Describe the above graphs}
+\subsection{Analysis}
+
+\begin{itemize}
+	\item Clear drop in accuracy when data volume is reduced
+	\item SL Consistently performs within a very small margin of FL when looking at peak accuracy
+	\item SL is consistently slower to converge than FL
+	\item SL has a higher variation in nodes accuracies at the beginning but quickly converges. However, it is much slower to converge on the 100 samples run
+	\item Overfitting does not seem to be a problem with either method
+\end{itemize}
 
 \section{Dense Network Performance with Node Dropout}
 
@@ -79,7 +83,53 @@ the same but this time dropout nodes. Try with and without filtering to show tha
 To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
 
 \section{Sparse Network Performance}
+In reality, it is uncommon for each node to be linked with every other node. To replicate this scenario, the present study employs a technique to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean number of transitions required to get from a node to another node in the network. MCPN denotes the average nubmer of connections a given node possess.
 
-can only test SL here (i guess you could take average number of neighbours and do fl on that too)
+To ensure good test coverage for a multitude of possible deployment conditions, multiple densities were tested for each count of data. Table \ref{sparsedensities} lists the densities that were tested along with their corresponding MMH and MCPN.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l}
+		Density & MMH & MCPN \\ \hline
+		1 & 1.0 & 9.0 \\
+		0.75    & 1.2 & 7.2  \\
+		0.5    & 1.4 & 5.4  \\
+		0.25    & 1.7 & 3.6  \\
+		0    & 3.0 & 1.8  \\
+	\end{tabular}
+	\caption{The statistics for different density levels} \label{sparsedensities}
+\end{table}
+
+In this section, FL is not tested. This is because the only thing FL can do if the server is not directly connected to a node is try to relay the model updates through other nodes or just ignore the disconnected node. For the reasons mentioned in Section \ref{relay}, relaying is not always a good solution, so the decision was made to only test SL in this test.
+
+\subsection{Results}
+
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 6000 Samples for Different Densities}} \\
+	\includegraphics[width=300px]{aeg4}
+	\caption{Comparing Accuracy of SL with 6000 Data Samples per Node and varying network density}
+	\label{aeg4}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\textbf{Accuracy by Training Step for 1000 Samples for Different Densities}} \\
+	\includegraphics[width=300px]{aeg5}
+	\caption{Comparing Accuracy of SL with 1000 Data Samples per Node and varying network density}
+	\label{aeg5}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\textbf{Accuracy by Training Step for 100 Samples for Different Densities}} \\
+	\includegraphics[width=300px]{aeg6}
+	\caption{Comparing Accuracy of SL with 100 Data Samples per Node and varying network density}
+	\label{aeg6}
+\end{figure}
+
+\subsection{Analysis}
+\begin{itemize}
+	\item The difference in training performance is negligible until you get the the minimally connected network
+	\item The minimally connected network seems to perform better initially but I think this is because the nodes are not fully synced as there is a lot of variation through the network, allowing much faster training. Also note that gamma is much lower for the minimally connected network and this is one of the symptoms of a low gamma.
+	\item I don't really know what else to say other than IT WORKS!!!!
+\end{itemize}
 
 \section{Sparse Network Performance with Dropout}

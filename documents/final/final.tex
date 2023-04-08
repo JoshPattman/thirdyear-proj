@@ -19,8 +19,27 @@
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{\emph{TODO: #1}}}}
 \title{Swarm Learning: Fully Distributed Machine Learning}
 
+% BACKGROUND STUFF
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight,%
+			keepaspectratio]{background.png}%
+			\vfill
+}}}
+% END BACKGROUND STUFF
+
 \begin{document}
+	% Following line is background stuff
+	\AddToShipoutPicture*{\BackgroundPic}
 	\maketitle
+	
+	\chapter*{Abstract}	
+	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands without ever sharing the data. This approach protects privacy by keeping the data decentralized. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. In this paper, a novel swarm learning technique is presented which operates without a blockchain. The algorithm is tested in various situations against federated learning, and in some situations where federated learning cannot be applied.
+	
 	\tableofcontents
 
 	\chapter{Background}
@@ -48,6 +67,7 @@
 	\include{projectman}
 	
 	\chapter{Conclusion and Future Work}
+	\include{conclusion}
 	
 	\include{appendix}
 	

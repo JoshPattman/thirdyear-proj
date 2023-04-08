@@ -7,13 +7,15 @@ out = Reshape((28,28,1))(inp)
 out = Conv2D(16, (3,3), activation="relu")(out)
 out = Conv2D(16, (3,3), activation="relu")(out)
 out = Flatten()(out)
+out = Dense(256, activation="relu")(out)
 out = Dense(128, activation="relu")(out)
 out = Dense(10, activation="sigmoid")(out)
 model = Model(inputs=inp, outputs=out)
 model.compile(
 	optimizer="adam",
 	loss=SparseCategoricalCrossentropy(),
-	metrics=[SparseCategoricalAccuracy()])
+	metrics=[SparseCategoricalAccuracy()]
+)
 \end{lstlisting}
 
 \chapter{Gantt Charts}
