@@ -14,15 +14,15 @@
 \contentsline {chapter}{\numberline {3}Analysis and Specification of the Solution to the Problem}{12}{}%
 \contentsline {chapter}{\numberline {4}Detailed Design}{13}{}%
 \contentsline {section}{\numberline {4.1}Node}{14}{}%
-\contentsline {section}{\numberline {4.2}No Blockchain}{14}{}%
+\contentsline {section}{\numberline {4.2}Disposal of Blockchain}{14}{}%
 \contentsline {section}{\numberline {4.3}Training Counter}{15}{}%
 \contentsline {section}{\numberline {4.4}Model Combination Methods}{15}{}%
-\contentsline {subsection}{\numberline {4.4.1}Averaging}{15}{}%
+\contentsline {subsection}{\numberline {4.4.1}Averaging}{16}{}%
 \contentsline {subsection}{\numberline {4.4.2}Averaging With Synchronisation Rate}{16}{}%
 \contentsline {subsection}{\numberline {4.4.3}Filtering By Training Counter}{16}{}%
 \contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{17}{}%
 \contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{17}{}%
-\contentsline {subsection}{\numberline {4.5.2}Relay}{17}{}%
+\contentsline {subsection}{\numberline {4.5.2}Relay}{18}{}%
 \contentsline {section}{\numberline {4.6}Complete Algorithm}{18}{}%
 \contentsline {chapter}{\numberline {5}Implementation}{19}{}%
 \contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{20}{}%

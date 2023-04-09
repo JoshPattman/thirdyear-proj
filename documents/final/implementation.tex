@@ -23,7 +23,7 @@ This implementation of federated learning is simple yet effective. Though certai
 \section{Prototype}
 It was decided to make an initial, less streamlined, prototype as a proof-of-concept before spending a lot of time creating the final algorithm. This prototype was created to be very modifiable so that changes could easily be made and tested.
 
-\subsection{Algorithm}
+\subsection{Algorithm} \label{reasonforcache}
 This algorithm was a simplified version of that described in the design section. The primary difference was that when a node performed its synchronisation step, it would request the models from each neighbour instead of utilising its cached versions of their models. This had the consequence of slowing down training, as the synchronisation step could not be completed until all nodes had responded. Furthermore, this algorithm did not incorporate the training counter, leading to the absence of training counter filtering, $\beta$ and $\gamma$.
 
 \subsection{Evaluation}
