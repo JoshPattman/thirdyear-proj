@@ -29,21 +29,21 @@ The training counter can be changed in one of two manners. Firstly, the counter 
 \section{Model Combination Methods}
 The combination step is a crucial component of the swarm learning algorithm. During this step, a node merges its local model with those of its neighbours, producing an updated estimate of the global model. This paper presents multiple methods for performing the combination step, which are evaluated in the results section.
 
-In the below equations, $\mu(x)$ denotes the function $mean(x)$, $t_x$ denotes $training\_counter_x$, and $m_x$ denotes $model_x$.
+In the below equations, $\mu(x)$ denotes the function $mean(x)$. All models are assumed to be n-dimensional arrays, meaning that mathematical operations such as add ($+$) and multiply ($*$) are performed in an element-wise fashion.
 
 \subsection{Averaging}
 The most rudimentary approach to combination is to compute the average model between the local model and the models of all neighbouring nodes.
-\[ m_{local+1} = \mu ( \{ m_{local} \} \cup m_{neighbours} )\]
+\[ localModel \gets \mu(localModel \cup neighborModels) \]
 This technique is utilized in FedAvg, which is the most simplistic form of federated learning. The benefit of this method is that it necessitates no hyper-parameters, which translates to less tuning required by the programmer. However, this attribute can also be viewed as a drawback, as it affords less flexibility in terms of customization for particular tasks.
 
 \subsection{Averaging With Synchronisation Rate}
 A more complex approach to combination is to compute the average model of all neighbours, then compute the weighted average between that model and the local model.
-\[ m_{local+1} = (1 - \alpha) * m_{local} + \alpha * \mu ( m_{neighbours} )\]
+\[ localModel \gets (1 - \alpha) * localModel + \alpha * \mu(neighborModels) \]
 The synchronisation rate, denoted as $\alpha$, indicates the degree to which each node adjusts its local model to align with the global model. If $\alpha$ is set too low, each node's model in the network will diverge, resulting in each node becoming trapped at a local minima. On the other hand, if $\alpha$ is too high, the progress achieved by a given node will be discarded at each averaging step, which can result in slower learning. The implications of adjusting this parameter are discussed further in the results section.
 
 \subsection{Filtering By Training Counter}
 A potential modification to the previously mentioned combination algorithms involves filtering based on the training counter. Specifically, a node may only include its neighbour models if they meet the following statement:
-\[t_{neighbour} + \beta \ge t_{local} \]
+\[neighborTrainingCounter + \beta \ge localTrainingCounter \]
 The training offset $\beta$ is the amount the training counter of a neighbour can be behind the local training counter before it is ignored. Different values of $\beta$ are explored in the results section.
 
 A compelling reason to allow training counter filtering is the increased fault tolerance. Consider the situation where node \emph{A} has received many model updates from many nodes, one of which being node \emph{B}. However, node \emph{B} goes offline and no longer is sending model updates. Without training counter filtering, node \emph{A} will continue to combine the outdated node \emph{B} model with it's own for as long as it is training. However, if training counter filtering is enabled, after a number of training steps the outdated model \emph{B} updates will be ignored.
@@ -63,3 +63,12 @@ However, this method also has certain theoretical drawbacks. Consider a scenario
 A solution to this could be to relay any received model updates, which means that as long as each node has at least one path to reach all other nodes, the network will behave as a dense network. This approach offers theoretical immunity to changes in network topology, but in practice, the network's performance may still decrease compared to a truly dense network due to slower communication times between non-connected nodes.
 
 The main disadvantage of this approach is the drastic increase in network traffic, which in turn will lead to longer model transfer times. If the swarm learning algorithm is applied to a low power network, such as an IoT network, the increase in network traffic may not be feasible at all. This relay approach can also be applied to federated learning with the same advantages and disadvantages, so will not be discussed further.
+
+\section{Complete Algorithm}
+\todo{Make this formal}
+
+The complete proposed algorithm for swarm learning can be found at Appendix \ref{slalgo}. However, there are multiple functions so below is an explanation of each part.
+
+The update loop, which can be found at Appendix \ref{slalgo:ul}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single update step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
+
+The model received event, which can be found at Appendix \ref{slalgo:mre}, is run every time a remote node sends the local node a model update. This event takes care of updating the local model cache, to ensure the local node has the most up-to-date information. The model update should contain the model of the remote node and also the remote nodes training counter.

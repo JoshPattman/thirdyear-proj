@@ -23,6 +23,7 @@
 \contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{17}{}%
 \contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{17}{}%
 \contentsline {subsection}{\numberline {4.5.2}Relay}{17}{}%
+\contentsline {section}{\numberline {4.6}Complete Algorithm}{18}{}%
 \contentsline {chapter}{\numberline {5}Implementation}{19}{}%
 \contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{20}{}%
 \contentsline {subsection}{\numberline {5.1.1}Dataset}{20}{}%
@@ -76,7 +77,10 @@
 \contentsline {chapter}{\numberline {9}Conclusion and Future Work}{41}{}%
 \contentsline {section}{\numberline {9.1}Conclusion}{42}{}%
 \contentsline {section}{\numberline {9.2}Future Work}{42}{}%
-\contentsline {chapter}{\numberline {A}Machine Learning Model}{43}{}%
-\contentsline {chapter}{\numberline {B}Gantt Charts}{44}{}%
-\contentsline {section}{\numberline {B.1}Gantt - Interim}{45}{}%
-\contentsline {section}{\numberline {B.2}Gantt - Final}{46}{}%
+\contentsline {chapter}{\numberline {A}Sward Learning Algorithm}{43}{}%
+\contentsline {section}{\numberline {A.1}Training Step}{43}{}%
+\contentsline {section}{\numberline {A.2}Model Received Event}{44}{}%
+\contentsline {chapter}{\numberline {B}Machine Learning Model}{45}{}%
+\contentsline {chapter}{\numberline {C}Gantt Charts}{46}{}%
+\contentsline {section}{\numberline {C.1}Gantt - Interim}{47}{}%
+\contentsline {section}{\numberline {C.2}Gantt - Final}{48}{}%

@@ -15,29 +15,29 @@ The server model improves over time, and after a certain number of steps, the tr
 As it does not require data to be shared between nodes, FL is naturally beneficial for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \citeme. Additionally, as FL performs training on multiple nodes in parallel, it can make better use of available training resources in situations where processing power is distributed among multiple nodes \citeme.
 
 % federate distributed
-One branch of FL is distributed federated learning (DFL). This algorithm works in a very similar way to FL, but replaces the central server with an elected leader in a network of nodes \cite{leaderelec_car}. DFL has been shown to increase fault tolerance and security over FL.
+One branch of FL is distributed federated learning (DFL). This algorithm works in a very similar fashion to FL, but replaces the central server with an elected leader in a network of nodes \cite{leaderelec_car}. DFL has been shown to increase fault tolerance and security over FL.
 
 
 \section{Swarm Learning}
 % Introduce swarm learning
-Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates in a completely distributed and decentralised manner. SL still allows a network of nodes to collaborate to learn a shared model, but at no point is a central server used or a leader chosen. In contrast to FL, SL methods usually use a blockchain based system to coordinate a global model.
+Swarm learning (SL) is a subcategory of FL which operates in a completely distributed and decentralised manner. SL enables the collaboration of nodes to learn a shared global model, however in contrast to FL, a central server is never used. SL also does not use leader election, so all nodes on the network are given the same importance.
+
+In SL, the model on which new training is performed is known as the global model. However, unlike FL where the global model is stored in a central location, the global model in SL does not materially exist, but is instead a concept which is agreed upon by the nodes in the network.
 
 \begin{figure}[h]
 	\includegraphics[width=\linewidth]{fedvsswarm}
-	\caption{Diagram of different learning algorithms. Each \emph{Node} indicates a single training machine, and each line denotes a connection between two machines, along which the model can be shared.} \label{fig_learning}
+	\caption{Diagram of different learning algorithms. Each \emph{Node} indicates a single training machine, and each line denotes a connection between two machines, along which the model can be shared. In the swarm learning diagram, the dashed lines show that each local model is an approximation of the global model.} \label{fig_learning}
 \end{figure}
 
-
-In SL, nodes learn in a similar fashion to FL in training steps. However, the nodes do not need to have their training steps synchronised. Following are the typical training steps of a swarm learning node:
+One method of SL uses a blockchain to store the global model, enabling the nodes to come to consensus \cite{swarm_learning}. In this version of SL, training is performed by repeating the following steps:
 \begin{enumerate}
-	\item A node obtains a copy of the current model from the blockchain.
+	\item A node obtains a copy of the global model from the blockchain.
 	\item The node performs some training with their copy of the model and their own private data.
 	\item The updated model is merged with the latest blockchain model and sent back to the blockchain for other nodes to use.
 \end{enumerate}
-The model on the blockchain will improve over time, and after a certain number of steps the blockchain model is the final output. \\
 
 % Specify why swarm learning is better than conventional learning or federated learning
-SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks for very large swarms.
+SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks due to network speed constraints for very large swarms.
 
 \section{Blockchain}
 \todo{Write this out}
