@@ -106,9 +106,33 @@ To ensure good test coverage for a multitude of possible deployment conditions, 
 
 \begin{figure}[H]
 	\centering
+	\begin{subfigure}[b]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{sparsegraph100}
+		\caption{$density=1.0$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{sparsegraph75}
+		\caption{$density=0.75$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{sparsegraph50}
+		\caption{$density=0.5$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{sparsegraph25}
+		\caption{$density=0.25$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{sparsegraph0}
+		\caption{$density=0.0$}
+	\end{subfigure}
 	\caption{Example networks of nodes generated for each density level, visualised using https://csacademy.com/app/graph\_editor/. \todo{Reference the previous website correctly}}. Each time a simulation is started, a new random network is generated for that simulation.
 \end{figure}
-
 
 
 In this section, FL is not tested. This is because the only thing FL can do if the server is not directly connected to a node is try to relay the model updates through other nodes or just ignore the disconnected node. For the reasons mentioned in Section \ref{relay}, relaying is not always a good solution, so the decision was made to only test SL in this test.

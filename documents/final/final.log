@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  9 APR 2023 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  9 APR 2023 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -172,8 +172,8 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
-Package: subfig 2005/06/28 ver: 1.3 subfig package
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
@@ -193,23 +193,12 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count281
 Package caption Info: listings package is loaded.
 )
-\c@KVtest=\count282
-\sf@farskip=\skip52
-\sf@captopadj=\dimen161
-\sf@capskip=\skip53
-\sf@nearskip=\skip54
-\c@subfigure=\count283
-\c@subfigure@save=\count284
-\c@lofdepth=\count285
-\c@subtable=\count286
-\c@subtable@save=\count287
-\c@lotdepth=\count288
-\sf@top=\skip55
-\sf@bottom=\skip56
+\c@subfigure=\count282
+\c@subtable=\count283
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count289
+\c@float@type=\count284
 \float@exts=\toks25
 \float@box=\box54
 \@float@everytoks=\toks26
@@ -217,12 +206,12 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen162
-\ESO@tempdimb=\dimen163
+\ESO@tempdima=\dimen161
+\ESO@tempdimb=\dimen162
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
+\l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box56
 )
 (./final.aux (./background.aux) (./problemandgoals.aux) (./design.aux)
@@ -247,16 +236,16 @@ LaTeX Font Info:    ... okay on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
-\scratchdimen=\dimen164
+\scratchcounter=\count286
+\scratchdimen=\dimen163
 \scratchbox=\box57
-\nofMPsegments=\count292
-\nofMParguments=\count293
+\nofMPsegments=\count287
+\nofMParguments=\count288
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count294
-\MPscratchDim=\dimen165
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen164
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
 \everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -267,9 +256,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count297
+\c@lstlisting=\count292
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
@@ -430,56 +418,82 @@ Overfull \hbox (42.56648pt too wide) in paragraph at lines 81--81
 
 LaTeX Warning: Reference `densfig' on page 30 undefined on input line 92.
 
-[30]
-<./plots//aeg4.png, id=127, 419.166pt x 316.5426pt>
+<./plots//sparsegraph100.png, id=123, 296.10625pt x 293.095pt>
+File: ./plots//sparsegraph100.png Graphic file (type png)
+<use ./plots//sparsegraph100.png>
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 111.
+(pdftex.def)             Requested size: 136.50238pt x 135.11603pt.
+<./plots//sparsegraph75.png, id=124, 316.18124pt x 316.18124pt>
+File: ./plots//sparsegraph75.png Graphic file (type png)
+<use ./plots//sparsegraph75.png>
+Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 116.
+(pdftex.def)             Requested size: 136.50238pt x 136.50528pt.
+<./plots//sparsegraph50.png, id=125, 330.23375pt x 325.215pt>
+File: ./plots//sparsegraph50.png Graphic file (type png)
+<use ./plots//sparsegraph50.png>
+Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 121.
+(pdftex.def)             Requested size: 136.50238pt x 134.43073pt.
+<./plots//sparsegraph25.png, id=126, 450.68375pt x 407.5225pt>
+File: ./plots//sparsegraph25.png Graphic file (type png)
+<use ./plots//sparsegraph25.png>
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 126.
+(pdftex.def)             Requested size: 136.50238pt x 123.42673pt.
+<./plots//sparsegraph0.png, id=127, 450.68375pt x 407.5225pt>
+File: ./plots//sparsegraph0.png Graphic file (type png)
+<use ./plots//sparsegraph0.png>
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 131.
+(pdftex.def)             Requested size: 136.50238pt x 123.42673pt.
+[30] [31 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//s
+parsegraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
+<./plots//aeg4.png, id=143, 419.166pt x 316.5426pt>
 File: ./plots//aeg4.png Graphic file (type png)
 <use ./plots//aeg4.png>
-Package pdftex.def Info: ./plots//aeg4.png  used on input line 123.
+Package pdftex.def Info: ./plots//aeg4.png  used on input line 147.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-<./plots//aeg5.png, id=128, 419.166pt x 316.5426pt>
+<./plots//aeg5.png, id=144, 419.166pt x 316.5426pt>
 File: ./plots//aeg5.png Graphic file (type png)
 <use ./plots//aeg5.png>
-Package pdftex.def Info: ./plots//aeg5.png  used on input line 130.
+Package pdftex.def Info: ./plots//aeg5.png  used on input line 154.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [31 <./plots//aeg4.png>]
-<./plots//aeg6.png, id=133, 419.166pt x 316.5426pt>
+
+[32 <./plots//aeg4.png>]
+<./plots//aeg6.png, id=149, 419.166pt x 316.5426pt>
 File: ./plots//aeg6.png Graphic file (type png)
 <use ./plots//aeg6.png>
-Package pdftex.def Info: ./plots//aeg6.png  used on input line 137.
+Package pdftex.def Info: ./plots//aeg6.png  used on input line 161.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [32 <./plots//aeg5.png> <./plots//aeg6.png>])
-[33]
+ [33 <./plots//aeg5.png> <./plots//aeg6.png>]) [34]
 Chapter 7.
-[34
+[35
 
 
 
 ]
 \openout2 = `evaluation.aux'.
 
- (./evaluation.tex) [35
+ (./evaluation.tex) [36
 
 ]
 Chapter 8.
-[36
+[37
 
 
 
 ]
 \openout2 = `projectman.aux'.
 
- (./projectman.tex [37
+ (./projectman.tex [38
 
-] [38]) [39]
+] [39]) [40]
 Chapter 9.
-[40
+[41
 
 
 
 ]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex) [41
+ (./conclusion.tex) [42
 
 ]
 \openout2 = `appendix.aux'.
@@ -488,17 +502,17 @@ Chapter 9.
 Appendix A.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [42
+) [43
 
 
 
 
 ]
 Appendix B.
-[43
+[44
 
 ]
-<./plots//gannt-interim.png, id=174, 1817.79124pt x 572.1375pt>
+<./plots//gannt-interim.png, id=190, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 25.
@@ -507,8 +521,8 @@ Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 25.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[44 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=179, 1731.46875pt x 776.9025pt>
+[45 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=195, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 30.
@@ -517,17 +531,17 @@ Package pdftex.def Info: ./plots//gannt-final.png  used on input line 30.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[45 <./plots//gannt-final.png>]) (./final.bbl
+[46 <./plots//gannt-final.png>]) (./final.bbl
 Underfull \hbox (badness 2368) in paragraph at lines 4--6
 \T1/cmr/m/n/12 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
 
-[46
+[47
 
 
 
-] [47]) [48] (./final.aux (./background.aux) (./problemandgoals.aux)
+] [48]) [49] (./final.aux (./background.aux) (./problemandgoals.aux)
 (./design.aux) (./implementation.aux) (./results.aux) (./evaluation.aux)
 (./projectman.aux) (./conclusion.aux) (./appendix.aux))
 
@@ -535,30 +549,33 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7183 strings out of 478287
- 110913 string characters out of 5849288
- 582485 words of memory out of 5000000
- 25250 multiletter control sequences out of 15000+600000
- 486699 words of font info for 71 fonts, out of 8000000 for 9000
+ 7167 strings out of 478287
+ 111403 string characters out of 5849288
+ 580023 words of memory out of 5000000
+ 25234 multiletter control sequences out of 15000+600000
+ 489016 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,79p,1071b,1224s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf
-/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx17
-28.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm207
-4.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on final.pdf (49 pages, 2282331 bytes).
+ 67i,12n,77p,1071b,1224s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/
+fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfti1200.pfb>
+Output written on final.pdf (50 pages, 2427891 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 288 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
