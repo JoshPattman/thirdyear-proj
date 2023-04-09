@@ -1,13 +1,13 @@
 \section{Node}
-In swarm learning, a node is an agent responsible for facilitating the improvement of the global model. Each node maintains a local model, which is an approximation of the global model that is stored locally. However, the global model is an abstract concept representing of the average of all local models across all nodes. As training progresses and performance approaches a plateau, the global model gradually converges towards each node's local model.
+In swarm learning, a node is an agent responsible for facilitating the improvement of the global model. Each node maintains a local model, which is an approximation of the global model that is stored locally. However, the global model is an abstract concept representing of the average of all local models across all nodes. As training progresses and performance begins to plateau, each node's local model gradually converges towards the global model, while the global model approaches a minima with respect to loss.
 
 Each node in the network possesses a confidential dataset that is not disclosed to any other nodes. In order to train the global model, nodes fit their own local model of their local dataset. In order to maintain consistency between local and global models, a combination procedure is conducted following each round of local training, which involves the integration of neighbouring nodes' models into the local model.
 
 The steps in each training loop are as follows:
 \begin{enumerate}
-	\item Fit local model to local dataset
-	\item Send local model to all neighbours
-	\item Combine neighbouring models into local model
+	\item Fit local model to local dataset.
+	\item Send local model to all neighbours.
+	\item Combine neighbouring models into local model.
 \end{enumerate}
 
 In addition, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated at the instant of the combination step. The reasoning behind this decision is elaborated upon in greater detail in the implementation section.
@@ -44,7 +44,7 @@ The synchronisation rate, denoted as $\alpha$, indicates the degree to which eac
 \subsection{Filtering By Training Counter}
 A potential modification to the previously mentioned combination algorithms involves filtering based on the training counter. Specifically, a node may only include its neighbour models if they meet the following statement:
 \[t_{neighbour} + \beta \ge t_{local} \]
-The training offset $\beta$ is the amount the training counter of a neighbour can be be behind the local training counter before it is ignored. Different values of $\beta$ are explored in the results section.
+The training offset $\beta$ is the amount the training counter of a neighbour can be behind the local training counter before it is ignored. Different values of $\beta$ are explored in the results section.
 
 A compelling reason to allow training counter filtering is the increased fault tolerance. Consider the situation where node \emph{A} has received many model updates from many nodes, one of which being node \emph{B}. However, node \emph{B} goes offline and no longer is sending model updates. Without training counter filtering, node \emph{A} will continue to combine the outdated node \emph{B} model with it's own for as long as it is training. However, if training counter filtering is enabled, after a number of training steps the outdated model \emph{B} updates will be ignored.
 

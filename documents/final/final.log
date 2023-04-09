@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  8 APR 2023 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  9 APR 2023 12:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,12 +396,12 @@ Chapter 6.
  (./results.tex [25
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 []\T1/cmr/m/n/12 Dataset
  []
 
 [26]
-Overfull \hbox (1.91772pt too wide) in paragraph at lines 37--43
+Overfull \hbox (1.91772pt too wide) in paragraph at lines 36--42
 [][] 
  []
 
@@ -416,36 +416,35 @@ File: ./plots//aeg2.png Graphic file (type png)
 <use ./plots//aeg2.png>
 Package pdftex.def Info: ./plots//aeg2.png  used on input line 57.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [28 <./plots//aeg1.png>]
-<./plots//aeg3.png, id=117, 419.166pt x 316.5426pt>
+<./plots//aeg3.png, id=113, 419.166pt x 316.5426pt>
 File: ./plots//aeg3.png Graphic file (type png)
 <use ./plots//aeg3.png>
 Package pdftex.def Info: ./plots//aeg3.png  used on input line 64.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [29 <./plots//aeg2.png> <./plots//aeg3.png>]
-Overfull \hbox (42.56648pt too wide) in paragraph at lines 79--79
+ [28 <./plots//aeg1.png> <./plots//aeg2.png>]
+Overfull \hbox (42.56648pt too wide) in paragraph at lines 81--81
 []\T1/cmr/bx/n/17.28 Dense Net-work Per-for-mance with Node Dropout 
  []
 
-[30]
-<./plots//aeg4.png, id=127, 419.166pt x 316.5426pt>
+[29 <./plots//aeg3.png>]
+<./plots//aeg4.png, id=123, 419.166pt x 316.5426pt>
 File: ./plots//aeg4.png Graphic file (type png)
 <use ./plots//aeg4.png>
-Package pdftex.def Info: ./plots//aeg4.png  used on input line 109.
+Package pdftex.def Info: ./plots//aeg4.png  used on input line 115.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
+ [30]
 <./plots//aeg5.png, id=128, 419.166pt x 316.5426pt>
 File: ./plots//aeg5.png Graphic file (type png)
 <use ./plots//aeg5.png>
-Package pdftex.def Info: ./plots//aeg5.png  used on input line 116.
+Package pdftex.def Info: ./plots//aeg5.png  used on input line 122.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
  [31 <./plots//aeg4.png>]
 <./plots//aeg6.png, id=133, 419.166pt x 316.5426pt>
 File: ./plots//aeg6.png Graphic file (type png)
 <use ./plots//aeg6.png>
-Package pdftex.def Info: ./plots//aeg6.png  used on input line 123.
+Package pdftex.def Info: ./plots//aeg6.png  used on input line 129.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [32 <./plots//aeg5.png> <./plots//aeg6.png>])
-[33]
+ [32 <./plots//aeg5.png> <./plots//aeg6.png>]) [33]
 Chapter 7.
 [34
 
@@ -530,7 +529,7 @@ Underfull \hbox (badness 2368) in paragraph at lines 4--6
 Here is how much of TeX's memory you used:
  7181 strings out of 478287
  110814 string characters out of 5849288
- 582447 words of memory out of 5000000
+ 582450 words of memory out of 5000000
  25248 multiletter control sequences out of 15000+600000
  486699 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -549,7 +548,7 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf
 cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pf
 b></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/
 fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on final.pdf (49 pages, 2286660 bytes).
+Output written on final.pdf (49 pages, 2288677 bytes).
 PDF statistics:
  260 PDF objects out of 1000 (max. 8388607)
  158 compressed objects within 2 object streams

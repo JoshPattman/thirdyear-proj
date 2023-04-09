@@ -14,8 +14,8 @@
 
 \graphicspath{{./plots/}}
 
-\newcommand{\checkme}{\textcolor{red}{\textbf{\emph{VALIDATE THIS STATEMENT}}}}
-\newcommand{\citeme}{\textcolor{red}{\textbf{\emph{CITE THIS STATEMENT}}}}
+\newcommand{\checkme}{\textcolor{blue}{\textbf{\emph{VALIDATE THIS STATEMENT}}}}
+\newcommand{\citeme}{\textcolor{green}{\textbf{\emph{CITE THIS STATEMENT}}}}
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{\emph{TODO: #1}}}}
 \title{Swarm Learning: Fully Distributed Machine Learning}
 
@@ -37,8 +37,10 @@
 	\AddToShipoutPicture*{\BackgroundPic}
 	\maketitle
 	
-	\chapter*{Abstract}	
-	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands without ever sharing the data. This approach protects privacy by keeping the data decentralized. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. In this paper, a novel swarm learning technique is presented which operates without a blockchain. The algorithm is tested in various situations against federated learning, and in some situations where federated learning cannot be applied.
+	\chapter*{Abstract}
+	\todo{This needs to be slightly reworded and also wordcounted}
+	
+	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands without ever sharing the data. This approach protects privacy by keeping the data decentralized, meaning that sensitive data does not need to ever be shared. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. In this paper, a novel swarm learning technique is presented which operates without a blockchain. The algorithm is validated against federated learning in various scenarios, and also in some situations where federated learning cannot be applied.
 	
 	\tableofcontents
 
@@ -49,7 +51,7 @@
 	\include{problemandgoals}
 	
 	\chapter{Analysis and Specification of the Solution to the Problem}
-	\todo{Figure out what goes here}
+	\todo{I don't know what is supposed to go here}
 	
 	\chapter{Detailed Design}
 	\include{design}

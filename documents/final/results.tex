@@ -1,4 +1,3 @@
-\todo{Write this section out properly}
 \section{Methods}
 \subsection{Metrics}
 The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of MNIST since it is a balanced dataset. The accuracy of each node is computed after each training step using the test subset of MNIST, and none of the nodes are ever provided access to the test set for training.
@@ -12,7 +11,7 @@ The experiments were conducted using 10 nodes, with the exception of the server 
 \subsection{Algorithm Configurations}
 In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that swarm learning could yield better results with more precisely tuned parameters.
 
-\subsection{Data Per Node}
+\subsection{Data Volume Per Node}
 The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST dataset, as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant.
 
 \subsection{Epochs}
@@ -44,6 +43,7 @@ The selection of the parameters for the SL algorithm was based on the authors pr
 \end{table}
 
 \subsection{Results}
+\todo{I think I should write some text around these graphs but im not sure what}
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples}} \\
@@ -68,6 +68,8 @@ The selection of the parameters for the SL algorithm was based on the authors pr
 
 \subsection{Analysis}
 
+\todo{Write this out}
+
 \begin{itemize}
 	\item Clear drop in accuracy when data volume is reduced
 	\item SL Consistently performs within a very small margin of FL when looking at peak accuracy
@@ -77,6 +79,8 @@ The selection of the parameters for the SL algorithm was based on the authors pr
 \end{itemize}
 
 \section{Dense Network Performance with Node Dropout}
+
+\todo{Do this experiment - it really shouldn't take tong}
 
 the same but this time dropout nodes. Try with and without filtering to show that it increases fault tolerance
 
@@ -104,6 +108,8 @@ In this section, FL is not tested. This is because the only thing FL can do if t
 
 \subsection{Results}
 
+\todo{Again, maby write somthing here? I'm not sure what to put though.}
+
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples for Different Densities}} \\
 	\includegraphics[width=300px]{aeg4}
@@ -126,6 +132,8 @@ In this section, FL is not tested. This is because the only thing FL can do if t
 \end{figure}
 
 \subsection{Analysis}
+\todo{Write this out}
+
 \begin{itemize}
 	\item The difference in training performance is negligible until you get the the minimally connected network
 	\item The minimally connected network seems to perform better initially but I think this is because the nodes are not fully synced as there is a lot of variation through the network, allowing much faster training. Also note that gamma is much lower for the minimally connected network and this is one of the symptoms of a low gamma.
@@ -133,3 +141,4 @@ In this section, FL is not tested. This is because the only thing FL can do if t
 \end{itemize}
 
 \section{Sparse Network Performance with Dropout}
+\todo{Do this experiment - it really shouldn't take tong}

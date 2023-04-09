@@ -2,9 +2,9 @@
 In the modern world of machine learning, there exist some problems which are difficult to solve with conventional and centralised, machine learning approaches.
 
 \subsection{Privacy}
-It is common for data to be spread across multiple locations, known as data islands. Traditionally, all of this data would be consolidated into a single centralized server to facilitate the process of machine learning. However, it may not be possible to do so, given the potential conflict with privacy legislation. This leaves two options to the data scientist who is looking to train a model: either a single model per data island, likely with inferior performance, or use an algorithm that would allow the different data islands to collaborate and train a model.
+It is common for data to be spread across multiple locations, referred to as data islands. Traditionally, all of this data would be consolidated into a single centralized server to facilitate the process of machine learning. However, it may not be possible to do so, given the potential conflict with privacy legislation. This leaves two options to the data scientist who is looking to train a model: either a single model per data island, likely with inferior performance, or use an algorithm that would allow the different data islands to collaborate and collectively train a model.
 
-For example, due to the obligation to maintain patient confidentiality, the medical data of patients stored in a hospital cannot be shared with any other entity. However, if a model was trained on all of the data across all sources, it could be of great benefit to many people.
+Consider the scenario where many different hospitals wish to train a model to detect an illness in a patient. However, due to the obligation to maintain patient confidentiality, the medical data of patients cannot be shared with any of the other hospitals. This means that, despite probably having superior performance, a model trained on all data across all hospitals is not feasible, which means that the patients would not have the highest quality medical car possible.
 
 \subsection{Performance}
 In general, it has been observed that larger machine learning models coupled with more data typically lead to better performance \citeme. However, the use of conventional approaches for training such big models necessitates the requirement of a powerful computer. Most entities, however, do not have access to such a computer. Nevertheless, they may have access to multiple, lower-power computers. For instance, during non-working hours, a company may have hundreds of computers in its offices that are not being used, thus providing an opportunity to utilise the unused processing power.
@@ -15,7 +15,7 @@ In general, it has been observed that larger machine learning models coupled wit
 In this project, the primary aim is to design a novel swarm learning algorithm. This algorithm should be based on FedAvg and Swarm Learning. However, the algorithm should be fully decentralised, and it should operate without a blockchain.
 
 \subsection{Implement the Algorithm}
-The algorithm should be implemented for the primary purpose of testing its performance, meaning it should be the minimal viable implementation. It should be implemented in an easy-to-understand programming language, making it simple for someone to reproduce.
+The algorithm should be implemented for the primary purpose of performance benchmarking, meaning it should be the minimal viable implementation. It should be implemented in an easily understood programming language, making it simple for someone to reproduce.
 
 \subsection{Test Performance in Situations Where Federated Learning Performs Well}
 It has been demonstrated that Federated Learning is effective in settings where each node has a reliable connection to the server \citeme. It should be shown that the new algorithm can perform well in similar situations, where each node has many stable connections to other nodes in the network.

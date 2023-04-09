@@ -26,15 +26,15 @@ Swarm learning (SL) \cite{swarm_learning} is a subcategory of FL which operates 
 \begin{figure}[h]
 	\includegraphics[width=\linewidth]{sl}
 	\caption{Diagram of swarm learning compared to other type of learning taken from \cite{swarm_learning}}. The DNA icon denotes the location of data and the CPU icon denotes the location the model is stored
-	\label{fig_learning}
+	\label{fig_learning}.
 \end{figure}
 
 
 In SL, nodes learn in a similar fashion to FL in training steps. However, the nodes do not need to have their training steps synchronised. Following are the typical training steps of a swarm learning node:
 \begin{enumerate}
-	\item A node obtains a copy of the current model from the blockchain
-	\item The node performs some training with their copy of the model and their own private data
-	\item The updated model is merged with the latest blockchain model and sent back to the blockchain for other nodes to use
+	\item A node obtains a copy of the current model from the blockchain.
+	\item The node performs some training with their copy of the model and their own private data.
+	\item The updated model is merged with the latest blockchain model and sent back to the blockchain for other nodes to use.
 \end{enumerate}
 The model on the blockchain will improve over time, and after a certain number of steps the blockchain model is the final output. \\
 

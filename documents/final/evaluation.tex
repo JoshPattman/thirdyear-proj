@@ -1,11 +1,10 @@
 \section{Comparison of SL to FL}
+\todo{Make this sentence into a paragraph with some more detail?}
+
 This report has show that SL has the capability to be a competitor to FL in a distributed learning situation. SL can also be used in some situations where FL cannot. However, there are some clear disadvantages to using SL as opposed to FL.
-\todo{Make this flow better}
 
 \subsection{Advantages of using SL over FL}
-The main advantage to using SL over FL is the ability for SL to function on networks where every node does not have connections to every other node.
 \todo{Write this out}
-
 
 \begin{itemize}
 	\item Can prevent a single slow node from bottlenecking the whole process
@@ -18,5 +17,10 @@ The main advantage to using SL over FL is the ability for SL to function on netw
 \todo{Write this out}
 \begin{itemize}
 	\item Less data transmission ($O(n)$ rather than worst case $O(n^2)$). This effect is less prominent if SL is sparse
-	\item Less complex algorithm -> fewer parameters to tune
+	\item FL is a Less complex algorithm -> fewer parameters to tune -> easier to fit to a problem
+	\item Slower to converge
 \end{itemize}
+
+
+\subsection{Limitations of the Presented Implementation}
+\todo{I think this is a good section to have}

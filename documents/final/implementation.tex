@@ -24,7 +24,7 @@ This implementation of federated learning is simple yet effective. Though certai
 It was decided to make an initial, less streamlined, prototype as a proof-of-concept before spending a lot of time creating the final algorithm. This prototype was created to be very modifiable so that changes could easily be made and tested.
 
 \subsection{Algorithm}
-This algorithm was a simplified version of that described in the design section. The primary difference was that when a node performed its synchronisation step, it would request the models from each neighbour instead of utilising its cached versions of their models. This had the consequence of slowing down training, as the synchronisation step could not be completed until all nodes had responded. Furthermore, this algorithm did not incorporate the concept of a training counter, meaning that training counter filtering, $\beta$ and $\gamma$ were all absent.
+This algorithm was a simplified version of that described in the design section. The primary difference was that when a node performed its synchronisation step, it would request the models from each neighbour instead of utilising its cached versions of their models. This had the consequence of slowing down training, as the synchronisation step could not be completed until all nodes had responded. Furthermore, this algorithm did not incorporate the training counter, leading to the absence of training counter filtering, $\beta$ and $\gamma$.
 
 \subsection{Evaluation}
 This step was beneficial for the progression of the project, as it enabled the author to form the ideas detailed in the design process, which were then implemented in the subsequent step. However, due to the abundance of superfluous code, the algorithm was inefficient and time consuming. For this reason, it was decided not to record the results of this method.
@@ -33,7 +33,7 @@ This step was beneficial for the progression of the project, as it enabled the a
 In this implementation, what was learnt in the prototype was taken and built upon. The code was streamlined for the purpose of performance testing in the results section. However, the code was still designed to be reusable and easy to read.
 
 \subsection{Algorithm}
-The algorithm is as described in he design section. However, there was one discrepancy which needed to be tested: whether to send model updates to neighbours before or after performing the combination step. Both were tested but pushing model updates before combination seemed to be the more effective method when comparing the accuracy.
+The algorithm is as described in the design section. However, there was one discrepancy which needed to be tested: whether to send model updates to neighbours before or after performing the combination step. Both were tested but pushing model updates before combination seemed to be the more effective method when comparing the accuracy.
 
 The back end for distributing models was implemented as an interface which abstracts how the back end works away from the main algorithm code. In the results section, the same distribution strategy as federated learning was used: calling local functions that simulated a web connection.
 \subsection{Evaluation}
