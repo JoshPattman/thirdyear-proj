@@ -5,11 +5,11 @@ Many modern machine learning algorithms require large volumes of diverse data to
 % Intro on how fed learning works and different types
 There are a multitude of published FL frameworks \cite{fed_table_survey}, each with different merits and drawbacks for certain use cases. Federated Averaging (FedAvg) \cite{fed_learning} is a commonly used yet simple framework, which splits training into iterations where three steps take place:
 \begin{enumerate}
-	\item A copy of the current model is sent to each node from the central server
-	\item Each node performs some training with their copy of the model and their own private data
-	\item The trained models from each node are sent back to the server to aggregate into the new server model
+	\item A copy of the current model is sent to each node from the central server.
+	\item Each node performs some training with their copy of the model and their own private data.
+	\item The trained models from each node are sent back to the server to aggregate into the new server model.
 \end{enumerate}
-The server model improves over time, and after a certain number of steps, the training is complete and the server model is the final output. \\
+The server model is improved over time, beyond what could be achieved by simply training on a single nodes data. \\
 
 % Specify why federated learning is better than conventional learning
 As it does not require data to be shared between nodes, FL is naturally beneficial for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \citeme. Additionally, as FL performs training on multiple nodes in parallel, it can make better use of available training resources in situations where processing power is distributed among multiple nodes \citeme.
@@ -29,7 +29,7 @@ In SL, the model on which new training is performed is known as the global model
 	\caption{Diagram of different learning algorithms. Each \emph{Node} indicates a single training machine, and each line denotes a connection between two machines, along which the model can be shared. In the swarm learning diagram, the dashed lines show that each local model is an approximation of the global model.} \label{fig_learning}
 \end{figure}
 
-One method of SL uses a blockchain to store the global model, enabling the nodes to come to consensus \cite{swarm_learning}. In this version of SL, training is performed by repeating the following steps:
+One SL algorithm, simply referred to as \emph{Swarm Learning} by its creators, uses a blockchain to store the global model \cite{swarm_learning}. In this version of SL, training is performed by repeating the following steps:
 \begin{enumerate}
 	\item A node obtains a copy of the global model from the blockchain.
 	\item The node performs some training with their copy of the model and their own private data.
@@ -37,17 +37,17 @@ One method of SL uses a blockchain to store the global model, enabling the nodes
 \end{enumerate}
 
 % Specify why swarm learning is better than conventional learning or federated learning
-SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks due to network speed constraints for very large swarms.
+SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server theoretically makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks due to network speed constraints for very large swarms.
 
-\section{Blockchain}
-\todo{Write this out}
+\section{Blockchain} \label{bg:bc}
+\todo{Write this out. The point of this section is to give the disadvantages of blockchain to support my idea to remove it}
 
 % Breif intro of what a blockcahin is
-Blockchain is ... \cite{blockchain_review}
+Blockchain is  \todo{Short intro of what blockchain is. This does not need to be long as this is not important} \cite{blockchain_review}
 
 % Disadvantages of using blockchain
 %% Scalability
-Blockchain has problems with scalability \cite{blockchain_scale}.
+Blockchain has problems with scalability \todo{Why is blockchain hard to scale} \cite{blockchain_scale}.
 
 %% High transaction cost
-Blockchain is inefficient and slow \cite{blockchain_scale}.
+Blockchain is inefficient and slow \todo{The following paper shows that blockchain can be very slow} \cite{blockchain_scale}.
