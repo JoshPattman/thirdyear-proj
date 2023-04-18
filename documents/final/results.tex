@@ -90,6 +90,14 @@ the same but this time dropout nodes. Try with and without filtering to show tha
 
 To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
 
+\section{Dense Network Performance with Connection Dropout}
+
+\todo{Do this experiment - it really shouldn't take tong}
+
+the same but this time dropout connections. Try with and without filtering to show that it increases fault tolerance
+
+To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
+
 \section{Sparse Network Performance}
 In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess.
 
