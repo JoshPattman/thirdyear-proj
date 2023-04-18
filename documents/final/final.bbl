@@ -87,4 +87,8 @@ D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
   Conference on Blockchain Technology}, ICBCT'20, (New York, NY, USA),
   p.~1–6, Association for Computing Machinery, 2020.
 
+\bibitem{xiao2017fashionmnist}
+H.~Xiao, K.~Rasul, and R.~Vollgraf, ``Fashion-mnist: a novel image dataset for
+  benchmarking machine learning algorithms,'' 2017.
+
 \end{thebibliography}
