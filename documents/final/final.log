@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,7 +673,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  9062 strings out of 478287
  144715 string characters out of 5849289
- 609975 words of memory out of 5000000
+ 609986 words of memory out of 5000000
  27069 multiletter control sequences out of 15000+600000
  492700 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -698,7 +698,7 @@ frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
 ti1200.pfb>
-Output written on final.pdf (54 pages, 3018076 bytes).
+Output written on final.pdf (54 pages, 3018838 bytes).
 PDF statistics:
  372 PDF objects out of 1000 (max. 8388607)
  226 compressed objects within 3 object streams

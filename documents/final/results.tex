@@ -137,8 +137,8 @@ In order to assist the reader with visualizing the various density levels, some 
 		\includegraphics[width=\textwidth]{sparsegraph0}
 		\caption{$density=0.0$}
 	\end{subfigure}
-	\caption{Example networks of nodes generated for each density level, visualised using the tool at \cite{graphsite}. Each time a simulation is started, a new random network is generated for that simulation. \label{densefig}}
-\end{figure}
+	\caption{Example networks of nodes generated for each density level, visualised using the tool at \emph{https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \label{densefig}}
+{}\end{figure}
 
 
 This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate \SL.

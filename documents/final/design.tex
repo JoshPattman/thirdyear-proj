@@ -65,6 +65,7 @@ A solution to this could be to relay any received model updates, which means tha
 The main disadvantage of this approach is the drastic increase in network traffic, which in turn will lead to longer model transfer times. If the swarm learning algorithm is applied to a low power network, such as an IoT network, the increase in network traffic may not be feasible at all. This relay approach can also be applied to federated learning with the same advantages and disadvantages. For these reasons, Relay will not be discussed further.
 
 \section{Complete Algorithm}
+\todo{Why this good}
 The complete pseudocode algorithm for \SL can be found at Appendix \ref{slalgo}. It has multiple parts which are described below.
 
 The update loop, which can be found at Appendix \ref{slalgo:ul}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single update step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
