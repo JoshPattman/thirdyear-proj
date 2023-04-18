@@ -1,87 +1,87 @@
-\contentsline {chapter}{\numberline {1}Background}{5}{}%
-\contentsline {section}{\numberline {1.1}Federated Learning}{6}{}%
-\contentsline {section}{\numberline {1.2}Swarm Learning}{6}{}%
-\contentsline {section}{\numberline {1.3}Blockchain}{8}{}%
-\contentsline {chapter}{\numberline {2}Problem and Goals}{9}{}%
-\contentsline {section}{\numberline {2.1}Problem}{10}{}%
-\contentsline {subsection}{\numberline {2.1.1}Privacy}{10}{}%
-\contentsline {subsection}{\numberline {2.1.2}Performance}{10}{}%
-\contentsline {section}{\numberline {2.2}Goals}{10}{}%
-\contentsline {subsection}{\numberline {2.2.1}Design an Novel Algorithm for Swarm Learning}{10}{}%
-\contentsline {subsection}{\numberline {2.2.2}Implement the Algorithm}{11}{}%
-\contentsline {subsection}{\numberline {2.2.3}Test Performance in Situations Where FedAvg Performs Well}{11}{}%
-\contentsline {subsection}{\numberline {2.2.4}Test Performance in Situations Where FedAvg Performs Badly}{11}{}%
-\contentsline {chapter}{\numberline {3}Analysis and Specification of the Solution to the Problem}{12}{}%
-\contentsline {chapter}{\numberline {4}Detailed Design}{13}{}%
-\contentsline {section}{\numberline {4.1}Node}{14}{}%
-\contentsline {section}{\numberline {4.2}Disposal of Blockchain}{14}{}%
-\contentsline {section}{\numberline {4.3}Training Counter}{15}{}%
-\contentsline {section}{\numberline {4.4}Model Combination Methods}{15}{}%
-\contentsline {subsection}{\numberline {4.4.1}Averaging}{15}{}%
-\contentsline {subsection}{\numberline {4.4.2}Averaging With Synchronisation Rate}{16}{}%
-\contentsline {subsection}{\numberline {4.4.3}Filtering By Training Counter}{16}{}%
-\contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{17}{}%
-\contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{17}{}%
-\contentsline {subsection}{\numberline {4.5.2}Relay}{17}{}%
-\contentsline {section}{\numberline {4.6}Complete Algorithm}{18}{}%
-\contentsline {chapter}{\numberline {5}Implementation}{19}{}%
-\contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{20}{}%
-\contentsline {subsection}{\numberline {5.1.1}Dataset}{20}{}%
-\contentsline {subsection}{\numberline {5.1.2}Model}{20}{}%
-\contentsline {section}{\numberline {5.2}Federated Learning}{20}{}%
-\contentsline {subsection}{\numberline {5.2.1}Algorithm}{21}{}%
-\contentsline {subsection}{\numberline {5.2.2}Evaluation}{21}{}%
-\contentsline {section}{\numberline {5.3}Prototype}{21}{}%
-\contentsline {subsection}{\numberline {5.3.1}Algorithm}{22}{}%
-\contentsline {subsection}{\numberline {5.3.2}Evaluation}{22}{}%
-\contentsline {section}{\numberline {5.4}Final}{22}{}%
-\contentsline {subsection}{\numberline {5.4.1}Algorithm}{22}{}%
-\contentsline {subsection}{\numberline {5.4.2}Evaluation}{23}{}%
-\contentsline {chapter}{\numberline {6}Testing Strategy and Results}{24}{}%
-\contentsline {section}{\numberline {6.1}Methods}{25}{}%
-\contentsline {subsection}{\numberline {6.1.1}Metrics}{25}{}%
-\contentsline {subsection}{\numberline {6.1.2}Data Collection}{25}{}%
-\contentsline {subsection}{\numberline {6.1.3}Node Counts}{25}{}%
-\contentsline {subsection}{\numberline {6.1.4}Algorithm Configurations}{25}{}%
-\contentsline {subsection}{\numberline {6.1.5}Data Volume Per Node}{25}{}%
-\contentsline {subsection}{\numberline {6.1.6}Epochs}{26}{}%
-\contentsline {section}{\numberline {6.2}Dense Network Performance}{26}{}%
-\contentsline {subsection}{\numberline {6.2.1}Results}{27}{}%
-\contentsline {subsection}{\numberline {6.2.2}Analysis}{29}{}%
-\contentsline {section}{\numberline {6.3}Dense Network Performance with Node Dropout}{30}{}%
-\contentsline {section}{\numberline {6.4}Sparse Network Performance}{30}{}%
-\contentsline {subsection}{\numberline {6.4.1}Results}{32}{}%
-\contentsline {subsection}{\numberline {6.4.2}Analysis}{34}{}%
-\contentsline {section}{\numberline {6.5}Sparse Network Performance with Dropout}{34}{}%
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{35}{}%
-\contentsline {section}{\numberline {7.1}Comparison of SL to FL}{36}{}%
-\contentsline {subsection}{\numberline {7.1.1}Advantages of using SL over FL}{36}{}%
-\contentsline {subsection}{\numberline {7.1.2}Disadvantages of using SL over FL}{36}{}%
-\contentsline {subsection}{\numberline {7.1.3}Limitations of the Presented Implementation}{36}{}%
-\contentsline {subsection}{\numberline {7.1.4}Further Extensions of Presented Implementation}{36}{}%
-\contentsline {chapter}{\numberline {8}Project Management}{37}{}%
-\contentsline {section}{\numberline {8.1}Time Management}{38}{}%
-\contentsline {section}{\numberline {8.2}Changing Plans}{38}{}%
-\contentsline {section}{\numberline {8.3}Risk Assessment}{39}{}%
-\contentsline {subsection}{\numberline {8.3.1}Personal Issues}{39}{}%
-\contentsline {subsubsection}{Description}{39}{}%
-\contentsline {subsubsection}{Risk Calculations}{39}{}%
-\contentsline {subsubsection}{Mitigation}{39}{}%
-\contentsline {subsection}{\numberline {8.3.2}Hardware Failure}{39}{}%
-\contentsline {subsubsection}{Description}{39}{}%
-\contentsline {subsubsection}{Risk Calculations}{39}{}%
-\contentsline {subsubsection}{Mitigation}{39}{}%
-\contentsline {subsection}{\numberline {8.3.3}Algorithm Does Not Work Work}{40}{}%
-\contentsline {subsubsection}{Description}{40}{}%
-\contentsline {subsubsection}{Risk Calculations}{40}{}%
-\contentsline {subsubsection}{Mitigation}{40}{}%
-\contentsline {chapter}{\numberline {9}Conclusion and Future Work}{41}{}%
-\contentsline {section}{\numberline {9.1}Conclusion}{42}{}%
-\contentsline {section}{\numberline {9.2}Future Work}{42}{}%
-\contentsline {chapter}{\numberline {A}Sward Learning Algorithm}{43}{}%
-\contentsline {section}{\numberline {A.1}Training Step}{43}{}%
-\contentsline {section}{\numberline {A.2}Model Received Event}{44}{}%
-\contentsline {chapter}{\numberline {B}Machine Learning Model}{45}{}%
-\contentsline {chapter}{\numberline {C}Gantt Charts}{46}{}%
-\contentsline {section}{\numberline {C.1}Gantt - Interim}{47}{}%
-\contentsline {section}{\numberline {C.2}Gantt - Final}{48}{}%
+\contentsline {chapter}{\numberline {1}Background}{6}{}%
+\contentsline {section}{\numberline {1.1}Federated Learning}{7}{}%
+\contentsline {section}{\numberline {1.2}Swarm Learning}{7}{}%
+\contentsline {section}{\numberline {1.3}Blockchain}{9}{}%
+\contentsline {chapter}{\numberline {2}Problem and Goals}{10}{}%
+\contentsline {section}{\numberline {2.1}Problem}{11}{}%
+\contentsline {subsection}{\numberline {2.1.1}Privacy}{11}{}%
+\contentsline {subsection}{\numberline {2.1.2}Performance}{11}{}%
+\contentsline {section}{\numberline {2.2}Goals}{11}{}%
+\contentsline {subsection}{\numberline {2.2.1}Design an Novel Algorithm for Swarm Learning}{11}{}%
+\contentsline {subsection}{\numberline {2.2.2}Implement the Algorithm}{12}{}%
+\contentsline {subsection}{\numberline {2.2.3}Test Performance in Situations Where FedAvg Performs Well}{12}{}%
+\contentsline {subsection}{\numberline {2.2.4}Test Performance in Situations Where FedAvg Performs Badly}{12}{}%
+\contentsline {chapter}{\numberline {3}Analysis and Specification of the Solution to the Problem}{13}{}%
+\contentsline {chapter}{\numberline {4}Detailed Design}{14}{}%
+\contentsline {section}{\numberline {4.1}Node}{15}{}%
+\contentsline {section}{\numberline {4.2}Disposal of Blockchain}{15}{}%
+\contentsline {section}{\numberline {4.3}Training Counter}{16}{}%
+\contentsline {section}{\numberline {4.4}Model Combination Methods}{16}{}%
+\contentsline {subsection}{\numberline {4.4.1}Averaging}{16}{}%
+\contentsline {subsection}{\numberline {4.4.2}Averaging With Synchronisation Rate}{17}{}%
+\contentsline {subsection}{\numberline {4.4.3}Filtering By Training Counter}{17}{}%
+\contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{18}{}%
+\contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{18}{}%
+\contentsline {subsection}{\numberline {4.5.2}Relay}{18}{}%
+\contentsline {section}{\numberline {4.6}Complete Algorithm}{19}{}%
+\contentsline {chapter}{\numberline {5}Implementation}{20}{}%
+\contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{21}{}%
+\contentsline {subsection}{\numberline {5.1.1}Dataset}{21}{}%
+\contentsline {subsection}{\numberline {5.1.2}Model}{21}{}%
+\contentsline {section}{\numberline {5.2}Federated Learning}{21}{}%
+\contentsline {subsection}{\numberline {5.2.1}Algorithm}{22}{}%
+\contentsline {subsection}{\numberline {5.2.2}Evaluation}{22}{}%
+\contentsline {section}{\numberline {5.3}Prototype}{22}{}%
+\contentsline {subsection}{\numberline {5.3.1}Algorithm}{23}{}%
+\contentsline {subsection}{\numberline {5.3.2}Evaluation}{23}{}%
+\contentsline {section}{\numberline {5.4}Final}{23}{}%
+\contentsline {subsection}{\numberline {5.4.1}Algorithm}{23}{}%
+\contentsline {subsection}{\numberline {5.4.2}Evaluation}{24}{}%
+\contentsline {chapter}{\numberline {6}Testing Strategy and Results}{25}{}%
+\contentsline {section}{\numberline {6.1}Methods}{26}{}%
+\contentsline {subsection}{\numberline {6.1.1}Metrics}{26}{}%
+\contentsline {subsection}{\numberline {6.1.2}Data Collection}{26}{}%
+\contentsline {subsection}{\numberline {6.1.3}Node Counts}{26}{}%
+\contentsline {subsection}{\numberline {6.1.4}Algorithm Configurations}{26}{}%
+\contentsline {subsection}{\numberline {6.1.5}Data Volume Per Node}{26}{}%
+\contentsline {subsection}{\numberline {6.1.6}Epochs}{27}{}%
+\contentsline {section}{\numberline {6.2}Dense Network Performance}{27}{}%
+\contentsline {subsection}{\numberline {6.2.1}Results}{28}{}%
+\contentsline {subsection}{\numberline {6.2.2}Analysis}{30}{}%
+\contentsline {section}{\numberline {6.3}Dense Network Performance with Node Dropout}{31}{}%
+\contentsline {section}{\numberline {6.4}Sparse Network Performance}{31}{}%
+\contentsline {subsection}{\numberline {6.4.1}Results}{34}{}%
+\contentsline {subsection}{\numberline {6.4.2}Analysis}{36}{}%
+\contentsline {section}{\numberline {6.5}Sparse Network Performance with Dropout}{36}{}%
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{37}{}%
+\contentsline {section}{\numberline {7.1}Comparison of SL to FL}{38}{}%
+\contentsline {subsection}{\numberline {7.1.1}Advantages of using SL over FL}{38}{}%
+\contentsline {subsection}{\numberline {7.1.2}Disadvantages of using SL over FL}{38}{}%
+\contentsline {subsection}{\numberline {7.1.3}Limitations of the Presented Implementation}{38}{}%
+\contentsline {subsection}{\numberline {7.1.4}Further Extensions of Presented Implementation}{38}{}%
+\contentsline {chapter}{\numberline {8}Project Management}{39}{}%
+\contentsline {section}{\numberline {8.1}Time Management}{40}{}%
+\contentsline {section}{\numberline {8.2}Changing Plans}{40}{}%
+\contentsline {section}{\numberline {8.3}Risk Assessment}{41}{}%
+\contentsline {subsection}{\numberline {8.3.1}Personal Issues}{41}{}%
+\contentsline {subsubsection}{Description}{41}{}%
+\contentsline {subsubsection}{Risk Calculations}{41}{}%
+\contentsline {subsubsection}{Mitigation}{41}{}%
+\contentsline {subsection}{\numberline {8.3.2}Hardware Failure}{41}{}%
+\contentsline {subsubsection}{Description}{41}{}%
+\contentsline {subsubsection}{Risk Calculations}{41}{}%
+\contentsline {subsubsection}{Mitigation}{41}{}%
+\contentsline {subsection}{\numberline {8.3.3}Algorithm Does Not Work Work}{42}{}%
+\contentsline {subsubsection}{Description}{42}{}%
+\contentsline {subsubsection}{Risk Calculations}{42}{}%
+\contentsline {subsubsection}{Mitigation}{42}{}%
+\contentsline {chapter}{\numberline {9}Conclusion and Future Work}{43}{}%
+\contentsline {section}{\numberline {9.1}Conclusion}{44}{}%
+\contentsline {section}{\numberline {9.2}Future Work}{44}{}%
+\contentsline {chapter}{\numberline {A}Sward Learning Algorithm}{45}{}%
+\contentsline {section}{\numberline {A.1}Training Step}{45}{}%
+\contentsline {section}{\numberline {A.2}Model Received Event}{46}{}%
+\contentsline {chapter}{\numberline {B}Machine Learning Model}{47}{}%
+\contentsline {chapter}{\numberline {C}Gantt Charts}{48}{}%
+\contentsline {section}{\numberline {C.1}Gantt - Interim}{49}{}%
+\contentsline {section}{\numberline {C.2}Gantt - Final}{50}{}%

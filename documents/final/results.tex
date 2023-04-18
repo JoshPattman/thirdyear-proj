@@ -72,15 +72,13 @@ The trend of \SL ending with a lower accuracy than FedAvg continues in Figure \r
 
 \subsection{Analysis}
 
+The most evident change when reducing the volume of data is the large reduction in accuracy of the two algorithms, which was an expected observation. However, It can also be observed that \SL seems to be affected by this reduction in data slightly more that FedAvg is, due to its steady increase in difference in peak accuracy. Despite this, the difference in peak accuracy is very small, often within 2 percent, which shows that \SL does appear to be working correctly.
 
+One of the major problems with \SL is its consistently slower convergence on an optima than FedAvg. Especially from the onset, \SL has a much lower accuracy than FedAvg, and takes longer to reach its peak accuracy. This may be attributed to the asynchronous manner of the nodes in \SL, meaning that some nodes that perform training before all others have a lower accuracy that what would be expected.
 
-\begin{itemize}
-	\item Clear drop in accuracy when data volume is reduced
-	\item SL Consistently performs within a very small margin of FL when looking at peak accuracy
-	\item SL is consistently slower to converge than FL
-	\item SL has a higher variation in nodes accuracies at the beginning but quickly converges. However, it is much slower to converge on the 100 samples run
-	\item Overfitting does not seem to be a problem with either method
-\end{itemize}
+It should also be noted that \SL has a higher inter-quartile range that FedAvg in all of these tests, meaning that FedAvg is more consistent with respect to accuracy. However, this difference is marginal.
+
+\todo{Overfitting?}
 
 \section{Dense Network Performance with Node Dropout}
 
