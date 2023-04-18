@@ -47,12 +47,11 @@
 \contentsline {subsection}{\numberline {6.1.6}Epochs}{27}{}%
 \contentsline {section}{\numberline {6.2}Dense Network Performance}{27}{}%
 \contentsline {subsection}{\numberline {6.2.1}Results}{28}{}%
-\contentsline {subsection}{\numberline {6.2.2}Analysis}{30}{}%
-\contentsline {section}{\numberline {6.3}Dense Network Performance with Node Dropout}{31}{}%
-\contentsline {section}{\numberline {6.4}Sparse Network Performance}{31}{}%
-\contentsline {subsection}{\numberline {6.4.1}Results}{33}{}%
-\contentsline {subsection}{\numberline {6.4.2}Analysis}{35}{}%
-\contentsline {section}{\numberline {6.5}SwarmAvg on a FedAvg topology}{36}{}%
+\contentsline {subsection}{\numberline {6.2.2}Analysis}{31}{}%
+\contentsline {section}{\numberline {6.3}Dense Network Performance with Node Dropout}{32}{}%
+\contentsline {section}{\numberline {6.4}Sparse Network Performance}{32}{}%
+\contentsline {subsection}{\numberline {6.4.1}Results}{34}{}%
+\contentsline {subsection}{\numberline {6.4.2}Analysis}{36}{}%
 \contentsline {chapter}{\numberline {7}Critical Evaluation}{37}{}%
 \contentsline {section}{\numberline {7.1}Comparison of SL to FL}{38}{}%
 \contentsline {subsection}{\numberline {7.1.1}Advantages of using SL over FL}{38}{}%

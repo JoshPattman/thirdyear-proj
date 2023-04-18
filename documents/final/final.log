@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,74 +512,69 @@ File: ./plots//aeg1.png Graphic file (type png)
 <use ./plots//aeg1.png>
 Package pdftex.def Info: ./plots//aeg1.png  used on input line 48.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [28 <./plots//aeg1.png>]
-<./plots//aeg2.png, id=162, 419.166pt x 316.5426pt>
+ [28]
+<./plots//aeg2.png, id=161, 419.166pt x 316.5426pt>
 File: ./plots//aeg2.png Graphic file (type png)
 <use ./plots//aeg2.png>
 Package pdftex.def Info: ./plots//aeg2.png  used on input line 57.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-<./plots//aeg3.png, id=163, 419.166pt x 316.5426pt>
+ [29 <./plots//aeg1.png>]
+<./plots//aeg3.png, id=166, 419.166pt x 316.5426pt>
 File: ./plots//aeg3.png Graphic file (type png)
 <use ./plots//aeg3.png>
 Package pdftex.def Info: ./plots//aeg3.png  used on input line 66.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [29 <./plots//aeg2.png>] [30 <./plots//aeg3.png>]
-Overfull \hbox (42.56648pt too wide) in paragraph at lines 83--83
+ [30 <./plots//aeg2.png>] [31 <./plots//aeg3.png>]
+Overfull \hbox (42.56648pt too wide) in paragraph at lines 85--85
 []\T1/cmr/bx/n/17.28 Dense Net-work Per-for-mance with Node Dropout 
  []
 
-[31]
-<./plots//sparsegraph100.png, id=176, 296.10625pt x 293.095pt>
+[32]
+<./plots//sparsegraph100.png, id=180, 296.10625pt x 293.095pt>
 File: ./plots//sparsegraph100.png Graphic file (type png)
 <use ./plots//sparsegraph100.png>
-Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 115.
-(pdftex.def)             Requested size: 136.50238pt x 135.11603pt.
-<./plots//sparsegraph75.png, id=177, 316.18124pt x 316.18124pt>
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 117.
+(pdftex.def)             Requested size: 117.00119pt x 115.80927pt.
+<./plots//sparsegraph75.png, id=181, 316.18124pt x 316.18124pt>
 File: ./plots//sparsegraph75.png Graphic file (type png)
 <use ./plots//sparsegraph75.png>
-Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 120.
-(pdftex.def)             Requested size: 136.50238pt x 136.50528pt.
-<./plots//sparsegraph50.png, id=178, 330.23375pt x 325.215pt>
+Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 122.
+(pdftex.def)             Requested size: 117.00119pt x 116.9997pt.
+<./plots//sparsegraph50.png, id=182, 330.23375pt x 325.215pt>
 File: ./plots//sparsegraph50.png Graphic file (type png)
 <use ./plots//sparsegraph50.png>
-Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 125.
-(pdftex.def)             Requested size: 136.50238pt x 134.43073pt.
-<./plots//sparsegraph25.png, id=179, 450.68375pt x 407.5225pt>
+Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 127.
+(pdftex.def)             Requested size: 117.00119pt x 115.22137pt.
+<./plots//sparsegraph25.png, id=183, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph25.png Graphic file (type png)
 <use ./plots//sparsegraph25.png>
-Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 130.
-(pdftex.def)             Requested size: 136.50238pt x 123.42673pt.
-<./plots//sparsegraph0.png, id=180, 450.68375pt x 407.5225pt>
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 132.
+(pdftex.def)             Requested size: 117.00119pt x 105.79167pt.
+<./plots//sparsegraph0.png, id=184, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph0.png Graphic file (type png)
 <use ./plots//sparsegraph0.png>
-Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 135.
-(pdftex.def)             Requested size: 136.50238pt x 123.42673pt.
- [32 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 137.
+(pdftex.def)             Requested size: 117.00119pt x 105.79167pt.
+ [33 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
 egraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
-Overfull \hbox (33.65918pt too wide) in paragraph at lines 146--147
-\T1/cmr/m/n/12 lower the den-sity. For each of the tested den-si-ties, $\OML/cm
-m/m/it/12 ^^M$ \T1/cmr/m/n/12 was set to $\OML/cmm/m/it/12 round[]\OT1/cmr/m/n/
-12 (\OML/cmm/m/it/12 MCPN\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@
- []
-
-<./plots//aeg4.png, id=193, 419.166pt x 316.5426pt>
+<./plots//aeg4.png, id=196, 419.166pt x 316.5426pt>
 File: ./plots//aeg4.png Graphic file (type png)
 <use ./plots//aeg4.png>
-Package pdftex.def Info: ./plots//aeg4.png  used on input line 150.
+Package pdftex.def Info: ./plots//aeg4.png  used on input line 152.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-<./plots//aeg5.png, id=194, 419.166pt x 316.5426pt>
+
+[34 <./plots//aeg4.png>]
+<./plots//aeg5.png, id=202, 419.166pt x 316.5426pt>
 File: ./plots//aeg5.png Graphic file (type png)
 <use ./plots//aeg5.png>
-Package pdftex.def Info: ./plots//aeg5.png  used on input line 159.
+Package pdftex.def Info: ./plots//aeg5.png  used on input line 161.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-[33 <./plots//aeg4.png>]
-<./plots//aeg6.png, id=200, 419.166pt x 316.5426pt>
+<./plots//aeg6.png, id=203, 419.166pt x 316.5426pt>
 File: ./plots//aeg6.png Graphic file (type png)
 <use ./plots//aeg6.png>
-Package pdftex.def Info: ./plots//aeg6.png  used on input line 168.
+Package pdftex.def Info: ./plots//aeg6.png  used on input line 170.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [34 <./plots//aeg5.png>]) [35 <./plots//aeg6.png>]
-[36]
+ [35 <./plots//aeg5.png>]) [36 <./plots//aeg6.png>]
 Chapter 7.
 [37
 
@@ -702,7 +697,7 @@ e1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfti1200.pfb>
-Output written on final.pdf (54 pages, 2988695 bytes).
+Output written on final.pdf (54 pages, 2989307 bytes).
 PDF statistics:
  367 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams

@@ -41,7 +41,7 @@ The selection of the parameters for the SL algorithm was based on the authors pr
 \end{table}
 
 \subsection{Results}
-Below are the results attained from running the training script. In each graph, \SL is in red and FedAvg is in black. The shaded area around each line is the upper and lower quartile.
+The following are the results obtained from the execution of the training script. Each graph displays the data for \SL in red, and FedAvg in black. The shaded region surrounding each line represents the upper and lower quartile.
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples}} \\
@@ -50,7 +50,7 @@ Below are the results attained from running the training script. In each graph, 
 	\label{aeg1}
 \end{figure}
 
-In Figure \ref{aeg2}, it is clear that \SL is the slower of the two algorithms. However, in this situation both algorithms reach approximately the same final accuracy. The main difference is that the performance of \SL lags behind FedAvg by 1-2 epochs. 
+The results depicted in Figure \ref{aeg2} demonstrate that the \SL algorithm exhibits a slower convergence rate compared to FedAvg. Despite this, both methods ultimately achieve a similar level of accuracy. Notably, the primary distinction between these two algorithms lies in the fact that \SL performs slightly worse than FedAvg, trailing by 1-2 epochs.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
@@ -59,7 +59,7 @@ In Figure \ref{aeg2}, it is clear that \SL is the slower of the two algorithms. 
 	\label{aeg2}
 \end{figure}
 
-Unlike Figure \ref{aeg1}, Figure \ref{aeg2} clearly shows that \SL finished training with a lower accuracy. \SL also still lags by approximately the same amount. Due to the reduction in data, both techniques have a lower accuracy than they previously achieved.
+In contrast to the observations in Figure \ref{aeg1}, it is apparent from Figure \ref{aeg2} that the training of \SL resulted in a comparatively lower accuracy. Additionally, \SL continues to exhibit a similar lag as before. There is also an overall decrease in accuracy for both methods, which can be attributed to the reduction in data.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 100 Samples}} \\
@@ -70,13 +70,15 @@ Unlike Figure \ref{aeg1}, Figure \ref{aeg2} clearly shows that \SL finished trai
 
 The trend of \SL ending with a lower accuracy than FedAvg continues in Figure \ref{aeg3}. Both algorithms also have a much lower accuracy than what they achieved previously, due to the drastic decrease in available data.
 
+Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that \SL concludes with a lower accuracy than FedAvg. Furthermore, both algorithms exhibit a considerable decline in accuracy when compared to their previous performances with higher volumes of data.
+
 \subsection{Analysis}
 
-The most evident change when reducing the volume of data is the large reduction in accuracy of the two algorithms, which was an expected observation. However, It can also be observed that \SL seems to be affected by this reduction in data slightly more that FedAvg is, due to its steady increase in difference in peak accuracy. Despite this, the difference in peak accuracy is very small, often within 2 percent, which shows that \SL does appear to be working correctly.
+The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. Nevertheless, it is also evident that the reduction in data affects \SL slightly more than FedAvg, as indicated by its progressively declining peak accuracy. Despite this, the difference in peak accuracy between the two algorithms remains quite small, often within a 2 percent margin.
 
-One of the major problems with \SL is its consistently slower convergence on an optima than FedAvg. Especially from the onset, \SL has a much lower accuracy than FedAvg, and takes longer to reach its peak accuracy. This may be attributed to the asynchronous manner of the nodes in \SL, meaning that some nodes that perform training before all others have a lower accuracy that what would be expected.
+One of the prominent challenges associated with \SL is its slower convergence rate compared to FedAvg, particularly from the outset. \SL consistently takes a longer time to attain its peak accuracy. This may be attributed to the asynchronous nature of the nodes in \SL, which implies that some nodes that conduct training before others may have lower accuracy than expected.
 
-It should also be noted that \SL has a higher inter-quartile range that FedAvg in all of these tests, meaning that FedAvg is more consistent with respect to accuracy. However, this difference is marginal.
+It is worth noting that in all these evaluations, \SL has a higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
 
 \todo{Overfitting?}
 
@@ -91,7 +93,7 @@ To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
 \section{Sparse Network Performance}
 In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess.
 
-To ensure good test coverage for a multitude of possible deployment conditions, multiple densities were tested for each count of data. Table \ref{sparsedensities} lists the densities that were tested along with their corresponding MMH and MCPN.
+In order to conduct thorough testing on a variety of potential deployment scenarios, several different densities were tested for each count of data. The densities that were tested, along with their corresponding MMH and MCPN, are presented in Table \ref{sparsedensities}.
 
 \begin{table}[H]
 	\centering
@@ -106,31 +108,31 @@ To ensure good test coverage for a multitude of possible deployment conditions, 
 	\caption{The statistics for different density levels} \label{sparsedensities}
 \end{table}
 
-To help the reader to visualise the different density levels, Figure \ref{densefig} shows a visual representation of an example network that was generated for each density.
+In order to assist the reader with visualizing the various density levels, some sample networks that were generated for each density can be found in Figure \ref{densefig}.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.35\textwidth}
+	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph100}
 		\caption{$density=1.0$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.35\textwidth}
+	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph75}
 		\caption{$density=0.75$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.35\textwidth}
+	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph50}
 		\caption{$density=0.5$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.35\textwidth}
+	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph25}
 		\caption{$density=0.25$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.35\textwidth}
+	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph0}
 		\caption{$density=0.0$}
@@ -139,11 +141,11 @@ To help the reader to visualise the different density levels, Figure \ref{densef
 \end{figure}
 
 
-In this section, FedAvg is not tested. When a every node is not connected to the server node, FedAvg has two options. It can either ignore all nodes that are not directly connected to it, or it can try to relay the model updates. For the reasons mentioned in Section \ref{relay}, relaying is not always a good solution, so the decision was made to only test \SL in this test.
+This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate \SL.
 
 
 \subsection{Results}
-Below are the results attained from running the testing script. The more green a line is on the graph, the higher the density, and the more red, the lower the density. For each of the tested densities, $\gamma$ was set to $round_{down}(MCPN) - 1$, meaning that each node would usually wait for all but one of its neighbours until it could progress. If $\gamma$ was not reduced for the less dense networks, may of the nodes would end up waiting for a number of neighbours that was not possible to achieve.
+Presented below are the results obtained from executing the testing script. The density of each line on the graph is indicated by the color, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who do not have $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples for Different Densities}} \\
@@ -152,7 +154,7 @@ Below are the results attained from running the testing script. The more green a
 	\label{aeg4}
 \end{figure}
 
-Interestingly, with 6000 samples, all the tested densities except for 0 seem to perform with very similar performances. They all reach the same peak accuracy and converge in a similar amount of time. At density 0, convergence is actually faster but the final accuracy is lower overall.
+It is noteworthy that among the 6000 samples tested, nearly all densities exhibited similar levels of performance, with the exception of density 0. Specifically, the densities achieved the same maximum level of accuracy and demonstrated comparable convergence rates. Although density 0 exhibited a faster convergence rate, its overall accuracy was lower than the other densities.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 1000 Samples for Different Densities}} \\
@@ -161,7 +163,7 @@ Interestingly, with 6000 samples, all the tested densities except for 0 seem to 
 	\label{aeg5}
 \end{figure}
 
-With 1000 samples, the tests yielded relatively similar results to 6000 samples, except for the fact that the overall accuracy for all tests was lower.
+The experiments conducted using a sample size of 1000 demonstrated comparable outcomes to those obtained with a sample size of 6000, albeit with a lower overall accuracy across all tests.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 100 Samples for Different Densities}} \\
@@ -170,12 +172,9 @@ With 1000 samples, the tests yielded relatively similar results to 6000 samples,
 	\label{aeg6}
 \end{figure}
 
-At just 100 samples, it is clear that the density of the network is affecting the final accuracy. The final accuracies range from between 75 and 80 percent, where the more dense the network, the higher the final accuracy. The training curves from Figure \ref{aeg6} also seem to be more noisy than the tests with higher volumes of data.
+With only 100 training samples, it is evident that the network's density has a significant impact on the resulting accuracy. The final accuracy values span between 75 and 80 percent, with denser networks exhibiting higher accuracy rates. Additionally, the training curves depicted in Figure \ref{aeg6} appear to be more noisy compared to those obtained with larger datasets.
 
 \subsection{Analysis}
-In general, changing the density of the network of nodes has a small affect on the training of the nodes in that network. A lower density tends to converge slightly faster but tend towards a lower final accuracy. This effect is more pronounced as the volume of data provided to each node reduces, which is demonstrated by the higher variation in training shown in Figure \ref{aeg6} when compared to Figure \ref{aeg4} and \ref{aeg5}.
+In general, altering the network density of nodes has a small impact on the training of the nodes within the network. Decreasing the density of nodes typically leads to a lower final accuracy. This effect becomes more noticeable as the data volume provided to each node decreases, as demonstrated by the increased variability in training displayed in Figure \ref{aeg6} in comparison to Figures \ref{aeg4} and \ref{aeg5}.
 
-The networks with density of 0 converge towards their optima faster than the higher density networks. In figure \ref{aeg6} it can also be seen that the lower densities converge slightly faster than the higher densities but are over taken by the end of training.
-
-\section{SwarmAvg on a FedAvg topology}
-\todo{Im not sure if this is a bad thing to include, but it might be interesting to say that if you want to switch to swarm, but already have a centralised network, this is the performance to expect}
+The networks possessing a density of 0 attain their optima at a faster rate than those with higher densities. Figure \ref{aeg6} illustrates that the lower densities reach convergence marginally quicker than higher densities, yet are surpassed by the latter towards the end of training.
