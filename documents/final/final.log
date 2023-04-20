@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  18 APR 2023 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.17)  19 APR 2023 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,83 +529,94 @@ Overfull \hbox (42.56648pt too wide) in paragraph at lines 85--85
 []\T1/cmr/bx/n/17.28 Dense Net-work Per-for-mance with Node Dropout 
  []
 
+
+Overfull \hbox (3.98573pt too wide) in paragraph at lines 103--104
+\T1/cmr/m/n/12 robots may be un-re-li-able (if they are mov-ing around con-nec-
+tions may dropout) 
+ []
+
 [32]
 <./plots//sparsegraph100.png, id=180, 296.10625pt x 293.095pt>
 File: ./plots//sparsegraph100.png Graphic file (type png)
 <use ./plots//sparsegraph100.png>
-Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 117.
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 129.
 (pdftex.def)             Requested size: 117.00119pt x 115.80927pt.
 <./plots//sparsegraph75.png, id=181, 316.18124pt x 316.18124pt>
 File: ./plots//sparsegraph75.png Graphic file (type png)
 <use ./plots//sparsegraph75.png>
-Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 122.
+Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 134.
 (pdftex.def)             Requested size: 117.00119pt x 116.9997pt.
 <./plots//sparsegraph50.png, id=182, 330.23375pt x 325.215pt>
 File: ./plots//sparsegraph50.png Graphic file (type png)
 <use ./plots//sparsegraph50.png>
-Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 127.
+Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 139.
 (pdftex.def)             Requested size: 117.00119pt x 115.22137pt.
 <./plots//sparsegraph25.png, id=183, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph25.png Graphic file (type png)
 <use ./plots//sparsegraph25.png>
-Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 132.
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 144.
 (pdftex.def)             Requested size: 117.00119pt x 105.79167pt.
 <./plots//sparsegraph0.png, id=184, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph0.png Graphic file (type png)
 <use ./plots//sparsegraph0.png>
-Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 137.
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 149.
 (pdftex.def)             Requested size: 117.00119pt x 105.79167pt.
- [33 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
-egraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
-<./plots//aeg4.png, id=196, 419.166pt x 316.5426pt>
+ [33] [34 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//
+sparsegraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
+<./plots//aeg4.png, id=200, 419.166pt x 316.5426pt>
 File: ./plots//aeg4.png Graphic file (type png)
 <use ./plots//aeg4.png>
-Package pdftex.def Info: ./plots//aeg4.png  used on input line 152.
+Package pdftex.def Info: ./plots//aeg4.png  used on input line 164.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-
-[34 <./plots//aeg4.png>]
-<./plots//aeg5.png, id=202, 419.166pt x 316.5426pt>
+<./plots//aeg5.png, id=201, 419.166pt x 316.5426pt>
 File: ./plots//aeg5.png Graphic file (type png)
 <use ./plots//aeg5.png>
-Package pdftex.def Info: ./plots//aeg5.png  used on input line 161.
+Package pdftex.def Info: ./plots//aeg5.png  used on input line 173.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
-<./plots//aeg6.png, id=203, 419.166pt x 316.5426pt>
+ [35 <./plots//aeg4.png>]
+<./plots//aeg6.png, id=206, 419.166pt x 316.5426pt>
 File: ./plots//aeg6.png Graphic file (type png)
 <use ./plots//aeg6.png>
-Package pdftex.def Info: ./plots//aeg6.png  used on input line 170.
+Package pdftex.def Info: ./plots//aeg6.png  used on input line 182.
 (pdftex.def)             Requested size: 301.1261pt x 227.40334pt.
- [35 <./plots//aeg5.png>]) [36 <./plots//aeg6.png>]
+ [36 <./plots//aeg5.png>]) [37 <./plots//aeg6.png>]
 Chapter 7.
-[37
+[38
 
 
 
 ]
 \openout2 = `evaluation.aux'.
 
- (./evaluation.tex) [38
+ (./evaluation.tex
+Overfull \hbox (7.758pt too wide) in paragraph at lines 21--22
+[]\T1/cmr/bx/it/12 TODO: cant re-ally com-pare re-sults but can com-pare use of
+ blockchain
+ []
+
+) [39
 
 ]
 Chapter 8.
-[39
+[40
 
 
 
 ]
 \openout2 = `projectman.aux'.
 
- (./projectman.tex [40
+ (./projectman.tex [41
 
-] [41]) [42]
+] [42]) [43]
 Chapter 9.
-[43
+[44
 
 
 
 ]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex) [44
+ (./conclusion.tex) [45
 
 ]
 \openout2 = `appendix.aux'.
@@ -617,23 +628,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
  []
 
-[45
+[46
 
 
 
 
-] [46]
+] [47]
 Appendix B.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [47
+) [48
 
 ]
 Appendix C.
-[48
+[49
 
 ]
-<./plots//gannt-interim.png, id=255, 1817.79124pt x 572.1375pt>
+<./plots//gannt-interim.png, id=258, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 75.
@@ -642,8 +653,8 @@ Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 75.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[49 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=260, 1731.46875pt x 776.9025pt>
+[50 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=263, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 80.
@@ -652,17 +663,17 @@ Package pdftex.def Info: ./plots//gannt-final.png  used on input line 80.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[50 <./plots//gannt-final.png>]) (./final.bbl
+[51 <./plots//gannt-final.png>]) (./final.bbl
 Underfull \hbox (badness 2368) in paragraph at lines 4--6
 \T1/cmr/m/n/12 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
 
-[51
+[52
 
 
 
-] [52]) [53] (./final.aux (./background.aux) (./problemandgoals.aux)
+] [53]) [54] (./final.aux (./background.aux) (./problemandgoals.aux)
 (./design.aux) (./implementation.aux) (./results.aux) (./evaluation.aux)
 (./projectman.aux) (./conclusion.aux) (./appendix.aux))
 
@@ -698,10 +709,10 @@ frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
 ti1200.pfb>
-Output written on final.pdf (54 pages, 3018838 bytes).
+Output written on final.pdf (55 pages, 3020668 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
+ 376 PDF objects out of 1000 (max. 8388607)
+ 229 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
