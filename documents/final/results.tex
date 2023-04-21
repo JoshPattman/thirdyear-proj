@@ -80,7 +80,7 @@ One of the prominent challenges associated with \SL is its slower convergence ra
 
 It is worth noting that in all these evaluations, \SL has a higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
 
-\todo{Overfitting?}
+One interesting feature of both \SL and FedAvg is that both algorithms do not seem to exhibit any symptoms of overfitting. It would be expected, especially with only 100 datapoints per node, that some symptoms of overfitting would occur, such as decreasing test accuracy. However, the test accuracy in all of the plots reaches its optimal accuracy and stays there.
 
 \section{Dense Network Performance with Node Dropout}
 
