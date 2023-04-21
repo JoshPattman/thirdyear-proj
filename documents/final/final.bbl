@@ -28,6 +28,11 @@ H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y. Arcas,
   ``Communication-efficient learning of deep networks from decentralized
   data,'' 2016.
 
+\bibitem{fed_privacy}
+V.~Mothukuri, R.~M. Parizi, S.~Pouriyeh, Y.~Huang, A.~Dehghantanha, and
+  G.~Srivastava, ``A survey on security and privacy of federated learning,''
+  {\em Future Generation Computer Systems}, vol.~115, pp.~619--640, 2021.
+
 \bibitem{leaderelec_car}
 J.-H. Chen, M.-R. Chen, G.-Q. Zeng, and J.-S. Weng, ``Bdfl: a
   byzantine-fault-tolerance decentralized federated learning method for
