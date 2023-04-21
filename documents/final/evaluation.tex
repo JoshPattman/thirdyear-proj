@@ -1,7 +1,7 @@
 \section{Comparison of SL to Other Methods}
 \todo{Write something useful here}
 
-\subsection{Comparing \SL to FedAvg}
+\subsection{Comparing SwarmAvg to FedAvg}
 \todo{Write this out}
 
 \begin{itemize}
@@ -17,24 +17,24 @@
 	\item Slower to converge
 \end{itemize}
 
-\subsection{Comparing \SL to \emph{Swarm Learning}}
+\subsection{Comparing SwarmAvg to SwarmBC}
 \todo{cant really compare results but can compare use of blockchain theoretically}
 
-\SL can diverge, unlike using blockchain
+SwarmAvg can diverge, unlike using blockchain
 
-\SL needs an extra layer of security, but this is built into blockchain
+SwarmAvg needs an extra layer of security, but this is built into blockchain
 
-\SL might is faster and more lightweight due to the omission of a blockchain
+SwarmAvg might is faster and more lightweight due to the omission of a blockchain
 
-\SL in theory may actually allow semi separated islands of nodes to learn slightly different models without fully diverging - this may be beneficial if the distribution of data changes. Cant do this with blockchain
+SwarmAvg in theory may actually allow semi separated islands of nodes to learn slightly different models without fully diverging - this may be beneficial if the distribution of data changes. Cant do this with blockchain
 
 \section{Pitfalls of this Study}
 
 \subsection{Small Number of Nodes}
-A significant concern regarding this study is the limited number of nodes simulated during testing. Several drawbacks of FL in comparison to SL, such as server bottlenecking, are not apparent when testing on a limited number of nodes. Although \SL may have the potential to be utilized for training in large swarms, this particular scenario has not yet been evaluated.
+A significant concern regarding this study is the limited number of nodes simulated during testing. Several drawbacks of FL in comparison to SL, such as server bottlenecking, are not apparent when testing on a limited number of nodes. Although SwarmAvg may have the potential to be utilized for training in large swarms, this particular scenario has not yet been evaluated.
 
 \subsection{Overheads}
-In the course of testing the \SL algorithm, it was determined that the assessment of its performance should be based on training steps rather than time. Although it would have been preferable to evaluate performance in relation to time, this was not feasible due to limitations in resources. The GPUs utilized in this study are primarily optimized for running a single GPU program effectively, whereas this research required multiple nodes to perform training simultaneously. As a result, it was noted during testing that training times varied significantly, rendering time-based measurement impractical due to high levels of noise.
+In the course of testing the SwarmAvg algorithm, it was determined that the assessment of its performance should be based on training steps rather than time. Although it would have been preferable to evaluate performance in relation to time, this was not feasible due to limitations in resources. The GPUs utilized in this study are primarily optimized for running a single GPU program effectively, whereas this research required multiple nodes to perform training simultaneously. As a result, it was noted during testing that training times varied significantly, rendering time-based measurement impractical due to high levels of noise.
 
 \subsection{Internet Lag}
 The algorithm proposed is designed for usage over the internet. However, the study solely evaluated its performance within a simulated environment. It is worth noting that a fundamental distinction between the simulated environment and the real world is the absence of a time gap between the sending of a model update by one node and its reception by another. The deliberate omission of this time gap in the simulation aimed to increase the speed of simulations. However, this critical aspect of the algorithm's functionality remains untested as a result.

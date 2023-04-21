@@ -31,7 +31,7 @@ In SL, the model on which new training is performed is known as the global model
 	\caption{Diagram of different learning algorithms. Each \emph{Node} indicates a single training machine, and each line denotes a connection between two machines, along which the model can be shared. In the swarm learning diagram, the dashed lines show that each local model is an approximation of the global model.} \label{fig_learning}
 \end{figure}
 
-One SL algorithm, simply referred to as \emph{Swarm Learning} by its creators, uses a blockchain to store the global model \cite{swarm_learning}. In this version of SL, training is performed by repeating the following steps:
+One SL algorithm, referred to by this paper as SwarmBC, uses a blockchain to store the global model \cite{swarm_learning}. In this version of SL, training is performed by repeating the following steps:
 \begin{enumerate}
 	\item A node obtains a copy of the global model from the blockchain.
 	\item The node performs some training with their copy of the model and their own private data.

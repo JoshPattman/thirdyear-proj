@@ -41,7 +41,7 @@ The selection of the parameters for the SL algorithm was based on the authors pr
 \end{table}
 
 \subsection{Results}
-The following are the results obtained from the execution of the training script. Each graph displays the data for \SL in red, and FedAvg in black. The shaded region surrounding each line represents the upper and lower quartile.
+The following are the results obtained from the execution of the training script. Each graph displays the data for SwarmAvg in red, and FedAvg in black. The shaded region surrounding each line represents the upper and lower quartile.
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 6000 Samples}} \\
@@ -50,7 +50,7 @@ The following are the results obtained from the execution of the training script
 	\label{aeg1}
 \end{figure}
 
-The results depicted in Figure \ref{aeg2} demonstrate that the \SL algorithm exhibits a slower convergence rate compared to FedAvg. Despite this, both methods ultimately achieve a similar level of accuracy. Notably, the primary distinction between these two algorithms lies in the fact that \SL performs slightly worse than FedAvg, trailing by 1-2 epochs.
+The results depicted in Figure \ref{aeg2} demonstrate that the SwarmAvg algorithm exhibits a slower convergence rate compared to FedAvg. Despite this, both methods ultimately achieve a similar level of accuracy. Notably, the primary distinction between these two algorithms lies in the fact that SwarmAvg performs slightly worse than FedAvg, trailing by 1-2 epochs.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
@@ -59,7 +59,7 @@ The results depicted in Figure \ref{aeg2} demonstrate that the \SL algorithm exh
 	\label{aeg2}
 \end{figure}
 
-In contrast to the observations in Figure \ref{aeg1}, it is apparent from Figure \ref{aeg2} that the training of \SL resulted in a comparatively lower accuracy. Additionally, \SL continues to exhibit a similar lag as before. There is also an overall decrease in accuracy for both methods, which can be attributed to the reduction in data.
+In contrast to the observations in Figure \ref{aeg1}, it is apparent from Figure \ref{aeg2} that the training of SwarmAvg resulted in a comparatively lower accuracy. Additionally, SwarmAvg continues to exhibit a similar lag as before. There is also an overall decrease in accuracy for both methods, which can be attributed to the reduction in data.
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 100 Samples}} \\
@@ -68,19 +68,19 @@ In contrast to the observations in Figure \ref{aeg1}, it is apparent from Figure
 	\label{aeg3}
 \end{figure}
 
-The trend of \SL ending with a lower accuracy than FedAvg continues in Figure \ref{aeg3}. Both algorithms also have a much lower accuracy than what they achieved previously, due to the drastic decrease in available data.
+The trend of SwarmAvg ending with a lower accuracy than FedAvg continues in Figure \ref{aeg3}. Both algorithms also have a much lower accuracy than what they achieved previously, due to the drastic decrease in available data.
 
-Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that \SL concludes with a lower accuracy than FedAvg. Furthermore, both algorithms exhibit a considerable decline in accuracy when compared to their previous performances with higher volumes of data.
+Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that SwarmAvg concludes with a lower accuracy than FedAvg. Furthermore, both algorithms exhibit a considerable decline in accuracy when compared to their previous performances with higher volumes of data.
 
 \subsection{Analysis}
 
-The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. Nevertheless, it is also evident that the reduction in data affects \SL slightly more than FedAvg, as indicated by its progressively declining peak accuracy. Despite this, the difference in peak accuracy between the two algorithms remains quite small, often within a 2 percent margin.
+The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. Nevertheless, it is also evident that the reduction in data affects SwarmAvg slightly more than FedAvg, as indicated by its progressively declining peak accuracy. Despite this, the difference in peak accuracy between the two algorithms remains quite small, often within a 2 percent margin.
 
-One of the prominent challenges associated with \SL is its slower convergence rate compared to FedAvg, particularly from the outset. \SL consistently takes a longer time to attain its peak accuracy. This may be attributed to the asynchronous nature of the nodes in \SL, which implies that some nodes that conduct training before others may have lower accuracy than expected.
+One of the prominent challenges associated with SwarmAvg is its slower convergence rate compared to FedAvg, particularly from the outset. SwarmAvg consistently takes a longer time to attain its peak accuracy. This may be attributed to the asynchronous nature of the nodes in SwarmAvg, which implies that some nodes that conduct training before others may have lower accuracy than expected.
 
-It is worth noting that in all these evaluations, \SL has a higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
+It is worth noting that in all these evaluations, SwarmAvg has a higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
 
-One interesting feature of both \SL and FedAvg is that both algorithms do not seem to exhibit any symptoms of overfitting. It would be expected, especially with only 100 datapoints per node, that some symptoms of overfitting would occur, such as decreasing test accuracy. However, the test accuracy in all of the plots reaches its optimal accuracy and stays there.
+One interesting feature of both SwarmAvg and FedAvg is that both algorithms do not seem to exhibit any symptoms of overfitting. It would be expected, especially with only 100 datapoints per node, that some symptoms of overfitting would occur, such as decreasing test accuracy. However, the test accuracy in all of the plots reaches its optimal accuracy and stays there.
 
 \section{Sparse Network Performance}
 In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess.
@@ -133,7 +133,7 @@ In order to assist the reader with visualizing the various density levels, some 
 {}\end{figure}
 
 
-This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate \SL.
+This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate SwarmAvg.
 
 
 \subsection{Results}
