@@ -82,26 +82,6 @@ It is worth noting that in all these evaluations, \SL has a higher inter-quartil
 
 One interesting feature of both \SL and FedAvg is that both algorithms do not seem to exhibit any symptoms of overfitting. It would be expected, especially with only 100 datapoints per node, that some symptoms of overfitting would occur, such as decreasing test accuracy. However, the test accuracy in all of the plots reaches its optimal accuracy and stays there.
 
-\section{Dense Network Performance with Node Dropout}
-
-\todo{Do this experiment - it really shouldn't take tong}
-
-the same but this time dropout nodes. Try with and without filtering to show that it increases fault tolerance
-
-To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
-
-This is helpful as in the real world some nodes may be unreliable and crash. More aimed at situations like distributed hospital training.
-
-\section{Dense Network Performance with Connection Dropout}
-
-\todo{Do this experiment - it really shouldn't take tong}
-
-the same but this time dropout connections. Try with and without filtering to show that it increases fault tolerance
-
-To do this, test where a certain number of nodes drop out at step 1, 2, 3, etc
-
-This is helpful because in a swarm of robots, the connections between robots may be unreliable (if they are moving around connections may dropout)
-
 \section{Sparse Network Performance}
 In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess.
 
@@ -190,3 +170,11 @@ With only 100 training samples, it is evident that the network's density has a s
 In general, altering the network density of nodes has a small impact on the training of the nodes within the network. Decreasing the density of nodes typically leads to a lower final accuracy. This effect becomes more noticeable as the data volume provided to each node decreases, as demonstrated by the increased variability in training displayed in Figure \ref{aeg6} in comparison to Figures \ref{aeg4} and \ref{aeg5}.
 
 The networks possessing a density of 0 attain their optima at a faster rate than those with higher densities. Figure \ref{aeg6} illustrates that the lower densities reach convergence marginally quicker than higher densities, yet are surpassed by the latter towards the end of training.
+
+\section{Dense Network Performance with Class Restrictions}
+
+\begin{itemize}
+	\item Test with each node only getting access to three classes
+	\item Test both FL and SL
+	\item Test on different levels of data
+\end{itemize}

@@ -13,34 +13,31 @@ startupdelay=0
 # 9-11 - SL sparse 0.5
 # 12-14 - SL sparse 0.25
 # 15-17 - SL sparse 0
-# 18-20 - FL w/ node dropout
-# 21-23 - SL w/ node dropout
 
 
 ## ------------------------ FL Dense ------------------------
-#export dropout=0
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test0.$i
-#done
+export numsamples=25 eps=2
+for i in {1..5}; do
+    python3 fed_mnist.py $numnodes $numsamples $eps test0.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
-#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test1.$i
+#    python3 fed_mnist.py $numnodes $numsamples $eps test1.$i
 #done
 #
 #export numsamples=100 eps=15
 #for i in {1..5}; do
-#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test2.$i
+#    python3 fed_mnist.py $numnodes $numsamples $eps test2.$i
 #done
 #
 ## ------------------------ SL Dense ------------------------
-#export density=1.0 alpha=0.75 beta=0.5 gamma=8
-#
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test3.$i
-#done
+export density=1.0 alpha=0.75 beta=0.5 gamma=8
+
+export numsamples=25 eps=2
+for i in {1..5}; do
+    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test3.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
@@ -54,12 +51,12 @@ startupdelay=0
 #
 ## ------------------------ SL sparse 0.75 ------------------------
 ## Mean min steps, Mean cons per node = 1.2, 7.2
-#export density=0.75 alpha=0.9 beta=0.5 gamma=7
-#
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test6.$i
-#done
+export density=0.75 alpha=0.9 beta=0.5 gamma=7
+
+export numsamples=25 eps=2
+for i in {1..5}; do
+    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test6.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
@@ -73,12 +70,12 @@ startupdelay=0
 #
 ## ------------------------ SL sparse 0.5 ------------------------
 ## Mean min steps, Mean cons per node = 1.4, 5.4
-#export density=0.5 alpha=0.9 beta=0.5 gamma=5
-#
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test9.$i
-#done
+export density=0.5 alpha=0.9 beta=0.5 gamma=5
+
+export numsamples=25 eps=2
+for i in {1..5}; do
+    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test9.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
@@ -93,8 +90,8 @@ startupdelay=0
 ## ------------------------ SL sparse 0.25 ------------------------
 ## Mean min steps, Mean cons per node = 1.7, 3.6
 export density=0.25 alpha=0.9 beta=0.5 gamma=3
-#
-export numsamples=6000 eps=2
+
+export numsamples=25 eps=2
 for i in {1..5}; do
     python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test12.$i
 done
@@ -111,12 +108,12 @@ done
 #
 ## ------------------------ SL sparse 0 ------------------------
 ## Mean min steps, Mean cons per node = 3.0, 1.8
-#export density=0 alpha=0.9 beta=0.5 gamma=1
-#
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test15.$i
-#done
+export density=0 alpha=0.9 beta=0.5 gamma=1
+
+export numsamples=25 eps=2
+for i in {1..5}; do
+    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test15.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
@@ -127,20 +124,3 @@ done
 #for i in {1..5}; do
 #    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test17.$i
 #done
-
-# ------------------------ FL w/ node dropout ------------------------
-export dropout=3
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test18.$i
-#done
-#
-#export numsamples=1000 eps=5
-#for i in {1..5}; do
-#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test19.$i
-#done
-
-export numsamples=100 eps=15
-for i in {1..5}; do
-    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test20.$i
-done

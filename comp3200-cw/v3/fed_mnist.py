@@ -94,11 +94,11 @@ def get_random_string(length):
 node_count = int(sys.argv[1])
 num_samples = int(sys.argv[2])
 epochs_per_step = int(sys.argv[3])
-dropout_count = int(sys.argv[4])
-filename = sys.argv[5]
+#dropout_count = int(sys.argv[4])
+filename = sys.argv[4]
 
 for i in range(10):
-    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=i<dropout_count)
+    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=False)
 
 serv = FedServer()
 results_epochs, results_accuracies = serv.data_log
