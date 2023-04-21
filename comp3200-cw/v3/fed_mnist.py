@@ -14,28 +14,38 @@ from fed import backend
 from model import make_clone_model, get_xy
 
 class FedClient:
-    def __init__(self, epochs_per_step=1, num_samples=60000):
+    def __init__(self, epochs_per_step=1, num_samples=60000, dropout_after_first=False):
         self.backend = backend.Client()
         self.backend.set_train_callback(self.train)
 
         self.epochs_per_step = epochs_per_step
+        self.dropout_after_first = dropout_after_first
+        self.training_count = 0
 
-        logger = logging.getLogger("client")
+        logger = logging.getLogger("client%s"%random.randint(0, 1000))
         logger.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setFormatter(ColoredFormatter())
         logger.addHandler(ch)
         self.logger = logger
 
+        if dropout_after_first:
+            self.logger.debug("dropout after first training step")
+
         (self.train_X, self.train_Y), _ = get_xy(num_train_samples=num_samples)
 
     def train(self, model_flat):
         #self.logger.debug("starting training")
+        if self.dropout_after_first and self.training_count > 0:
+            self.logger.debug("dropping out so returing None")
+            self.backend.training_complete(None)
+            return
         model = make_clone_model()
         unflatten_model(model, model_flat)
         model.fit(self.train_X, self.train_Y, epochs=self.epochs_per_step, verbose=False)
         model_flat = flatten_model(model)
         self.backend.training_complete(model_flat)
+        self.training_count += 1
         #self.logger.debug("done training")
 
 class FedServer:
@@ -84,10 +94,11 @@ def get_random_string(length):
 node_count = int(sys.argv[1])
 num_samples = int(sys.argv[2])
 epochs_per_step = int(sys.argv[3])
-filename = sys.argv[4]
+dropout_count = int(sys.argv[4])
+filename = sys.argv[5]
 
 for i in range(10):
-    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples)
+    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=i<dropout_count)
 
 serv = FedServer()
 results_epochs, results_accuracies = serv.data_log

@@ -29,5 +29,7 @@ class Server:
             Thread(target=c.training_callback, args=(model,), daemon=True).start()
         trained_models = []
         for c in clients:
-            trained_models.append(self.trained_q.get())
+            trained = self.trained_q.get()
+            if trained is not None:
+                trained_models.append(trained)
         return trained_models
