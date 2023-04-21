@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  21 APR 2023 10:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  21 APR 2023 11:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -594,29 +594,29 @@ Overfull \hbox (7.758pt too wide) in paragraph at lines 21--22
  blockchain
  []
 
-) [39
+[39
 
-]
+]) [40]
 Chapter 8.
-[40
+[41
 
 
 
 ]
 \openout2 = `projectman.aux'.
 
- (./projectman.tex [41
+ (./projectman.tex [42
 
-] [42]) [43]
+] [43]) [44]
 Chapter 9.
-[44
+[45
 
 
 
 ]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex) [45
+ (./conclusion.tex) [46
 
 ]
 \openout2 = `appendix.aux'.
@@ -628,23 +628,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
  []
 
-[46
+[47
 
 
 
 
-] [47]
+] [48]
 Appendix B.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [48
+) [49
 
 ]
 Appendix C.
-[49
+[50
 
 ]
-<./plots//gannt-interim.png, id=258, 1817.79124pt x 572.1375pt>
+<./plots//gannt-interim.png, id=261, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 75.
@@ -653,8 +653,8 @@ Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 75.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[50 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=263, 1731.46875pt x 776.9025pt>
+[51 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=266, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 80.
@@ -663,17 +663,17 @@ Package pdftex.def Info: ./plots//gannt-final.png  used on input line 80.
 Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
-[51 <./plots//gannt-final.png>]) (./final.bbl
+[52 <./plots//gannt-final.png>]) (./final.bbl
 Underfull \hbox (badness 2368) in paragraph at lines 4--6
 \T1/cmr/m/n/12 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
 
-[52
+[53
 
 
 
-] [53]) [54] (./final.aux (./background.aux) (./problemandgoals.aux)
+] [54]) [55] (./final.aux (./background.aux) (./problemandgoals.aux)
 (./design.aux) (./implementation.aux) (./results.aux) (./evaluation.aux)
 (./projectman.aux) (./conclusion.aux) (./appendix.aux))
 
@@ -709,10 +709,10 @@ frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
 ti1200.pfb>
-Output written on final.pdf (55 pages, 3022398 bytes).
+Output written on final.pdf (56 pages, 3023588 bytes).
 PDF statistics:
- 376 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
+ 379 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

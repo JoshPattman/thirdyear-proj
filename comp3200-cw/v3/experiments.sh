@@ -92,12 +92,12 @@ startupdelay=0
 #
 ## ------------------------ SL sparse 0.25 ------------------------
 ## Mean min steps, Mean cons per node = 1.7, 3.6
-#export density=0.25 alpha=0.9 beta=0.5 gamma=3
+export density=0.25 alpha=0.9 beta=0.5 gamma=3
 #
-#export numsamples=6000 eps=2
-#for i in {1..5}; do
-#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test12.$i
-#done
+export numsamples=6000 eps=2
+for i in {1..5}; do
+    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test12.$i
+done
 #
 #export numsamples=1000 eps=5
 #for i in {1..5}; do
@@ -130,17 +130,17 @@ startupdelay=0
 
 # ------------------------ FL w/ node dropout ------------------------
 export dropout=3
-export numsamples=6000 eps=2
-for i in {1..5}; do
-    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test18.$i
-done
-
-export numsamples=1000 eps=5
-for i in {1..5}; do
-    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test19.$i
-done
+#export numsamples=6000 eps=2
+#for i in {1..5}; do
+#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test18.$i
+#done
+#
+#export numsamples=1000 eps=5
+#for i in {1..5}; do
+#    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test19.$i
+#done
 
 export numsamples=100 eps=15
 for i in {1..5}; do
-    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test12.$i
+    python3 fed_mnist.py $numnodes $numsamples $eps $dropout test20.$i
 done
