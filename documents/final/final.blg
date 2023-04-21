@@ -12,39 +12,46 @@ A level-1 auxiliary file: conclusion.aux
 A level-1 auxiliary file: appendix.aux
 The style file: ieeetr.bst
 Database file #1: final.bib
+I was expecting a `,' or a `}'---line 241 of file final.bib
+ :  
+ :  year={2021},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty booktitle in swarmbetterthanone
+Warning--empty year in swarmbetterthanone
 Warning--empty booktitle in gdpr
 Warning--empty journal in fed_learning
 Warning--empty institution in blockchain_review
-You've used 12 entries,
+You've used 13 entries,
             1876 wiz_defined-function locations,
-            557 strings with 9839 characters,
-and the built_in function-call counts, 5711 in all, are:
-= -- 311
-> -- 704
+            560 strings with 9947 characters,
+and the built_in function-call counts, 5855 in all, are:
+= -- 319
+> -- 708
 < -- 0
-+ -- 239
-- -- 227
-* -- 607
-:= -- 1026
++ -- 241
+- -- 228
+* -- 616
+:= -- 1045
 add.period$ -- 12
-call.type$ -- 12
-change.case$ -- 13
+call.type$ -- 13
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 178
-empty$ -- 306
-format.name$ -- 227
-if$ -- 1168
+cite$ -- 18
+duplicate$ -- 190
+empty$ -- 328
+format.name$ -- 228
+if$ -- 1201
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 10
-newline$ -- 39
-num.names$ -- 12
-pop$ -- 51
+int.to.str$ -- 13
+missing$ -- 11
+newline$ -- 42
+num.names$ -- 13
+pop$ -- 61
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 120
+skip$ -- 122
 stack$ -- 0
 substring$ -- 190
 swap$ -- 72
@@ -52,8 +59,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 29
-width$ -- 14
-write$ -- 113
-(There were 3 warnings)
+warning$ -- 5
+while$ -- 30
+width$ -- 15
+write$ -- 119
+(There was 1 error message)

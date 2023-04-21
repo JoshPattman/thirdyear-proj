@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  21 APR 2023 11:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  21 APR 2023 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,12 +421,12 @@ Chapter 1.
 \openout2 = `background.aux'.
 
  (./background.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
@@ -436,7 +436,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 <./plots//fedvsswarm.png, id=87, 1061.9675pt x 379.4175pt>
 File: ./plots//fedvsswarm.png Graphic file (type png)
 <use ./plots//fedvsswarm.png>
-Package pdftex.def Info: ./plots//fedvsswarm.png  used on input line 28.
+Package pdftex.def Info: ./plots//fedvsswarm.png  used on input line 30.
 (pdftex.def)             Requested size: 390.0pt x 139.34016pt.
  [8 <./plots//fedvsswarm.png>]) [9]
 Chapter 2.
@@ -664,7 +664,7 @@ Overfull \vbox (18.88045pt too high) has occurred while \output is active []
 
 
 [52 <./plots//gannt-final.png>]) (./final.bbl
-Underfull \hbox (badness 2368) in paragraph at lines 4--6
+Underfull \hbox (badness 2368) in paragraph at lines 8--10
 \T1/cmr/m/n/12 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
@@ -682,10 +682,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 9061 strings out of 478287
- 144704 string characters out of 5849288
- 609982 words of memory out of 5000000
- 27068 multiletter control sequences out of 15000+600000
+ 9062 strings out of 478287
+ 144724 string characters out of 5849288
+ 609986 words of memory out of 5000000
+ 27069 multiletter control sequences out of 15000+600000
  492700 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,17n,77p,1050b,1224s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -709,7 +709,7 @@ frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
 ti1200.pfb>
-Output written on final.pdf (56 pages, 3023588 bytes).
+Output written on final.pdf (56 pages, 3024385 bytes).
 PDF statistics:
  379 PDF objects out of 1000 (max. 8388607)
  231 compressed objects within 3 object streams
