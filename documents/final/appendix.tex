@@ -1,6 +1,6 @@
 \appendix
 
-\chapter{Sward Learning Algorithm} \label{slalgo}
+\chapter{SwarmAvg Algorithm} \label{slalgo}
 \section{Training Step} \label{slalgo:ul}
 \begin{algorithm}[H]
 	\caption{Training Step - Called Repeatedly in a Loop}
@@ -46,6 +46,17 @@
 		\Else
 			\State \Call{SetCache}{$neighbour$, $(nModel, nTrainingCounter)$}
 		\EndIf
+	\end{algorithmic}
+\end{algorithm}
+
+\chapter{Network Generation Algorithm}
+\begin{algorithm}[H]
+	\caption{Network Generator - Used to generate networks with specific density}
+	\textbf{Input}: $density$
+	\newline
+	\begin{algorithmic}[1]
+		\State \Comment{Generate a random minimally connected graph}
+		
 	\end{algorithmic}
 \end{algorithm}
 

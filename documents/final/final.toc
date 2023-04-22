@@ -79,10 +79,11 @@
 \contentsline {chapter}{\numberline {9}Conclusion and Future Work}{38}{}%
 \contentsline {section}{\numberline {9.1}Conclusion}{39}{}%
 \contentsline {section}{\numberline {9.2}Future Work}{39}{}%
-\contentsline {chapter}{\numberline {A}Sward Learning Algorithm}{40}{}%
+\contentsline {chapter}{\numberline {A}SwarmAvg Algorithm}{40}{}%
 \contentsline {section}{\numberline {A.1}Training Step}{40}{}%
 \contentsline {section}{\numberline {A.2}Model Received Event}{41}{}%
-\contentsline {chapter}{\numberline {B}Machine Learning Model}{42}{}%
-\contentsline {chapter}{\numberline {C}Gantt Charts}{43}{}%
-\contentsline {section}{\numberline {C.1}Gantt - Interim}{44}{}%
-\contentsline {section}{\numberline {C.2}Gantt - Final}{45}{}%
+\contentsline {chapter}{\numberline {B}Network Generation Algorithm}{42}{}%
+\contentsline {chapter}{\numberline {C}Machine Learning Model}{43}{}%
+\contentsline {chapter}{\numberline {D}Gantt Charts}{44}{}%
+\contentsline {section}{\numberline {D.1}Gantt - Interim}{45}{}%
+\contentsline {section}{\numberline {D.2}Gantt - Final}{46}{}%
