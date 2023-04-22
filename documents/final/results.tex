@@ -145,27 +145,30 @@ This section does not include any testing of FedAvg. In scenarios where not ever
 Presented below are the results obtained from executing the testing script. The density of each line on the graph is indicated by the color, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who do not have $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 6000 Samples for Different Densities}} \\
-	\includegraphics[width=300px]{aeg4}
-	\caption{Comparing Accuracy of SL with 6000 Data Samples per Node and varying network density}
+	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_1000}
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_1000_z}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
 	\label{aeg4}
 \end{figure}
 
 It is noteworthy that among the 6000 samples tested, nearly all densities exhibited similar levels of performance, with the exception of density 0. Specifically, the densities achieved the same maximum level of accuracy and demonstrated comparable convergence rates. Although density 0 exhibited a faster convergence rate, its overall accuracy was lower than the other densities.
 
-\begin{figure}[H]
-	\center{\textbf{Accuracy by Training Step for 1000 Samples for Different Densities}} \\
-	\includegraphics[width=300px]{aeg5}
-	\caption{Comparing Accuracy of SL with 1000 Data Samples per Node and varying network density}
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_100}
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_100_z}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
 	\label{aeg5}
 \end{figure}
 
 The experiments conducted using a sample size of 1000 demonstrated comparable outcomes to those obtained with a sample size of 6000, albeit with a lower overall accuracy across all tests.
 
-\begin{figure}[H]
-	\center{\textbf{Accuracy by Training Step for 100 Samples for Different Densities}} \\
-	\includegraphics[width=300px]{aeg6}
-	\caption{Comparing Accuracy of SL with 100 Data Samples per Node and varying network density}
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_25}
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_25_z}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
 	\label{aeg6}
 \end{figure}
 
