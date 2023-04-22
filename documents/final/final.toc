@@ -56,9 +56,9 @@
 \contentsline {section}{\numberline {7.1}Comparison of SwarmAvg to Other Methods}{33}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Comparison of SwarmAvg to FedAvg}{33}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Comparison of SwarmAvg to SwarmBC}{33}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Pitfalls of this Study}{33}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}The Small Simulated Number of Nodes}{33}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}The Lack of Testing Overheads}{33}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.2}Pitfalls of this Study}{34}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}The Small Simulated Number of Nodes}{34}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}The Lack of Testing Overheads}{34}{subsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}The Lack of Simulated Internet Lag}{34}{subsection.7.2.3}%
 \contentsline {chapter}{\numberline {8}Project Management}{35}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Time Management}{36}{section.8.1}%
@@ -80,7 +80,7 @@
 \contentsline {section}{\numberline {9.1}Conclusion}{39}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Future Work}{39}{section.9.2}%
 \contentsline {chapter}{\numberline {A}SwarmAvg Algorithm}{40}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Training Step}{40}{section.A.1}%
+\contentsline {section}{\numberline {A.1}Single Training Step}{40}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Model Received Event}{41}{section.A.2}%
 \contentsline {chapter}{\numberline {B}Network Generation Algorithm}{42}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Machine Learning Model}{43}{appendix.C}%

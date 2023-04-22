@@ -1,5 +1,5 @@
 \section{Comparison of SwarmAvg to Other Methods}
-\todo{Write something useful here}
+Although SwarmAvg has demonstrated promising results, it remains important to conduct a comparative analysis against established methods. This will enable individuals seeking to incorporate distributed machine learning into their future projects to make and informed decisions whether SwarmAvg is the algorithm that they should use.
 
 \subsection{Comparison of SwarmAvg to FedAvg}
 \todo{Write this out}
@@ -18,15 +18,16 @@
 \end{itemize}
 
 \subsection{Comparison of SwarmAvg to SwarmBC}
-\todo{cant really compare results but can compare use of blockchain theoretically}
+Despite the fact that this paper did not perform tests on SwarmBC, it is still possible to compare the theoretical advantages of both methods over one another, based on a comprehensive understanding of the inner workings of each.
 
-SwarmAvg can diverge, unlike using blockchain
+One of the primary drawbacks of utilizing SwarmAvg as opposed to SwarmBC is the potential occurrence of divergent training, which arises when individual nodes or groups of nodes begin to learn significantly different models from each other during SwarmAvg execution. Consequently, when merging the models from these groups, they prove incompatible and cause a decrease in overall performance. This detrimental effect may persist throughout the entire training process, leading to significantly worse outcomes than anticipated. Several factors can lead to divergent training, with low settings for $\alpha$ and $\gamma$, coupled with a sparsely-connected network, being highly correlated with its occurrence during testing. SwarmBC does not suffer from this issue, as the blockchain ensures that all nodes agree on the same model. However, during testing, divergent training was a rare phenomenon, and its remedy was a simple parameter tuning process upon detection.
 
-SwarmAvg needs an extra layer of security, but this is built into blockchain
+One drawback of utilizing the SwarmAvg algorithm, as opposed to SwarmBC, is the absence of security features. The utilization of blockchain technology enables the straightforward authentication of nodes utilizing different algorithms that are frequently well-documented and integrated into the blockchain framework. On the other hand, SwarmAvg lacks any built-in authentication mechanism. As a result, to employ it securely, a separate stand-alone authentication system would need to be implemented. Failure to utilize authentication could result in a malicious node gaining entry and compromising the training process.
 
-SwarmAvg might is faster and more lightweight due to the omission of a blockchain
+The rationale behind the development of SwarmAvg was to establish a more agile and efficient SL algorithm in comparison to the existing technologies. SwarmAvg surpasses SwarmBC in terms of computational efficiency, as nodes are not mandated to verify transactions. In contrast, Blockchain involves a comparatively substantial overhead as opposed to simply averaging the models of a nodes neighbours. Consequently, SwarmBC necessitates higher processing power to operate for the same amount of training. This overhead can impede the speed of training on a resource-limited system, such as a swarm of drones, as a considerable amount of time is consumed in validating transactions, rather than performing training. Thus, SwarmAvg may be a more fitting choice than SwarmBC for swarms where processing power is a concern.
 
-SwarmAvg in theory may actually allow semi separated islands of nodes to learn slightly different models without fully diverging - this may be beneficial if the distribution of data changes. Cant do this with blockchain
+
+\todo{SwarmAvg in theory may actually allow semi separated islands of nodes to learn slightly different models without fully diverging - this may be beneficial if the distribution of data changes. Cant do this with blockchain}
 
 \section{Pitfalls of this Study}
 

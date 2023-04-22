@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  22 APR 2023 15:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  22 APR 2023 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -891,12 +891,12 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 113.54697pt have occurred.
 
 Package rerunfilecheck Info: File `final.out' has not changed.
-(rerunfilecheck)             Checksum: 6BEB979AA67E15CC1F38FC8D0AB1FF3D;16002.
+(rerunfilecheck)             Checksum: 481AEC1F88E7520AD13BA87DB5BFE767;16040.
  ) 
 Here is how much of TeX's memory you used:
  16175 strings out of 478287
  256746 string characters out of 5849288
- 722590 words of memory out of 5000000
+ 722597 words of memory out of 5000000
  33888 multiletter control sequences out of 15000+600000
  491999 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -920,7 +920,7 @@ e1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfti1200.pfb>
-Output written on final.pdf (51 pages, 3305282 bytes).
+Output written on final.pdf (51 pages, 3301305 bytes).
 PDF statistics:
  980 PDF objects out of 1000 (max. 8388607)
  821 compressed objects within 9 object streams
