@@ -4,62 +4,62 @@
 \contentsline {section}{\numberline {1.3}Swarm Learning}{8}{}%
 \contentsline {chapter}{\numberline {2}Problem and Goals}{10}{}%
 \contentsline {section}{\numberline {2.1}Problem}{11}{}%
-\contentsline {subsection}{\numberline {2.1.1}Privacy}{11}{}%
-\contentsline {subsection}{\numberline {2.1.2}Performance}{11}{}%
+\contentsline {subsection}{\numberline {2.1.1}The Problem of Privacy}{11}{}%
+\contentsline {subsection}{\numberline {2.1.2}The Problem of Performance}{11}{}%
 \contentsline {section}{\numberline {2.2}Goals}{11}{}%
-\contentsline {subsection}{\numberline {2.2.1}Design an Novel Algorithm for Swarm Learning}{11}{}%
-\contentsline {subsection}{\numberline {2.2.2}Implement the Algorithm}{11}{}%
-\contentsline {subsection}{\numberline {2.2.3}Test Performance in Situations Where FedAvg Performs Well}{12}{}%
-\contentsline {subsection}{\numberline {2.2.4}Test Performance in Situations Where FedAvg Performs Badly}{12}{}%
+\contentsline {subsection}{\numberline {2.2.1}To Design an Novel Algorithm for Swarm Learning}{11}{}%
+\contentsline {subsection}{\numberline {2.2.2}To Implement the Algorithm}{11}{}%
+\contentsline {subsection}{\numberline {2.2.3}To Test Performance in Situations Where FedAvg Performs Well}{12}{}%
+\contentsline {subsection}{\numberline {2.2.4}To Test Performance in Situations Where FedAvg Performs Badly}{12}{}%
 \contentsline {chapter}{\numberline {3}Analysis and Specification of the Solution to the Problem}{13}{}%
 \contentsline {chapter}{\numberline {4}Detailed Design}{14}{}%
-\contentsline {section}{\numberline {4.1}Node}{15}{}%
-\contentsline {section}{\numberline {4.2}Disposal of Blockchain}{15}{}%
-\contentsline {section}{\numberline {4.3}Training Counter}{15}{}%
-\contentsline {section}{\numberline {4.4}Model Combination Methods}{16}{}%
-\contentsline {subsection}{\numberline {4.4.1}Averaging}{16}{}%
-\contentsline {subsection}{\numberline {4.4.2}Averaging With Synchronisation Rate}{16}{}%
-\contentsline {subsection}{\numberline {4.4.3}Filtering By Training Counter}{17}{}%
-\contentsline {section}{\numberline {4.5}Sparse Network Behaviour}{17}{}%
-\contentsline {subsection}{\numberline {4.5.1}Passive Convergence}{17}{}%
-\contentsline {subsection}{\numberline {4.5.2}Relay}{18}{}%
-\contentsline {section}{\numberline {4.6}Complete Algorithm}{18}{}%
+\contentsline {section}{\numberline {4.1}The Job of a Node}{15}{}%
+\contentsline {section}{\numberline {4.2}A Blockchain-less Algorithm}{15}{}%
+\contentsline {section}{\numberline {4.3}Keeping Track of Training: The Training Counter}{15}{}%
+\contentsline {section}{\numberline {4.4}Combining Neighbouring Models}{16}{}%
+\contentsline {subsection}{\numberline {4.4.1}Simple Method: Averaging}{16}{}%
+\contentsline {subsection}{\numberline {4.4.2}Advanced Method: Averaging With Synchronisation Rate}{16}{}%
+\contentsline {subsection}{\numberline {4.4.3}Ignoring Old Models: Training Counter Filtering}{17}{}%
+\contentsline {section}{\numberline {4.5}Behaviour in Sparse Networks}{17}{}%
+\contentsline {subsection}{\numberline {4.5.1}Lightweight Approach: Passive Convergence}{17}{}%
+\contentsline {subsection}{\numberline {4.5.2}Complex Approach: Relay}{18}{}%
+\contentsline {section}{\numberline {4.6}The Complete Algorithm}{18}{}%
 \contentsline {chapter}{\numberline {5}Implementation}{19}{}%
-\contentsline {section}{\numberline {5.1}Dataset and Machine Learning Model}{20}{}%
-\contentsline {subsection}{\numberline {5.1.1}Dataset}{20}{}%
-\contentsline {subsection}{\numberline {5.1.2}Model}{20}{}%
-\contentsline {section}{\numberline {5.2}Federated Learning}{20}{}%
-\contentsline {subsection}{\numberline {5.2.1}Algorithm}{20}{}%
-\contentsline {subsection}{\numberline {5.2.2}Evaluation}{21}{}%
-\contentsline {section}{\numberline {5.3}Prototype}{21}{}%
-\contentsline {subsection}{\numberline {5.3.1}Algorithm}{21}{}%
-\contentsline {subsection}{\numberline {5.3.2}Evaluation}{21}{}%
-\contentsline {section}{\numberline {5.4}Final Implementation}{21}{}%
-\contentsline {subsection}{\numberline {5.4.1}Algorithm}{22}{}%
-\contentsline {subsection}{\numberline {5.4.2}Evaluation}{22}{}%
+\contentsline {section}{\numberline {5.1}Machine Learning Problem}{20}{}%
+\contentsline {subsection}{\numberline {5.1.1}The Dataset}{20}{}%
+\contentsline {subsection}{\numberline {5.1.2}The Model}{20}{}%
+\contentsline {section}{\numberline {5.2}Implementing Federated Learning}{20}{}%
+\contentsline {subsection}{\numberline {5.2.1}Development of the Federated Learning Algorithm}{20}{}%
+\contentsline {subsection}{\numberline {5.2.2}Evaluation of this Federated Learning Implementation}{21}{}%
+\contentsline {section}{\numberline {5.3}Implementing the First Prototype}{21}{}%
+\contentsline {subsection}{\numberline {5.3.1}Development of the First Prototype}{21}{}%
+\contentsline {subsection}{\numberline {5.3.2}Evaluation of the First Prototype}{21}{}%
+\contentsline {section}{\numberline {5.4}Implementing the Final Algorithm}{22}{}%
+\contentsline {subsection}{\numberline {5.4.1}Development of the Final Algorithm}{22}{}%
+\contentsline {subsection}{\numberline {5.4.2}Evaluation of the Implementation of the Final Algorithm}{22}{}%
 \contentsline {chapter}{\numberline {6}Testing Strategy and Results}{23}{}%
-\contentsline {section}{\numberline {6.1}Methods}{24}{}%
-\contentsline {subsection}{\numberline {6.1.1}Metrics}{24}{}%
-\contentsline {subsection}{\numberline {6.1.2}Node Counts}{24}{}%
-\contentsline {subsection}{\numberline {6.1.3}Data Collection}{24}{}%
-\contentsline {subsection}{\numberline {6.1.4}Algorithm Configurations}{24}{}%
-\contentsline {subsection}{\numberline {6.1.5}Dataset per Node}{24}{}%
-\contentsline {subsection}{\numberline {6.1.6}Epochs}{25}{}%
-\contentsline {section}{\numberline {6.2}Experiment 1: Dense Network}{25}{}%
+\contentsline {section}{\numberline {6.1}Strategies for Gathering of Results}{24}{}%
+\contentsline {subsection}{\numberline {6.1.1}Chosen Metric: Accuracy}{24}{}%
+\contentsline {subsection}{\numberline {6.1.2}Number of Simulated Nodes}{24}{}%
+\contentsline {subsection}{\numberline {6.1.3}Repeated Testing for Noise Reduction}{24}{}%
+\contentsline {subsection}{\numberline {6.1.4}Configuring the Algorithm}{24}{}%
+\contentsline {subsection}{\numberline {6.1.5}Data Provided to Each Node}{24}{}%
+\contentsline {subsection}{\numberline {6.1.6}Training Steps and Epochs}{25}{}%
+\contentsline {section}{\numberline {6.2}Scenario 1: Densely Connected Network}{25}{}%
 \contentsline {subsection}{\numberline {6.2.1}Dense Network Results}{25}{}%
-\contentsline {subsection}{\numberline {6.2.2}Dense Network Analysis}{27}{}%
-\contentsline {section}{\numberline {6.3}Sparse Network Performance}{28}{}%
-\contentsline {subsection}{\numberline {6.3.1}Results}{29}{}%
-\contentsline {subsection}{\numberline {6.3.2}Analysis}{31}{}%
-\contentsline {section}{\numberline {6.4}Dense Network Performance with Class Restrictions}{31}{}%
+\contentsline {subsection}{\numberline {6.2.2}Analysis of Dense Network}{27}{}%
+\contentsline {section}{\numberline {6.3}Scenario 2: Sparsely Connected Network}{28}{}%
+\contentsline {subsection}{\numberline {6.3.1}Sparse Network Results}{29}{}%
+\contentsline {subsection}{\numberline {6.3.2}Analysis of Sparse Network}{31}{}%
+\contentsline {section}{\numberline {6.4}Scenario 3: Densely Connected Network with Class Restrictions}{31}{}%
 \contentsline {chapter}{\numberline {7}Critical Evaluation}{32}{}%
-\contentsline {section}{\numberline {7.1}Comparison of SL to Other Methods}{33}{}%
-\contentsline {subsection}{\numberline {7.1.1}Comparing SwarmAvg to FedAvg}{33}{}%
-\contentsline {subsection}{\numberline {7.1.2}Comparing SwarmAvg to SwarmBC}{33}{}%
+\contentsline {section}{\numberline {7.1}Comparison of SwarmAvg to Other Methods}{33}{}%
+\contentsline {subsection}{\numberline {7.1.1}Comparison of SwarmAvg to FedAvg}{33}{}%
+\contentsline {subsection}{\numberline {7.1.2}Comparison of SwarmAvg to SwarmBC}{33}{}%
 \contentsline {section}{\numberline {7.2}Pitfalls of this Study}{33}{}%
-\contentsline {subsection}{\numberline {7.2.1}Small Number of Nodes}{33}{}%
-\contentsline {subsection}{\numberline {7.2.2}Overheads}{33}{}%
-\contentsline {subsection}{\numberline {7.2.3}Internet Lag}{34}{}%
+\contentsline {subsection}{\numberline {7.2.1}The Small Simulated Number of Nodes}{33}{}%
+\contentsline {subsection}{\numberline {7.2.2}The Lack of Testing Overheads}{33}{}%
+\contentsline {subsection}{\numberline {7.2.3}The Lack of Simulated Internet Lag}{34}{}%
 \contentsline {chapter}{\numberline {8}Project Management}{35}{}%
 \contentsline {section}{\numberline {8.1}Time Management}{36}{}%
 \contentsline {section}{\numberline {8.2}Changing Plans}{36}{}%
@@ -72,7 +72,7 @@
 \contentsline {subsubsection}{Description}{37}{}%
 \contentsline {subsubsection}{Risk Calculations}{37}{}%
 \contentsline {subsubsection}{Mitigation}{37}{}%
-\contentsline {subsection}{\numberline {8.3.3}Algorithm Does Not Work Work}{37}{}%
+\contentsline {subsection}{\numberline {8.3.3}Algorithm Does Not Work}{37}{}%
 \contentsline {subsubsection}{Description}{37}{}%
 \contentsline {subsubsection}{Risk Calculations}{37}{}%
 \contentsline {subsubsection}{Mitigation}{37}{}%

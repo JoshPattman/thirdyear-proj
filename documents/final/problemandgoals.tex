@@ -1,24 +1,24 @@
 \section{Problem}
 In machine learning, there exists some issues that arise from trying to use conventional techniques in the real world.
 
-\subsection{Privacy}
+\subsection{The Problem of Privacy}
 It is common for data to be spread across multiple locations, referred to as data islands. Traditionally, all of this data would be consolidated into a single centralized server to facilitate the process of machine learning. However, it may not be possible to do so, given the potential conflict with privacy legislation. This leaves two options to the data scientist who is looking to train a model: either a single model per data island, likely with inferior performance, or use an algorithm that would allow the different data islands to collaborate and collectively train a model.
 
 Consider this scenario where many different hospitals wish to train a model to detect an illness in a patient. However, due to the obligation to maintain patient confidentiality, the medical data of patients cannot be shared with any of the other hospitals. This means that, despite likely having superior performance, a model trained on all data across all hospitals is not feasible, as a consequence patients would not have the highest quality medical care possible.
 
-\subsection{Performance}
+\subsection{The Problem of Performance}
 In general, it has been observed that larger machine learning models coupled with more data typically lead to better performance. However, the use of conventional approaches for training these large models necessitates the requirement of a powerful computer. Most entities, however, do not have access to such a computer. Nevertheless, they may have access to multiple, lower-power computers. For instance, during non-working hours, a company may have hundreds of computers in its offices that are not being used, thus providing a pool of unused processing power.
 
 \section{Goals}
 
-\subsection{Design an Novel Algorithm for Swarm Learning}
+\subsection{To Design an Novel Algorithm for Swarm Learning}
 In this project, the primary aim is to design a novel SL algorithm. This algorithm should be based on FedAvg and \emph{Swarm Learning}. However, the algorithm should be fully decentralised, and it should operate without a blockchain. The decision to not use a blockchain was made due to the disadvantages stated in Section \ref{bg:bc}.
 
-\subsection{Implement the Algorithm}
+\subsection{To Implement the Algorithm}
 The primary purpose of the algorithm is to test its viability when compared to other techniques, not to be as efficient as possible for real world usage. Te other important feature of this implementation is that it is easy to replicate by a data scientist who wished to use SL in their next product. For this reason, when implementing the algorithm, an easy-to-understand programming language should be used, and the focus should be on readability rather than absolute performance.
 
-\subsection{Test Performance in Situations Where FedAvg Performs Well}
+\subsection{To Test Performance in Situations Where FedAvg Performs Well}
 FedAvg is designed to work in situations where each node has a reliable direct connection to the server. It should be shown that the new algorithm can perform well in similar situations, where each node has many stable connections to other nodes in the network.
 
-\subsection{Test Performance in Situations Where FedAvg Performs Badly}
+\subsection{To Test Performance in Situations Where FedAvg Performs Badly}
 FedAvg may not be effective when the server has unreliable connections to the nodes, or when nodes are halted. Additionally, if the server stops working, FedAvg is unable to proceed. The goal is to demonstrate that the new algorithm can achieve successful results in scenarios where nodes frequently drop out of the network, thus making it possible to use the algorithm in cases where FedAvg may not be viable.
