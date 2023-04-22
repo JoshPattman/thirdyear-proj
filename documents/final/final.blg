@@ -22,45 +22,45 @@ Warning--empty year in swarmbetterthanone
 Warning--empty booktitle in gdpr
 Warning--empty journal in fed_learning
 Warning--empty institution in blockchain_review
-You've used 14 entries,
+You've used 15 entries,
             1876 wiz_defined-function locations,
-            566 strings with 10172 characters,
-and the built_in function-call counts, 6224 in all, are:
-= -- 353
-> -- 728
+            573 strings with 10284 characters,
+and the built_in function-call counts, 6501 in all, are:
+= -- 383
+> -- 739
 < -- 0
-+ -- 248
-- -- 234
-* -- 645
-:= -- 1098
-add.period$ -- 13
-call.type$ -- 14
-change.case$ -- 15
++ -- 252
+- -- 237
+* -- 663
+:= -- 1137
+add.period$ -- 15
+call.type$ -- 15
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 207
-empty$ -- 358
-format.name$ -- 234
-if$ -- 1291
+cite$ -- 20
+duplicate$ -- 224
+empty$ -- 380
+format.name$ -- 237
+if$ -- 1362
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 12
-newline$ -- 45
-num.names$ -- 14
-pop$ -- 63
+int.to.str$ -- 15
+missing$ -- 13
+newline$ -- 49
+num.names$ -- 15
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 136
+skip$ -- 149
 stack$ -- 0
-substring$ -- 218
-swap$ -- 81
+substring$ -- 226
+swap$ -- 90
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 33
-width$ -- 16
-write$ -- 129
+while$ -- 35
+width$ -- 17
+write$ -- 142
 (There was 1 error message)

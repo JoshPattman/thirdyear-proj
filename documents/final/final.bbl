@@ -96,6 +96,11 @@ J.~Augustine, T.~Kulkarni, and S.~Sivasubramaniam, ``Leader election in sparse
   dynamic networks with churn,'' in {\em 2015 IEEE International Parallel and
   Distributed Processing Symposium}, pp.~347--356, IEEE, 2015.
 
+\bibitem{swarmscalable}
+M.~Dorigo, M.~Birattari, and M.~Brambilla, ``{S}warm robotics,'' {\em
+  Scholarpedia}, vol.~9, no.~1, p.~1463, 2014.
+\newblock revision \#138643.
+
 \bibitem{xiao2017fashionmnist}
 H.~Xiao, K.~Rasul, and R.~Vollgraf, ``Fashion-mnist: a novel image dataset for
   benchmarking machine learning algorithms,'' 2017.

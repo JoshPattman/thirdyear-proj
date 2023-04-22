@@ -37,6 +37,8 @@ A more complex approach to combination is to compute the average model of all ne
 \[ localModel \gets (1 - \alpha) * localModel + \alpha * \mu(neighborModels) \]
 The synchronisation rate, denoted as $\alpha$, indicates the degree to which each node adjusts its local model to align with the global model. If $\alpha$ is set too low, each node's model in the network will diverge, resulting in each node becoming trapped at a local minima. On the other hand, if $\alpha$ is too high, the progress achieved by a given node will be discarded at each averaging step, which can result in slower learning.
 
+This method is beneficial over vanilla averaging as it provides some resistance to variation in the number of neighbours of a node. When using averaging, the amount of change made by the local node that persists into the next training step is proportionate to the number of neighbours which were combined. However, when using this method, the amount of change made that persists will be constant, no matter how many neighbours that are present. This may increase the stability of training, especially if the situation which SwarmAvg is deployed involves a dynamic set of neighbours.
+
 \subsection{Ignoring Old Models: Training Counter Filtering}
 A potential modification to the previously mentioned combination algorithms involves filtering based on the training counter. Specifically, a node may only include its neighbour models if they meet the following statement:
 \[neighborTrainingCounter + \beta \ge localTrainingCounter \]
