@@ -15,7 +15,7 @@ export numnodes=10 startupdelay=0
 
 export alpha=0.75 beta=0.5
 
-for i in 5; do
+for i in 6; do
     # FL Dense
     export numsamples=1000 eps=5
     python3 fed_mnist.py $numnodes $numsamples $eps test0.$i
