@@ -79,16 +79,16 @@ Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that SwarmAvg concludes 
 
 \subsection{Dense Network Analysis}
 
-The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. Nevertheless, it is also evident that the reduction in data affects SwarmAvg slightly more than FedAvg, as indicated by its progressively declining peak accuracy. Despite this, the difference in peak accuracy between the two algorithms remains quite small, often within a 2 percent margin.
+The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. However, it is also evident that the reduction in data affects SwarmAvg and FedAvg to a similar degree, as both of their peak accuracies stay within a similar range of each other in all tests. The difference in peak accuracy between the two algorithms was quite small, often within a 2 percent margin.
 
 One of the prominent challenges associated with SwarmAvg is its slower convergence rate compared to FedAvg, particularly from the outset. SwarmAvg consistently takes a longer time to attain its peak accuracy. This may be attributed to the asynchronous nature of the nodes in SwarmAvg, which implies that some nodes that conduct training before others may have lower accuracy than expected.
 
-It is worth noting that in all these evaluations, SwarmAvg has a higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
+It is worth noting that in all these evaluations, SwarmAvg has a slightly higher inter-quartile range than FedAvg, indicating that FedAvg is more consistent in terms of accuracy. However, this difference is minor.
 
-One interesting feature of both SwarmAvg and FedAvg is that both algorithms do not seem to exhibit any symptoms of overfitting. It would be expected, especially with only 100 datapoints per node, that some symptoms of overfitting would occur, such as decreasing test accuracy. However, the test accuracy in all of the plots reaches its optimal accuracy and stays there.
+One interesting feature of both SwarmAvg and FedAvg is that both algorithms seem to be affected by overfitting much less what would be expected. Especially with just 25 data samples per node, the effects of overfitting would usually be far more severe in a single node. However, this does not mean that the algorithms do not overfit, but it may indicate that the process of overfitting for them is drastically slowed down.
 
 \section{Sparse Network Performance}
-In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess.
+In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific density. It is important to note that, moving forward, density refers to an artificial metric and is not associated with the physical definition of density. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess, for a network of 10 nodes.
 
 In order to conduct thorough testing on a variety of potential deployment scenarios, several different densities were tested for each count of data. The densities that were tested, along with their corresponding MMH and MCPN, are presented in Table \ref{sparsedensities}.
 
@@ -142,7 +142,7 @@ This section does not include any testing of FedAvg. In scenarios where not ever
 
 
 \subsection{Results}
-Presented below are the results obtained from executing the testing script. The density of each line on the graph is indicated by the color, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who do not have $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
+Presented below are the results obtained from executing the testing script. The density of each line on the graph is indicated by the colour, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who do not have $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
@@ -152,27 +152,31 @@ Presented below are the results obtained from executing the testing script. The 
 	\label{aeg4}
 \end{figure}
 
-It is noteworthy that among the 6000 samples tested, nearly all densities exhibited similar levels of performance, with the exception of density 0. Specifically, the densities achieved the same maximum level of accuracy and demonstrated comparable convergence rates. Although density 0 exhibited a faster convergence rate, its overall accuracy was lower than the other densities.
+An observation that can be made of Figure \ref{aeg4} is that the different network densities perform very similarly. The final accuracy for all of the tests fell within a 2 percent range,  with the higher densities occupying the higher end.
+
+One interesting feature of the Figure \ref{aeg4} is that the lowest density demonstrates faster convergence initially that the other densities. The author hypothesises that this may be due to groups of nodes forming local sub-networks which converge on their own sub-sets of data faster, but more slowly combine into the network as a whole as training progresses.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
+	\center{\textbf{Accuracy by Training Step for 100 Samples}} \\
 	\includegraphics[width=0.49\textwidth]{aeg_sparse_100}
 	\includegraphics[width=0.49\textwidth]{aeg_sparse_100_z}
 	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
 	\label{aeg5}
 \end{figure}
 
-The experiments conducted using a sample size of 1000 demonstrated comparable outcomes to those obtained with a sample size of 6000, albeit with a lower overall accuracy across all tests.
+In Figure \ref{aeg5}, there is a slightly greater spread of final accuracies than is shown in Figure \ref{aeg4}. However, the difference is marginal. The more noticeable feature of Figure \ref{aeg5} is that the final accuracies of all densities are approximately 8 percent lower than their counterparts with more data available in figure \ref{aeg4}.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
+	\center{\textbf{Accuracy by Training Step for 25 Samples}} \\
 	\includegraphics[width=0.49\textwidth]{aeg_sparse_25}
 	\includegraphics[width=0.49\textwidth]{aeg_sparse_25_z}
 	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
 	\label{aeg6}
 \end{figure}
 
-With only 100 training samples, it is evident that the network's density has a significant impact on the resulting accuracy. The final accuracy values span between 75 and 80 percent, with denser networks exhibiting higher accuracy rates. Additionally, the training curves depicted in Figure \ref{aeg6} appear to be more noisy compared to those obtained with larger datasets.
+With just 25 data samples, the tests depicted in Figure \ref{aeg6} show a much higher variation in final accuracies than the previous two figures. There is also a much higher degree of noise in this figure than any other, suggesting that training may be much less stable with this small number of data samples to train on.
+
+It should also be noted that the lowest density is still exhibiting the behaviour of outperforming the other densities in the initial steps, however it appears that this effect has become slightly less prominent.
 
 \subsection{Analysis}
 In general, altering the network density of nodes has a small impact on the training of the nodes within the network. Decreasing the density of nodes typically leads to a lower final accuracy. This effect becomes more noticeable as the data volume provided to each node decreases, as demonstrated by the increased variability in training displayed in Figure \ref{aeg6} in comparison to Figures \ref{aeg4} and \ref{aeg5}.
