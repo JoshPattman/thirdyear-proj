@@ -13,13 +13,9 @@ The steps in each training loop for SwarmAvg are as follows:
 In addition, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. The reasoning behind this decision is elaborated upon in greater detail in Section \ref{reasonforcache}.
 
 \section{Disposal of Blockchain}
-\todo{Write this out}
-\begin{itemize}
-	\item Neural nets are heuristic - they don't need to be exact
-	\item Its just overhead
-	\item SL may benefit from large networks, which is bad for bc
-	\item SL needs fast BC updates, which is hard
-\end{itemize}
+SwarmBC employs a blockchain as the mechanism for distributing the global model, whereas SwarmAvg utilizes a variation of averaging with its neighbours and does not use a blockchain. This decision was made due to the long transaction confirmation time of large blockchains, which could adversely affect training as nodes continuously upload their latest networks to the network. If this process were to take an excessive amount of time, each node would be training on an outdated model.
+
+Furthermore, the inefficiency of blockchains with respect to performance is another reason for not using them in SwarmAvg. SwarmAvg is designed for deployment in large swarms, with each agent possibly having low processing power. If a blockchain were utilized, some of the processing power that could be devoted to training would instead be utilized for validating transactions. In scenarios where processing power is limited, it would be practical to avoid the use of blockchains.
 
 \section{Training Counter}
 A vital aspect of SwarmAvg, specifically the combination step, involves evaluating the performance of a local model. The conventional approach would involve testing each model using an independent test set. However, due to the inability to exchange test sets among nodes, this approach is not feasible as it would result in non-comparable scores for each model. In order to circumvent this problem, this paper presents a heuristic metric referred to as the "training counter," which serves as an approximation of the level of training for a network by estimating the number of training steps performed on a given model.
