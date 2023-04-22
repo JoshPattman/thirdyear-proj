@@ -39,6 +39,16 @@ J.-H. Chen, M.-R. Chen, G.-Q. Zeng, and J.-S. Weng, ``Bdfl: a
   autonomous vehicle,'' {\em IEEE Transactions on Vehicular Technology},
   vol.~70, no.~9, pp.~8639--8652, 2021.
 
+\bibitem{blockchain_review}
+D.~Yaga, P.~Mell, N.~Roby, and K.~Scarfone, ``Blockchain technology overview,''
+  tech. rep., oct 2018.
+
+\bibitem{blockchain_scale}
+D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
+  blockchain,'' in {\em Proceedings of the 2020 The 2nd International
+  Conference on Blockchain Technology}, ICBCT'20, (New York, NY, USA),
+  p.~1–6, Association for Computing Machinery, 2020.
+
 \bibitem{swarm_learning}
 S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
   V.~Garg, R.~Sarveswara, K.~H{\"a}ndler, P.~Pickkers, N.~A. Aziz, S.~Ktena,
@@ -85,16 +95,6 @@ J.~C. Varughese, R.~Thenius, T.~Schmickl, and F.~Wotawa, ``Quantification and
 J.~Augustine, T.~Kulkarni, and S.~Sivasubramaniam, ``Leader election in sparse
   dynamic networks with churn,'' in {\em 2015 IEEE International Parallel and
   Distributed Processing Symposium}, pp.~347--356, IEEE, 2015.
-
-\bibitem{blockchain_review}
-D.~Yaga, P.~Mell, N.~Roby, and K.~Scarfone, ``Blockchain technology overview,''
-  tech. rep., oct 2018.
-
-\bibitem{blockchain_scale}
-D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
-  blockchain,'' in {\em Proceedings of the 2020 The 2nd International
-  Conference on Blockchain Technology}, ICBCT'20, (New York, NY, USA),
-  p.~1–6, Association for Computing Machinery, 2020.
 
 \bibitem{xiao2017fashionmnist}
 H.~Xiao, K.~Rasul, and R.~Vollgraf, ``Fashion-mnist: a novel image dataset for

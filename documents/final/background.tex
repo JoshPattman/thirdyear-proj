@@ -19,6 +19,12 @@ As it does not require data to be shared between nodes, FL is naturally benefici
 % federate distributed
 One branch of FL is distributed federated learning (DFL). This algorithm works in a very similar fashion to FL, but replaces the central server with an elected leader in a network of nodes \cite{leaderelec_car}. DFL has been shown to increase fault tolerance and security over FL.
 
+\section{Blockchain} \label{bg:bc}
+% Breif intro of what a blockcahin is
+Blockchain technology enables a network of nodes to record transactions on a shared ledger in a fully decentralized manner \cite{blockchain_review}. In a conventional blockchain, any participating node is permitted to add a transaction to the ledger, but once a transaction is executed, it becomes immutable and irreversible. Although blockchains are primarily associated with cryptocurrency and financial transactions, any type of data, including neural network weights, can be recorded as a transaction.
+
+% Disadvantages of using blockchain
+When a blockchain is scaled up, it may encounter performance issues. For instance, the Bitcoin network typically processes only 7 transactions per second on average \cite{blockchain_scale}. High confirmation delay and performance inefficiency are two primary issues related to this paper when scaling up a blockchain \cite{blockchain_scale}. These issues could prove catastrophic in a system like a swarm of robots, where it is crucial to always have the latest data and optimize limited processing power.
 
 \section{Swarm Learning}
 % Introduce swarm learning
@@ -40,16 +46,3 @@ One SL algorithm, referred to by this paper as SwarmBC, uses a blockchain to sto
 
 % Specify why swarm learning is better than conventional learning or federated learning
 SL exhibits many of the same benefits of FL over conventional learning, but it also improves upon FL in some aspects. As is often the case when comparing decentralised algorithms to their centralised counterparts \cite{swarm_resil}, the absence of a central server theoretically makes SL more resilient to failures than centralized FL approaches such as FedAvg. The lack of a leader election protocol also means that SL may be better suited to tasks where networks of nodes are sparsely connected, as leader election in dynamic networks is a complex problem and can add large amounts of overhead \cite{leaderelection}. Additionally, the removal of the need for a server in SL reduces the likelihood of performance bottlenecks due to network speed constraints for very large swarms.
-
-\section{Blockchain} \label{bg:bc}
-\todo{Write this out. The point of this section is to give the disadvantages of blockchain to support my idea to remove it}
-
-% Breif intro of what a blockcahin is
-Blockchain is  \todo{Short intro of what blockchain is. This does not need to be long as this is not important} \cite{blockchain_review}
-
-% Disadvantages of using blockchain
-%% Scalability
-Blockchain has problems with scalability \todo{Why is blockchain hard to scale} \cite{blockchain_scale}.
-
-%% High transaction cost
-Blockchain is inefficient and slow \todo{The following paper shows that blockchain can be very slow} \cite{blockchain_scale}.

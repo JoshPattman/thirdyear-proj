@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}Background}{6}{}%
 \contentsline {section}{\numberline {1.1}Federated Learning}{7}{}%
-\contentsline {section}{\numberline {1.2}Swarm Learning}{7}{}%
-\contentsline {section}{\numberline {1.3}Blockchain}{8}{}%
+\contentsline {section}{\numberline {1.2}Blockchain}{7}{}%
+\contentsline {section}{\numberline {1.3}Swarm Learning}{8}{}%
 \contentsline {chapter}{\numberline {2}Problem and Goals}{10}{}%
 \contentsline {section}{\numberline {2.1}Problem}{11}{}%
 \contentsline {subsection}{\numberline {2.1.1}Privacy}{11}{}%
@@ -40,14 +40,14 @@
 \contentsline {chapter}{\numberline {6}Testing Strategy and Results}{23}{}%
 \contentsline {section}{\numberline {6.1}Methods}{24}{}%
 \contentsline {subsection}{\numberline {6.1.1}Metrics}{24}{}%
-\contentsline {subsection}{\numberline {6.1.2}Data Collection}{24}{}%
-\contentsline {subsection}{\numberline {6.1.3}Node Counts}{24}{}%
+\contentsline {subsection}{\numberline {6.1.2}Node Counts}{24}{}%
+\contentsline {subsection}{\numberline {6.1.3}Data Collection}{24}{}%
 \contentsline {subsection}{\numberline {6.1.4}Algorithm Configurations}{24}{}%
-\contentsline {subsection}{\numberline {6.1.5}Data Volume Per Node}{24}{}%
+\contentsline {subsection}{\numberline {6.1.5}Dataset per Node}{24}{}%
 \contentsline {subsection}{\numberline {6.1.6}Epochs}{25}{}%
-\contentsline {section}{\numberline {6.2}Dense Network Performance}{25}{}%
-\contentsline {subsection}{\numberline {6.2.1}Results}{25}{}%
-\contentsline {subsection}{\numberline {6.2.2}Analysis}{27}{}%
+\contentsline {section}{\numberline {6.2}Experiment 1: Dense Network}{25}{}%
+\contentsline {subsection}{\numberline {6.2.1}Dense Network Results}{25}{}%
+\contentsline {subsection}{\numberline {6.2.2}Dense Network Analysis}{27}{}%
 \contentsline {section}{\numberline {6.3}Sparse Network Performance}{28}{}%
 \contentsline {subsection}{\numberline {6.3.1}Results}{29}{}%
 \contentsline {subsection}{\numberline {6.3.2}Analysis}{31}{}%
