@@ -198,9 +198,9 @@ It is evident that SwarmAvg consistently exhibits a significantly lower level of
 	\label{aeg8}
 \end{figure}
 
-When performing training on a lower sample count, as depicted in Figure \ref{aeg8}, the oscillations in SwarmAvg seem to have been drastically reduced when compared to \ref{aeg7}. However, both SwarmAvg and FedAvg have lower accuracies by the end of training than they did with 1000 samples.
+When performing training on a lower sample count, as depicted in Figure \ref{aeg8}, the oscillations in SwarmAvg seem to have been drastically reduced when compared to \ref{aeg7}. However, both SwarmAvg and FedAvg have lower accuracies by the end of training than they did with 1000 samples. \\
 
-\todo{write analysis}
+It is evident that the reduction of data volume per node has a detrimental impact on the performance of SwarmAvg in general. However, in these restricted class tests, this effect is less pronounced compared to previous tests where each node had access to all possible classes. It should be noted that SwarmAvg encounters accuracy oscillations, which can be partially attributed to the synchronized training steps of nodes. Nevertheless, by decreasing the value of $\gamma$ and staggering the startup of nodes, these oscillations can be mitigated. Moreover, reducing the data volume may also aid in reducing the effect of these oscillations, possibly implying that nodes are being trained excessively in a single step.
 
 \section{Scenario 4: Sparsely Connected Network with Class Restrictions}
 This scenario was designed to test the SwarmAvg algorithm to its limits. It not only involved limiting data to each node, but also limiting the classes each node had access to in the same fashion as Scenario 3, and also constraining the networks to be sparsely connected.
