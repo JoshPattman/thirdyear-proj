@@ -14,7 +14,7 @@ from fed import backend
 from model import make_clone_model, get_xy
 
 class FedClient:
-    def __init__(self, epochs_per_step=1, num_samples=60000, dropout_after_first=False):
+    def __init__(self, epochs_per_step=1, num_samples=60000, dropout_after_first=False, classes=[0,1,2,3,4,5,6,7,8,9]):
         self.backend = backend.Client()
         self.backend.set_train_callback(self.train)
 
@@ -32,7 +32,9 @@ class FedClient:
         if dropout_after_first:
             self.logger.debug("dropout after first training step")
 
-        (self.train_X, self.train_Y), _ = get_xy(num_train_samples=num_samples)
+        (self.train_X, self.train_Y), _ = get_xy(num_train_samples=num_samples, classes=classes)
+
+        self.logger.debug(np.unique(self.train_Y, return_counts=True))
 
     def train(self, model_flat):
         #self.logger.debug("starting training")
@@ -94,11 +96,20 @@ def get_random_string(length):
 node_count = int(sys.argv[1])
 num_samples = int(sys.argv[2])
 epochs_per_step = int(sys.argv[3])
-#dropout_count = int(sys.argv[4])
-filename = sys.argv[4]
+classes_per_node = int(sys.argv[4])
+filename = sys.argv[5]
+
+nodes_classes = []
+c = 0
+for i in range(10):
+    nodes_classes.append([])
+    for j in range(classes_per_node):
+        nodes_classes[i].append(c)
+        c = (c+1)%10
 
 for i in range(10):
-    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=False)
+    FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=False, classes=nodes_classes[i])
+    print("Classes for node %s: %s"%(i, nodes_classes[i]))
 
 serv = FedServer()
 results_epochs, results_accuracies = serv.data_log

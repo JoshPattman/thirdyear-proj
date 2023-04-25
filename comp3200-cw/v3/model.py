@@ -33,9 +33,11 @@ def make_clone_model():
 
 (full_train_X, full_train_Y), (full_test_X, full_test_Y) = mnist.load_data()
 
-def get_xy(num_train_samples=60000):
+def get_xy(num_train_samples=60000, classes=[0,1,2,3,4,5,6,7,8,9]):
     (full_train_X, full_train_Y), (full_test_X, full_test_Y) = mnist.load_data()
-    train_subset = random.sample(range(len(full_train_X)), num_train_samples)
+    all_datapoints = list(range(len(full_train_X)))
+    filtered_datapoints = [i for i in all_datapoints if full_train_Y[i] in classes]
+    train_subset = random.sample(filtered_datapoints, num_train_samples)
     train_X = np.array([full_train_X[s] for s in train_subset])/255
     train_Y = np.array([full_train_Y[s] for s in train_subset])
     test_X = np.copy(full_test_X)/255

@@ -22,7 +22,7 @@ import graphs
 data_q = Queue()
 
 class Node:
-    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[], epochs_per_step=1):
+    def __init__(self, num_train_samples=60000, alpha=0.6, beta=99999999, gamma=8, node_id=None, neighbors=[], epochs_per_step=1, classes=[0,1,2,3,4,5,6,7,8,9]):
         self.model = make_clone_model()#make_model()#
         backend = LocalBackend(node_id=node_id, neighbors=neighbors)
         self.dist = SwarmDist(backend, -1, initial_params=flatten_model(self.model))
@@ -40,7 +40,9 @@ class Node:
         self.beta = beta
         self.gamma = gamma
 
-        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples)
+        (self.train_X, self.train_Y), (self.test_X, self.test_Y) = get_xy(num_train_samples=num_train_samples, classes=classes)
+
+        self.logger.debug(np.unique(self.train_Y, return_counts=True))
 
     def begin(self):
         Thread(target=self.update_loop, daemon=True).start()
@@ -92,13 +94,23 @@ density = float(sys.argv[7])
 
 epochs_per_step = int(sys.argv[8])
 
-filename = sys.argv[9]
+classes_per_node = int(sys.argv[9])
+
+filename = sys.argv[10]
 
 print(f"Running experiment with {node_count} nodes, {num_samples} samples, alpha={alpha}, beta={beta}, gamma={gamma}, startup_delay={startup_delay}, density={density}, epochs_per_step={epochs_per_step}")
 
 nodes = [f"node-%s"%x for x in range(node_count)]
 print("All nodes are: ", nodes)
 connections = graphs.fully_connected_graph(nodes, density=density)
+
+nodes_classes = {}
+c = 0
+for n in nodes:
+    nodes_classes[n] = []
+    for j in range(classes_per_node):
+        nodes_classes[n].append(c)
+        c = (c+1)%10
 
 print("Initialising nodes...")
 node_objects = []
@@ -111,7 +123,8 @@ for n in nodes:
         if c[1] == n:
             neighbors.append(c[0])
     print("Node %s has neighbors: %s"%(n, neighbors))
-    node_objects.append(Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors, epochs_per_step=epochs_per_step))
+    print("Node %s has classes: %s"%(n, nodes_classes[n]))
+    node_objects.append(Node(num_train_samples=num_samples, alpha=alpha, beta=beta, gamma=gamma, node_id=n, neighbors=neighbors, epochs_per_step=epochs_per_step, classes=nodes_classes[n]))
 
 print("Starting nodes...")
 for n in node_objects:

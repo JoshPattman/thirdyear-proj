@@ -15,57 +15,116 @@ export numnodes=10 startupdelay=0
 
 export alpha=0.75 beta=0.5
 
-for i in 7; do
+for i in {1..5}; do
     # FL Dense
-    export numsamples=1000 eps=5
-    python3 fed_mnist.py $numnodes $numsamples $eps test0.$i
-    export numsamples=100 eps=10
-    python3 fed_mnist.py $numnodes $numsamples $eps test1.$i
-    export numsamples=25 eps=20
-    python3 fed_mnist.py $numnodes $numsamples $eps test2.$i
+#    export classes=10
+#    export numsamples=1000 eps=5
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test0.$i
+#    export numsamples=100 eps=10
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test1.$i
+#    export numsamples=25 eps=20
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test2.$i
+#
+#    # SL Dense
+#    export density=1.0 gamma=8 classes=10
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test3.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test4.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test5.$i
+#
+#    # SL Sparse 0.75
+#    export density=0.75 gamma=7 classes=10
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test6.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test7.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test8.$i
+#
+#    # SL Sparse 0.5
+#    export density=0.5 gamma=5 classes=10
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test9.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test10.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test11.$i
+#
+#    # SL Sparse 0.25
+#    export density=0.5 gamma=3 classes=10
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test12.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test13.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test14.$i
+#
+#    # SL Sparse 0.0
+#    export density=0.0 gamma=1 classes=10
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test15.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test16.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test17.$i
+#
+#    # FL Dense w/ 3 classes
+#    export classes=3
+#    export numsamples=1000 eps=5
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test18.$i
+#    export numsamples=100 eps=10
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test19.$i
+#    export numsamples=25 eps=20
+#    python3 fed_mnist.py $numnodes $numsamples $eps $classes test20.$i
+#
+#    # SL Dense w/ 3 classes
+#    export density=1.0 gamma=8 classes=3
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps $classes test210.$i # standard
+#    python3 swarm_mnist.py $numnodes $startupdelay $numsamples 0.25 $beta $gamma $density $eps $classes test212.$i # divergent
+#    export gamma=5
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test211.$i # modified
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test22.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test23.$i
 
-    # SL Dense
-    export density=1.0 gamma=8
-    export numsamples=1000 eps=5
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test3.$i
-    export numsamples=100 eps=10
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test4.$i
-    export numsamples=25 eps=20
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test5.$i
+    # SL Sparse 0.75 w/ 3 classes
+#    export density=0.75 gamma=4 classes=3
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test24.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test25.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test26.$i
+#
+#    # SL Sparse 0.5 w/ 3 classes
+#    export density=0.5 gamma=3 classes=3
+#    export numsamples=1000 eps=5
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test27.$i
+#    export numsamples=100 eps=10
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test28.$i
+#    export numsamples=25 eps=20
+#    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test29.$i
 
-    # SL Sparse 0.75
-    export density=0.75 gamma=7
+    # SL Sparse 0.25 w/ 3 classes
+    export density=0.25 gamma=2 classes=3
     export numsamples=1000 eps=5
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test6.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test30.$i
     export numsamples=100 eps=10
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test7.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test31.$i
     export numsamples=25 eps=20
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test8.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test32.$i
 
-    # SL Sparse 0.5
-    export density=0.5 gamma=5
+    # SL Sparse 0.0 w/ 3 classes
+    export density=0.0 gamma=1 classes=3
     export numsamples=1000 eps=5
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test9.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test33.$i
     export numsamples=100 eps=10
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test10.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test34.$i
     export numsamples=25 eps=20
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test11.$i
-
-    # SL Sparse 0.25
-    export density=0.5 gamma=3
-    export numsamples=1000 eps=5
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test12.$i
-    export numsamples=100 eps=10
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test13.$i
-    export numsamples=25 eps=20
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test14.$i
-
-    # SL Sparse 0.0
-    export density=0.0 gamma=1
-    export numsamples=1000 eps=5
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test15.$i
-    export numsamples=100 eps=10
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test16.$i
-    export numsamples=25 eps=20
-    python3 swarm_mnist.py $numnodes $startupdelay $numsamples $alpha $beta $gamma $density $eps test17.$i
+    python3 swarm_mnist.py $numnodes 2 $numsamples $alpha $beta $gamma $density $eps $classes test35.$i
 done

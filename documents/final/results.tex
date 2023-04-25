@@ -31,17 +31,6 @@ Due to the limited size of the dataset, a single node executes more than one epo
 \section{Scenario 1: Densely Connected Network}
 A crucial experiment for evaluating the performance of the SL algorithm involves assessing its performance under optimal circumstances, specifically within a network of nodes wherein each node is directly connected to every other node. In FL, the analogous topology involves direct connections between each node and the server. This comparison is significant as it facilitates a direct evaluation of the SL and FL algorithms under their respective ideal conditions.
 
-The selection of the parameters for the SL algorithm was based on the authors prior experience in testing the algorithm. These parameters are presented in Table \ref{slparamsDNP}.
-\begin{table}[H]
-	\begin{tabular}{p{0.5cm}|l|p{11cm}}
-		P & Value & Reason \\ \hline \hline
-		$\alpha$  & 0.75  & Low enough to allow nodes to maintain a small variation but not so low that the nodes diverge indefinitely                               \\ \hline
-		$\beta$   & 0.5   & Allows a small amount of nodes looking back, but high value is not needed as every node will be running at approximately the same speed. \\ \hline
-		$\gamma$  & 8     & All nodes will always be connected to 9 other nodes, so higher is better. There is room for 1 node to be skipped to prevent deadlock.   
-	\end{tabular}
-	\caption{The chosen parameters for the SL algorithm} \label{slparamsDNP}
-\end{table}
-
 \subsection{Dense Network Results}
 The following are the results obtained from the execution of the training script. Each graph displays the data for SwarmAvg in red, and FedAvg in black.
 
@@ -75,9 +64,8 @@ The results depicted in Figure \ref{aeg2} demonstrate that the SwarmAvg algorith
 
 The trend of SwarmAvg ending with a lower accuracy than FedAvg continues in Figure \ref{aeg3}. Both algorithms also have a much lower accuracy than what they achieved previously, due to the drastic decrease in available data.
 
-Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that SwarmAvg concludes with a lower accuracy than FedAvg. Furthermore, both algorithms exhibit a considerable decline in accuracy when compared to their previous performances with higher volumes of data.
+Similarly to Figure \ref{aeg2}, Figure \ref{aeg3} shows that SwarmAvg concludes with a lower accuracy than FedAvg. Furthermore, both algorithms exhibit a considerable decline in accuracy when compared to their previous performances with higher volumes of data. \\
 
-\subsection{Analysis of Dense Network}
 
 The most noticeable impact resulting from reducing the volume of data is the significant decrease in the accuracy of both algorithms, as expected. However, it is also evident that the reduction in data affects SwarmAvg and FedAvg to a similar degree, as both of their peak accuracies stay within a similar range of each other in all tests. The difference in peak accuracy between the two algorithms was quite small, often within a 2 percent margin.
 
@@ -176,17 +164,58 @@ In Figure \ref{aeg5}, there is a greater spread of final accuracies, about 2.5 p
 
 With just 25 data samples, the tests depicted in Figure \ref{aeg6} show a much higher variation in final accuracies than the previous two figures. There is also a much higher degree of noise in this figure than any other, suggesting that training may be much less stable with this small number of data samples to train on.
 
-It should also be noted that the lowest density is still exhibiting the behaviour of outperforming the other densities in the initial steps, however it appears that this effect has become slightly less prominent.
+It should also be noted that the lowest density is still exhibiting the behaviour of outperforming the other densities in the initial steps, however it appears that this effect has become slightly less prominent. \\
 
-\subsection{Analysis of Sparse Network}
+
 In general, altering the network density of nodes has a small impact on the training of the nodes within the network. Decreasing the density of nodes typically leads to a lower final accuracy. This effect becomes more noticeable as the data volume provided to each node decreases, as demonstrated by the increased variability in training displayed in Figure \ref{aeg6} in comparison to Figures \ref{aeg4} and \ref{aeg5}.
 
 The networks possessing a density of 0 attain their optima at a faster rate than those with higher densities. Figure \ref{aeg6} illustrates that the lower densities reach convergence marginally quicker than higher densities, yet are surpassed by the latter towards the end of training.
 
 \section{Scenario 3: Densely Connected Network with Class Restrictions}
 
-\begin{itemize}
-	\item Test with each node only getting access to three classes
-	\item Test both FL and SL
-	\item Test on different levels of data
-\end{itemize}
+Decentralized machine learning algorithms, such as FL and SL, commonly involve a scenario where each node possesses a dataset whose distribution does not align with the overall data distribution across all nodes. In order to simulate such a scenario, a situation was created where each node was given access to only three out of ten classes of MNIST-F. However, it should be noted that each node was provided a unique set of three classes, and all ten classes were included at least once. The tests in this experiment were conducted in a densely connected network of nodes, thereby allowing the evaluation of FL as well. Furthermore, the FL nodes were subject to the same class-limiting constraints. 
+
+\subsection{Dense Network with Class Restrictions Results}
+
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 1000 Samples of 3 Classes}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_unev_1000}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10}
+	\label{aeg7}
+\end{figure}
+
+During the course of the experiment, it was determined that SwarmAvg required some adjustments in order to function properly. One issue that was particularly noticeable was a significant fluctuation in accuracy during the training process. The author posited that this may have been due in part to the synchronization of nodes in the network. To address this concern, the decision was made to decrease the value of $\gamma$ and introduce a delay in the node start times, in order to desynchronize their training. The chosen delay time was 2 seconds. Figure \ref{aeg7} illustrates these two techniques, with the delayed training and reduced gamma method depicted in red, and the original method depicted in green. It is evident that the application of delayed training and reduced gamma had a positive impact in minimizing the oscillations, although they were not entirely eliminated.
+
+While attempting to adjust the parameters, another issue was encountered which is known as divergent training. This phenomenon occurs when nodes begin to learn completely separate models and start to disregard the models of their neighbouring nodes. It was observed that a low value of $\alpha$ was sufficient to cause this problem. When divergent training occurred, the nodes failed to achieve an accuracy level higher than 30 percent, which is expected if a node only trains on three out of the ten available classes. This effect is shown as the blue line of Figure \ref{aeg7}.
+
+It is evident that SwarmAvg consistently exhibits a significantly lower level of accuracy compared to FedAvg. Additionally, the inter-quartile range of SwarmAvg is noticeably higher.
+
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 100 and 25 Samples of 3 Classes}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_unev_100}
+	\includegraphics[width=0.49\textwidth]{aeg_unev_25}
+	\caption{Median accuracy by training step across 5 repeats. On the left, each node has 100 random data samples from MNIST-F, on the right each node has 25. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10}
+	\label{aeg8}
+\end{figure}
+
+When performing training on a lower sample count, as depicted in Figure \ref{aeg8}, the oscillations in SwarmAvg seem to have been drastically reduced when compared to \ref{aeg7}. However, both SwarmAvg and FedAvg have lower accuracies by the end of training than they did with 1000 samples.
+
+\todo{write analysis}
+
+\section{Scenario 4: Sparsely Connected Network with Class Restrictions}
+This scenario was designed to test the SwarmAvg algorithm to its limits. It not only involved limiting data to each node, but also limiting the classes each node had access to in the same fashion as Scenario 3, and also constraining the networks to be sparsely connected.
+
+\subsection{Sparse Network with Class Restrictions Results}
+
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 1000, 100 and 25 Samples of 3 Classes}} \\
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_1000}
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_100}
+	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_25}
+	\caption{Median accuracy by training step across 5 repeats. On the top left, each node has 1000 random data samples from MNIST-F, on the top right each node has 100, and on the bottom, each node has 25. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10. The more green a line is, the higher the network density.}
+	\label{aeg9}
+\end{figure}
+
+In all three tests, it is clear that a higher density is highly correlated with higher performance in this scenario. It is also noteworthy that with a network density of 0, no matter which volume of data was presented, the accuracy curve was very similar. However, as the density of the network increased, so did the degree at which it was effected by the reduction in data.
+
+\todo{analyse more}
