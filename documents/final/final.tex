@@ -15,6 +15,8 @@
 \usepackage{algorithm}
 \usepackage{draftwatermark}
 \usepackage{pdfpages}
+\usepackage{titlesec}
+
 
 
 \SetWatermarkText{DRAFT-3}
@@ -29,27 +31,22 @@
 \newcommand{\citeme}{\textcolor{green}{\textbf{\emph{CITE THIS STATEMENT}}}}
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{\emph{TODO: #1}}}}
 
-%\newcommand{\SL}{SwarmAvg }
-
-\title{SwarmAvg: A Novel Approach to Fully Distributed Machine Learning}
-
-% BACKGROUND STUFF
-\usepackage{eso-pic}
-\newcommand\BackgroundPic{%
-	\put(0,0){%
-		\parbox[b][\paperheight]{\paperwidth}{%
-			\vfill
-			\centering
-			\includegraphics[width=\paperwidth,height=\paperheight,%
-			keepaspectratio]{background.png}%
-			\vfill
-}}}
-% END BACKGROUND STUFF
 
 \begin{document}
-	% Following line is background stuff
-	\AddToShipoutPicture*{\BackgroundPic}
-	\maketitle
+	%\maketitle
+	
+	\begin{titlepage}
+		\centering\Large\emph{Electronics and Computer Science Faculty of Engineering and Physical Sciences University of Southampton}
+		\\[2cm]
+		\centering\Large{Josh Pattman} \\
+		\centering\Large{26 April 2023} \\
+		\centering\huge\textbf{SwarmAvg: A Novel Approach to Fully Distributed Machine Learning}
+		\\[2cm]
+		\centering{\large{Project Supervisor:} \linebreak \Large{Dr Mohammad Soorati - \emph{m.soorati@soton.ac.uk}}} \\[1cm]
+		\centering{\large{Second Examiner:} \linebreak \Large{Dr Jo Grundy - \emph{j.grundy@soton.ac.uk}}}
+		\\[2cm]
+		\centering\Large{A project progress report submitted for the award of \textbf{Computer Science with Artificial Intelligence}}
+	\end{titlepage}
 	
 	\chapter*{Abstract}
 	Federated learning is a technique that allows a machine learning model to be trained on data distributed across multiple data islands. This approach protects privacy by keeping the data decentralized, meaning that sensitive data does not need to ever be shared. Swarm learning is a similar technique that eliminates the need for a central server, ensuring that not only the data, but also the communication, is completely decentralized. Current Swarm Learning algorithms rely on blockchain to distribute the shared global model, however this may be a poor choice for certain scenarios closely associated with swarms. In this paper, a novel swarm learning technique called SwarmAvg is presented which operates without a blockchain. The algorithm is validated against federated learning in various scenarios, and also in some situations where federated learning cannot be applied. The benefits and drawbacks of operating Swarm Learning without a blockchain are also discussed, presenting some interesting reasons why one might choose to use SwarmAvg over other distributed machine learning techniques.
@@ -58,28 +55,20 @@
 	
 	\tableofcontents
 
-	\chapter{Background} \label{bg}
 	\include{background}
 
-	\chapter{Problem and Goals}
 	\include{problemandgoals}
 	
-	\chapter{Detailed Design}
 	\include{design}
 	
-	\chapter{Implementation}
 	\include{implementation}
 	
-	\chapter{Testing Strategy and Results}
 	\include{results}
 	
-	\chapter{Critical Evaluation}
 	\include{evaluation}
 	
-	\chapter{Project Management}
 	\include{projectman}
 	
-	\chapter{Conclusion and Future Work}
 	\include{conclusion}
 	
 	\include{appendix}

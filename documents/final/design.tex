@@ -1,4 +1,5 @@
-\section{The Job of a Node}
+\chapter{Detailed Design}
+\section{Responsibilities of a Node}
 In SL, a node is an agent responsible for facilitating the improvement of the global model. The global model is an abstract concept representing the consensus of all nodes in the network. In the proposed version of SL, referred to as SwarmAvg, each node maintains its own model, known as the local model, which is an approximation of the global model. However, in SwarmAvg, the consensus algorithm used is repeated averaging, not blockchain. This means that at the start of each training step, every node may start with a slightly different model. As training progresses and performance begins to plateau, each node's local model should not only converge towards a minima, but also towards each other. Over time, each nodes local model better approximates the global model, and the global model becomes a better solution to the problem.
 
 Each node in the network possesses a confidential dataset that is not disclosed to any other nodes. In order to train the global model, nodes fit their own local model of their local dataset. In order to maintain consistency between local and global models, a combination procedure is conducted following each round of local training, which involves the integration of neighbouring nodes models into the local model.
@@ -12,7 +13,7 @@ The actions in each training step for SwarmAvg are as follows:
 
 In addition, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. The reasoning behind this decision is elaborated upon in greater detail in Section \ref{reasonforcache}.
 
-\section{A Blockchain-less Algorithm}
+\section{Blockchain-less Algorithm}
 SwarmBC employs a blockchain as the mechanism for distributing the global model, whereas SwarmAvg utilizes a variation of averaging with its neighbours and does not use a blockchain. This decision was made due to the long transaction confirmation time of large blockchains, which could adversely affect training as nodes continuously upload their latest networks to the network. If this process were to take an excessive amount of time, each node would be training on an outdated model.
 
 Furthermore, the inefficiency of blockchains with respect to performance is another reason for not using them in SwarmAvg. SwarmAvg is designed for deployment in large swarms, with each agent possibly having low processing power. If a blockchain were utilized, some of the processing power that could be devoted to training would instead be utilized for validating transactions. In scenarios where processing power is limited, it would be practical to avoid the use of blockchains.
@@ -60,11 +61,55 @@ However, this method also has certain theoretical drawbacks. Consider a scenario
 \subsection{Complex Approach: Relay} \label{relay}
 A solution to this could be to relay any received model updates, which means that as long as each node has at least one path to reach all other nodes, the network will behave as a dense network. This approach offers theoretical immunity to changes in network topology, but in practice, the network's performance may still decrease compared to a truly dense network due to slower communication times between non-connected nodes.
 
-The main disadvantage of this approach is the drastic increase in network traffic, which in turn will lead to longer model transfer times. If the swarm learning algorithm is applied to a low power network, such as an IoT network, the increase in network traffic may not be feasible at all. This relay approach can also be applied to federated learning with the same advantages and disadvantages. For these reasons, Relay will not be discussed further.
+The main disadvantage of this approach is the drastic increase in network traffic, which in turn will lead to longer model transfer times. If the swarm learning algorithm is applied to a low power network, such as an Internet of Things (IoT) network, the increase in network traffic may not be feasible at all. This approach can also be applied to federated learning with the same advantages and disadvantages. For these reasons, relaying model updates will not be discussed further.
 
 \section{The Complete Algorithm}
-The complete pseudocode algorithm for SwarmAvg can be found at Appendix \ref{slalgo}. It has multiple parts which are described below.
+The training step, which can be found at Algorithm \ref{updatealgo}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single update step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
 
-The update loop, which can be found at Appendix \ref{slalgo:ul}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single update step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
+\begin{algorithm}[H]
+	\caption{A Single Training Step - should be called repeatedly in a loop} \label{updatealgo}
+	\begin{algorithmic}[1]
+		\State \Call{Train}{localModel, localData}
+		\ForAll{$n \in neighbors$}
+		\State \Call{SendTo}{$(localModel, localTrainingCounter)$, $n$}
+		\EndFor
+		
+		\For{$x \in range(maxSyncWaits)$}
+		\State $neighborModels \gets \emptyset$
+		\ForAll{$n \in neighbors$}
+		\State $model, traningCounter \gets$ \Call{CacheLookup}{$n$}
+		\If{$trainingCounter + \beta \ge localTrainingCounter$}
+		\State \Call{Append}{$neighborModels$, $model$}
+		\EndIf
+		\EndFor
+		\If{$length_{neighborModels} \ge \gamma$}
+		\If{$syncronisationMethod = "AVG"$}
+		\State $localModel \gets \mu(localModel \cup neighborModels)$
+		\ElsIf{$syncronisationMethod = "ASR"$}
+		\State $localModel \gets (1 - \alpha) * localModel + \alpha * \mu(neighborModels)$
+		\EndIf
+		\Else
+		\State continue
+		\EndIf
+		\State \Call{Sleep}{syncWaitTime}
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
 
-The model received event, which can be found at Appendix \ref{slalgo:mre}, is run on the local node every time a remote node sends the local node a model update. This event takes care of updating the local model cache, to ensure the local node has the most up-to-date information. The model update should contain the model of the remote node and also the remote nodes training counter.
+The model received event, which can be found at Algorithm \ref{cachealgo}, is run on the local node every time a remote node sends the local node a model update. This event takes care of updating the local model cache, to ensure the local node has the most up-to-date information. The model update sent from the remote node should contain the model and training counter of the remote node.
+
+\begin{algorithm}[H]
+	\caption{Model Received Event - called when a model update is received from a remote node} \label{cachealgo}
+	\textbf{Input}: $neighbour$, $nModel$, $nTrainingCounter$
+	\newline
+	\begin{algorithmic}[1]
+		\If{\Call{InCache}{$neighbour$}}
+		\State $\_, nTraningCounterOld \gets$ \Call{CacheLookup}{$n$}
+		\If{$nTrainingCounter > nTraningCounterOld$}
+		\State \Call{SetCache}{$neighbour$, $(nModel, nTrainingCounter)$}
+		\EndIf
+		\Else
+		\State \Call{SetCache}{$neighbour$, $(nModel, nTrainingCounter)$}
+		\EndIf
+	\end{algorithmic}
+\end{algorithm}
