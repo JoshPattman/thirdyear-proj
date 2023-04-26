@@ -7,47 +7,19 @@ On the Gantt charts, it was decided to not count weekends as working days. This 
 The presented charts represent the final iteration of planning. As described in the following section, changes occurred throughout the project and the Gantt charts were adapted accordingly.
 
 \section{Changing Plans}
-At the time of writing the interim report, the project plan was very different to what is presented in this report. Originally, the plan was to implement SL and then to simulate real world problems such as uneven data distribution and sparse networks. However, during the process of implementing the SL algorithm it was apparent that the SL algorithm itself would take a very large amount of time to develop and test. For this reason, the decision was made to refocus the project onto the development of the SL algorithm, and if enough time was available after this, testing a single real world problem may be possible.
+Initially, the project proposal included the implementation of both SL and a simulator. The intended purpose of the simulator was to generate camera feeds that simulated those of security and doorbell cameras from various locations in a neighbourhood. Subsequently, the SL model would be employed to learn the task of identifying car crashes. However, this project was deemed excessively ambitious, and as a result, a decision was taken to significantly streamline the project by discarding many of its components.
 
-Plans were also changed on a smaller scale somewhat regularly. This is due to the experimental nature of this project, and the fact that it was impossible to predict some problems during the planning phase. For example, the parameters $\beta$ and $\gamma$ were not planned for at the start of the project, but whilst experimenting problems arose which seemed like they could be fixed by those parameters. This meant that another implementation had to be created which included those parameters.
-
-The small changes to the plan were not an issue due to the inclusion of many buffer zones in the planned time allocation, such as \emph{Bugfixing Time}. This meant that an overrun task would not affect too many tasks moving forwards, as it could be caught up on in a buffer zone.
+Plans were also changed on a smaller scale somewhat regularly, due to the experimental nature of the project. However, this was not an issue due to the inclusion of many buffer zones in the planned time allocation, such as \emph{Bugfixing Time}. This meant that an overrun task could be finished during this time, so it would not effect the project moving forward.
 
 \section{Risk Assessment}
-The risk assessment was created early on in the project to mitigate any of the major risks. However, none of the described problems arose to an extent which their mitigation plan needed to be followed.
-\subsection{Personal Issues}
-
-\subsubsection{Description}
-Personal issues which cause the author to be unable to do work, such as illness.
-
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 3 \\
-\emph{Likelihood (1-5):} 3 \\
-\emph{Overall Risk (1-25):} \textbf{9}
-
-\subsubsection{Mitigation}
-The codebase will be designed such that individual sections and modules have minimal dependencies on other sections. This means that, even if the author is unable to work for a period of time, some less critical sections can be omitted without significantly impacting the rest of the project.
-
-\subsection{Hardware Failure}
-\subsubsection{Description}
-Failure on the authors local computer of any kind, such as a graphics card or storage breakage.
-
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 4 \\
-\emph{Likelihood (1-5):} 2 \\
-\emph{Overall Risk (1-25):} \textbf{8}
-
-\subsubsection{Mitigation}
-The project will be regularly backed up to GitHub. If a core component of the work computer breaks, the author has access to a personal laptop and the Zepler Labs. The deep learning environment along with dependencies is backed up to the authors Google Drive in the form of a docker image, so that switching to a new computer would be a smooth process.
-
-\subsection{Algorithm Does Not Work}
-\subsubsection{Description}
-The SL algorithm does not function as well as expected.
-
-\subsubsection{Risk Calculations}
-\emph{Severity (1-5):} 5 \\
-\emph{Likelihood (1-5):} 1 \\
-\emph{Overall Risk (1-25):} \textbf{5}
-
-\subsubsection{Mitigation}
-It may be possible to shift the project away from SL and onto distributed FL with leader election. FL is more commonly used and therefore has more literature, meaning that it is more likely to be an achievable goal to implement it.
+\begin{table}[H]
+	\begin{tabular}{p{4cm}|l|l|l|p{10cm}}
+		Risk    & \rotatebox{90}{Severity}  & \rotatebox{90}{Likelihood} & \rotatebox{90}{Score} & Mitigation \\
+		\hline \hline
+		Personal issues such as illness prevent work from being done & 3        & 3          & 9     & The code will be designed such that there are many checkpoints with acceptable results. This means that even if the project is not finished, it will still have an satisfactory outcome. \\
+		\hline
+		Failure of authors computer & 4        & 2          & 8     & Project is backed up on Github. Development environment is backed up on google drive using docker. This means the author has the possibility to run the code on the Zepler labs computers using an identical environment. \\
+		\hline
+		Algorithm does not work as expected & 5        & 1          & 5     & During research, the author read a large amount of literature on Distributed Federated Learning (DFL). It would be possible to design a DFL algorithm and perform tests on that instead, which is more likely to work.   
+	\end{tabular}
+\end{table}

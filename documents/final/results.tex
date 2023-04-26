@@ -1,7 +1,7 @@
 \chapter{Testing Strategy and Results}
 \section{Strategies for Gathering of Results}
 \subsection{Chosen Metric: Accuracy}
-The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of MNIST-F since it is a balanced dataset. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
+The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of MNIST-F since it is a balanced dataset, meaning it has the same number of samples in each class. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
 
 \subsection{Number of Simulated Nodes}
 The experiments were conducted using 10 nodes, with the exception of the server in cases where FedAvg was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
@@ -37,9 +37,15 @@ The following are the results obtained from the execution of the training script
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_dense_1000}
-	\includegraphics[width=0.49\textwidth]{aeg_dense_1000_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. The shaded region surrounding each line represents the upper and lower quartile. The right-hand graph represents the same graph but zoomed in.}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_1000}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_1000_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. The shaded region represents the upper and lower quartile.}
 	\label{aeg1}
 \end{figure}
 
@@ -47,19 +53,30 @@ The results depicted in Figure \ref{aeg2} demonstrate that the SwarmAvg algorith
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 100 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_dense_100}
-	\includegraphics[width=0.49\textwidth]{aeg_dense_100_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. The shaded region surrounding each line represents the upper and lower quartile. The right-hand graph represents the same graph but zoomed in.}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_100}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_100_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. The shaded region represents the upper and lower quartile.}
 	\label{aeg2}
 \end{figure}
 
 
-
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 25 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_dense_25}
-	\includegraphics[width=0.49\textwidth]{aeg_dense_25_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. The shaded region surrounding each line represents the upper and lower quartile. The right-hand graph represents the same graph but zoomed in.}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_25}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_dense_25_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. The shaded region represents the upper and lower quartile.}
 	\label{aeg3}
 \end{figure}
 
@@ -134,10 +151,16 @@ This section does not include any testing of FedAvg. In scenarios where not ever
 Presented below are the results obtained from executing the testing script. The density of each line on the graph is indicated by the colour, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who do not have $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 1000 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_1000}
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_1000_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
+	\center{\textbf{Accuracy by Training Step for 1000 Samples, with Varying Density}} \\
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_1000}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_1000_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg4}
 \end{figure}
 
@@ -146,20 +169,32 @@ An observation that can be made of Figure \ref{aeg4} is that the different netwo
 One interesting feature of the Figure \ref{aeg4} is that the lowest density demonstrates faster convergence initially that the other densities. The author hypothesises that this may be due to groups of nodes forming local sub-networks which converge on their own sub-sets of data faster, but more slowly combine into the network as a whole as training progresses.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 100 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_100}
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_100_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
+	\center{\textbf{Accuracy by Training Step for 100 Samples, with Varying Density}} \\
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_100}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_100_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg5}
 \end{figure}
 
 In Figure \ref{aeg5}, there is a greater spread of final accuracies, about 2.5 percent, than is shown in Figure \ref{aeg4}. The more noticeable feature of Figure \ref{aeg5} is that the final accuracies of all densities are approximately 8 percent lower than their counterparts with more data available in figure \ref{aeg4}.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 25 Samples}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_25}
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_25_z}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown. The right-hand graph represents the same graph but zoomed in. The more green a line is, the higher its density}
+	\center{\textbf{Accuracy by Training Step for 25 Samples, with Varying Density}} \\
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_25}
+		\caption{Full Graph}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_25_z}
+		\caption{Zoomed Graph}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg6}
 \end{figure}
 
@@ -192,10 +227,16 @@ While attempting to adjust the parameters, another issue was encountered which i
 It is evident that SwarmAvg consistently exhibits a significantly lower level of accuracy compared to FedAvg. Additionally, the inter-quartile range of SwarmAvg is noticeably higher.
 
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 100 and 25 Samples of 3 Classes}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_unev_100}
-	\includegraphics[width=0.49\textwidth]{aeg_unev_25}
-	\caption{Median accuracy by training step across 5 repeats. On the left, each node has 100 random data samples from MNIST-F, on the right each node has 25. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10}
+	\center{\textbf{Accuracy by Training Step for 100 and 25 Samples, with 3 Classes}} \\
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_unev_100}
+		\caption{Samples=100}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_unev_25}
+		\caption{Samples=25}
+	\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10}
 	\label{aeg8}
 \end{figure}
 
@@ -207,15 +248,24 @@ It is evident that the reduction of data volume per node has a detrimental impac
 This scenario was designed to test the SwarmAvg algorithm to its limits. It not only involved limiting data to each node, but also limiting the classes each node had access to in the same fashion as Scenario 3, and also constraining the networks to be sparsely connected.
 
 \subsection{Sparse Network with Class Restrictions Results}
-
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 1000, 100 and 25 Samples of 3 Classes}} \\
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_1000}
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_100}
-	\includegraphics[width=0.49\textwidth]{aeg_sparse_unev_25}
-	\caption{Median accuracy by training step across 5 repeats. On the top left, each node has 1000 random data samples from MNIST-F, on the top right each node has 100, and on the bottom, each node has 25. Quartiles are depicted as the shaded area. Each node has access to a unique set of 3 classes out of 10. The more green a line is, the higher the network density.}
+	\center{\textbf{Accuracy by Training Step for 1000, 100 and 25 Samples, with 3 Classes and Varying Density}} \\
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_unev_1000}
+		\caption{Samples=1000}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{aeg_sparse_unev_100}
+		\caption{Samples=100}
+	\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+	\includegraphics[width=\textwidth]{aeg_sparse_unev_25}
+	\caption{Samples=25}
+\end{subfigure}
+	\caption{Median accuracy by training step across 5 repeats. Quartiles are not shown. Each node has access to a unique set of 3 classes out of 10.}
 	\label{aeg9}
 \end{figure}
+
 
 In all three tests, it is clear that a higher density is highly correlated with higher performance in this scenario. It is also noteworthy that with a network density of 0, no matter which volume of data was presented, the accuracy curve was very similar. However, as the density of the network increased, so did the degree at which it was effected by the reduction in data.
 

@@ -64,21 +64,9 @@
 \contentsline {section}{\numberline {7.1}Time Management}{32}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Changing Plans}{32}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Risk Assessment}{33}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Personal Issues}{33}{subsection.7.3.1}%
-\contentsline {subsubsection}{Description}{33}{subsection.7.3.1}%
-\contentsline {subsubsection}{Risk Calculations}{33}{subsection.7.3.1}%
-\contentsline {subsubsection}{Mitigation}{33}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Hardware Failure}{33}{subsection.7.3.2}%
-\contentsline {subsubsection}{Description}{33}{subsection.7.3.2}%
-\contentsline {subsubsection}{Risk Calculations}{33}{subsection.7.3.2}%
-\contentsline {subsubsection}{Mitigation}{33}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Algorithm Does Not Work}{33}{subsection.7.3.3}%
-\contentsline {subsubsection}{Description}{33}{subsection.7.3.3}%
-\contentsline {subsubsection}{Risk Calculations}{34}{subsection.7.3.3}%
-\contentsline {subsubsection}{Mitigation}{34}{subsection.7.3.3}%
-\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{35}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusion}{35}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Future Work}{35}{section.8.2}%
+\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{34}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusion}{34}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Future Work}{34}{section.8.2}%
 \contentsline {chapter}{\numberline {A}Network Generation Algorithm}{36}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Machine Learning Model}{37}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Gantt Charts}{38}{appendix.C}%
