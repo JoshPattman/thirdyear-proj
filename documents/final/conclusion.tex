@@ -1,8 +1,5 @@
 \chapter{Conclusion and Future Work}
 \section{Conclusion}
-
-\todo{Conclude why you would want to use SwarmAvg instead of another method}
-
 This study has presented a novel SL algorithm algorithm, called SwarmAvg, which enables completely distributed and decentralised machine learning to take place. The algorithm is similar to FL in that it allows each node in the network to hold its own confidential dataset which never needs to be shared with any other nodes.
 
 It has been found that SwarmAvg is less performant than FedAvg in all situations where FedAvg can be applied. However, in many of these scenarios, SwarmAvg reached a similar final accuracy to FedAvg, but training took more iterations to reach this. The area where SwarmAvg showed most potential was when performing training in a sparsely connected network of nodes. This is a situation where FedAvg cannot be used, however SwarmAvg saw only minor reductions in performance when transitioning to this scenario. Unfortunately, it was shown that SwarmAvg performs significantly worse than FedAvg in situations where each node only has access to a small subset of the total classes. Despite the fact that this is an extreme case, unevenly distributed data is an issue for many algorithms in the real world, possibly indicating that SwarmAvg may need further improvements before deployment.

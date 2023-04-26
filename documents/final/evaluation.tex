@@ -3,20 +3,10 @@
 Although SwarmAvg has demonstrated promising results, it remains important to conduct a comparative analysis against established methods. This will enable individuals seeking to incorporate distributed machine learning into their future projects to make and informed decisions whether SwarmAvg is the algorithm that they should use.
 
 \subsection{Comparison of SwarmAvg to FedAvg}
-\todo{Write this out}
+SwarmAvg has the significant benefit of being more fault tolerant than FedAvg. This is because FedAvg has a central server, which means that the whole network would stop functioning if the central server is stopped. Not only this, but if a node drops its connection to the server, that node is effectively ignored from training, which has a negative effect on performance.
+However, SwarmAvg has some significant drawbacks, one of which being that is has been shown to be slower to converge than FedAvg. Not only this, but SwarmAvg can create a significantly higher amount of network traffic than FedAvg or FL in general. This effect is maximised when every node is connected to every other node, meaning that the number of connections scale by $O(n^2)$, where $n$ is the number of nodes. FL will always have number of connections and therefore network traffic scale with $O(n)$. However, it is worth noting that SwarmAvg will consume less network traffic in less dense networks of nodes.
 
-\begin{itemize}
-	\item Can prevent a single slow node from bottlenecking the whole process
-	\item No central server so more fault tolerant to node dropouts
-	\item Can still function if all nodes do not have direct connections to all other nodes (in the case of FL every node must have access to the server)
-\end{itemize}
-
-
-\begin{itemize}
-	\item Less data transmission ($O(n)$ rather than worst case $O(n^2)$). This effect is less prominent if SL is sparse
-	\item FL is a Less complex algorithm -> fewer parameters to tune -> easier to fit to a problem
-	\item Slower to converge
-\end{itemize}
+FedAvg is a simple algorithm than SwarmAvg, with fewer parameters to tune. This could be seen as both an advantage and a disadvantage. On the one hand, simpler algorithms require less tuning, and therefore less work to function optimally. However, a more complex algorithm enables more customisability for the specific problem, possibly allowing higher performance.
 
 \subsection{Comparison of SwarmAvg to SwarmBC}
 Despite the fact that this paper did not perform tests on SwarmBC, it is still possible to compare the theoretical advantages of both methods over one another, based on a comprehensive understanding of the inner workings of each.
@@ -26,9 +16,6 @@ One of the primary drawbacks of utilizing SwarmAvg as opposed to SwarmBC is the 
 One drawback of utilizing the SwarmAvg algorithm, as opposed to SwarmBC, is the absence of security features. The utilization of blockchain technology enables the straightforward authentication of nodes utilizing different algorithms that are frequently well-documented and integrated into the blockchain framework. On the other hand, SwarmAvg lacks any built-in authentication mechanism. As a result, to employ it securely, a separate stand-alone authentication system would need to be implemented. Failure to utilize authentication could result in a malicious node gaining entry and compromising the training process.
 
 The rationale behind the development of SwarmAvg was to establish a more agile and efficient SL algorithm in comparison to the existing technologies. SwarmAvg surpasses SwarmBC in terms of computational efficiency, as nodes are not mandated to verify transactions. In contrast, Blockchain involves a comparatively substantial overhead as opposed to simply averaging the models of a nodes neighbours. Consequently, SwarmBC necessitates higher processing power to operate for the same amount of training. This overhead can impede the speed of training on a resource-limited system, such as a swarm of drones, as a considerable amount of time is consumed in validating transactions, rather than performing training. Thus, SwarmAvg may be a more fitting choice than SwarmBC for swarms where processing power is a concern.
-
-
-\todo{SwarmAvg in theory may actually allow semi separated islands of nodes to learn slightly different models without fully diverging - this may be beneficial if the distribution of data changes. Cant do this with blockchain}
 
 \section{Pitfalls of this Study}
 
