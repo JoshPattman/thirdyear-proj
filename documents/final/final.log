@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  26 APR 2023 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  27 APR 2023 13:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -565,7 +565,7 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <149.37697> not available
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-<soo.pdf, id=313, 597.55246pt x 845.07718pt>
+<soo.pdf, id=289, 597.55246pt x 845.07718pt>
 File: soo.pdf Graphic file (type pdf)
 <use soo.pdf>
 Package pdftex.def Info: soo.pdf  used on input line 55.
@@ -574,7 +574,7 @@ File: soo.pdf Graphic file (type pdf)
 <use soo.pdf>
 Package pdftex.def Info: soo.pdf  used on input line 55.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<soo.pdf, id=316, page=1, 597.55246pt x 845.07718pt>
+<soo.pdf, id=292, page=1, 597.55246pt x 845.07718pt>
 File: soo.pdf Graphic file (type pdf)
 <use soo.pdf, page 1>
 Package pdftex.def Info: soo.pdf , page1 used on input line 55.
@@ -639,7 +639,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
 
 ]
-<./plots//fedvsswarm.png, id=476, 1061.9675pt x 379.4175pt>
+<./plots//fedvsswarm.png, id=446, 1061.9675pt x 379.4175pt>
 File: ./plots//fedvsswarm.png Graphic file (type png)
 <use ./plots//fedvsswarm.png>
 Package pdftex.def Info: ./plots//fedvsswarm.png  used on input line 37.
@@ -691,159 +691,164 @@ Chapter 4.
 
  (./results.tex
 Chapter 5.
+
+Overfull \hbox (0.3251pt too wide) in paragraph at lines 12--13
+[]\T1/cmr/m/n/12 The ex-per-i-ments eval-u-ate the al-go-rithm's per-for-mance
+ []
+
 [18
 
 
 
 
 ]
-<./plots//aeg_dense_1000.png, id=575, 419.166pt x 316.5426pt>
+<./plots//aeg_dense_1000.png, id=545, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_1000.png Graphic file (type png)
 <use ./plots//aeg_dense_1000.png>
-Package pdftex.def Info: ./plots//aeg_dense_1000.png  used on input line 41.
+Package pdftex.def Info: ./plots//aeg_dense_1000.png  used on input line 38.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_1000_z.png, id=576, 412.6617pt x 316.5426pt>
+<./plots//aeg_dense_1000_z.png, id=546, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_1000_z.png Graphic file (type png)
 <use ./plots//aeg_dense_1000_z.png>
-Package pdftex.def Info: ./plots//aeg_dense_1000_z.png  used on input line 45.
+Package pdftex.def Info: ./plots//aeg_dense_1000_z.png  used on input line 42.
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
  [19]
-<./plots//aeg_dense_100.png, id=584, 419.166pt x 316.5426pt>
+<./plots//aeg_dense_100.png, id=553, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_100.png Graphic file (type png)
 <use ./plots//aeg_dense_100.png>
-Package pdftex.def Info: ./plots//aeg_dense_100.png  used on input line 57.
+Package pdftex.def Info: ./plots//aeg_dense_100.png  used on input line 54.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_100_z.png, id=585, 412.6617pt x 316.5426pt>
+<./plots//aeg_dense_100_z.png, id=554, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_100_z.png Graphic file (type png)
 <use ./plots//aeg_dense_100_z.png>
-Package pdftex.def Info: ./plots//aeg_dense_100_z.png  used on input line 61.
+Package pdftex.def Info: ./plots//aeg_dense_100_z.png  used on input line 58.
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
-<./plots//aeg_dense_25.png, id=586, 419.166pt x 316.5426pt>
+<./plots//aeg_dense_25.png, id=555, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_25.png Graphic file (type png)
 <use ./plots//aeg_dense_25.png>
-Package pdftex.def Info: ./plots//aeg_dense_25.png  used on input line 72.
+Package pdftex.def Info: ./plots//aeg_dense_25.png  used on input line 69.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_25_z.png, id=587, 412.6617pt x 316.5426pt>
+<./plots//aeg_dense_25_z.png, id=556, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_25_z.png Graphic file (type png)
 <use ./plots//aeg_dense_25_z.png>
-Package pdftex.def Info: ./plots//aeg_dense_25_z.png  used on input line 76.
+Package pdftex.def Info: ./plots//aeg_dense_25_z.png  used on input line 73.
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
  [20 <./plots//aeg_dense_1000.png> <./plots//aeg_dense_1000_z.png> <./plots//ae
 g_dense_100.png> <./plots//aeg_dense_100_z.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 [21 <./plots//aeg_dense_25.png> <./plots//aeg_dense_25_z.png>]
-<./plots//sparsegraph100.png, id=611, 296.10625pt x 293.095pt>
+<./plots//sparsegraph100.png, id=580, 296.10625pt x 293.095pt>
 File: ./plots//sparsegraph100.png Graphic file (type png)
 <use ./plots//sparsegraph100.png>
-Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 120.
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 117.
 (pdftex.def)             Requested size: 136.57462pt x 135.18758pt.
-<./plots//sparsegraph75.png, id=612, 316.18124pt x 316.18124pt>
+<./plots//sparsegraph75.png, id=581, 316.18124pt x 316.18124pt>
 File: ./plots//sparsegraph75.png Graphic file (type png)
 <use ./plots//sparsegraph75.png>
-Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 125.
+Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 122.
 (pdftex.def)             Requested size: 136.57462pt x 136.57764pt.
-<./plots//sparsegraph50.png, id=613, 330.23375pt x 325.215pt>
+<./plots//sparsegraph50.png, id=582, 330.23375pt x 325.215pt>
 File: ./plots//sparsegraph50.png Graphic file (type png)
 <use ./plots//sparsegraph50.png>
-Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 130.
+Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 127.
 (pdftex.def)             Requested size: 136.57462pt x 134.5002pt.
-<./plots//sparsegraph25.png, id=614, 450.68375pt x 407.5225pt>
+<./plots//sparsegraph25.png, id=583, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph25.png Graphic file (type png)
 <use ./plots//sparsegraph25.png>
-Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 135.
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 132.
 (pdftex.def)             Requested size: 136.57462pt x 123.49512pt.
-<./plots//sparsegraph0.png, id=615, 450.68375pt x 407.5225pt>
+<./plots//sparsegraph0.png, id=584, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph0.png Graphic file (type png)
 <use ./plots//sparsegraph0.png>
-Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 140.
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 137.
 (pdftex.def)             Requested size: 136.57462pt x 123.49512pt.
  [22]
-<./plots//aeg_sparse_1000.png, id=623, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_1000.png, id=593, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_1000.png Graphic file (type png)
 <use ./plots//aeg_sparse_1000.png>
-Package pdftex.def Info: ./plots//aeg_sparse_1000.png  used on input line 156.
+Package pdftex.def Info: ./plots//aeg_sparse_1000.png  used on input line 153.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_1000_z.png, id=624, 412.6617pt x 316.5426pt>
+<./plots//aeg_sparse_1000_z.png, id=594, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_sparse_1000_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_1000_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_1000_z.png  used on input line 160
+Package pdftex.def Info: ./plots//aeg_sparse_1000_z.png  used on input line 157
 .
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
  [23 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
 egraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
-<./plots//aeg_sparse_100.png, id=638, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_100.png, id=608, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_100.png Graphic file (type png)
 <use ./plots//aeg_sparse_100.png>
-Package pdftex.def Info: ./plots//aeg_sparse_100.png  used on input line 174.
+Package pdftex.def Info: ./plots//aeg_sparse_100.png  used on input line 171.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_100_z.png, id=639, 412.6617pt x 316.5426pt>
+<./plots//aeg_sparse_100_z.png, id=609, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_sparse_100_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_100_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_100_z.png  used on input line 178.
+Package pdftex.def Info: ./plots//aeg_sparse_100_z.png  used on input line 175.
 
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
-<./plots//aeg_sparse_25.png, id=644, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_25.png, id=614, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_25.png Graphic file (type png)
 <use ./plots//aeg_sparse_25.png>
-Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 190.
+Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 187.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_25_z.png, id=645, 412.6617pt x 316.5426pt>
+<./plots//aeg_sparse_25_z.png, id=615, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_sparse_25_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_25_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 194.
+Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 191.
 (pdftex.def)             Requested size: 223.07211pt x 171.114pt.
  [24 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//
 aeg_sparse_100.png> <./plots//aeg_sparse_100_z.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
-<./plots//aeg_unev_1000.png, id=662, 419.166pt x 316.5426pt>
+<./plots//aeg_unev_1000.png, id=632, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_1000.png Graphic file (type png)
 <use ./plots//aeg_unev_1000.png>
-Package pdftex.def Info: ./plots//aeg_unev_1000.png  used on input line 218.
+Package pdftex.def Info: ./plots//aeg_unev_1000.png  used on input line 215.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
 [25 <./plots//aeg_sparse_25.png> <./plots//aeg_sparse_25_z.png>]
-<./plots//aeg_unev_100.png, id=672, 419.166pt x 316.5426pt>
+<./plots//aeg_unev_100.png, id=642, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_100.png Graphic file (type png)
 <use ./plots//aeg_unev_100.png>
-Package pdftex.def Info: ./plots//aeg_unev_100.png  used on input line 232.
+Package pdftex.def Info: ./plots//aeg_unev_100.png  used on input line 229.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_unev_25.png, id=673, 419.166pt x 316.5426pt>
+<./plots//aeg_unev_25.png, id=643, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_25.png Graphic file (type png)
 <use ./plots//aeg_unev_25.png>
-Package pdftex.def Info: ./plots//aeg_unev_25.png  used on input line 236.
+Package pdftex.def Info: ./plots//aeg_unev_25.png  used on input line 233.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
  [26 <./plots//aeg_unev_1000.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
 
-Overfull \hbox (1.48416pt too wide) in paragraph at lines 247--247
+Overfull \hbox (1.48416pt too wide) in paragraph at lines 244--244
 |[]\T1/cmr/bx/n/17.28 Scenario 4: Sparsely Con-nected Net-work with Class
  []
 
-<./plots//aeg_sparse_unev_1000.png, id=682, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_unev_1000.png, id=652, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_1000.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_1000.png>
 Package pdftex.def Info: ./plots//aeg_sparse_unev_1000.png  used on input line 
-254.
+251.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_unev_100.png, id=683, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_unev_100.png, id=653, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_100.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_100.png>
 Package pdftex.def Info: ./plots//aeg_sparse_unev_100.png  used on input line 2
-58.
+55.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_unev_25.png, id=684, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_unev_25.png, id=654, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_25.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_25.png>
-Package pdftex.def Info: ./plots//aeg_sparse_unev_25.png  used on input line 26
-2.
+Package pdftex.def Info: ./plots//aeg_sparse_unev_25.png  used on input line 25
+9.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
 [27 <./plots//aeg_unev_100.png> <./plots//aeg_unev_25.png>]) [28 <./plots//aeg_
 sparse_unev_1000.png> <./plots//aeg_sparse_unev_100.png> <./plots//aeg_sparse_u
@@ -923,7 +928,7 @@ Appendix C.
 [38
 
 ]
-<./plots//gannt-interim.png, id=764, 1817.79124pt x 572.1375pt>
+<./plots//gannt-interim.png, id=734, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 36.
@@ -933,7 +938,7 @@ Overfull \vbox (28.88045pt too high) has occurred while \output is active []
 
 
 [40 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=774, 1731.46875pt x 776.9025pt>
+<./plots//gannt-final.png, id=744, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 41.
@@ -955,13 +960,13 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 113.54697pt have occurred.
 
 Package rerunfilecheck Info: File `final.out' has not changed.
-(rerunfilecheck)             Checksum: C0A59C0F46786B778CADB1F3C92E9950;15381.
+(rerunfilecheck)             Checksum: B2938DB75B7009BCD29E581479112659;14155.
  ) 
 Here is how much of TeX's memory you used:
- 16487 strings out of 478287
- 262142 string characters out of 5849288
- 730064 words of memory out of 5000000
- 34216 multiletter control sequences out of 15000+600000
+ 16475 strings out of 478287
+ 261938 string characters out of 5849288
+ 730061 words of memory out of 5000000
+ 34210 multiletter control sequences out of 15000+600000
  487503 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,17n,77p,1131b,1243s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -982,10 +987,10 @@ frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type
 1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
 ti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on final.pdf (45 pages, 2033028 bytes).
+Output written on final.pdf (45 pages, 2032257 bytes).
 PDF statistics:
- 920 PDF objects out of 1000 (max. 8388607)
- 761 compressed objects within 8 object streams
- 178 named destinations out of 1000 (max. 500000)
- 743 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 889 PDF objects out of 1000 (max. 8388607)
+ 730 compressed objects within 8 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 695 words of extra memory for PDF output out of 10000 (max. 10000000)
 
