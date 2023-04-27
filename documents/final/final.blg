@@ -1,8 +1,8 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: final.aux
-A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: problemandgoals.aux
+A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: design.aux
 A level-1 auxiliary file: implementation.aux
 A level-1 auxiliary file: results.aux
@@ -17,50 +17,52 @@ I was expecting a `,' or a `}'---line 241 of file final.bib
  :  year={2021},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--empty booktitle in gdpr
 Warning--empty booktitle in swarmbetterthanone
 Warning--empty year in swarmbetterthanone
-Warning--empty booktitle in gdpr
 Warning--empty journal in fed_learning
 Warning--empty institution in blockchain_review
-You've used 15 entries,
+Name 1 in "Warnat-Herresthal et al.," has a comma at the end for entry swarm_learning
+while executing---line 969 of file ieeetr.bst
+You've used 18 entries,
             1876 wiz_defined-function locations,
-            573 strings with 10284 characters,
-and the built_in function-call counts, 6501 in all, are:
-= -- 383
-> -- 739
+            591 strings with 7033 characters,
+and the built_in function-call counts, 5063 in all, are:
+= -- 461
+> -- 258
 < -- 0
-+ -- 252
-- -- 237
-* -- 663
-:= -- 1137
-add.period$ -- 15
-call.type$ -- 15
-change.case$ -- 16
++ -- 93
+- -- 75
+* -- 375
+:= -- 735
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 224
-empty$ -- 380
-format.name$ -- 237
-if$ -- 1362
+cite$ -- 23
+duplicate$ -- 271
+empty$ -- 449
+format.name$ -- 75
+if$ -- 1217
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 13
-newline$ -- 49
-num.names$ -- 15
-pop$ -- 64
+int.to.str$ -- 18
+missing$ -- 16
+newline$ -- 58
+num.names$ -- 18
+pop$ -- 70
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 149
+skip$ -- 183
 stack$ -- 0
-substring$ -- 226
-swap$ -- 90
+substring$ -- 260
+swap$ -- 113
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 35
-width$ -- 17
-write$ -- 142
-(There was 1 error message)
+while$ -- 41
+width$ -- 20
+write$ -- 173
+(There were 2 error messages)

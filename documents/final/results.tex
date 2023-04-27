@@ -1,5 +1,6 @@
 \chapter{Testing Strategy and Results}
-\section{Strategies for Gathering of Results}
+\section{Strategy for Gathering of Results}
+The experiments were conducted through the simulation of a group of nodes on a single computer. The accuracy of each node was evaluated on an unseen test set and subsequently recorded in a file after each training step. All nodes shared the same test set. Below are the specific details of the experiment run.
 \begin{description}
 	\item [Chosen Metric: Accuracy:] The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of MNIST-F since it is a balanced dataset, meaning it has the same number of samples in each class. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
 	

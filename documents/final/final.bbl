@@ -1,9 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{swarmbetterthanone}
-W.~L. Shuya~Ke, ``Distributed multi-agent learning is more effectively than
-  single-agent,''
-
 \bibitem{gdpr}
 M.~Kop, ``Machine learning \& eu data sharing practices,'' Stanford-Vienna
   Transatlantic Technology Law Forum, Transatlantic Antitrust~…, 2020.
@@ -12,6 +8,10 @@ M.~Kop, ``Machine learning \& eu data sharing practices,'' Stanford-Vienna
 G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
   privacy-preserving and federated machine learning in medical imaging,'' {\em
   Nature Machine Intelligence}, vol.~2, no.~6, pp.~305--311, 2020.
+
+\bibitem{swarmbetterthanone}
+W.~L. Shuya~Ke, ``Distributed multi-agent learning is more effectively than
+  single-agent,''
 
 \bibitem{survey_on_fed_learning}
 C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
@@ -33,6 +33,21 @@ V.~Mothukuri, R.~M. Parizi, S.~Pouriyeh, Y.~Huang, A.~Dehghantanha, and
   G.~Srivastava, ``A survey on security and privacy of federated learning,''
   {\em Future Generation Computer Systems}, vol.~115, pp.~619--640, 2021.
 
+\bibitem{fed_iot_2}
+T.~Zhang, L.~Gao, C.~He, M.~Zhang, B.~Krishnamachari, and A.~S. Avestimehr,
+  ``Federated learning for the internet of things: Applications, challenges,
+  and opportunities,'' {\em IEEE Internet of Things Magazine}, vol.~5, no.~1,
+  pp.~24--29, 2022.
+
+\bibitem{multi_center_fed_learning}
+M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
+  federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
+
+\bibitem{fed_leaderelec}
+J.~Guo, Q.~Zhao, G.~Li, Y.~Chen, C.~Lao, and L.~Feng, ``Decentralized federated
+  learning with privacy-preserving for recommendation systems,'' {\em
+  Enterprise Information Systems}, vol.~0, no.~0, p.~2193163, 2023.
+
 \bibitem{leaderelec_car}
 J.-H. Chen, M.-R. Chen, G.-Q. Zeng, and J.-S. Weng, ``Bdfl: a
   byzantine-fault-tolerance decentralized federated learning method for
@@ -50,41 +65,8 @@ D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
   p.~1–6, Association for Computing Machinery, 2020.
 
 \bibitem{swarm_learning}
-S.~Warnat-Herresthal, H.~Schultze, K.~L. Shastry, S.~Manamohan, S.~Mukherjee,
-  V.~Garg, R.~Sarveswara, K.~H{\"a}ndler, P.~Pickkers, N.~A. Aziz, S.~Ktena,
-  F.~Tran, M.~Bitzer, S.~Ossowski, N.~Casadei, C.~Herr, D.~Petersheim,
-  U.~Behrends, F.~Kern, T.~Fehlmann, P.~Schommers, C.~Lehmann, M.~Augustin,
-  J.~Rybniker, J.~Altm{\"u}ller, N.~Mishra, J.~P. Bernardes, B.~Kr{\"a}mer,
-  L.~Bonaguro, J.~Schulte-Schrepping, E.~De~Domenico, C.~Siever, M.~Kraut,
-  M.~Desai, B.~Monnet, M.~Saridaki, C.~M. Siegel, A.~Drews, M.~Nuesch-Germano,
-  H.~Theis, J.~Heyckendorf, S.~Schreiber, S.~Kim-Hellmuth, P.~Balfanz,
-  T.~Eggermann, P.~Boor, R.~Hausmann, H.~Kuhn, S.~Isfort, J.~C. Stingl,
-  G.~Schmalzing, C.~K. Kuhl, R.~R{\"o}hrig, G.~Marx, S.~Uhlig, E.~Dahl,
-  D.~M{\"u}ller-Wieland, M.~Dreher, N.~Marx, J.~Nattermann, D.~Skowasch,
-  I.~Kurth, A.~Keller, R.~Bals, P.~N{\"u}rnberg, O.~Rie{\ss}, P.~Rosenstiel,
-  M.~G. Netea, F.~Theis, S.~Mukherjee, M.~Backes, A.~C. Aschenbrenner, T.~Ulas,
-  A.~Angelov, A.~Bartholom{\"a}us, A.~Becker, D.~Bezdan, C.~Blumert,
-  E.~Bonifacio, P.~Bork, B.~Boyke, H.~Blum, T.~Clavel, M.~Colome-Tatche,
-  M.~Cornberg, I.~A. De~La Rosa~Vel{\'a}zquez, A.~Diefenbach, A.~Dilthey,
-  N.~Fischer, K.~F{\"o}rstner, S.~Franzenburg, J.-S. Frick, G.~Gabernet,
-  J.~Gagneur, T.~Ganzenmueller, M.~Gauder, J.~Gei{\ss}ert, A.~Goesmann,
-  S.~G{\"o}pel, A.~Grundhoff, H.~Grundmann, T.~Hain, F.~Hanses, U.~Hehr,
-  A.~Heimbach, M.~Hoeper, F.~Horn, D.~H{\"u}bschmann, M.~Hummel, T.~Iftner,
-  A.~Iftner, T.~Illig, S.~Janssen, J.~Kalinowski, R.~Kallies, B.~Kehr, O.~T.
-  Keppler, C.~Klein, M.~Knop, O.~Kohlbacher, K.~K{\"o}hrer, J.~Korbel, P.~G.
-  Kremsner, D.~K{\"u}hnert, M.~Landthaler, Y.~Li, K.~U. Ludwig, O.~Makarewicz,
-  M.~Marz, A.~C. McHardy, C.~Mertes, M.~M{\"u}nchhoff, S.~Nahnsen,
-  M.~N{\"o}then, F.~Ntoumi, J.~Overmann, S.~Peter, K.~Pfeffer, I.~Pink, A.~R.
-  Poetsch, U.~Protzer, A.~P{\"u}hler, N.~Rajewsky, M.~Ralser, K.~Reiche,
-  S.~Ripke, U.~N. da~Rocha, A.-E. Saliba, L.~E. Sander, B.~Sawitzki,
-  S.~Scheithauer, P.~Schiffer, J.~Schmid-Burgk, W.~Schneider, E.-C. Schulte,
-  A.~Sczyrba, M.~L. Sharaf, Y.~Singh, M.~Sonnabend, O.~Stegle, J.~Stoye,
-  J.~Vehreschild, T.~P. Velavan, J.~Vogel, S.~Volland, M.~von Kleist,
-  A.~Walker, J.~Walter, D.~Wieczorek, S.~Winkler, J.~Ziebuhr, M.~M.~B.
-  Breteler, E.~J. Giamarellos-Bourboulis, M.~Kox, M.~Becker, S.~Cheran, M.~S.
-  Woodacre, E.~L. Goh, J.~L. Schultze, C.-. A.~S. (COVAS), and D.~C.-. O.~I.
-  (DeCOI), ``Swarm learning for decentralized and confidential clinical machine
-  learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
+W.-H. et~al., ``Swarm learning for decentralized and confidential clinical
+  machine learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
 
 \bibitem{swarm_resil}
 J.~C. Varughese, R.~Thenius, T.~Schmickl, and F.~Wotawa, ``Quantification and

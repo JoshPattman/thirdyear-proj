@@ -1,9 +1,9 @@
-\chapter{Background} \label{bg}
-Machine learning is an exceedingly vital tool in modern society. Nonetheless, as the issues which machine learning endeavours to resolve become more intricate, the possibility of utilizing a single centralized intelligence diminishes. One possible remedy to this problem is the distribution of data and computation amongst multiple nodes. Transitioning from centralized approaches to decentralized approaches also offers numerous advantages. For example, it has been proven mathematically that the accuracy of a distributed system surpasses that of a centralized one \cite{swarmbetterthanone}. The following sections will provide an overview of some of the state-of-the-art approaches used to distribute machine learning amongst multiple nodes.
+\chapter{Related Works} \label{bg}
+Machine learning is an exceedingly vital tool in modern society. Nonetheless, as the issues which machine learning endeavours to resolve become more intricate, the possibility of utilizing a single centralized intelligence diminishes. One possible remedy to this problem is the distribution of both data and computation amongst multiple nodes. Transitioning from centralized approaches to decentralized approaches also offers numerous advantages. For example, it has been proven mathematically that the accuracy of a distributed system surpasses that of a centralized one \cite{swarmbetterthanone}. The following sections will provide an overview of some of the state-of-the-art approaches used to distribute machine learning amongst multiple nodes.
 
 \section{Federated Learning}
 % Introduce federated learning
-Many modern machine learning algorithms require large volumes of diverse data to achieve optimal performance. Real-world data is often distributed among multiple nodes that are unable to share it with each other due to privacy regulations such as GDPR \cite{gdpr}, reducing the amount of data available to train models on and negatively impacting trained performance \cite{data_volume}. Federated Learning (FL) \cite{survey_on_fed_learning} is a technique in machine learning that aims to train a single model using all available data across nodes without requiring any data to be shared among them. \\
+Federated Learning (FL) \cite{survey_on_fed_learning} is a technique in machine learning that aims to train a single model using all available data across nodes without requiring any data to be shared among them. \\
 
 % Intro on how fed learning works and different types
 There are a multitude of published FL frameworks \cite{fed_table_survey}, each with different merits and drawbacks for certain use cases. Federated Averaging (FedAvg) \cite{fed_learning} is a commonly used yet simple framework, which splits training into iterations where three steps take place:
@@ -12,13 +12,13 @@ There are a multitude of published FL frameworks \cite{fed_table_survey}, each w
 	\item Each node performs some training with their copy of the model and their own private data.
 	\item The trained models from each node are sent back to the server to aggregate into the new server model.
 \end{enumerate}
-The server model is improved over time, beyond what could be achieved by simply training on a single nodes data. \\
+The server model is improved over time, beyond what could be achieved by simply training on a the data stored on a single node. \\
 
 % Specify why federated learning is better than conventional learning
-As it does not require data to be shared between nodes, FL is naturally beneficial for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \cite{fed_privacy}. Additionally, as FL performs training on multiple nodes in parallel, it can make better use of available training resources in situations where processing power is distributed among multiple nodes.
+As it does not require data to be shared between nodes, FL is naturally beneficial for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \cite{fed_privacy}. Additionally, as FL performs training on multiple nodes in parallel, it can make better use of available training resources in situations where processing power is not only distributed among multiple nodes but also limited on each node, such as Internet of Things (IoT) \cite{fed_iot_2}.
 
 % federate distributed
-One branch of FL is Distributed Federated Learning (DFL). This algorithm works in a very similar fashion to FL, but replaces the central server with an elected leader in a network of nodes \cite{leaderelec_car}. DFL has been shown to increase fault tolerance and security over FL.
+FL has given rise to several variations that eliminate the need for a single central server. One such variant is Multi-Center Federated Learning \cite{multi_center_fed_learning}, which involves multiple central servers, each connected to different clusters of nodes. Another approach is to use leader election to select a node to function as the server \cite{fed_leaderelec}. This method can improve network resilience because, if the server fails, a new server is elected. However, leader election becomes a complicated problem in sparsely connected networks of nodes, resulting in a significant increase in overhead \cite{leaderelec_car}.
 
 \section{Blockchain} \label{bg:bc}
 % Breif intro of what a blockcahin is
