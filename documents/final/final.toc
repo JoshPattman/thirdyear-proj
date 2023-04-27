@@ -54,7 +54,7 @@
 \contentsline {section}{\numberline {8.1}Conclusion}{34}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Future Work}{34}{section.8.2}%
 \contentsline {chapter}{\numberline {A}Network Generation Algorithm}{36}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Machine Learning Model}{37}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Gantt Charts}{38}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Gantt - Interim}{40}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Gantt - Final}{42}{section.C.2}%
+\contentsline {chapter}{\numberline {B}Machine Learning Model}{38}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Gantt Charts}{39}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Gantt - Interim}{41}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Gantt - Final}{43}{section.C.2}%

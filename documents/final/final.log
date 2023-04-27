@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  27 APR 2023 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  27 APR 2023 16:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -922,51 +922,56 @@ Chapter 8.
 
  (./appendix.tex
 Appendix A.
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
-
- []
-
-[36
-
-
-
-
-]
-Appendix B.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [37
+) [36
+
+
+
 
 ]
-Appendix C.
+Overfull \hbox (2.89798pt too wide) in paragraph at lines 49--50
+[][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (52.23636pt too wide) in paragraph at lines 51--52
+[][][][][][][][][][][][][][] 
+ []
+
+[37]
+Appendix B.
 [38
 
 ]
-<./plots//gannt-interim.png, id=699, 1817.79124pt x 572.1375pt>
+Appendix C.
+[39
+
+]
+<./plots//gannt-interim.png, id=761, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
-Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 36.
+Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 85.
 (pdftex.def)             Requested size: 702.78308pt x 221.19464pt.
- [39]
+ [40]
 Overfull \vbox (28.88045pt too high) has occurred while \output is active []
 
 
-[40 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=709, 1731.46875pt x 776.9025pt>
+[41 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=771, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
-Package pdftex.def Info: ./plots//gannt-final.png  used on input line 41.
+Package pdftex.def Info: ./plots//gannt-final.png  used on input line 90.
 (pdftex.def)             Requested size: 702.78308pt x 315.33134pt.
- [41]
+ [42]
 Overfull \vbox (28.88045pt too high) has occurred while \output is active []
 
 
-[42 <./plots//gannt-final.png>]) (./final.bbl [43
+[43 <./plots//gannt-final.png>]) (./final.bbl [44
 
 
 
-]) [44] (./final.aux
+]) [45] (./final.aux
 (./problemandgoals.aux) (./background.aux) (./design.aux) (./implementation.aux
 ) (./results.aux) (./evaluation.aux) (./projectman.aux) (./conclusion.aux)
 (./appendix.aux))
@@ -978,34 +983,35 @@ Package rerunfilecheck Info: File `final.out' has not changed.
 (rerunfilecheck)             Checksum: AD99AE505ECF22A1FE0C3692B3D4C2D9;11796.
  ) 
 Here is how much of TeX's memory you used:
- 16466 strings out of 478287
- 261783 string characters out of 5849288
- 730206 words of memory out of 5000000
- 34206 multiletter control sequences out of 15000+600000
- 487503 words of font info for 68 fonts, out of 8000000 for 9000
+ 16555 strings out of 478287
+ 263032 string characters out of 5849288
+ 758226 words of memory out of 5000000
+ 34237 multiletter control sequences out of 15000+600000
+ 487840 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,17n,77p,1131b,1243s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfrm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-ti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on final.pdf (45 pages, 2034417 bytes).
+ 67i,17n,77p,1131b,1966s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf
+/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+frm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfti1728.pfb>
+Output written on final.pdf (46 pages, 2041724 bytes).
 PDF statistics:
- 853 PDF objects out of 1000 (max. 8388607)
- 695 compressed objects within 7 object streams
- 167 named destinations out of 1000 (max. 500000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 771 compressed objects within 8 object streams
+ 224 named destinations out of 1000 (max. 500000)
  631 words of extra memory for PDF output out of 10000 (max. 10000000)
 
