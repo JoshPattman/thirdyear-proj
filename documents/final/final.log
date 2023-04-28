@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  27 APR 2023 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  28 APR 2023 10:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -990,7 +990,7 @@ Package rerunfilecheck Info: File `final.out' has not changed.
 Here is how much of TeX's memory you used:
  16555 strings out of 478287
  263032 string characters out of 5849288
- 758226 words of memory out of 5000000
+ 758228 words of memory out of 5000000
  34237 multiletter control sequences out of 15000+600000
  487840 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1013,7 +1013,7 @@ hare/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on final.pdf (46 pages, 2042932 bytes).
+Output written on final.pdf (46 pages, 2043261 bytes).
 PDF statistics:
  932 PDF objects out of 1000 (max. 8388607)
  771 compressed objects within 8 object streams
