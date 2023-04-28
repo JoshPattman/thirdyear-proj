@@ -1,44 +1,44 @@
 \chapter{Implementation}
 \section{Machine Learning Problem}
-In order to evaluate SwarmAvg, it was necessary to create both a problem and a model to supply the algorithm with updates. Nevertheless, it should be noted that the algorithm is intended to function with any model and dataset. Presented below are the selected model and dataset.
+In order to evaluate SwarmAvg, it was necessary to define both a problem and a model to supply the algorithm with updates. Nevertheless, it should be noted that the algorithm is intended to function with any model and dataset. Presented below are the selected model and dataset.
 
-\subsection{The Dataset}
-Initially, the dataset utilized for experimentation was the MNIST dataset, which encompasses 60,000 greyscale 28x28 labelled images of digits from 0 to 9. This dataset was selected for its simplicity, requiring no pre-processing or data cleaning prior to training, and due to its availability as a built-in component of the chosen machine learning framework, Keras.
+\subsection{Dataset}
+Initially, the dataset utilized for experimentation was the MNIST dataset, which encompasses 60,000 greyscale 28x28 labelled images of digits from 0 to 9. This dataset was selected for its simplicity, requiring no pre-processing or data cleaning prior to training, and due to its availability as a built-in component of the chosen machine learning framework, Keras. It has also been used to test FL frameworks in past research \cite{leaderelec_car}. \\
 
-However, upon implementation it was determined that this dataset was too simple for the application of machine learning, as a single node could reach near peak accuracy after a single epoch, rendering it ill-suited for swarm learning, an algorithm designed to function across multiple training epochs.
+However, upon implementation it was determined that this dataset was too simple for the application of machine learning, as a single node could reach near peak accuracy after a single epoch, rendering it ill-suited for swarm learning, an algorithm designed to function across multiple training epochs. \\
 
-To address this issue, the MNIST dataset was replaced with MNIST-fashion (henceforth referred to as MNIST-F), a drop-in replacement dataset containing 10 classes of different items of clothing. MNIST-F is known to be more challenging \cite{xiao2017fashionmnist}. To further increase the complexity of the problem, in several experiments each agent was only provided with a small subset of the entire dataset, resulting in less training per epoch, and therefore meaning that an agent would require more epochs to achieve the same performance.
+To address this issue, the MNIST dataset was replaced with MNIST-fashion (henceforth referred to as MNIST-F), a drop-in replacement dataset containing 10 classes of different items of clothing. MNIST-F is known to be more challenging \cite{xiao2017fashionmnist}. To further increase the complexity of the problem, each node was only provided with a small subset of the entire dataset, resulting in less training per epoch, and therefore meaning that a node would require more epochs to achieve the same performance.
 
-\subsection{The Model}
+\subsection{Model}
 The Keras machine learning framework in Python was utilized to implement the model due to its reputation for being both simple and straightforward. All experiments made use of the same model, a small convolutional neural network, which is outlined in Appendix \ref{ap:model}. The model was tested on the MNIST-F dataset and was able to attain an accuracy score of above 90 percent when trained on the entire dataset using local learning; this result is on par with the accuracy reported in the original paper \cite{xiao2017fashionmnist}, meaning that the model was complex enough to learn the dataset, and therefore was suitable for use during testing.
 
 
 \section{Implementing Federated Learning}
 FedAvg was chosen for comparison of performance against SwarmAvg. In order to ensure fairness of the comparison, it was necessary to implement FedAvg from scratch using the same language framework as SwarmAvg.
 \subsection{Development of the Federated Learning Algorithm}
-The implemented algorithm worked in the same manner as the algorithm described in the FedAvg paper. However, one modification was made: at the start of each timestep instead of choosing N random nodes to perform training, all nodes were chosen. This means that every available node will perform training at every timestep, which should result in the best possible performance for federated learning, especially give that only 10 nodes could be run at once.
+The implemented algorithm worked in the same manner as the algorithm described in the FedAvg paper. However, one modification was made: at the start of each timestep instead of choosing N random nodes to perform training, all nodes were chosen. This means that every available node will perform training at every timestep, which should result in the best possible performance for federated learning, especially give that only 10 nodes could be run at once. \\
 
-Initially, a REST API was utilised to transfer the model between the server and the client. However, this was deemed unnecessary and was supplanted for two reasons. Firstly, the decision was made to measure performance against epochs trained instead of performance against time, which is discussed in further detail in the results section. Secondly, the REST API approach was much slower than the method chosen to replace it, yet it resulted in the same performance measurements when gauged in terms of epochs trained. As a substitute for the REST API, a system of functions was implemented. When a node sent a model to another node, it simply called a function on that node. This was abstracted away from the main algorithm code, thus meaning that a drop-in REST replacement could b added at a later date. This significantly accelerating training, and enabled a greater number of training runs to be conducted, resulting in more data being collected.
+Initially, a REST API was utilised to transfer the model between the server and the client. However, this was deemed unnecessary and was supplanted for two reasons. Firstly, the decision was made to measure performance against training steps instead of performance against time, which is discussed in further detail in the results section. Secondly, the REST API approach was much slower than the method chosen to replace it, yet it resulted in the same performance measurements when gauged in terms of training step. As a substitute for the REST API, a system of functions was implemented. When a node sent a model to another node, it simply called a function on that node. This was abstracted away from the main algorithm code, thus meaning that a drop-in REST replacement could b added at a later date. This significantly accelerating training, and enabled a greater number of experiments to be conducted.
 
 \subsection{Evaluation of this Federated Learning Implementation}
-This implementation of federated learning is simple yet effective. Though certain simplifications have been made, they should not interfere with the performance of the model in this scenario. It should only be used for testing performance against epochs trained, not against time taken, as the model transfer layer has been simplified.
+This implementation of federated learning is simple yet effective. Though certain simplifications have been made, they should not interfere with the performance of the model in this scenario. It should only be used for testing performance against training steps, not against time taken, as the model transfer layer has been simplified.
 
-\section{Implementing the First Prototype}
-It was decided to make an initial, less streamlined, prototype as a proof-of-concept before spending a lot of time creating the final algorithm. This prototype was created to be very modifiable so that changes could easily be made and tested.
+\section{Implementing the Prototype}
+The decision was made to make an initial, less streamlined, prototype as a proof-of-concept before spending a a large amount of time creating the final algorithm. This prototype was created to be very modifiable so that changes could easily be made and tested.
 
-\subsection{Development of the First Prototype} \label{reasonforcache}
+\subsection{Development of the Prototype} \label{reasonforcache}
 This algorithm was a simplified version of that described in the design section. The primary difference was that when a node performed its synchronisation step, it would request the models from each neighbour instead of utilising its cached versions of their models. This had the consequence of slowing down training, as the synchronisation step could not be completed until all nodes had responded. Furthermore, this algorithm did not incorporate the training counter, leading to the absence of training counter filtering, $\beta$ and $\gamma$.
 
-\subsection{Evaluation of the First Prototype}
+\subsection{Evaluation of the Prototype}
 This step was beneficial for the progression of the project, as it enabled the author to form the ideas detailed in the design process, which were then implemented in the subsequent step. However, due to the abundance of superfluous code, the algorithm was inefficient and performed poorly. For this reason, it was decided not to record the results of this method.
 
 \section{Implementing the Final Algorithm}
 In this implementation, the findings of the prototype were taken and built upon. The code was streamlined for the purpose of testing performance. However, the code was still designed to be reusable and easy to read.
 
 \subsection{Development of the Final Algorithm}
-The algorithm is as described in the design section. However, there was one discrepancy which needed to be tested: whether to send model updates to neighbours before or after performing the combination step. Both were tested but pushing model updates before combination seemed to be the more effective method when comparing the accuracy. The author hypothesises that this is due to more of the local nodes training progress being preserved, meaning that a local nodes training has more of an affect on its neighbours.
+The algorithm is as described in Section \ref{des}. However, there was one discrepancy which needed to be tested: whether to send model updates to neighbours before or after performing the combination step. Both were tested, but pushing model updates before combination seemed to be the more effective method when comparing the accuracy. \\
 
-The back end for distributing models was implemented as an interface which abstracts the details of the distribution away from the main algorithm code. For this implementation, the same distribution strategy as the previously implemented FedAvg was used: calling local functions that simulated a web connection.
+The back end for distributing models was implemented as an interface which abstracts the details of the distribution away from the main algorithm code. For this implementation, the same distribution strategy as the previously implemented FedAvg was used: calling local functions that simulate a web connection.
 
 \subsection{Evaluation of the Implementation of the Final Algorithm}
 Overall, this implementation of the proposed swarm learning method is satisfactory. It is efficient, reusable and simple to understand and use. Nevertheless, it is not yet suitable for real world applications, as it lacks any security features and there is limited error handling, being designed for use in a controlled testing environment. However, it would not be challenging to incorporate a backend for this code, allowing for communication over the internet.

@@ -4,7 +4,7 @@
 def count_connections(n):
 	if n == 1:
 		return 0
-		return count_connections(n-1)+n-1
+	return count_connections(n-1)+n-1
 		
 def is_connection_in(c, cons):
 	return c in cons or (c[1], c[0]) in cons
@@ -13,7 +13,7 @@ def random_pair(length):
 	a = np.random.randint(0, length)
 	b = a
 	while b == a:
-	b = np.random.randint(0, length)
+		b = np.random.randint(0, length)
 	return a, b
 	
 def fully_connected_graph(nodes_names, density=0):

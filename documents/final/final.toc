@@ -8,53 +8,53 @@
 \contentsline {section}{\numberline {2.3}Swarm Learning}{8}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Detailed Design}{10}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Design Overview}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}The Algorithm}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.2}The Algorithm}{11}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Blockchain-less Algorithm}{12}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Keeping Track of Training: The Training Counter}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Combining Neighbouring Models}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Combining Neighbouring Models}{13}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Method 1: Averaging}{13}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Method 2: Averaging With Synchronisation Rate}{13}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Ignoring Old Models: Training Counter Filtering}{13}{subsection.3.5.3}%
 \contentsline {section}{\numberline {3.6}Behaviour in Sparse Networks}{14}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Lightweight Approach: Passive Convergence}{14}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Complex Approach: Relay}{14}{subsection.3.6.2}%
-\contentsline {chapter}{\numberline {4}Implementation}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Machine Learning Problem}{15}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}The Dataset}{15}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}The Model}{15}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Implementing Federated Learning}{16}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Development of the Federated Learning Algorithm}{16}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Evaluation of this Federated Learning Implementation}{16}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Implementing the First Prototype}{16}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Development of the First Prototype}{16}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Evaluation of the First Prototype}{17}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Implementing the Final Algorithm}{17}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Development of the Final Algorithm}{17}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Evaluation of the Implementation of the Final Algorithm}{17}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Testing Strategy and Results}{18}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Strategy for Gathering of Results}{18}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Scenario 1: Densely Connected Network}{19}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Dense Network Results}{19}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3}Scenario 2: Sparsely Connected Network}{22}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Sparse Network Results}{23}{subsection.5.3.1}%
-\contentsline {section}{\numberline {5.4}Scenario 3: Densely Connected Network with Class Restrictions}{25}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Dense Network with Class Restrictions Results}{26}{subsection.5.4.1}%
-\contentsline {section}{\numberline {5.5}Scenario 4: Sparsely Connected Network with Class Restrictions}{27}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Sparse Network with Class Restrictions Results}{28}{subsection.5.5.1}%
-\contentsline {chapter}{\numberline {6}Critical Evaluation}{29}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Comparison of SwarmAvg to Other Methods}{29}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Comparison of SwarmAvg to FedAvg}{29}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Comparison of SwarmAvg to SwarmBC}{29}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Evaluation of this Study}{30}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Project Management}{32}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Time Management}{32}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Changing Plans}{32}{section.7.2}%
+\contentsline {subsection}{\numberline {3.6.1}Method 1: Passive Convergence}{14}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Method 2: Relay}{15}{subsection.3.6.2}%
+\contentsline {chapter}{\numberline {4}Implementation}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Machine Learning Problem}{16}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Dataset}{16}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Model}{16}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Implementing Federated Learning}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Development of the Federated Learning Algorithm}{17}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Evaluation of this Federated Learning Implementation}{17}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Implementing the Prototype}{17}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Development of the Prototype}{17}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Evaluation of the Prototype}{18}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Implementing the Final Algorithm}{18}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Development of the Final Algorithm}{18}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Evaluation of the Implementation of the Final Algorithm}{18}{subsection.4.4.2}%
+\contentsline {chapter}{\numberline {5}Testing Strategy and Results}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Strategy for Gathering of Results}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Scenario 1: Densely Connected Network}{20}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Dense Network Results}{20}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Scenario 2: Sparsely Connected Network}{23}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Sparse Network Results}{24}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Scenario 3: Densely Connected Network with Class Restrictions}{26}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Dense Network with Class Restrictions Results}{27}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Scenario 4: Sparsely Connected Network with Class Restrictions}{28}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Sparse Network with Class Restrictions Results}{29}{subsection.5.5.1}%
+\contentsline {chapter}{\numberline {6}Critical Evaluation}{30}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Comparison of SwarmAvg to Other Methods}{30}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Comparison of SwarmAvg to FedAvg}{30}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Comparison of SwarmAvg to SwarmBC}{30}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Evaluation of this Study}{31}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Project Management}{33}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Time Management}{33}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Changing Plans}{33}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Risk Assessment}{33}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{34}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusion}{34}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Future Work}{34}{section.8.2}%
-\contentsline {chapter}{\numberline {A}Network Generation Algorithm}{36}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Machine Learning Model}{38}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Gantt Charts}{39}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Gantt - Interim}{41}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Gantt - Final}{43}{section.C.2}%
+\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{35}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusion}{35}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Future Work}{36}{section.8.2}%
+\contentsline {chapter}{\numberline {A}Network Generation Algorithm}{39}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Machine Learning Model}{41}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Gantt Charts}{42}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Gantt - Interim}{44}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Gantt - Final}{46}{section.C.2}%

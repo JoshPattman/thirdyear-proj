@@ -9,8 +9,8 @@ A level-1 auxiliary file: results.aux
 A level-1 auxiliary file: evaluation.aux
 A level-1 auxiliary file: projectman.aux
 A level-1 auxiliary file: conclusion.aux
-A level-1 auxiliary file: appendix.aux
 The style file: ieeetr.bst
+A level-1 auxiliary file: appendix.aux
 Database file #1: final.bib
 I was expecting a `,' or a `}'---line 241 of file final.bib
  :  
