@@ -89,3 +89,22 @@ model.compile(
 \begin{center}
 	\rotatebox[origin=c]{-90}{\includegraphics[width=\textheight]{gannt-final}}
 \end{center}
+
+\chapter{Verifying the Word Count}
+Below are the steps used to attain the verifiable word count.
+\begin{enumerate}
+	\item Extract the pages starting from the first page of 'Introduction, Problems and Goals' down to the last page of 'Future Work'.
+	\item Copy all content from the pdf using a pdf viewer into a plaintext file. This ensures that pdf formatting symbols are not included. (Ctrl+A -> Ctrl+V).
+	\item Run the command \emph{wc -w <name-of-text-file>}
+\end{enumerate}
+
+When performing this method, the output of the terminal window is shown in Figure \ref{wc}:\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{wc}
+	\caption{The terminal window output for the word count command} \label{wc}
+\end{figure}
+
+\chapter{Original Project Brief}
+\includepdf[]{Proposition.pdf}
