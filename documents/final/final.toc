@@ -8,16 +8,16 @@
 \contentsline {section}{\numberline {2.3}Swarm Learning}{8}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Detailed Design}{10}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Design Overview}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}The Algorithm}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.2}The Algorithm}{10}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Blockchain-less Algorithm}{12}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Keeping Track of Training: The Training Counter}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Combining Neighbouring Models}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Combining Neighbouring Models}{12}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Method 1: Averaging}{13}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Method 2: Averaging With Synchronisation Rate}{13}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Ignoring Old Models: Training Counter Filtering}{13}{subsection.3.5.3}%
 \contentsline {section}{\numberline {3.6}Behaviour in Sparse Networks}{14}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Method 1: Passive Convergence}{14}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Method 2: Relay}{15}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.2}Method 2: Relay}{14}{subsection.3.6.2}%
 \contentsline {chapter}{\numberline {4}Implementation}{16}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Machine Learning Problem}{16}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Dataset}{16}{subsection.4.1.1}%

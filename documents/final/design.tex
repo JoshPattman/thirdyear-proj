@@ -1,6 +1,6 @@
 \chapter{Detailed Design} \label{des}
 \section{Design Overview}
-In SL, a node is an agent responsible for facilitating the improvement of the global model. The global model is an abstract concept representing the consensus of all nodes in the network. In the proposed version of SL, referred to as SwarmAvg, each node maintains its own model, known as the local model, which is an approximation of the global model. However, in SwarmAvg, the consensus algorithm used is repeated averaging, not blockchain like in SwarmBC. This means that at the start of each training step, every node may start with a slightly different model. As training progresses and performance begins to plateau, each node's local model should not only converge towards a minima, but also towards each other. Over time, each nodes local model better approximates the global model, and the global model becomes a better solution to the problem. \\
+In SL, a node is an agent responsible for facilitating the improvement of the global model. The global model is an abstract concept representing the consensus of all nodes in the network. In the proposed version of SL, referred to as SwarmAvg, each node maintains its own model, known as the local model, which is an approximation of the global model. However, in SwarmAvg, the consensus algorithm used is repeated averaging, not blockchain like in SwarmBC. This means that at the start of each training step, every node may start with a slightly different model. As training progresses and performance begins to plateau, each node's local model should not only converge towards a minima with respect to loss, but also towards each other. \\
 
 Each node in the network possesses a confidential dataset that is not disclosed to any other nodes. In order to train the global model, nodes fit their own local model of their local dataset. In order to maintain consistency between local and global models, a combination procedure is conducted following each round of local training, which involves the integration of neighbouring nodes models into the local model. \\
 
@@ -77,7 +77,7 @@ The training counter can be changed in one of two manners. Firstly, the counter 
 \section{Combining Neighbouring Models} \label{mcm}
 The combination step is a crucial component of SwarmAvg. During this step, a node merges its local model with those of its neighbours, producing an updated estimate of the global model. This paper presents multiple methods for performing the combination step. \\
 
-In the below equations, $\mu(x)$ denotes the function $mean(x)$. All models are assumed to be 1-dimensional arrays, meaning that mathematical operations such as add ($+$) and multiply ($*$) can be performed in an element-wise fashion. To achieve this constraint in the context of neural networks, a simple flattening operation is performed on the weight matrices.
+In the below equations, $\mu(x)$ denotes the function $mean(x)$. All models are assumed to be flattened into 1-dimensional arrays of parameters.
 
 \subsection{Method 1: Averaging} \label{mcm:avg}
 The most rudimentary approach to combination is to compute the average model between the local model and the models of all neighbouring nodes.
