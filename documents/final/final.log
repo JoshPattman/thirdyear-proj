@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  28 APR 2023 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  29 APR 2023 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -924,11 +924,11 @@ File: ./plots//aeg_sparse_25.png Graphic file (type png)
 <use ./plots//aeg_sparse_25.png>
 Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 188.
 (pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_25_z.png, id=601, 412.6617pt x 316.5426pt>
+<./plots//aeg_sparse_25_z.png, id=601, 412.6617pt x 312.2064pt>
 File: ./plots//aeg_sparse_25_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_25_z.png>
 Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 192.
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
+(pdftex.def)             Requested size: 223.07211pt x 168.76997pt.
 [26 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//a
 eg_sparse_100.png> <./plots//aeg_sparse_100_z.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
@@ -1236,7 +1236,7 @@ texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/pu
 blic/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm17
 28.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/t
 exmf/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on final.pdf (51 pages, 2125259 bytes).
+Output written on final.pdf (51 pages, 2119219 bytes).
 PDF statistics:
  1016 PDF objects out of 1200 (max. 8388607)
  833 compressed objects within 9 object streams
