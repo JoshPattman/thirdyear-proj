@@ -11,10 +11,10 @@ SwarmAvg works by repeating the training step until training is complete. The ac
 	\item Combine neighbouring models into local model, using one of the methods presented in Section \ref{mcm}.
 \end{enumerate}
 
-In addition, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. The reasoning behind this decision is elaborated upon in greater detail in Section \ref{reasonforcache}.
+Additionally, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. The reasoning behind this decision is explained further in Section \ref{reasonforcache}.
 
 \section{The Algorithm}
-The training step, which can be found at Algorithm \ref{updatealgo}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single training step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
+The training step, found at Algorithm \ref{updatealgo}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single training step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
 
 \begin{algorithm}[H]
 	\caption{A Single Training Step - should be called repeatedly in a loop} \label{updatealgo}
@@ -65,7 +65,7 @@ The model received event, which can be found at Algorithm \ref{cachealgo}, is ru
 \end{algorithm}
 
 \section{Blockchain-less Algorithm}
-SwarmBC employs a blockchain as the mechanism for distributing the global model, whereas SwarmAvg utilizes a variation of averaging with its neighbours and does not use a blockchain. This decision was made due to the long transaction confirmation time of large blockchains, which could adversely affect training as nodes continuously upload their latest networks to the network. If this process were to take an excessive amount of time, each node would be training on an outdated model. \\
+Whereas SwarmBC employs a blockchain as the mechanism for distributing the global model, SwarmAvg utilizes a variation of averaging with its neighbours and does not use a blockchain. This decision was made due to the long transaction confirmation time of large blockchains, which could adversely affect training as nodes continuously upload their latest networks to the network. If this process were to take an excessive amount of time, each node would be training on an outdated model. \\
 
 Furthermore, the inefficiency of blockchains with respect to performance is another reason for not using them in SwarmAvg. SwarmAvg is designed for deployment in large swarms, with each agent possibly having low processing power. If a blockchain were utilized, some of the processing power that could be devoted to training would instead be utilized for validating transactions. In scenarios where processing power is limited, it would be practical to avoid the use of blockchains.
 
@@ -101,7 +101,7 @@ A compelling reason to allow training counter filtering is the increased fault t
 An issue with training counter filtering pertains to the presence of runaway nodes. These nodes possess a substantially higher training counter compared to all other nodes in the network, meaning that when filtering is applied, they are left with no neighbours to utilise in the combination step. Consequently, a runaway node may start to overfit on its own training data, as this is the only data it is exposed to, thereby leading to decreased local performance, as well as potential performance reductions in the rest of the network. To address this problem in SwarmAvg, each node must wait until it has obtained at least $\gamma$ viable neighbours prior to performing the combination step. Although this measure prevents individual nodes from becoming runaway nodes, groups of size $\gamma$ still have the potential to become runaway as a unit. Nevertheless, if $\gamma$ is roughly equivalent to the number of neighbours and all neighbours train at a comparable rate, the issue is minimised.
 
 \section{Behaviour in Sparse Networks}
-Given the sparsely connected nature of distributed scenarios, it is often the case that nodes only have direct connections to a small subset of their neighbours. This is a situation where FL struggles, however the author hypothesises that SwarmAvg should be able to deal with this situation.
+Given the sparsely connected nature of distributed scenarios, it is often the case that nodes only have direct connections to a small subset of their neighbours. Although FL struggles in this situation, the author hypothesises that SwarmAvg should be able to function in sparsely connected networks.
 
 \subsection{Method 1: Passive Convergence}
 An approach to deal with a sparsely connected network is to use the swarm learning algorithm without any modifications. This approach is effective due to the use of averaging as a combination method. When a node tries to update the global model, its changes will propagate through the network slowly, over many training iterations, even to nodes that are not directly connected. This approach has the advantage of requiring no extra data transmission, resulting in significantly less data traffic compared to other methods. \\

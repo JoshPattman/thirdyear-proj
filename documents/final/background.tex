@@ -18,7 +18,7 @@ The server model is improved over time, beyond what could be achieved by simply 
 As it does not require data to be shared between nodes, FL is naturally beneficial for privacy sensitive tasks compared to conventional machine learning where the data is aggregated in a central location \cite{fed_privacy}. Additionally, as FL performs training on multiple nodes in parallel, it can make better use of available training resources in situations where processing power is not only distributed among multiple nodes but also limited on each node, such as Internet of Things (IoT) \cite{fed_iot_2}.
 
 % federate distributed
-FL has given rise to several variations that eliminate the need for a single central server. One such variant is Multi-Center Federated Learning \cite{multi_center_fed_learning}, which involves multiple central servers, each connected to different clusters of nodes. Another approach is to use leader election to select a node to function as the server \cite{fed_leaderelec}. This method can improve network resilience because, if the server fails, a new server is elected.
+FL has been adapted into several variations which eliminate the need for a single central server. One such variant is Multi-Center Federated Learning \cite{multi_center_fed_learning}, which involves multiple central servers, each connected to different clusters of nodes. Another approach is to use leader election to select a node to function as the server \cite{fed_leaderelec}. This method can improve network resilience because, if the server fails, a new server is elected.
 
 \section{Blockchain} \label{bg:bc}
 % Breif intro of what a blockcahin is
