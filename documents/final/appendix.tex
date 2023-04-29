@@ -108,5 +108,28 @@ When performing this method, the output of the terminal window is shown in Figur
 
 This means that the word count for this document is verifiably 9943.
 
+\chapter{Data Archive Overview}
+Below is the file structure for the accompanying project archive.
+\dirtree{%
+	.1 project\_archive.
+		.2 data: \textit{The location which data from running tests is stored}.
+			.3 test2.3.json: \textit{The data from test 2 iteration 3}.
+			.3 ....
+		.2 colored\_log\_formatter.py: \textit{(NOT MY CODE BUT NEEDED TO RUN) Helper functions for colouring the python logger}.
+		.2 experiments.sh: \textit{File to re-run all experiments}.
+		.2 fed\_mnist.py: \textit{File to run an experiment with FL}.
+		.2 fed: \textit{Contains files for FL algorithms}.
+			.3 backend.py: \textit{FL algorithm functions}.
+		.2 swarm\_mnist.py: \textit{File to run an experiment with SwarmAvg}.
+		.2 fed: \textit{Contains files for SwarmAvg algorithms}.
+			.3 local\_backend.py: \textit{System to simulate a network}.
+			.3 swarm\_dist.py: \textit{SwarmAvg algorithm}.
+		.2 flatten\_model.py: \textit{Helper function to flatten/unflatten a Keras model}.
+		.2 graphs.py: \textit{Code to generate sparse graphs}.
+		.2 just\_model\_mnist.py: \textit{Test file to train the model with single node}.
+		.2 model.py: \textit{File to generate the machine learning model}.
+		.2 visualise.ipynb: \textit{File to generate graphs from data in ./data/}.
+}
+
 \chapter{Original Project Brief}
 \includepdf[]{Proposition.pdf}

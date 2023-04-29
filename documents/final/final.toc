@@ -59,4 +59,5 @@
 \contentsline {section}{\numberline {C.1}Gantt - Interim}{45}{section.C.1}%
 \contentsline {section}{\numberline {C.2}Gantt - Final}{47}{section.C.2}%
 \contentsline {chapter}{\numberline {D}Verifying the Word Count}{48}{appendix.D}%
-\contentsline {chapter}{\numberline {E}Original Project Brief}{49}{appendix.E}%
+\contentsline {chapter}{\numberline {E}Data Archive Overview}{49}{appendix.E}%
+\contentsline {chapter}{\numberline {F}Original Project Brief}{50}{appendix.F}%
