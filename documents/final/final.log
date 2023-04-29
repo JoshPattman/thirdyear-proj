@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  29 APR 2023 17:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  29 APR 2023 18:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -467,24 +467,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./conclusion.aux) (./appendix.aux))
 \openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -493,21 +493,22 @@ LaTeX Font Info:    ... okay on input line 36.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* bindingoffset: 31.2982pt
+* modes: twoside 
+* h-part:(L,W,R)=(68.28644pt, 429.6368pt, 68.28644pt)
+* v-part:(T,H,B)=(68.28644pt, 708.47397pt, 68.28644pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
+* \textwidth=429.6368pt
+* \textheight=708.47397pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=-3.98355pt
+* \topmargin=-40.98355pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=85.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
@@ -515,8 +516,8 @@ LaTeX Font Info:    ... okay on input line 36.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -543,7 +544,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count323
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -556,9 +557,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count324
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 
 (./final.out) (./final.out)
 \@outlinefile=\write3
@@ -584,7 +585,7 @@ ersion <1.6>, but at most version <1.5> allowed
 <soo2.pdf, id=268, 597.53635pt x 845.07529pt>
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf>
-Package pdftex.def Info: soo2.pdf  used on input line 56.
+Package pdftex.def Info: soo2.pdf  used on input line 58.
 (pdftex.def)             Requested size: 597.53488pt x 845.07323pt.
 
 
@@ -592,7 +593,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./soo2.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf>
-Package pdftex.def Info: soo2.pdf  used on input line 56.
+Package pdftex.def Info: soo2.pdf  used on input line 58.
 (pdftex.def)             Requested size: 597.53488pt x 845.07323pt.
 
 
@@ -605,43 +606,38 @@ ersion <1.6>, but at most version <1.5> allowed
 <soo2.pdf, id=271, page=1, 597.53635pt x 845.07529pt>
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf, page 1>
-Package pdftex.def Info: soo2.pdf , page1 used on input line 56.
+Package pdftex.def Info: soo2.pdf , page1 used on input line 58.
 (pdftex.def)             Requested size: 597.53488pt x 845.07323pt.
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf, page 1>
-Package pdftex.def Info: soo2.pdf , page1 used on input line 56.
+Package pdftex.def Info: soo2.pdf , page1 used on input line 58.
 (pdftex.def)             Requested size: 597.56223pt x 845.11191pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.56 	\includepdf[]{soo2.pdf}
-                              [1
+[2
 
 ]
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf, page 1>
-Package pdftex.def Info: soo2.pdf , page1 used on input line 56.
+Package pdftex.def Info: soo2.pdf , page1 used on input line 58.
 (pdftex.def)             Requested size: 597.56223pt x 845.11191pt.
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf, page 1>
-Package pdftex.def Info: soo2.pdf , page1 used on input line 56.
+Package pdftex.def Info: soo2.pdf , page1 used on input line 58.
 (pdftex.def)             Requested size: 597.56223pt x 845.11191pt.
 File: soo2.pdf Graphic file (type pdf)
 <use soo2.pdf, page 1>
-Package pdftex.def Info: soo2.pdf , page1 used on input line 56.
+Package pdftex.def Info: soo2.pdf , page1 used on input line 58.
 (pdftex.def)             Requested size: 597.56223pt x 845.11191pt.
- [2 <./soo2.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-
- []
-
-
+ [3 <./soo2.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-[3
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+[4
 
 ] (./final.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
@@ -652,37 +648,42 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [4
+) [5
 
 ])
 \tf@toc=\write4
 \openout4 = `final.toc'.
 
- [5]
+ [6]
 \openout2 = `problemandgoals.aux'.
 
 
 (./problemandgoals.tex
 Chapter 1.
-[6
+[7
 
 
 ]
-Overfull \hbox (3.34782pt too wide) in paragraph at lines 20--21
-[]\T1/cmr/m/n/12 In
- []
-
-
-Overfull \hbox (6.64694pt too wide) in paragraph at lines 22--23
+Overfull \hbox (18.19112pt too wide) in paragraph at lines 20--21
 []
  []
 
 
-Overfull \hbox (15.29759pt too wide) in paragraph at lines 23--24
+Overfull \hbox (3.77815pt too wide) in paragraph at lines 21--22
+[]\T1/cmr/m/n/12 The al-go-rithm should be im-ple-mented in an easy-
+ []
+
+
+Overfull \hbox (32.25426pt too wide) in paragraph at lines 22--23
 []
  []
 
-) [7]
+
+Overfull \hbox (40.9049pt too wide) in paragraph at lines 23--24
+[]
+ []
+
+) [8]
 \openout2 = `background.aux'.
 
  (./background.tex
@@ -697,7 +698,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[8
+[9
 
 
 
@@ -721,21 +722,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 File: ./plots//fedvsswarm.png Graphic file (type png)
 <use ./plots//fedvsswarm.png>
 Package pdftex.def Info: ./plots//fedvsswarm.png  used on input line 37.
-(pdftex.def)             Requested size: 455.24411pt x 162.64844pt.
+(pdftex.def)             Requested size: 429.6368pt x 153.50113pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[9]
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
-) [10 <./plots//fedvsswarm.png>]
+) [11 <./plots//fedvsswarm.png>]
 \openout2 = `design.aux'.
 
  (./design.tex
@@ -750,7 +751,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-[11
+
+Underfull \vbox (badness 1077) has occurred while \output is active []
+
+ [12
 
 
 
@@ -764,11 +768,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--55
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
 Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-[12]
+
+Overfull \hbox (8.84015pt too wide) in paragraph at lines 72--72
+|[]\T1/cmr/bx/n/17.28 Keeping Track of Train-ing: The Train-ing Counter| 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
@@ -778,12 +790,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
-
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
@@ -793,17 +805,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-[14]
+
 Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
-) [15] [16]
+) [17]
 \openout2 = `implementation.aux'.
 
  (./implementation.tex
@@ -813,7 +825,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[17
+[18
 
 
 
@@ -823,59 +835,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[18]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-) [19]
+) [20]
 \openout2 = `results.aux'.
 
  (./results.tex
 Chapter 5.
-
-Overfull \hbox (0.3251pt too wide) in paragraph at lines 13--14
-[]\T1/cmr/m/n/12 The ex-per-i-ments eval-u-ate the al-go-rithm's per-for-mance
- []
-
-[20
+[21
 
 
 
 
 ]
-<./plots//aeg_dense_1000.png, id=536, 419.166pt x 316.5426pt>
+<./plots//aeg_dense_1000.png, id=537, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_1000.png Graphic file (type png)
 <use ./plots//aeg_dense_1000.png>
 Package pdftex.def Info: ./plots//aeg_dense_1000.png  used on input line 39.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_1000_z.png, id=537, 412.6617pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_dense_1000_z.png, id=538, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_1000_z.png Graphic file (type png)
 <use ./plots//aeg_dense_1000_z.png>
 Package pdftex.def Info: ./plots//aeg_dense_1000_z.png  used on input line 43.
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
- [21]
-<./plots//aeg_dense_100.png, id=544, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 161.48772pt.
+
+Underfull \vbox (badness 6364) has occurred while \output is active []
+
+ [22]
+<./plots//aeg_dense_100.png, id=545, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_100.png Graphic file (type png)
 <use ./plots//aeg_dense_100.png>
 Package pdftex.def Info: ./plots//aeg_dense_100.png  used on input line 55.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_100_z.png, id=545, 412.6617pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_dense_100_z.png, id=546, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_100_z.png Graphic file (type png)
 <use ./plots//aeg_dense_100_z.png>
 Package pdftex.def Info: ./plots//aeg_dense_100_z.png  used on input line 59.
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
-<./plots//aeg_dense_25.png, id=546, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 161.48772pt.
+<./plots//aeg_dense_25.png, id=547, 419.166pt x 316.5426pt>
 File: ./plots//aeg_dense_25.png Graphic file (type png)
 <use ./plots//aeg_dense_25.png>
 Package pdftex.def Info: ./plots//aeg_dense_25.png  used on input line 70.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_dense_25_z.png, id=547, 412.6617pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_dense_25_z.png, id=548, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_dense_25_z.png Graphic file (type png)
 <use ./plots//aeg_dense_25_z.png>
 Package pdftex.def Info: ./plots//aeg_dense_25_z.png  used on input line 74.
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
- [22 <./plots//aeg_dense_1000.png> <./plots//aeg_dense_1000_z.png> <./plots//ae
+(pdftex.def)             Requested size: 210.52438pt x 161.48772pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23 <./plots//aeg_dense_1000.png> <./plots//aeg_dense_1000_z.png> <./plots//ae
 g_dense_100.png> <./plots//aeg_dense_100_z.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
@@ -901,72 +914,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[23 <./plots//aeg_dense_25.png> <./plots//aeg_dense_25_z.png>]
-<./plots//sparsegraph100.png, id=571, 296.10625pt x 293.095pt>
+[24 <./plots//aeg_dense_25.png> <./plots//aeg_dense_25_z.png>]
+<./plots//sparsegraph100.png, id=572, 296.10625pt x 293.095pt>
 File: ./plots//sparsegraph100.png Graphic file (type png)
 <use ./plots//sparsegraph100.png>
 Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 118.
-(pdftex.def)             Requested size: 136.57462pt x 135.18758pt.
-<./plots//sparsegraph75.png, id=572, 316.18124pt x 316.18124pt>
+(pdftex.def)             Requested size: 128.89235pt x 127.58473pt.
+<./plots//sparsegraph75.png, id=573, 316.18124pt x 316.18124pt>
 File: ./plots//sparsegraph75.png Graphic file (type png)
 <use ./plots//sparsegraph75.png>
 Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 123.
-(pdftex.def)             Requested size: 136.57462pt x 136.57764pt.
-<./plots//sparsegraph50.png, id=573, 330.23375pt x 325.215pt>
+(pdftex.def)             Requested size: 128.89235pt x 128.89217pt.
+<./plots//sparsegraph50.png, id=574, 330.23375pt x 325.215pt>
 File: ./plots//sparsegraph50.png Graphic file (type png)
 <use ./plots//sparsegraph50.png>
 Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 128.
-(pdftex.def)             Requested size: 136.57462pt x 134.5002pt.
-<./plots//sparsegraph25.png, id=574, 450.68375pt x 407.5225pt>
+(pdftex.def)             Requested size: 128.89235pt x 126.93755pt.
+<./plots//sparsegraph25.png, id=575, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph25.png Graphic file (type png)
 <use ./plots//sparsegraph25.png>
 Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 133.
-(pdftex.def)             Requested size: 136.57462pt x 123.49512pt.
-<./plots//sparsegraph0.png, id=575, 450.68375pt x 407.5225pt>
+(pdftex.def)             Requested size: 128.89235pt x 116.5493pt.
+<./plots//sparsegraph0.png, id=576, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph0.png Graphic file (type png)
 <use ./plots//sparsegraph0.png>
 Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 138.
-(pdftex.def)             Requested size: 136.57462pt x 123.49512pt.
- [24]
-<./plots//aeg_sparse_1000.png, id=584, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 128.89235pt x 116.5493pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+<./plots//aeg_sparse_1000.png, id=585, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_1000.png Graphic file (type png)
 <use ./plots//aeg_sparse_1000.png>
 Package pdftex.def Info: ./plots//aeg_sparse_1000.png  used on input line 154.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_1000_z.png, id=585, 412.6617pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_sparse_1000_z.png, id=586, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_sparse_1000_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_1000_z.png>
 Package pdftex.def Info: ./plots//aeg_sparse_1000_z.png  used on input line 158
 .
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
- [25 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
+(pdftex.def)             Requested size: 210.52438pt x 161.48772pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//spars
 egraph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<./plots//aeg_sparse_100.png, id=599, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_100.png, id=600, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_100.png Graphic file (type png)
 <use ./plots//aeg_sparse_100.png>
 Package pdftex.def Info: ./plots//aeg_sparse_100.png  used on input line 172.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_100_z.png, id=600, 412.6617pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_sparse_100_z.png, id=601, 412.6617pt x 316.5426pt>
 File: ./plots//aeg_sparse_100_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_100_z.png>
 Package pdftex.def Info: ./plots//aeg_sparse_100_z.png  used on input line 176.
 
-(pdftex.def)             Requested size: 223.07211pt x 171.114pt.
-<./plots//aeg_sparse_25.png, id=605, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 161.48772pt.
+<./plots//aeg_sparse_25.png, id=606, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_25.png Graphic file (type png)
 <use ./plots//aeg_sparse_25.png>
 Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 188.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_25_z.png, id=606, 412.6617pt x 312.2064pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_sparse_25_z.png, id=607, 412.6617pt x 312.2064pt>
 File: ./plots//aeg_sparse_25_z.png Graphic file (type png)
 <use ./plots//aeg_sparse_25_z.png>
 Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 192.
-(pdftex.def)             Requested size: 223.07211pt x 168.76997pt.
-[26 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//a
+(pdftex.def)             Requested size: 210.52438pt x 159.27556pt.
+[27 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//a
 eg_sparse_100.png> <./plots//aeg_sparse_100_z.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
@@ -977,12 +996,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
-<./plots//aeg_unev_1000.png, id=623, 419.166pt x 316.5426pt>
+<./plots//aeg_unev_1000.png, id=624, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_1000.png Graphic file (type png)
 <use ./plots//aeg_unev_1000.png>
 Package pdftex.def Info: ./plots//aeg_unev_1000.png  used on input line 216.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-[27 <./plots//aeg_sparse_25.png> <./plots//aeg_sparse_25_z.png>]
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+[28 <./plots//aeg_sparse_25.png> <./plots//aeg_sparse_25_z.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
@@ -992,47 +1011,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
  []
 
-<./plots//aeg_unev_100.png, id=633, 419.166pt x 316.5426pt>
+<./plots//aeg_unev_100.png, id=634, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_100.png Graphic file (type png)
 <use ./plots//aeg_unev_100.png>
 Package pdftex.def Info: ./plots//aeg_unev_100.png  used on input line 230.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_unev_25.png, id=634, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_unev_25.png, id=635, 419.166pt x 316.5426pt>
 File: ./plots//aeg_unev_25.png Graphic file (type png)
 <use ./plots//aeg_unev_25.png>
 Package pdftex.def Info: ./plots//aeg_unev_25.png  used on input line 234.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-[28 <./plots//aeg_unev_1000.png>]
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29 <./plots//aeg_unev_1000.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
-
-Overfull \hbox (1.48416pt too wide) in paragraph at lines 245--245
-|[]\T1/cmr/bx/n/17.28 Scenario 4: Sparsely Con-nected Net-work with Class
- []
-
-<./plots//aeg_sparse_unev_1000.png, id=643, 419.166pt x 316.5426pt>
+<./plots//aeg_sparse_unev_1000.png, id=644, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_1000.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_1000.png>
 Package pdftex.def Info: ./plots//aeg_sparse_unev_1000.png  used on input line 
 252.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_unev_100.png, id=644, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_sparse_unev_100.png, id=645, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_100.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_100.png>
 Package pdftex.def Info: ./plots//aeg_sparse_unev_100.png  used on input line 2
 56.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-<./plots//aeg_sparse_unev_25.png, id=645, 419.166pt x 316.5426pt>
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+<./plots//aeg_sparse_unev_25.png, id=646, 419.166pt x 316.5426pt>
 File: ./plots//aeg_sparse_unev_25.png Graphic file (type png)
 <use ./plots//aeg_sparse_unev_25.png>
 Package pdftex.def Info: ./plots//aeg_sparse_unev_25.png  used on input line 26
 0.
-(pdftex.def)             Requested size: 223.07211pt x 168.45747pt.
-[29 <./plots//aeg_unev_100.png> <./plots//aeg_unev_25.png>]) [30 <./plots//aeg_
-sparse_unev_1000.png> <./plots//aeg_sparse_unev_100.png> <./plots//aeg_sparse_u
-nev_25.png>]
+(pdftex.def)             Requested size: 210.52438pt x 158.98093pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30 <./plots//aeg_unev_100.png> <./plots//aeg_unev_25.png>]) [31 <./plots//aeg
+_sparse_unev_1000.png> <./plots//aeg_sparse_unev_100.png> <./plots//aeg_sparse_
+unev_25.png>]
 \openout2 = `evaluation.aux'.
 
  (./evaluation.tex
@@ -1052,7 +1072,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[31
+
+Underfull \vbox (badness 5288) has occurred while \output is active []
+
+ [32
 
 
 
@@ -1067,7 +1090,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[32]) [33]
+
+Overfull \hbox (0.31647pt too wide) in paragraph at lines 25--26
+[]\T1/cmr/m/n/12 A sig-nif-i-cant con-cern re-gard-ing this study
+ []
+
+[33]) [34]
 \openout2 = `projectman.aux'.
 
  (./projectman.tex
@@ -1093,16 +1121,16 @@ Underfull \hbox (badness 4467) in paragraph at lines 24--24
  []
 
 
-Overfull \hbox (30.22122pt too wide) in paragraph at lines 17--26
+Overfull \hbox (55.82854pt too wide) in paragraph at lines 17--26
 [][] 
  []
 
-) [34
+) [35
 
 
 
 
-] [35]
+] [36]
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex
@@ -1122,86 +1150,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-[36
+[37
 
 
 
 
-]
-Overfull \hbox (3.27444pt too wide) in paragraph at lines 20--21
-[]\T1/cmr/m/n/12 For the present study, pa-ram-e-ters were
- []
-
-
-Overfull \hbox (0.15419pt too wide) in paragraph at lines 23--24
-[]\T1/cmr/m/n/12 The sce-nar-ios in which Swar-
- []
-
-) [37] (./final.bbl [38
+]) [38] (./final.bbl [39
 
 
 
-]) [39]
+]) [40]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 Appendix A.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [40
+)
+Overfull \hbox (7.36028pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 2359) has occurred while \output is active []
+
+ [41
 
 
 ]
-Overfull \hbox (2.89798pt too wide) in paragraph at lines 49--50
+Overfull \hbox (28.5053pt too wide) in paragraph at lines 49--50
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (52.23636pt too wide) in paragraph at lines 51--52
+Overfull \hbox (77.84367pt too wide) in paragraph at lines 51--52
 [][][][][][][][][][][][][][] 
  []
 
-[41]
+
+Overfull \hbox (7.36028pt too wide) in paragraph at lines 57--58
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+[42]
 Appendix B.
-[42
-
-]
-Appendix C.
 [43
 
 ]
-<./plots//gannt-interim.png, id=796, 1817.79124pt x 572.1375pt>
+Appendix C.
+[44
+
+]
+<./plots//gannt-interim.png, id=797, 1817.79124pt x 572.1375pt>
 File: ./plots//gannt-interim.png Graphic file (type png)
 <use ./plots//gannt-interim.png>
 Package pdftex.def Info: ./plots//gannt-interim.png  used on input line 85.
-(pdftex.def)             Requested size: 702.78308pt x 221.19464pt.
- [44]
+(pdftex.def)             Requested size: 708.47397pt x 222.98431pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
 Overfull \vbox (28.88045pt too high) has occurred while \output is active []
 
 
-[45 <./plots//gannt-interim.png>]
-<./plots//gannt-final.png, id=806, 1731.46875pt x 776.9025pt>
+[46 <./plots//gannt-interim.png>]
+<./plots//gannt-final.png, id=807, 1731.46875pt x 776.9025pt>
 File: ./plots//gannt-final.png Graphic file (type png)
 <use ./plots//gannt-final.png>
 Package pdftex.def Info: ./plots//gannt-final.png  used on input line 90.
-(pdftex.def)             Requested size: 702.78308pt x 315.33134pt.
- [46]
+(pdftex.def)             Requested size: 708.47397pt x 317.89194pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
 Overfull \vbox (28.88045pt too high) has occurred while \output is active []
 
 
-[47 <./plots//gannt-final.png>]
+[48 <./plots//gannt-final.png>]
 Appendix D.
 
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-<./plots//wc.png, id=817, 352.31625pt x 44.165pt>
+<./plots//wc.png, id=818, 352.31625pt x 44.165pt>
 File: ./plots//wc.png Graphic file (type png)
 <use ./plots//wc.png>
 Package pdftex.def Info: ./plots//wc.png  used on input line 105.
-(pdftex.def)             Requested size: 227.62206pt x 28.53369pt.
-[48
+(pdftex.def)             Requested size: 214.81839pt x 26.92847pt.
+[49
 
  <./plots//wc.png>]
 Appendix E.
@@ -1210,42 +1247,48 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (40.6596pt too wide) in paragraph at lines 132--132
+Overfull \hbox (4.532pt too wide) in paragraph at lines 132--132
 []|\T1/cmtt/m/n/12 colored_log_formatter.py: \T1/cmtt/m/it/12 (NOT MY CODE BUT 
-NEEDED TO RUN) Helper functions
+NEEDED TO RUN) Helper
  []
 
 
-Overfull \hbox (5.70148pt too wide) in paragraph at lines 132--132
+Overfull \hbox (31.30879pt too wide) in paragraph at lines 132--132
 []|\T1/cmtt/m/n/12 flatten_model.py: \T1/cmtt/m/it/12 Helper function to flatte
 n/unflatten a Keras model| 
  []
 
-[49
 
-]
-Appendix F.
-<Proposition.pdf, id=835, 597.50829pt x 845.0471pt>
-File: Proposition.pdf Graphic file (type pdf)
-<use Proposition.pdf>
-Package pdftex.def Info: Proposition.pdf  used on input line 135.
-(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-File: Proposition.pdf Graphic file (type pdf)
-<use Proposition.pdf>
-Package pdftex.def Info: Proposition.pdf  used on input line 135.
-(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<Proposition.pdf, id=838, page=1, 597.50829pt x 845.0471pt>
-File: Proposition.pdf Graphic file (type pdf)
-<use Proposition.pdf, page 1>
-Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
-(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-File: Proposition.pdf Graphic file (type pdf)
-<use Proposition.pdf, page 1>
-Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
-(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+Overfull \hbox (18.9618pt too wide) in paragraph at lines 132--132
+[]|\T1/cmtt/m/n/12 just_model_mnist.py: \T1/cmtt/m/it/12 Test file to train the
+ model with single node| 
+ []
+
 [50
 
 ]
+Appendix F.
+<Proposition.pdf, id=836, 597.50829pt x 845.0471pt>
+File: Proposition.pdf Graphic file (type pdf)
+<use Proposition.pdf>
+Package pdftex.def Info: Proposition.pdf  used on input line 135.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Proposition.pdf Graphic file (type pdf)
+<use Proposition.pdf>
+Package pdftex.def Info: Proposition.pdf  used on input line 135.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+<Proposition.pdf, id=839, page=1, 597.50829pt x 845.0471pt>
+File: Proposition.pdf Graphic file (type pdf)
+<use Proposition.pdf, page 1>
+Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Proposition.pdf Graphic file (type pdf)
+<use Proposition.pdf, page 1>
+Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+[51
+
+]
 File: Proposition.pdf Graphic file (type pdf)
 <use Proposition.pdf, page 1>
 Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
@@ -1258,16 +1301,16 @@ File: Proposition.pdf Graphic file (type pdf)
 <use Proposition.pdf, page 1>
 Package pdftex.def Info: Proposition.pdf , page1 used on input line 135.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [51 <./Proposition.pdf>]) (./final.aux (./problemandgoals.aux)
+ [52 <./Proposition.pdf>]) (./final.aux (./problemandgoals.aux)
 (./background.aux) (./design.aux) (./implementation.aux) (./results.aux)
 (./evaluation.aux) (./projectman.aux) (./conclusion.aux) (./appendix.aux))
 Package rerunfilecheck Info: File `final.out' has not changed.
 (rerunfilecheck)             Checksum: F19E568F0AE3C6302280273D609F599E;12042.
  ) 
 Here is how much of TeX's memory you used:
- 16632 strings out of 478287
- 263497 string characters out of 5849288
- 757991 words of memory out of 5000000
+ 16633 strings out of 478287
+ 263504 string characters out of 5849288
+ 758067 words of memory out of 5000000
  34292 multiletter control sequences out of 15000+600000
  487699 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1295,10 +1338,10 @@ blic/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm14
 exmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfti1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt120
 0.pfb>
-Output written on final.pdf (52 pages, 1740358 bytes).
+Output written on final.pdf (52 pages, 1741293 bytes).
 PDF statistics:
- 1035 PDF objects out of 1200 (max. 8388607)
- 839 compressed objects within 9 object streams
- 238 named destinations out of 1000 (max. 500000)
+ 1036 PDF objects out of 1200 (max. 8388607)
+ 840 compressed objects within 9 object streams
+ 239 named destinations out of 1000 (max. 500000)
  680 words of extra memory for PDF output out of 10000 (max. 10000000)
 
