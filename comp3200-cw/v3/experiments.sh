@@ -15,7 +15,7 @@ export numnodes=10 startupdelay=0
 
 export alpha=0.75 beta=0.5
 
-for i in {3..5}; do
+for i in {5..5}; do
     # FL Dense
 #    export classes=10
 #    export numsamples=1000 eps=5
@@ -138,25 +138,25 @@ for i in {3..5}; do
     export numsamples=25 eps=20
     python3 fed_mnist.py $numnodes $numsamples $eps $classes test38.$i
 
-    # FL Sparse ~0.75 (7)
-    dumnodes=7
-    export classes=10
-    export numsamples=1000 eps=5
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test39.$i
-    export numsamples=100 eps=10
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test40.$i
-    export numsamples=25 eps=20
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test41.$i
-
-    # FL Sparse ~0.5 (5)
-    dumnodes=5
-    export classes=10
-    export numsamples=1000 eps=5
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test42.$i
-    export numsamples=100 eps=10
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test43.$i
-    export numsamples=25 eps=20
-    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test44.$i
+#    # FL Sparse ~0.75 (7)
+#    dumnodes=7
+#    export classes=10
+#    export numsamples=1000 eps=5
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test39.$i
+#    export numsamples=100 eps=10
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test40.$i
+#    export numsamples=25 eps=20
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test41.$i
+#
+#    # FL Sparse ~0.5 (5)
+#    dumnodes=5
+#    export classes=10
+#    export numsamples=1000 eps=5
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test42.$i
+#    export numsamples=100 eps=10
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test43.$i
+#    export numsamples=25 eps=20
+#    python3 fed_mnist.py $dumnodes $numsamples $eps $classes test44.$i
 
     # FL Sparse ~0.25 (4)
     dumnodes=4

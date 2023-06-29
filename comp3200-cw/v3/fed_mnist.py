@@ -107,7 +107,7 @@ for i in range(10):
         nodes_classes[i].append(c)
         c = (c+1)%10
 
-for i in range(10):
+for i in range(node_count):
     FedClient(epochs_per_step=epochs_per_step, num_samples=num_samples, dropout_after_first=False, classes=nodes_classes[i])
     print("Classes for node %s: %s"%(i, nodes_classes[i]))
 
