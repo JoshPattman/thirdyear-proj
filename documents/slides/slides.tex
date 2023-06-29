@@ -5,31 +5,47 @@
 \usetheme{metropolis}
 
 %Information to be included in the title page:
-\title{Swarm Learning - A Fully Decentralised Approach To Machine Learning}
+\title{SwarmAvg - A Novel Approach to Fully Distributed Machine Learning}
 \author{Josh Pattman}
 \institute{University Of Southampton}
-\date{March 2023}
+\date{May 2023}
 \graphicspath{{plots}}
 
 \begin{document}
 	\frame{\titlepage}
 	
-	\section{Why Distributed Machine Learning}
+	\section{Problems}
 	\begin{frame}
-		\frametitle{The Problems}
-		\textbf{Privacy}
+		\frametitle{Privacy}
+		What is the problem:
 		\begin{itemize}
 			\item Data stored in multiple locations
 			\item Cannot share the data between locations for privacy reasons
 			\item \emph{Medical records}
 		\end{itemize}
-		
-		\textbf{Performance}
+	
+		Why is this a problem:
+		\begin{itemize}
+			\item Cannot train models on all available data
+			\item May cause models to have lower performance
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}	
+		\frametitle{Performance}
+		What is the problem:
 		\begin{itemize}
 			\item Machine learning needs lots of processing power
-			\item A supercomputer is not available to many
-			\item However they may have access to many lower power devices (nodes)
-			\item \emph{Company with many unused computers during the night}
+			\item Available hardware may be slow
+			\begin{itemize}
+				\item May have assess to many slow computers
+				\item \emph{Company with many unused work computers during the night}
+			\end{itemize}
+		\end{itemize}
+		Why is this a problem:
+		\begin{itemize}
+			\item Slow to train models on available hardware
+			\item Unused processing power
 		\end{itemize}
 	\end{frame}
 
@@ -48,6 +64,11 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{Federated Learning}
+		\includegraphics[width=\linewidth]{fed}
+	\end{frame}
+
+	\begin{frame}
 		\frametitle{Federated Learning - Variations}
 		\begin{itemize}
 			\item Many variations of federated learning
@@ -59,7 +80,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Federated Learning - How Does It Work?}
+		\frametitle{FedAvg - How Does It Work?}
 		\begin{itemize}
 			\item FedAvg has repeated training steps. Each step:
 			\begin{enumerate}
@@ -72,11 +93,11 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Federated Learning - Issues}
+		\frametitle{FedAvg - Issues}
 		\begin{itemize}
 			\item Vulnerable to central server going down
 			\item Requires that every node has direct access to the server
-			\item Few slow nodes slow the whole process down
+			\item Scalability issues with bottleneck
 		\end{itemize}
 	\end{frame}
 
@@ -88,18 +109,36 @@
 			\item No central server/node
 			\item Each node has a distinct model, called the \emph{local model}
 			\begin{itemize}
-				\item Must keep all local models close to each other
+				\item Must keep all local models similar to each other
 			\end{itemize}
 			\item Each node has its own dataset
 			\begin{itemize}
 				\item This dataset cannot be shared with any other nodes
 			\end{itemize}
-			\item The goal is to train all local models using all available data
+			\item The goal is to train all local models together using all available data
 		\end{itemize}
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Swarm Learning - How Does It Work?}
+		\frametitle{Swarm Learning}
+		\includegraphics[width=\linewidth]{fedvsswarm}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{SwarmAvg}
+		\begin{itemize}
+			\item SwarmAvg - \emph{Swarm Learning using Averaging}
+			\item Inspired by FedAvg
+			\begin{itemize}
+				\item Model averaging is the core mechanic
+			\end{itemize}
+			\item No blockchain
+			\item Local models of nodes are usually slightly different - no consensus on a global model
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{SwarmAvg - How Does It Work?}
 		\begin{itemize}
 			\item Repeated Training Steps. Each node each step:
 			\begin{enumerate}
@@ -114,12 +153,12 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Swarm Learning - Specifics}
+		\frametitle{SwarmAvg - Specifics}
 		\begin{itemize}
 			\item Different combination methods
 			\begin{itemize}
-				\item Combine by average
-				\item Combine with learning rate
+				\item Combine by mean
+				\item Combine with learning rate (weighted mean)
 			\end{itemize}
 			\item Only combine neighbours who have done more training than this node
 			\item Wait for certain number of neighbours to catch up with this node
@@ -137,64 +176,44 @@
 			\begin{itemize}
 				\item Swarm learning can function on sparse networks of nodes
 			\end{itemize}
-			\item \sout{Few slow nodes slow the whole process down}
+			\item \sout{Scalability issues with bottleneck}
 			\begin{itemize}
-				\item You never have to wait for a node to communicate, instead use the most recent model it sent
+				\item As the number of nodes in the network scales, the number of connections per node can stay consistent
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
 
-	\section{Results}
-
-	\begin{frame}
-		\frametitle{Swarm Learning - Performance}
-		\begin{itemize}
-			\item Following plots are \emph{accuracy} of classifying MNIST Fashion, and x axis is number of epochs trained
-			\begin{itemize}
-				\item To make the problem a little harder each node only has 10 percent of the dataset
-			\end{itemize}
-			\item Many different configurations of the algorithm, can drastically affect performance
-			\begin{itemize}
-				\item In following plots only top 3 configurations sorted by a specific metric
-				\item For example metric might be 'area under graph'
-			\end{itemize}
-		\item Following plots nodes are densely connected
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}
-		\includegraphics[width = \textwidth]{fill}
-	\end{frame}
-
-	\begin{frame}
-		\includegraphics[width = \textwidth]{fill_zoom}
-	\end{frame}
-
-	\begin{frame}
-		\includegraphics[width = \textwidth]{stability}
-	\end{frame}
+	\section{Experiments}
 	
 	\begin{frame}
-		\includegraphics[width = \textwidth]{stability_zoom}
+		\frametitle{What Did I Test?}
+		Task was classification of MNIST fashion items, and results are accuracy of classification
+		\begin{itemize}
+			\item Tested SwarmAvg against FedAvg:
+			\begin{itemize}
+				\item In densely connected networks with varying amounts of available data
+				\item In densely connected networks with varying amounts of available data and limited classes
+			\end{itemize}
+			\item Tested SwarmAvg:
+			\begin{itemize}
+				\item In sparsely connected networks with varying amounts of available data
+				\item In sparsely connected networks with varying amounts of available data and limited classes
+			\end{itemize}
+		\end{itemize}
 	\end{frame}
 
-
 	\begin{frame}
-		\frametitle{Conclusion}
+		\frametitle{SwarmAvg Findings}
 		\begin{itemize}
-			\item Swarm Learning is a promising machine learning algorithm for training a model on data distributed on private data islands
-			\item It addresses some of the issues with Federated Averaging, one of the current techniques
-			\item It does not perform quite as well as Federated Averaging in a densely connected network
+			\item In densely connected networks, SwarmAvg is slightly slower than FedAvg, and does not reach quite as high a final accuracy.
+			\item With a high enough volume of data, SwarmAvg is only slightly affected by sparse network conditions, when no class restrictions are imposed.
+			\item The effect of network sparsity on SwarmAvg is increased when class restrictions are introduced.
 		\end{itemize}
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{Josh Pattman}
-		Thanks for listening!
-		\begin{itemize}
-			\item LinkedIn: \textbf{linkedin.com/in/josh-pattman}
-			\item GitHub: \textbf{github.com/JoshPattman}
-		\end{itemize}
+		Thanks for listening! Any questions?
 	\end{frame}
 	
 \end{document}

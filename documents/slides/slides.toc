@@ -1,4 +1,4 @@
-\beamer@sectionintoc {1}{Why Distributed Machine Learning}{2}{0}{1}
-\beamer@sectionintoc {2}{Federated Learning}{4}{0}{2}
-\beamer@sectionintoc {3}{Swarm Learning}{9}{0}{3}
-\beamer@sectionintoc {4}{Results}{14}{0}{4}
+\beamer@sectionintoc {1}{Problems}{2}{0}{1}
+\beamer@sectionintoc {2}{Federated Learning}{5}{0}{2}
+\beamer@sectionintoc {3}{Swarm Learning}{11}{0}{3}
+\beamer@sectionintoc {4}{Experiments}{18}{0}{4}

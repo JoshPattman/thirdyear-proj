@@ -1,0 +1,80 @@
+\begin{thebibliography}{10}
+
+\bibitem{gdpr}
+M.~Kop, ``Machine learning \& eu data sharing practices,'' Stanford-Vienna
+  Transatlantic Technology Law Forum, Transatlantic Antitrust~…, 2020.
+
+\bibitem{data_volume}
+G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
+  privacy-preserving and federated machine learning in medical imaging,'' {\em
+  Nature Machine Intelligence}, vol.~2, no.~6, pp.~305--311, 2020.
+
+\bibitem{swarmbetterthanone}
+W.~L. Shuya~Ke, ``Distributed multi-agent learning is more effectively than
+  single-agent,''
+
+\bibitem{survey_on_fed_learning}
+C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
+  learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.
+
+\bibitem{fed_table_survey}
+Q.~Li, Z.~Wen, Z.~Wu, S.~Hu, N.~Wang, Y.~Li, X.~Liu, and B.~He, ``A survey on
+  federated learning systems: vision, hype and reality for data privacy and
+  protection,'' {\em IEEE Transactions on Knowledge and Data Engineering},
+  2021.
+
+\bibitem{fed_learning}
+H.~B. McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A.~y. Arcas,
+  ``Communication-efficient learning of deep networks from decentralized
+  data,'' 2016.
+
+\bibitem{fed_privacy}
+V.~Mothukuri, R.~M. Parizi, S.~Pouriyeh, Y.~Huang, A.~Dehghantanha, and
+  G.~Srivastava, ``A survey on security and privacy of federated learning,''
+  {\em Future Generation Computer Systems}, vol.~115, pp.~619--640, 2021.
+
+\bibitem{fed_iot_2}
+T.~Zhang, L.~Gao, C.~He, M.~Zhang, B.~Krishnamachari, and A.~S. Avestimehr,
+  ``Federated learning for the internet of things: Applications, challenges,
+  and opportunities,'' {\em IEEE Internet of Things Magazine}, vol.~5, no.~1,
+  pp.~24--29, 2022.
+
+\bibitem{multi_center_fed_learning}
+M.~Xie, G.~Long, T.~Shen, T.~Zhou, X.~Wang, and J.~Jiang, ``Multi-center
+  federated learning,'' {\em CoRR}, vol.~abs/2005.01026, 2020.
+
+\bibitem{fed_leaderelec}
+J.~Guo, Q.~Zhao, G.~Li, Y.~Chen, C.~Lao, and L.~Feng, ``Decentralized federated
+  learning with privacy-preserving for recommendation systems,'' {\em
+  Enterprise Information Systems}, vol.~0, no.~0, p.~2193163, 2023.
+
+\bibitem{blockchain_review}
+D.~Yaga, P.~Mell, N.~Roby, and K.~Scarfone, ``Blockchain technology overview,''
+  tech. rep., oct 2018.
+
+\bibitem{blockchain_scale}
+D.~Yang, C.~Long, H.~Xu, and S.~Peng, ``A review on scalability of
+  blockchain,'' in {\em Proceedings of the 2020 The 2nd International
+  Conference on Blockchain Technology}, ICBCT'20, (New York, NY, USA),
+  p.~1–6, Association for Computing Machinery, 2020.
+
+\bibitem{swarm_learning}
+W.-H. et~al., ``Swarm learning for decentralized and confidential clinical
+  machine learning,'' {\em Nature}, vol.~594, pp.~265--270, Jun 2021.
+
+\bibitem{swarm_resil}
+J.~C. Varughese, R.~Thenius, T.~Schmickl, and F.~Wotawa, ``Quantification and
+  analysis of the resilience of two swarm intelligent algorithms.,'' in {\em
+  GCAI}, pp.~148--161, 2017.
+
+\bibitem{leaderelection}
+J.~Augustine, T.~Kulkarni, and S.~Sivasubramaniam, ``Leader election in sparse
+  dynamic networks with churn,'' in {\em 2015 IEEE International Parallel and
+  Distributed Processing Symposium}, pp.~347--356, IEEE, 2015.
+
+\bibitem{swarmscalable}
+M.~Dorigo, M.~Birattari, and M.~Brambilla, ``{S}warm robotics,'' {\em
+  Scholarpedia}, vol.~9, no.~1, p.~1463, 2014.
+\newblock revision \#138643.
+
+\end{thebibliography}

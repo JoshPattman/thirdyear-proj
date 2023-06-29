@@ -1,0 +1,704 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  28 JUN 2023 15:54
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**my-doc.tex
+(./my-doc.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (./ieeeconf.cls
+Document Class: ieeeconf 2016/4/23 revision V1.6b by Pradeep Misra
+\@IEEEtrantmpdimenA=\dimen138
+\@IEEEtrantmpdimenB=\dimen139
+\@IEEEtrantmpcountA=\count185
+\@IEEEtrantmpcountB=\count186
+\@IEEEtrantmptoksA=\toks16
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+94.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+\@IEEEnormalsizefontbaselineskip=\skip47
+
+-- This is a 10 point document.
+\normalsizebaselineskip=\skip48
+\normaljot=\skip49
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+\IEEEilabelindentA=\dimen140
+\IEEEilabelindentB=\dimen141
+\IEEEilabelindent=\dimen142
+\IEEEelabelindent=\dimen143
+\IEEEdlabelindent=\dimen144
+\labelindent=\dimen145
+\IEEEiednormlabelsep=\dimen146
+\IEEEiedmathlabelsep=\dimen147
+\IEEEiedtopsep=\skip50
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@IEEEsubequation=\count191
+\abovecaptionskip=\skip51
+\belowcaptionskip=\skip52
+\c@figure=\count192
+\c@table=\count193
+\@IEEEeqnnumcols=\count194
+\@IEEEeqncolcnt=\count195
+\@IEEEtmpitemindent=\dimen148
+\c@biography=\count196
+\@IEEEtranrubishbin=\box50
+)
+** ATTENTION: Overriding command lockouts (line 9).
+** ATTENTION: Overriding IEEE standard margins (line 12).
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count197
+\c@ALG@rem=\count198
+\c@ALG@nested=\count199
+\ALG@tlm=\skip53
+\ALG@thistlm=\skip54
+\c@ALG@Lnr=\count266
+\c@ALG@blocknr=\count267
+\c@ALG@storecount=\count268
+\c@ALG@tmpcounter=\count269
+\ALG@tmplength=\skip55
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count270
+\float@exts=\toks18
+\float@box=\box51
+\@float@everytoks=\toks19
+\@floatcapt=\box52
+)
+\@float@every@algorithm=\toks20
+\c@algorithm=\count271
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen151
+\captionmargin@=\dimen152
+\captionwidth=\dimen153
+\caption@tempdima=\dimen154
+\caption@indent=\dimen155
+\caption@parindent=\dimen156
+\caption@hangindent=\dimen157
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \begin {center}{\footnotesize #1}\\{\footnotesize \scshape #2}\end {c
+enter}\@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ #2}\ifdim \wd \@tempboxa >\hsize \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ }\parbox [t]{\hsize }{\footnotesize \noindent
+ \unhbox \@tempboxa #2}\else \ifcenterfigcaptions \hbox to\hsize {\footnotesize
+ \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\footnotesize \box \@tempbo
+xa \hfil }\fi \fi \fi  on input line 1139.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count272
+\c@continuedfloat=\count273
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count274
+\c@subtable=\count275
+) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count276
+\l__pdf_internal_box=\box53
+)
+(./my-doc.aux)
+\openout1 = `my-doc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count277
+\scratchdimen=\dimen158
+\scratchbox=\box54
+\nofMPsegments=\count278
+\nofMParguments=\count279
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen159
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
+\everyMPtoPDFconversion=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 32.
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+Underfull \hbox (badness 2126) in paragraph at lines 83--84
+\OT1/ptm/m/n/10 op-er-ates in a com-pletely dis-tributed and de-cen-tralised
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+<./plots//fedvsswarm.png, id=11, 1061.9675pt x 379.4175pt>
+File: ./plots//fedvsswarm.png Graphic file (type png)
+<use ./plots//fedvsswarm.png>
+Package pdftex.def Info: ./plots//fedvsswarm.png  used on input line 88.
+(pdftex.def)             Requested size: 245.71811pt x 87.78523pt.
+
+Underfull \hbox (badness 4403) in paragraph at lines 96--97
+[]\OT1/ptm/m/n/10 The up-dated model is merged with the lat-est
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+[2 <./plots//fedvsswarm.png>]
+
+LaTeX Warning: Reference `reasonforcache' on page 3 undefined on input line 120
+.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 129.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 129.
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+[] \OT1/ptm/m/sc/10 SendTo\OT1/ptm/m/n/10 ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 l
+ocalModel; localTrainingCounter\OT1/cmr/m/n/10 )$\OT1/ptm/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+[] \OT1/ptm/b/n/10 if $\OML/cmm/m/it/10 trainingCounter \OT1/cmr/m/n/10 + \OML/
+cmm/m/it/10 ^^L \OMS/cmsy/m/n/10 ^^U
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+[] $\OML/cmm/m/it/10 localModel \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 ^^V\OT1/cmr
+/m/n/10 (\OML/cmm/m/it/10 localModel \OMS/cmsy/m/n/10 [
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[] \OT1/ptm/m/sc/10 Set-Cache\OT1/ptm/m/n/10 ($\OML/cmm/m/it/10 neighbour$\OT1/
+ptm/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+[] \OT1/ptm/m/sc/10 Set-Cache\OT1/ptm/m/n/10 ($\OML/cmm/m/it/10 neighbour$\OT1/
+ptm/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 6141) in paragraph at lines 174--175
+[]\OT1/ptm/m/n/10 Whereas SwarmBC em-ploys a blockchain as the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+
+ []
+
+[3]
+Underfull \hbox (badness 2334) in paragraph at lines 186--187
+[]\OT1/ptm/m/n/10 In the be-low equa-tions, $\OML/cmm/m/it/10 ^^V\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \OT1/ptm/m/n/10 de-notes the func-tion
+ []
+
+
+Overfull \hbox (6.13708pt too wide) detected at line 189
+\OML/cmm/m/it/10 localModel \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n
+/10 ^^@ \OML/cmm/m/it/10 \OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/
+10 localModel \OT1/cmr/m/n/10 + \OML/cmm/m/it/10  \OMS/cmsy/m/n/10 ^^C \OML/cm
+m/m/it/10 ^^V\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 neighborModels\OT1/cmr/m/n/10 )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+
+ []
+
+[4]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 222.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 222.
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+<./plots//sparsegraph100.png, id=27, 296.10625pt x 293.095pt>
+File: ./plots//sparsegraph100.png Graphic file (type png)
+<use ./plots//sparsegraph100.png>
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 256.
+(pdftex.def)             Requested size: 151.76854pt x 150.2278pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 257.
+<./plots//sparsegraph75.png, id=28, 316.18124pt x 316.18124pt>
+File: ./plots//sparsegraph75.png Graphic file (type png)
+<use ./plots//sparsegraph75.png>
+Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 261.
+(pdftex.def)             Requested size: 151.76854pt x 151.7701pt.
+<./plots//sparsegraph50.png, id=29, 330.23375pt x 325.215pt>
+File: ./plots//sparsegraph50.png Graphic file (type png)
+<use ./plots//sparsegraph50.png>
+Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 266.
+(pdftex.def)             Requested size: 151.76854pt x 149.46672pt.
+<./plots//sparsegraph25.png, id=30, 450.68375pt x 407.5225pt>
+File: ./plots//sparsegraph25.png Graphic file (type png)
+<use ./plots//sparsegraph25.png>
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 271.
+(pdftex.def)             Requested size: 151.76854pt x 137.23131pt.
+<./plots//sparsegraph0.png, id=31, 450.68375pt x 407.5225pt>
+File: ./plots//sparsegraph0.png Graphic file (type png)
+<use ./plots//sparsegraph0.png>
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 276.
+(pdftex.def)             Requested size: 151.76854pt x 137.23131pt.
+
+Underfull \hbox (badness 6995) in paragraph at lines 279--279
+[]\OT1/ptm/m/n/10 Fig. 2: |Ex-am-ple net-works of nodes gen-er-ated for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+\OT1/ptm/m/n/10 each den-sity level, vi-su-alised us-ing the tool at
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+\OT1/ptm/m/it/10 https://csacademy.com/app/graph[]editor\OT1/ptm/m/n/10 . Each 
+time a
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Overfull \vbox (187.92723pt too high) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `relay' on page 6 undefined on input line 283.
+
+<./plots//aeg_sparse_1000.png, id=35, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_1000.png Graphic file (type png)
+<use ./plots//aeg_sparse_1000.png>
+Package pdftex.def Info: ./plots//aeg_sparse_1000.png  used on input line 290.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//aeg_sparse_1000_z.png, id=36, 412.6617pt x 316.5426pt>
+File: ./plots//aeg_sparse_1000_z.png Graphic file (type png)
+<use ./plots//aeg_sparse_1000_z.png>
+Package pdftex.def Info: ./plots//aeg_sparse_1000_z.png  used on input line 294
+.
+(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 289--297
+ []$[]$ 
+ []
+
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 289--297
+ []$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//sparse
+graph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+
+ []
+
+<./plots//aeg_sparse_100.png, id=47, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_100.png Graphic file (type png)
+<use ./plots//aeg_sparse_100.png>
+Package pdftex.def Info: ./plots//aeg_sparse_100.png  used on input line 308.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//aeg_sparse_100_z.png, id=48, 412.6617pt x 316.5426pt>
+File: ./plots//aeg_sparse_100_z.png Graphic file (type png)
+<use ./plots//aeg_sparse_100_z.png>
+Package pdftex.def Info: ./plots//aeg_sparse_100_z.png  used on input line 312.
+
+(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 307--315
+ []$[]$ 
+ []
+
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 307--315
+ []$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./plots//aeg_sparse_25.png, id=49, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_25.png Graphic file (type png)
+<use ./plots//aeg_sparse_25.png>
+Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 324.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//aeg_sparse_25_z.png, id=50, 412.6617pt x 312.2064pt>
+File: ./plots//aeg_sparse_25_z.png Graphic file (type png)
+<use ./plots//aeg_sparse_25_z.png>
+Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 328.
+(pdftex.def)             Requested size: 247.88887pt x 187.54442pt.
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 323--331
+ []$[]$ 
+ []
+
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 323--331
+ []$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//a
+eg_sparse_100.png> <./plots//aeg_sparse_100_z.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
+
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 340--341
+\OT1/ptm/m/n/10 as the data vol-ume pro-vided to each node de-creases,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+<./plots//aeg_sparse_unev_1000.png, id=59, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_unev_1000.png Graphic file (type png)
+<use ./plots//aeg_sparse_unev_1000.png>
+Package pdftex.def Info: ./plots//aeg_sparse_unev_1000.png  used on input line 
+351.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//aeg_sparse_unev_100.png, id=60, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_unev_100.png Graphic file (type png)
+<use ./plots//aeg_sparse_unev_100.png>
+Package pdftex.def Info: ./plots//aeg_sparse_unev_100.png  used on input line 3
+55.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//aeg_sparse_unev_25.png, id=61, 419.166pt x 316.5426pt>
+File: ./plots//aeg_sparse_unev_25.png Graphic file (type png)
+<use ./plots//aeg_sparse_unev_25.png>
+Package pdftex.def Info: ./plots//aeg_sparse_unev_25.png  used on input line 35
+9.
+(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+ []$[]$ 
+ []
+
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+ []$ 
+ []
+
+
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+ []$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./plots//aeg_sparse_25.png> <./plots//aeg_sparse_25_z.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
+
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 382--383
+\OT1/ptm/m/n/10 than an-tic-i-pated. Sev-eral fac-tors can lead to di-ver-gent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+[9 <./plots//aeg_sparse_unev_1000.png> <./plots//aeg_sparse_unev_100.png> <./pl
+ots//aeg_sparse_unev_25.png>]
+Underfull \hbox (badness 2205) in paragraph at lines 384--385
+\OT1/ptm/m/n/10 as op-posed to SwarmBC, is the ab-sence of se-cu-rity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+\OT1/ptm/m/n/10 the straight-for-ward au-then-ti-ca-tion of nodes util-is-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+(./my-doc.bbl
+Underfull \hbox (badness 1454) in paragraph at lines 4--6
+\OT1/ptm/m/n/8 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
+-
+ []
+
+)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the US letter (8.5in X 11in) paper size.
+
+[10] (./my-doc.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4232 strings out of 478287
+ 76778 string characters out of 5849288
+ 377703 words of memory out of 5000000
+ 22417 multiletter control sequences out of 15000+600000
+ 505627 words of font info for 91 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 67i,10n,77p,1114b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on my-doc.pdf (10 pages, 801190 bytes).
+PDF statistics:
+ 129 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+
