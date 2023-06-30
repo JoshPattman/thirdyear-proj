@@ -209,16 +209,16 @@ The experiments were conducted through the simulation of a group of nodes on a s
 The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of the chosen dataset, MNIST Fashion (MNIST-F), since it is a balanced dataset, meaning it has the same number of samples in each class. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
 
 \subsection{Number of Simulated Nodes}
-The experiments were conducted using 10 nodes, with the exception of the server in cases where FedAvg was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
+The experiments were conducted using 10 nodes, not including the server in cases where FedAvg was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
 
 \subsection{Repeated Testing for Noise Reduction}
-The training process for each experiment was conducted ten times, and the resulting accuracies of every node were recorded. To mitigate the impact of training noise on the performance graphs, the accuracy value for each time step was calculated as the median accuracy across all nodes and runs at that time step. As there were 10 nodes, this resulted in the graphs representing median of 100 nodes.
+The training process for each experiment was conducted 10 times, and the resulting accuracies of every node were recorded. To mitigate the impact of training noise on the performance graphs, the accuracy value for each time step was calculated as the median accuracy across all nodes and runs at that time step. As there were 10 nodes, this resulted in the graphs representing median of 100 nodes.
 
-\subsection{Configuring the Algorithm}
-In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that swarm learning could yield better results with more precisely tuned parameters.
+\subsection{Configuring the SwarmAvg Algorithm}
+In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that SwarmAvg could yield better results with more precisely tuned parameters.
 
 \subsection{Data Provided to Each Node}
-The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST-F dataset not only to increase problem difficulty, but also as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant. The three levels of data volume can be seen in TABLE \ref{epsparams}.
+The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST-F dataset not only to increase problem difficulty, but also as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant. The three levels of data volume can be seen in TABLE \ref{epsparams}. Additionally in one of the tests, each node only had access to 3 out of the 10 possible classes. This was achieved by initially assigning each node 3 random classes which it could sample data from. Each nodes subset of classes were chosen independently of each other.
 
 \subsection{Training Steps and Epochs}
 Due to the limited size of the dataset, a single node executes more than one epoch of training in each training step. The number of epochs carried out by a node per training step will be referred to as Epochs per Step (EPS). Empirical testing has indicated that both SL and FL exhibit improved performance with higher EPS, at times surpassing the gains from increasing the number of training steps. Moreover, the utilisation of higher EPS was favoured due to its reduced training time, compared to increasing the number of training steps. The three levels of data volume with their respective EPS are shown in TABLE \ref{epsparams}.
@@ -307,7 +307,7 @@ SHORT ANALYSE ABOVE
 
 ANALYSE ALL GRAPHS AS ONE
 
-\subsection{Scenario 4: Sparsely Connected Network with Class Restrictions}
+\subsection{Test 2 - Varying $\rho$ with 3 Classes}
 Decentralized machine learning algorithms commonly involve a scenario where each node possesses a dataset whose distribution does not align with the overall data distribution across all nodes. In order to simulate such a scenario, a situation was created where each node was given access a unique set of three out of ten classes of MNIST-F. The performance of SwarmAvg and FedAvg were tested for each $\rho$ value., with the results shown below.
 
 
@@ -340,24 +340,7 @@ SHORT ANALYSE ABOVE
 
 ANALYSE ALL GRAPHS AS ONE
 
-\section{Comparison of SwarmAvg to Other Methods}
-Although SwarmAvg has demonstrated promising results, it remains important to conduct a comparative analysis against established methods. This will enable individuals seeking to incorporate distributed machine learning into their future projects to make an informed decision whether SwarmAvg is the algorithm that they should use.
-
-\subsection{Comparison of SwarmAvg to FedAvg}
-SwarmAvg has the significant benefit of being more fault tolerant than FedAvg. This is because FedAvg has a central server, which means that the whole network would stop functioning if the central server is stopped. Not only this, but if a node drops its connection to the server, that node is effectively ignored from training, which has a negative effect on performance. \\
-
-However, SwarmAvg has some significant drawbacks. For example, SwarmAvg has been shown to be slower to converge than FedAvg. Not only this, but SwarmAvg can create a significantly higher amount of network traffic than FedAvg or FL in general. This effect is maximised when every node is connected to every other node, meaning that the number of connections scale by $O(n^2)$, where $n$ is the number of nodes. FL will always both number of connections and network traffic scale with $O(n)$, as every node only needs a single connection to the server. However, it is worth noting that SwarmAvg will consume less network traffic in less dense networks of nodes. \\
-
-An important advantage of SwarmAvg over FedAvg is that former can be used in sparsely connected networks without any modification. This means that it is possible for it to SwarmAvg to run even when most nodes in the network are not connected to most other nodes, which may be a more realistic scenario for certain low powered networks of devices such as IoT networks or robotic swarms. For this reason, SwarmAvg may be a better choice than FedAvg for these situations.
-
-\subsection{Comparison of SwarmAvg to SwarmBC}
-Despite the fact that this paper did not perform tests on SwarmBC, it is still possible to theoretically compare both SwarmAvg and SwarmBC, based on a comprehensive understanding of the inner workings of each. \\
-
-One of the primary drawbacks of utilising SwarmAvg as opposed to SwarmBC is the potential occurrence of divergent training during SwarmAvg training. The detrimental effect of divergent training may persist throughout the entire training process, leading to significantly worse performance than anticipated. Several factors can lead to divergent training, with low settings for $\alpha$ and $\gamma$, coupled with a sparsely-connected network, being highly correlated with its occurrence during testing. SwarmBC does not suffer from this issue, as the blockchain ensures that all nodes agree on the same model. However, during testing, divergent training was a rare phenomenon, and its remedy was a simple parameter tuning process upon detection. \\
-
-One drawback of utilising the SwarmAvg algorithm, as opposed to SwarmBC, is the absence of security features. The utilisation of blockchain technology enables the straightforward authentication of nodes utilising different algorithms that are frequently well-documented and integrated into the blockchain framework. On the other hand, SwarmAvg lacks any built-in authentication mechanism. As a result, to employ it securely, a separate authentication system would need to be implemented to prevent malicious parties from interfering with training. \\
-
-SwarmAvg surpasses SwarmBC in terms of computational efficiency as nodes are not mandated to verify transactions with a blockchain, which involves a comparatively substantial overhead as opposed to simply averaging the models of a nodes neighbours. Consequently, SwarmBC necessitates higher processing power to operate for the same amount of training steps. This overhead could impede the speed of training on a resource-limited system, such as a swarm of drones, as a considerable amount of time is consumed in validating transactions, rather than performing training. Thus, SwarmAvg may be a more fitting choice than SwarmBC for swarms where processing power is a concern.
+\section{Conclusion}
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  30 JUN 2023 15:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  30 JUN 2023 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,53 +514,12 @@ Overfull \hbox (7.22688pt too wide) in paragraph at lines 334--335
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--348
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
-
- []
-
-[7 <./plots//conf_sparse_ns1000_cl3.png> <./plots//conf_sparse_ns100_cl3.png> <
-./plots//conf_sparse_ns25_cl3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-
-Underfull \hbox (badness 1412) in paragraph at lines 356--357
-\OT1/ptm/m/n/10 than an-tic-i-pated. Sev-eral fac-tors can lead to di-ver-gent
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
-
-Underfull \hbox (badness 2205) in paragraph at lines 358--359
-\OT1/ptm/m/n/10 as op-posed to SwarmBC, is the ab-sence of se-cu-rity
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
-\OT1/ptm/m/n/10 the straight-for-ward au-then-ti-ca-tion of nodes util-is-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--387
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
@@ -569,6 +528,10 @@ Underfull \hbox (badness 1454) in paragraph at lines 4--6
 \OT1/ptm/m/n/8 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
  []
+
+[7 <./plots//conf_sparse_ns1000_cl3.png> <./plots//conf_sparse_ns100_cl3.png> <
+./plots//conf_sparse_ns25_cl3.png>]
+Underfull \vbox (badness 3009) has occurred while \output is active []
 
 )
 
@@ -586,7 +549,7 @@ Before submitting the final camera ready copy, remember to:
 Here is how much of TeX's memory you used:
  4181 strings out of 478287
  75350 string characters out of 5849288
- 377703 words of memory out of 5000000
+ 376703 words of memory out of 5000000
  22366 multiletter control sequences out of 15000+600000
  505627 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -597,17 +560,16 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on my-doc.pdf (8 pages, 581539 bytes).
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on my-doc.pdf (8 pages, 570289 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
