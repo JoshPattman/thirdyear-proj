@@ -114,40 +114,44 @@ SwarmAvg works by repeating the training step until training is complete. The ac
 \begin{enumerate}
 	\item Fit local model to local dataset.
 	\item Send local model to all neighbours.
-	\item Combine neighbouring models into local model, using one of the methods presented in Section \ref{mcm}.
+	\item Combine neighbouring models into local model.
 \end{enumerate}
 
-Additionally, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. The reasoning behind this decision is explained further in Section \ref{reasonforcache}.
+Additionally, each node retains a local cache of the most recent models of its neighbouring nodes. This cache is updated each time a neighbouring node transmits its model to the node in question, instead of being updated on-demand during the combination step. This means that nodes never have to wait for other nodes to reply to them, which could mitigate issues with poor internet connections.
 
 \subsection{The Algorithm}
-The training step, found at Algorithm \ref{updatealgo}, is the section of the algorithm which runs continuously during the time which a node is running. It takes care of training and synchronising the local model. The provided code represents what happens in a single training step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
+The training step, found at Algorithm \ref{updatealgo}, is the section of the algorithm which runs continuously during the lifetime of a node. It takes care of training and synchronising the local model. The provided algorithm represents the logic of a single training step, meaning that it should be run in a loop that terminates once a stop condition, such as target accuracy, has been reached.
+
+In both of the below algorithms, a capital $M$ stands for the word \emph{Model}, and $TC$ stands for the words \emph{Training Counter}. The function $\mu_e(x)$ means the element-wise $mean(x)$ where x is a list of arrays of identical lengths, and the symbol $\mu(x)$ means the $mean(x)$, where x is a list of scalars.
 
 \begin{algorithm}[H]
-	\caption{A Single Training Step - should be called repeatedly in a loop} \label{updatealgo}
+	\caption{A Single Training Step} \label{updatealgo}
+	\label{mainalgo}
 	\begin{algorithmic}[1]
-		\State \Call{Train}{localModel, localData}
+		\State \Call{Train}{localM, localData}
+		\State $localTC \gets localTC + 1$
 		\ForAll{$n \in neighbors$}
-		\State \Call{SendTo}{$(localModel, localTrainingCounter)$, $n$}
+		\State \Call{SendTo}{$(localM, localTC)$, $n$}
 		\EndFor
 		
 		\For{$x \in range(maxSyncWaits)$}
-		\State $neighborModels \gets \emptyset$
+		\State $neighborMs \gets \emptyset$
+		\State $neighborTCs \gets \emptyset$
 		\ForAll{$n \in neighbors$}
-		\State $model, traningCounter \gets$ \Call{CacheLookup}{$n$}
-		\If{$trainingCounter + \beta \ge localTrainingCounter$}
-		\State \Call{Append}{$neighborModels$, $model$}
+		\State $M, TC \gets$ \Call{CacheLookup}{$n$}
+		\If{$TC + \beta \ge localTC$}
+		\State \Call{Append}{$neighborMs$, $M$}
+		\State \Call{Append}{$neighborTCs$, $TC$}
 		\EndIf
 		\EndFor
-		\If{$length_{neighborModels} \ge \gamma$}
-		\If{$syncronisationMethod = "AVG"$}
-		\State $localModel \gets \mu(localModel \cup neighborModels)$
-		\ElsIf{$syncronisationMethod = "ASR"$}
-		\State $localModel \gets (1 - \alpha) * localModel + \alpha * \mu(neighborModels)$
-		\EndIf
+		\If{$length_{neighborMs} \ge \gamma$}
+		\State $localM \gets (1 - \alpha) * localM + \alpha * \mu_e(neighborMs)$ \label{updatelm}
+		\State $localTC \gets (1 - \alpha) * localTC + \alpha * \mu(neighborTCs)$ \label{updatetc}
+		\State break
 		\Else
+		\State \Call{Sleep}{syncWaitTime}
 		\State continue
 		\EndIf
-		\State \Call{Sleep}{syncWaitTime}
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
@@ -155,17 +159,17 @@ The training step, found at Algorithm \ref{updatealgo}, is the section of the al
 The model received event, which can be found at Algorithm \ref{cachealgo}, is run on the local node every time a remote node sends the local node a model update. This event takes care of updating the local model cache, to ensure the local node has the most up-to-date information. The model update sent from the remote node should contain the model and training counter of the remote node.
 
 \begin{algorithm}[H]
-	\caption{Model Received Event - called when a model update is received from a remote node} \label{cachealgo}
-	\textbf{Input}: $neighbour$, $nModel$, $nTrainingCounter$
+	\caption{Model Received Event} \label{cachealgo}
+	\textbf{Input}: $neighbour$, $neighbourM$, $neighbourTC$
 	\newline
 	\begin{algorithmic}[1]
 		\If{\Call{InCache}{$neighbour$}}
-		\State $\_, nTraningCounterOld \gets$ \Call{CacheLookup}{$n$}
-		\If{$nTrainingCounter > nTraningCounterOld$}
-		\State \Call{SetCache}{$neighbour$, $(nModel, nTrainingCounter)$}
+		\State $\_, neighbourTCOld \gets$ \Call{CacheLookup}{$neighbour$}
+		\If{$neighbourTC > neighbourTCOld$}
+		\State \Call{SetCache}{$neighbour$, $(neighbourM, neighbourTC)$}
 		\EndIf
 		\Else
-		\State \Call{SetCache}{$neighbour$, $(nModel, nTrainingCounter)$}
+		\State \Call{SetCache}{$neighbour$, $(neighbourM, neighbourTC)$}
 		\EndIf
 	\end{algorithmic}
 \end{algorithm}
@@ -178,21 +182,19 @@ Furthermore, the inefficiency of blockchains with respect to performance is anot
 \subsection{The Training Counter}
 A vital aspect of SwarmAvg, specifically the combination step, involves evaluating the performance of a nodes local model. The conventional approach would involve testing each model using an independent test set. However, due to the inability to exchange test sets among nodes, this approach is not feasible as it would result in non-comparable scores for each model. In order to circumvent this problem, this paper presents a heuristic metric referred to as the "training counter," which serves as an approximation of the level of training for a network by estimating the number of training steps performed on a given model. \\
 
-The training counter can be changed in one of two manners. Firstly, the counter is incremented by 1 when the local model is trained on the local dataset, indicating that an additional step of training has been performed. Following the combination step, the training counter is also updated to reflect the how the models were combined. For instance, if the neighbouring models were simply averaged, the training counter would be updated to represent the average of all neighbouring nodes' training counters.
+The training counter can be changed in one of two manners. Firstly, the counter is incremented by 1 when the local model is trained on the local dataset, indicating that an additional step of training has been performed. Following the combination step, the training counter is also updated to reflect the how the models were combined, which can be seen in Line \ref{updatetc} of Algorithm \ref{mainalgo}.
 
 \subsection{Combining Neighbouring Models} \label{mcm}
 The combination step is a crucial component of SwarmAvg. During this step, a node merges its local model with those of its neighbours, producing an updated estimate of the global model.
 
-In the below equations, $\mu(x)$ denotes the function $mean(x)$. All models are assumed to be flattened into 1-dimensional arrays of parameters.
+The method of combination used by this paper is called Averaging with Synchronisation Rate (ASR). This involves computing the average model of all neighbours, then calculating the weighted mean between that model and the local model. This is demonstrated on Line \ref{updatealgo} of Algorithm \ref{mainalgo}.
 
-The method of combination used by this paper is called Averaging with Synchronisation Rate (ASR). This involves computing the average model of all neighbours, then calculating the weighted mean between that model and the local model.
-\[ localModel \gets (1 - \alpha) * localModel + \alpha * \mu(neighborModels) \]
 The synchronisation rate, denoted as $\alpha$, indicates the degree to which each node adjusts its local model to align with the global model. If $\alpha$ is set too low, each node's model in the network will diverge, resulting in each node becoming trapped at a local minima, an effect referred to as divergent training. On the other hand, if $\alpha$ is too high, the progress achieved by the local node will be discarded at each averaging step, which can result in slower learning. \\
 
 This method is beneficial over simply averaging all known models, as it provides some resistance to variation in the number of neighbours of a node. When using simple averaging, the amount of change made by the local node that persists into the next training step is inversely proportionate to the number of neighbours which were combined. However, when using averaging, the amount of change made that persists will be constant, no matter how many neighbours that are present. This may increase the stability of training, especially if the situation which SwarmAvg is deployed involves a dynamic set of neighbours.
 
-\subsubsection{Training Counter Filtering}
-A potential modification to the previously mentioned combination algorithm involves filtering based on the training counter. Specifically, a node may only include its neighbour models if they meet the following statement:
+\subsection{Training Counter Filtering}
+Filtering neighbours based on their training counters is also included in this algorithm. Specifically, a node may only include its neighbour models if they meet the following statement:
 \[neighborTrainingCounter + \beta \ge localTrainingCounter \]
 The training offset $\beta$ is the amount the training counter of a neighbour can be behind the local training counter before it is ignored. \\
 
@@ -200,44 +202,47 @@ A compelling reason to allow training counter filtering is the increased fault t
 
 An issue with training counter filtering pertains to the presence of runaway nodes. These nodes possess a substantially higher training counter compared to all other nodes in the network, meaning that when filtering is applied, they are left with no neighbours to utilise in the combination step. Consequently, a runaway node may start to overfit on its own training data, as this is the only data it is exposed to, thereby leading to decreased local performance, as well as potential performance reductions in the rest of the network. To address this problem in SwarmAvg, each node must wait until it has obtained at least $\gamma$ viable neighbours prior to performing the combination step. Although this measure prevents individual nodes from becoming runaway nodes, groups of size $\gamma$ still have the potential to become runaway as a unit. Nevertheless, if $\gamma$ is roughly equivalent to the number of neighbours and all neighbours train at a comparable rate, the issue is minimised.
 
-\section{Strategy for Gathering of Results}
+\section{Strategy for Gathering of Results}\label{strats}
 The experiments were conducted through the simulation of a group of nodes on a single computer. The accuracy of each node was evaluated on an unseen test set and subsequently recorded in a file after each training step. All nodes shared the same test set. Below are the specific details of the running of each experiment:
-\begin{description}
-	\item [Chosen Metric: Accuracy:] The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of the chosen dataset, MNIST Fashion (MNIST-F), since it is a balanced dataset, meaning it has the same number of samples in each class. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
-	
-	\item [Number of Simulated Nodes:] The experiments were conducted using 10 nodes, with the exception of the server in cases where FedAvg was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
-	
-	\item [Repeated Testing for Noise Reduction:] The training process for each experiment was conducted five times, and the resulting accuracies of every node were recorded. To mitigate the impact of training noise on the performance graphs, the accuracy value for each time step was calculated as the median accuracy across all nodes and runs at that time step. As there were 10 nodes, this resulted in the graphs representing median of 50 nodes.
-	
-	\item [Configuring the Algorithm:] In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that swarm learning could yield better results with more precisely tuned parameters.
-	
-	\item [Data Provided to Each Node:] The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST-F dataset not only to increase problem difficulty, but also as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant. The three levels of data volume can be seen in Table \ref{epsparams}.
-	
-	\item [Training Steps and Epochs:] Due to the limited size of the dataset, a single node executes more than one epoch of training in each training step. The number of epochs carried out by a node per training step will be referred to as Epochs per Step (EPS). Empirical testing has indicated that both SL and FL exhibit improved performance with higher EPS, at times surpassing the gains from increasing the number of training steps. Moreover, the utilisation of higher EPS was favoured due to its reduced training time, compared to increasing the number of training steps. The three levels of data volume with their respective EPS are shown in table \ref{epsparams}.
-	
-\end{description}
+
+\subsection{Chosen Metric: Accuracy}
+The metric chosen for the following experiments was accuracy, due to its comprehensible nature. Despite the fact that an unbalanced dataset presents one of the significant drawbacks of using accuracy, this concern is irrelevant in the case of the chosen dataset, MNIST Fashion (MNIST-F), since it is a balanced dataset, meaning it has the same number of samples in each class. The accuracy of each node is computed after each training step using the test subset of MNIST-F, and none of the nodes are ever provided access to the test set for training.
+
+\subsection{Number of Simulated Nodes}
+The experiments were conducted using 10 nodes, with the exception of the server in cases where FedAvg was employed. The decision of how many nodes to simulate was based on the highest node count attainable without causing inconsistencies and crashes due to resource depletion of the training machine.
+
+\subsection{Repeated Testing for Noise Reduction}
+The training process for each experiment was conducted ten times, and the resulting accuracies of every node were recorded. To mitigate the impact of training noise on the performance graphs, the accuracy value for each time step was calculated as the median accuracy across all nodes and runs at that time step. As there were 10 nodes, this resulted in the graphs representing median of 100 nodes.
+
+\subsection{Configuring the Algorithm}
+In each of the following experiments, the algorithm was configured using a specific set of parameters $\alpha \beta \gamma$. These parameters were obtained heuristically by making an initial guess, testing, and then fine-tuning them until a satisfactory outcome was reached. However, it is important to note that an exhaustive investigation into the optimal parameter configuration for a particular type of problem is not within this papers scope, meaning that it is plausible that swarm learning could yield better results with more precisely tuned parameters.
+
+\subsection{Data Provided to Each Node}
+The experiments evaluate the algorithm's performance using three levels of data volume per node. These levels are considerably smaller than the full MNIST-F dataset not only to increase problem difficulty, but also as the algorithm is intended for scenarios where each nodes access to data is restricted. To create a subsection of data for each node, a random sampling with replacement method was used to select the desired number of datapoints. During the initial training phase, each node performs a single sampling of its dataset, after which that nodes data subset remains constant. The three levels of data volume can be seen in TABLE \ref{epsparams}.
+
+\subsection{Training Steps and Epochs}
+Due to the limited size of the dataset, a single node executes more than one epoch of training in each training step. The number of epochs carried out by a node per training step will be referred to as Epochs per Step (EPS). Empirical testing has indicated that both SL and FL exhibit improved performance with higher EPS, at times surpassing the gains from increasing the number of training steps. Moreover, the utilisation of higher EPS was favoured due to its reduced training time, compared to increasing the number of training steps. The three levels of data volume with their respective EPS are shown in TABLE \ref{epsparams}.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|l}
-		Dataset Size & EPS \\ \hline \hline
-		1000   & 5  \\ \hline
-		100   & 10  \\ \hline
+		Dataset Size & EPS \\ \hline 
+		1000   & 5  \\
+		100   & 10  \\
 		25  & 20 
 	\end{tabular}
-	\caption{The different levels of dataset size and EPS that were tested} \label{epsparams}
+	\caption{The different dataset sizes and their corresponding EPS that were tested} \label{epsparams}
 \end{table}
 
-\section{Results}
 \subsection{Sparsely Connected Network of Nodes}
-In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific number of connections. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess, for a network of 10 nodes. \\
+In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a value \emph{Density} ($\rho$). When $\rho$ is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When $\rho$ is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network topology, two additional metrics are provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess, for a network of 10 nodes. \\
 
-In order to conduct thorough testing on a variety of potential deployment scenarios, several different densities were tested for each count of data. The densities that were tested, along with their corresponding MMH and MCPN, are presented in Table \ref{sparsedensities}. Also included in Table \ref{sparsedensities} is \emph{Number of Federated Learning Nodes} (NFLN), which denotes the number nodes that FL was given to approximate the number of connections a SL node would have.
+In order to conduct thorough testing on a variety of potential deployment scenarios, several different values of $\rho$ were tested for each count of data. The values that were tested, along with their corresponding MMH and MCPN, are presented in TABLE \ref{sparsedensities}. Also included in TABLE \ref{sparsedensities} is \emph{Number of Federated Learning Nodes} (NFLN), which denotes the number nodes that FL was given to approximate the number of connections a SL node would have for that value of $\rho$.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|l|l|l}
-		Density & MMH & MCPN & NFLN \\ \hline
+		$\rho$ & MMH & MCPN & NFLN \\ \hline
 		1 & 1.0 & 9.0 &  10\\
 		0.25    & 1.7 & 3.6 & 4 \\
 		0    & 3.0 & 1.8  & 2 \\
@@ -245,7 +250,7 @@ In order to conduct thorough testing on a variety of potential deployment scenar
 	\caption{The statistics for different density levels} \label{sparsedensities}
 \end{table}
 
-In order to assist the reader with visualizing the various density levels, some sample networks that were generated for each density can be found in Figure \ref{densefig}.
+In order to assist the reader with visualizing the various values of $\rho$, some sample networks that were generated for each $\rho$ can be found in Figure \ref{densefig}.
 
 \begin{figure}[H]
 	\centering
@@ -264,74 +269,76 @@ In order to assist the reader with visualizing the various density levels, some 
 		\includegraphics[width=\textwidth]{sparsegraph0}
 		\caption{$density=0.0$}
 	\end{subfigure}
-	\caption{Example networks of nodes generated for each density level, visualised using the tool at \emph{https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \label{densefig}}
-	{}\end{figure}
+	\caption{Example networks of nodes generated for each $\rho$ value, visualised using the tool at \emph{https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \label{densefig}}
+{}\end{figure}
 
+\section{Results}
+Tests were performed according to the methodology set out in Section \ref{strats}. Additionally, for all tested values of $\rho$, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause many of the nodes to try to wait for more neighbours than they have, which would cause delays in training.
 
-This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate SwarmAvg.
-
-Below are results obtained from testing. The density of each line on the graph is indicated by the colour, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the network generation, there will still be some nodes who have less than $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
+\subsection{Test 1 - Varying $\rho$}
+WRITE SOMTHING HERE INTRODUCING THIS EXPERIMENT
 
 \begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 1000 Samples, with Varying Density}} \\
 	\includegraphics[width=0.5\textwidth]{conf_sparse_ns1000}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown.}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.}
 	\label{aeg4}
 \end{figure}
 
-An observation that can be made of Figure \ref{aeg4} is that the different network densities perform very similarly. The final accuracy for all of the tests fell within a 2 percent range,  with the higher densities occupying the higher end. \\
-
-One interesting feature of the Figure \ref{aeg4} is that the lowest density demonstrates faster convergence initially that the other densities. The author hypothesises that this may be due to groups of nodes forming local sub-networks which converge on their own sub-sets of data faster, but more slowly combine into the network as a whole as training progresses.
+SHORT ANALYSE ABOVE
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 100 Samples, with Varying Density}} \\
 	\includegraphics[width=0.5\textwidth]{conf_sparse_ns100}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown.}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.}
 	\label{aeg5}
 \end{figure}
 
-In Figure \ref{aeg5}, there is a greater spread of final accuracies, about 2.5 percent, than is shown in Figure \ref{aeg4}. The more noticeable feature of Figure \ref{aeg5} is that the final accuracies of all densities are approximately 8 percent lower than their counterparts with more data available in figure \ref{aeg4}.
+SHORT ANALYSE ABOVE
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 25 Samples, with Varying Density}} \\
 	\includegraphics[width=0.5\textwidth]{conf_sparse_ns25}
-	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown.}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.}
 	\label{aeg6}
 \end{figure}
 
-With 25 data samples, the tests depicted in Figure \ref{aeg6} show a much higher variation in final accuracies than the previous two figures. There is also a much higher degree of noise in this figure than any other, suggesting that training may be much less stable with this small number of data samples to train on.
+SHORT ANALYSE ABOVE
 
-It should also be noted that the lowest density is still exhibiting the behaviour of outperforming the other densities in the initial steps, however it appears that this effect has become slightly less prominent. \\
-
-
-Generally, altering the network density of nodes has a small impact on the training of the nodes within the network. Decreasing the density of nodes typically leads to a lower final accuracy. This effect becomes more noticeable as the data volume provided to each node decreases, as demonstrated by the increased variability in training displayed in Figure \ref{aeg6} in comparison to Figures \ref{aeg4} and \ref{aeg5}. \\
-
-The networks possessing a density of 0 attain their optima at a faster rate than those with higher densities. Figure \ref{aeg6} illustrates that the lower densities reach convergence marginally quicker than higher densities, yet are surpassed by the latter towards the end of training.
+ANALYSE ALL GRAPHS AS ONE
 
 \subsection{Scenario 4: Sparsely Connected Network with Class Restrictions}
-Decentralized machine learning algorithms, such as SwarmAvg, commonly involve a scenario where each node possesses a dataset whose distribution does not align with the overall data distribution across all nodes. In order to simulate such a scenario, a situation was created where each node was given access a unique set of three out of ten classes of MNIST-F. The performance of SwarmAvg was tested for each density level.
+Decentralized machine learning algorithms commonly involve a scenario where each node possesses a dataset whose distribution does not align with the overall data distribution across all nodes. In order to simulate such a scenario, a situation was created where each node was given access a unique set of three out of ten classes of MNIST-F. The performance of SwarmAvg and FedAvg were tested for each $\rho$ value., with the results shown below.
 
-Below are the results.
+
+\begin{figure}[H]
+	\center{\textbf{Accuracy by Training Step for 1000 Samples, with Varying Density, and 3 Classes}} \\
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns1000_cl3}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.}
+	\label{aeg7}
+\end{figure}
+
+SHORT ANALYSE ABOVE
+
 \begin{figure}[H] 
-	\center{\textbf{Accuracy by Training Step for 1000, 100 and 25 Samples, with 3 Classes and Varying Density}} \\
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{conf_sparse_ns1000_cl3}
-		\caption{Samples=1000}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{conf_sparse_ns100_cl3}
-		\caption{Samples=100}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{conf_sparse_ns25_cl3}
-		\caption{Samples=25}
-	\end{subfigure}
-	\caption{Median accuracy by training step across 5 repeats. Quartiles are not shown. Each node has access to a unique set of 3 classes out of 10.}
+	\center{\textbf{Accuracy by Training Step for 100 Samples, with Varying Density, and 3 Classes}} \\
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns100_cl3}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.}
+	\label{aeg8}
+\end{figure}
+
+SHORT ANALYSE ABOVE
+
+\begin{figure}[H] 
+	\center{\textbf{Accuracy by Training Step for 25 Samples, with Varying Density, and 3 Classes}} \\
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns25_cl3}
+	\caption{Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.}
 	\label{aeg9}
 \end{figure}
 
+SHORT ANALYSE ABOVE
 
-In all three tests, it is clear that a higher density is highly correlated with higher performance in this scenario. It is also noteworthy that with a network density of 0, no matter which volume of data was presented, the accuracy curve was very similar. However, as the density of the network increased, so did the degree at which it was effected by the reduction in data. This scenario also presented graphs with a high degree of noise when compared to other scenarios, despite representing the median of 5 training runs. However, the level of noise is somewhat consistent on all three tests with different data volumes.
+ANALYSE ALL GRAPHS AS ONE
 
 \section{Comparison of SwarmAvg to Other Methods}
 Although SwarmAvg has demonstrated promising results, it remains important to conduct a comparative analysis against established methods. This will enable individuals seeking to incorporate distributed machine learning into their future projects to make an informed decision whether SwarmAvg is the algorithm that they should use.

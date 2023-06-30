@@ -29,36 +29,50 @@
 \newlabel{des}{{III}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Design Overview}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-B}The Algorithm}{3}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces A Single Training Step - should be called repeatedly in a loop\relax }}{3}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces A Single Training Step\relax }}{3}{}\protected@file@percent }
 \newlabel{updatealgo}{{1}{3}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Model Received Event - called when a model update is received from a remote node\relax }}{3}{}\protected@file@percent }
+\newlabel{mainalgo}{{1}{3}}
+\newlabel{updatelm}{{17}{3}}
+\newlabel{updatetc}{{18}{3}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Model Received Event\relax }}{3}{}\protected@file@percent }
 \newlabel{cachealgo}{{2}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-C}Blockchain-less Algorithm}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}The Training Counter}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}The Training Counter}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-E}Combining Neighbouring Models}{4}{}\protected@file@percent }
 \newlabel{mcm}{{III-E}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {III-E.1}Training Counter Filtering}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-F}Training Counter Filtering}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Strategy for Gathering of Results}{4}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces The different levels of dataset size and EPS that were tested\relax }}{5}{}\protected@file@percent }
+\newlabel{strats}{{IV}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Chosen Metric: Accuracy}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Number of Simulated Nodes}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Repeated Testing for Noise Reduction}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-D}Configuring the Algorithm}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-E}Data Provided to Each Node}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-F}Training Steps and Epochs}{5}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces The different dataset sizes and their corresponding EPS that were tested\relax }}{5}{}\protected@file@percent }
 \newlabel{epsparams}{{I}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Sparsely Connected Network of Nodes}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-G}Sparsely Connected Network of Nodes}{5}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces The statistics for different density levels\relax }}{5}{}\protected@file@percent }
 \newlabel{sparsedensities}{{II}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example networks of nodes generated for each density level, visualised using the tool at \emph  {https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \relax }}{5}{}\protected@file@percent }
-\newlabel{densefig}{{2}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown.\relax }}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example networks of nodes generated for each $\rho $ value, visualised using the tool at \emph  {https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \relax }}{6}{}\protected@file@percent }
+\newlabel{densefig}{{2}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Test 1 - Varying $\rho $}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
 \newlabel{aeg4}{{3}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown.\relax }}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
 \newlabel{aeg5}{{4}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown.\relax }}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
 \newlabel{aeg6}{{5}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Scenario 4: Sparsely Connected Network with Class Restrictions}{7}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Median accuracy by training step across 5 repeats. Quartiles are not shown. Each node has access to a unique set of 3 classes out of 10.\relax }}{7}{}\protected@file@percent }
-\newlabel{aeg9}{{6}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Comparison of SwarmAvg to Other Methods}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {VI-A}Comparison of SwarmAvg to FedAvg}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {VI-B}Comparison of SwarmAvg to SwarmBC}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Scenario 4: Sparsely Connected Network with Class Restrictions}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
+\newlabel{aeg7}{{6}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
+\newlabel{aeg8}{{7}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
+\newlabel{aeg9}{{8}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Comparison of SwarmAvg to Other Methods}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {VI-A}Comparison of SwarmAvg to FedAvg}{7}{}\protected@file@percent }
 \bibstyle{ieeetr}
 \bibdata{final}
 \bibcite{gdpr}{1}
@@ -77,5 +91,6 @@
 \bibcite{swarm_resil}{14}
 \bibcite{leaderelection}{15}
 \bibcite{swarmscalable}{16}
-\@writefile{toc}{\contentsline {section}{References}{9}{}\protected@file@percent }
-\gdef \@abspage@last{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {VI-B}Comparison of SwarmAvg to SwarmBC}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{8}{}\protected@file@percent }
+\gdef \@abspage@last{8}
