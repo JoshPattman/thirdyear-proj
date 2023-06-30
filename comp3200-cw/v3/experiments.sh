@@ -15,7 +15,7 @@ export numnodes=10 startupdelay=0
 
 export alpha=0.75 beta=0.5
 
-for i in {5..5}; do
+for i in {11..15}; do
     # FL Dense
 #    export classes=10
 #    export numsamples=1000 eps=5

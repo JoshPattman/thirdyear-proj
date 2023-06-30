@@ -232,17 +232,15 @@ The experiments were conducted through the simulation of a group of nodes on a s
 \subsection{Sparsely Connected Network of Nodes}
 In reality, it is uncommon for each node to be linked with every other node. To simulate a more realistic scenario, a technique was employed to generate a network of nodes with a specific number of connections. When density is set to 0, the network is minimally linked, meaning that each node has at least one indirect path to every other node, but the minimal number of connections required to accomplish this exist. When density is set to 1, all nodes are connected to one another in a dense fashion. Since this measure may not provide a straightforward indicator of network density, two additional metrics will be provided:  Mean Minimum Hops (MMH) and Mean Connections per Node (MCPN). MMH denotes the mean minimum number of transitions required to get from one node to another in the network. MCPN denotes the average number of connections a given node possess, for a network of 10 nodes. \\
 
-In order to conduct thorough testing on a variety of potential deployment scenarios, several different densities were tested for each count of data. The densities that were tested, along with their corresponding MMH and MCPN, are presented in Table \ref{sparsedensities}.
+In order to conduct thorough testing on a variety of potential deployment scenarios, several different densities were tested for each count of data. The densities that were tested, along with their corresponding MMH and MCPN, are presented in Table \ref{sparsedensities}. Also included in Table \ref{sparsedensities} is \emph{Number of Federated Learning Nodes} (NFLN), which denotes the number nodes that FL was given to approximate the number of connections a SL node would have.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{l|l|l}
-		Density & MMH & MCPN \\ \hline
-		1 & 1.0 & 9.0 \\
-		0.75    & 1.2 & 7.2  \\
-		0.5    & 1.4 & 5.4  \\
-		0.25    & 1.7 & 3.6  \\
-		0    & 3.0 & 1.8  \\
+	\begin{tabular}{l|l|l|l}
+		Density & MMH & MCPN & NFLN \\ \hline
+		1 & 1.0 & 9.0 &  10\\
+		0.25    & 1.7 & 3.6 & 4 \\
+		0    & 3.0 & 1.8  & 2 \\
 	\end{tabular}
 	\caption{The statistics for different density levels} \label{sparsedensities}
 \end{table}
@@ -251,27 +249,17 @@ In order to assist the reader with visualizing the various density levels, some 
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.3\textwidth}
+	\begin{subfigure}[b]{0.15\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph100}
 		\caption{$density=1.0$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{sparsegraph75}
-		\caption{$density=0.75$}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{sparsegraph50}
-		\caption{$density=0.5$}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
+	\begin{subfigure}[b]{0.15\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph25}
 		\caption{$density=0.25$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
+	\begin{subfigure}[b]{0.15\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{sparsegraph0}
 		\caption{$density=0.0$}
@@ -282,18 +270,11 @@ In order to assist the reader with visualizing the various density levels, some 
 
 This section does not include any testing of FedAvg. In scenarios where not every node is directly connected to the server node, FedAvg has two potential options: ignore all nodes which are not directly connected, or attempt to relay the model updates through connected nodes. As mentioned in Section \ref{relay}, relaying may not always be the optimal solution. Ignoring nodes is also not a good option, as data is wasted. Therefore, in this test, the decision was made to solely evaluate SwarmAvg.
 
-Below are results obtained from testing. The density of each line on the graph is indicated by the colour, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the graph generation, there will still be some nodes who have less than $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
+Below are results obtained from testing. The density of each line on the graph is indicated by the colour, with a green hue representing higher density and a red hue indicating lower density. For all tested densities, the value of $\gamma$ was set to $round_{down}(MCPN) - 1$, which ensures that each node can progress only after waiting for all but one of its neighbours. Notably, failure to reduce $\gamma$ for less dense networks would cause several nodes to wait for a number of neighbours that cannot be achieved. Due to the random nature of the network generation, there will still be some nodes who have less than $\gamma$ neighbours, but this should be rare and the loop to wait for $\gamma$ neighbours will terminate after a certain number of tries anyway, ensuring that training can progress.
 
-\begin{figure}[H] 
+\begin{figure}[H]
 	\center{\textbf{Accuracy by Training Step for 1000 Samples, with Varying Density}} \\
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_1000}
-		\caption{Full Graph}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_1000_z}
-		\caption{Zoomed Graph}
-	\end{subfigure}
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns1000}
 	\caption{Median accuracy by training step across 5 repeats. Each node has 1000 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg4}
 \end{figure}
@@ -304,14 +285,7 @@ One interesting feature of the Figure \ref{aeg4} is that the lowest density demo
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 100 Samples, with Varying Density}} \\
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_100}
-		\caption{Full Graph}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_100_z}
-		\caption{Zoomed Graph}
-	\end{subfigure}
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns100}
 	\caption{Median accuracy by training step across 5 repeats. Each node has 100 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg5}
 \end{figure}
@@ -320,14 +294,7 @@ In Figure \ref{aeg5}, there is a greater spread of final accuracies, about 2.5 p
 
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 25 Samples, with Varying Density}} \\
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_25}
-		\caption{Full Graph}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_25_z}
-		\caption{Zoomed Graph}
-	\end{subfigure}
+	\includegraphics[width=0.5\textwidth]{conf_sparse_ns25}
 	\caption{Median accuracy by training step across 5 repeats. Each node has 25 random data samples from MNIST-F. Quartiles are not shown.}
 	\label{aeg6}
 \end{figure}
@@ -348,15 +315,15 @@ Below are the results.
 \begin{figure}[H] 
 	\center{\textbf{Accuracy by Training Step for 1000, 100 and 25 Samples, with 3 Classes and Varying Density}} \\
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_unev_1000}
+		\includegraphics[width=\textwidth]{conf_sparse_ns1000_cl3}
 		\caption{Samples=1000}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_unev_100}
+		\includegraphics[width=\textwidth]{conf_sparse_ns100_cl3}
 		\caption{Samples=100}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{aeg_sparse_unev_25}
+		\includegraphics[width=\textwidth]{conf_sparse_ns25_cl3}
 		\caption{Samples=25}
 	\end{subfigure}
 	\caption{Median accuracy by training step across 5 repeats. Quartiles are not shown. Each node has access to a unique set of 3 classes out of 10.}

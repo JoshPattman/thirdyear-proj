@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  28 JUN 2023 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.11)  30 JUN 2023 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,240 +419,189 @@ Underfull \hbox (badness 10000) in paragraph at lines 233--234
 <./plots//sparsegraph100.png, id=27, 296.10625pt x 293.095pt>
 File: ./plots//sparsegraph100.png Graphic file (type png)
 <use ./plots//sparsegraph100.png>
-Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 256.
-(pdftex.def)             Requested size: 151.76854pt x 150.2278pt.
+Package pdftex.def Info: ./plots//sparsegraph100.png  used on input line 254.
+(pdftex.def)             Requested size: 75.8804pt x 75.1072pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 257.
-<./plots//sparsegraph75.png, id=28, 316.18124pt x 316.18124pt>
-File: ./plots//sparsegraph75.png Graphic file (type png)
-<use ./plots//sparsegraph75.png>
-Package pdftex.def Info: ./plots//sparsegraph75.png  used on input line 261.
-(pdftex.def)             Requested size: 151.76854pt x 151.7701pt.
-<./plots//sparsegraph50.png, id=29, 330.23375pt x 325.215pt>
-File: ./plots//sparsegraph50.png Graphic file (type png)
-<use ./plots//sparsegraph50.png>
-Package pdftex.def Info: ./plots//sparsegraph50.png  used on input line 266.
-(pdftex.def)             Requested size: 151.76854pt x 149.46672pt.
-<./plots//sparsegraph25.png, id=30, 450.68375pt x 407.5225pt>
+(Font)              <9> on input line 255.
+<./plots//sparsegraph25.png, id=28, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph25.png Graphic file (type png)
 <use ./plots//sparsegraph25.png>
-Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 271.
-(pdftex.def)             Requested size: 151.76854pt x 137.23131pt.
-<./plots//sparsegraph0.png, id=31, 450.68375pt x 407.5225pt>
+Package pdftex.def Info: ./plots//sparsegraph25.png  used on input line 259.
+(pdftex.def)             Requested size: 75.8804pt x 68.61255pt.
+<./plots//sparsegraph0.png, id=29, 450.68375pt x 407.5225pt>
 File: ./plots//sparsegraph0.png Graphic file (type png)
 <use ./plots//sparsegraph0.png>
-Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 276.
-(pdftex.def)             Requested size: 151.76854pt x 137.23131pt.
+Package pdftex.def Info: ./plots//sparsegraph0.png  used on input line 264.
+(pdftex.def)             Requested size: 75.8804pt x 68.61255pt.
 
-Underfull \hbox (badness 6995) in paragraph at lines 279--279
+Underfull \hbox (badness 6995) in paragraph at lines 267--267
 []\OT1/ptm/m/n/10 Fig. 2: |Ex-am-ple net-works of nodes gen-er-ated for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--279
+Underfull \hbox (badness 10000) in paragraph at lines 267--267
 \OT1/ptm/m/n/10 each den-sity level, vi-su-alised us-ing the tool at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--279
+Underfull \hbox (badness 10000) in paragraph at lines 267--267
 \OT1/ptm/m/it/10 https://csacademy.com/app/graph[]editor\OT1/ptm/m/n/10 . Each 
 time a
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `relay' on page 5 undefined on input line 271.
 
- [5]
-Overfull \vbox (187.92723pt too high) has occurred while \output is active []
+[5 <./plots//sparsegraph100.png> <./plots//sparsegraph25.png> <./plots//sparseg
+raph0.png>]
+<./plots//conf_sparse_ns1000.png, id=38, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns1000.png Graphic file (type png)
+<use ./plots//conf_sparse_ns1000.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns1000.png  used on input line 27
+7.
+(pdftex.def)             Requested size: 252.94499pt x 194.02773pt.
+
+Overfull \hbox (7.22688pt too wide) in paragraph at lines 277--278
+ [][] 
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
-LaTeX Warning: Reference `relay' on page 6 undefined on input line 283.
+ []
 
-<./plots//aeg_sparse_1000.png, id=35, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_1000.png Graphic file (type png)
-<use ./plots//aeg_sparse_1000.png>
-Package pdftex.def Info: ./plots//aeg_sparse_1000.png  used on input line 290.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
-<./plots//aeg_sparse_1000_z.png, id=36, 412.6617pt x 316.5426pt>
-File: ./plots//aeg_sparse_1000_z.png Graphic file (type png)
-<use ./plots//aeg_sparse_1000_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_1000_z.png  used on input line 294
+<./plots//conf_sparse_ns100.png, id=39, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns100.png Graphic file (type png)
+<use ./plots//conf_sparse_ns100.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns100.png  used on input line 288
 .
-(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
+(pdftex.def)             Requested size: 252.94499pt x 194.02773pt.
 
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 289--297
- []$[]$ 
- []
-
-
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 289--297
- []$ 
+Overfull \hbox (7.22688pt too wide) in paragraph at lines 288--289
+ [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./plots//sparsegraph100.png> <./plots//sparsegraph75.png> <./plots//sparse
-graph50.png> <./plots//sparsegraph25.png> <./plots//sparsegraph0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
+<./plots//conf_sparse_ns25.png, id=40, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns25.png Graphic file (type png)
+<use ./plots//conf_sparse_ns25.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns25.png  used on input line 297.
 
- []
+(pdftex.def)             Requested size: 252.94499pt x 194.02773pt.
 
-<./plots//aeg_sparse_100.png, id=47, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_100.png Graphic file (type png)
-<use ./plots//aeg_sparse_100.png>
-Package pdftex.def Info: ./plots//aeg_sparse_100.png  used on input line 308.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
-<./plots//aeg_sparse_100_z.png, id=48, 412.6617pt x 316.5426pt>
-File: ./plots//aeg_sparse_100_z.png Graphic file (type png)
-<use ./plots//aeg_sparse_100_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_100_z.png  used on input line 312.
-
-(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
-
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 307--315
- []$[]$ 
+Overfull \hbox (7.22688pt too wide) in paragraph at lines 297--298
+ [][] 
  []
 
 
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 307--315
- []$ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<./plots//aeg_sparse_25.png, id=49, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_25.png Graphic file (type png)
-<use ./plots//aeg_sparse_25.png>
-Package pdftex.def Info: ./plots//aeg_sparse_25.png  used on input line 324.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
-<./plots//aeg_sparse_25_z.png, id=50, 412.6617pt x 312.2064pt>
-File: ./plots//aeg_sparse_25_z.png Graphic file (type png)
-<use ./plots//aeg_sparse_25_z.png>
-Package pdftex.def Info: ./plots//aeg_sparse_25_z.png  used on input line 328.
-(pdftex.def)             Requested size: 247.88887pt x 187.54442pt.
-
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 323--331
- []$[]$ 
- []
-
-
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 323--331
- []$ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7 <./plots//aeg_sparse_1000.png> <./plots//aeg_sparse_1000_z.png> <./plots//a
-eg_sparse_100.png> <./plots//aeg_sparse_100_z.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
-
-Underfull \hbox (badness 1400) in paragraph at lines 340--341
+[6 <./plots//conf_sparse_ns1000.png> <./plots//conf_sparse_ns100.png> <./plots/
+/conf_sparse_ns25.png>]
+Underfull \hbox (badness 1400) in paragraph at lines 307--308
 \OT1/ptm/m/n/10 as the data vol-ume pro-vided to each node de-creases,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
-<./plots//aeg_sparse_unev_1000.png, id=59, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_unev_1000.png Graphic file (type png)
-<use ./plots//aeg_sparse_unev_1000.png>
-Package pdftex.def Info: ./plots//aeg_sparse_unev_1000.png  used on input line 
-351.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
-<./plots//aeg_sparse_unev_100.png, id=60, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_unev_100.png Graphic file (type png)
-<use ./plots//aeg_sparse_unev_100.png>
-Package pdftex.def Info: ./plots//aeg_sparse_unev_100.png  used on input line 3
-55.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
-<./plots//aeg_sparse_unev_25.png, id=61, 419.166pt x 316.5426pt>
-File: ./plots//aeg_sparse_unev_25.png Graphic file (type png)
-<use ./plots//aeg_sparse_unev_25.png>
-Package pdftex.def Info: ./plots//aeg_sparse_unev_25.png  used on input line 35
-9.
-(pdftex.def)             Requested size: 247.88887pt x 187.19804pt.
+<./plots//conf_sparse_ns1000_cl3.png, id=47, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns1000_cl3.png Graphic file (type png)
+<use ./plots//conf_sparse_ns1000_cl3.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns1000_cl3.png  used on input lin
+e 318.
+(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
+<./plots//conf_sparse_ns100_cl3.png, id=48, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns100_cl3.png Graphic file (type png)
+<use ./plots//conf_sparse_ns100_cl3.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns100_cl3.png  used on input line
+ 322.
+(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
+<./plots//conf_sparse_ns25_cl3.png, id=49, 412.6617pt x 316.5426pt>
+File: ./plots//conf_sparse_ns25_cl3.png Graphic file (type png)
+<use ./plots//conf_sparse_ns25_cl3.png>
+Package pdftex.def Info: ./plots//conf_sparse_ns25_cl3.png  used on input line 
+326.
+(pdftex.def)             Requested size: 247.88887pt x 190.1492pt.
 
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 317--329
  []$[]$ 
  []
 
 
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 317--329
  []$ 
  []
 
 
-Overfull \hbox (2.17076pt too wide) in paragraph at lines 350--362
+Overfull \hbox (2.17076pt too wide) in paragraph at lines 317--329
  []$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <./plots//aeg_sparse_25.png> <./plots//aeg_sparse_25_z.png>]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+ [7 <./plots//conf_sparse_ns1000_cl3.png> <./plots//conf_sparse_ns100_cl3.png> 
+<./plots//conf_sparse_ns25_cl3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
 
-Underfull \hbox (badness 1412) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 349--350
 \OT1/ptm/m/n/10 than an-tic-i-pated. Sev-eral fac-tors can lead to di-ver-gent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
-[9 <./plots//aeg_sparse_unev_1000.png> <./plots//aeg_sparse_unev_100.png> <./pl
-ots//aeg_sparse_unev_25.png>]
-Underfull \hbox (badness 2205) in paragraph at lines 384--385
+
+Underfull \hbox (badness 2205) in paragraph at lines 351--352
 \OT1/ptm/m/n/10 as op-posed to SwarmBC, is the ab-sence of se-cu-rity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 \OT1/ptm/m/n/10 the straight-for-ward au-then-ti-ca-tion of nodes util-is-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
-(./my-doc.bbl
+[8] (./my-doc.bbl
 Underfull \hbox (badness 1454) in paragraph at lines 4--6
 \OT1/ptm/m/n/8 Vienna Transat-lantic Tech-nol-ogy Law Fo-rum, Transat-lantic An
 -
@@ -670,16 +619,16 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[10] (./my-doc.aux)
+[9] (./my-doc.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4232 strings out of 478287
- 76778 string characters out of 5849288
+ 4177 strings out of 478287
+ 75324 string characters out of 5849288
  377703 words of memory out of 5000000
- 22417 multiletter control sequences out of 15000+600000
+ 22362 multiletter control sequences out of 15000+600000
  505627 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,10n,77p,1114b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -695,10 +644,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on my-doc.pdf (10 pages, 801190 bytes).
+Output written on my-doc.pdf (9 pages, 580821 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
