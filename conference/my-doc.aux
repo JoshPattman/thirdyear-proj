@@ -9,26 +9,21 @@
 \citation{fed_iot_2}
 \citation{multi_center_fed_learning}
 \citation{fed_leaderelec}
-\citation{blockchain_review}
-\citation{blockchain_scale}
-\citation{blockchain_scale}
 \@writefile{toc}{\contentsline {section}{\numberline {I}INTRODUCTION}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {II}BACKGROUND}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {II-A}Federated Learning}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}Blockchain}{1}{}\protected@file@percent }
-\newlabel{bg:bc}{{II-B}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}Swarm Learning}{1}{}\protected@file@percent }
 \citation{swarm_learning}
 \citation{swarm_resil}
 \citation{leaderelection}
 \citation{swarmscalable}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II-C}Swarm Learning}{2}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Diagram of different learning algorithms. Each \emph  {Node} indicates a single training machine, and each line denotes a connection between two machines, along which the model can be shared. In the swarm learning diagram, the dashed lines show that each local model is an approximation of the global model.\relax }}{2}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig_learning}{{1}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Algorithm Design}{2}{}\protected@file@percent }
 \newlabel{des}{{III}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Design Overview}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}The Algorithm}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}The Algorithm}{2}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces A Single Training Step\relax }}{3}{}\protected@file@percent }
 \newlabel{updatealgo}{{1}{3}}
 \newlabel{mainalgo}{{1}{3}}
@@ -37,34 +32,37 @@
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Model Received Event\relax }}{3}{}\protected@file@percent }
 \newlabel{cachealgo}{{2}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-C}Blockchain-less Algorithm}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}The Training Counter}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}The Training Counter}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-E}Combining Neighbouring Models}{4}{}\protected@file@percent }
 \newlabel{mcm}{{III-E}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {III-F}Training Counter Filtering}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Strategy for Gathering of Results}{4}{}\protected@file@percent }
 \newlabel{strats}{{IV}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Chosen Metric: Accuracy}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Number of Simulated Nodes}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Repeated Testing for Noise Reduction}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-D}Configuring the SwarmAvg Algorithm}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-E}Data Provided to Each Node}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-F}Training Steps and Epochs}{5}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces The different dataset sizes and their corresponding EPS that were tested\relax }}{5}{}\protected@file@percent }
-\newlabel{epsparams}{{I}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-G}Sparsely Connected Network of Nodes}{5}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces The statistics for different density levels\relax }}{5}{}\protected@file@percent }
-\newlabel{sparsedensities}{{II}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example networks of nodes generated for each $\rho $ value, visualised using the tool at \emph  {https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \relax }}{6}{}\protected@file@percent }
-\newlabel{densefig}{{2}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Test 1 - Varying $\rho $}{6}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
-\newlabel{aeg4}{{3}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
-\newlabel{aeg5}{{4}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Chosen Metric: Accuracy}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Number of Simulated Nodes}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Repeated Testing for Noise Reduction}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-D}Configuring the SwarmAvg Algorithm}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-E}Data Provided to Each Node}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-F}Sparsely Connected Network of Nodes}{5}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces The statistics for different density levels\relax }}{5}{}\protected@file@percent }
+\newlabel{sparsedensities}{{I}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example networks of nodes generated for each $\rho $ value, visualised using the tool at \emph  {https://csacademy.com/app/graph\_editor}. Each time a simulation is started, a new random network is generated for that simulation. \relax }}{5}{}\protected@file@percent }
+\newlabel{densefig}{{2}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Test 1 - Comparison of Methods whilst Varying $\rho $}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{5}{}\protected@file@percent }
+\newlabel{aeg4}{{3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{5}{}\protected@file@percent }
+\newlabel{aeg5}{{4}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
 \newlabel{aeg6}{{5}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Test 2 - Varying $\rho $ with 3 Classes}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Test 2 - Comparison of Methods whilst Varying $\rho $ with 3 Available Classes}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
+\newlabel{aeg7}{{6}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
+\newlabel{aeg8}{{7}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.\relax }}{6}{}\protected@file@percent }
+\newlabel{aeg9}{{8}{6}}
 \bibstyle{ieeetr}
 \bibdata{final}
 \bibcite{gdpr}{1}
@@ -72,23 +70,16 @@
 \bibcite{swarmbetterthanone}{3}
 \bibcite{survey_on_fed_learning}{4}
 \bibcite{fed_table_survey}{5}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 1000 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
-\newlabel{aeg7}{{6}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 100 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
-\newlabel{aeg8}{{7}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Median accuracy by training step across 10 repeats. Each node has 25 random data samples from MNIST-F.\relax }}{7}{}\protected@file@percent }
-\newlabel{aeg9}{{8}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{7}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
 \bibcite{fed_learning}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Comparison of SwarmAvg to FedAvg}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {VI-A}Comparison of SwarmAvg to SwarmBC}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
 \bibcite{fed_privacy}{7}
 \bibcite{fed_iot_2}{8}
 \bibcite{multi_center_fed_learning}{9}
 \bibcite{fed_leaderelec}{10}
-\bibcite{blockchain_review}{11}
-\bibcite{blockchain_scale}{12}
-\bibcite{swarm_learning}{13}
-\bibcite{swarm_resil}{14}
-\bibcite{leaderelection}{15}
-\bibcite{swarmscalable}{16}
+\bibcite{swarm_learning}{11}
+\bibcite{swarm_resil}{12}
+\bibcite{leaderelection}{13}
+\bibcite{swarmscalable}{14}
 \gdef \@abspage@last{8}
