@@ -9,10 +9,6 @@ G.~A. Kaissis, M.~R. Makowski, D.~R{\"u}ckert, and R.~F. Braren, ``Secure,
   privacy-preserving and federated machine learning in medical imaging,'' {\em
   Nature Machine Intelligence}, vol.~2, no.~6, pp.~305--311, 2020.
 
-\bibitem{swarmbetterthanone}
-W.~L. Shuya~Ke, ``Distributed multi-agent learning is more effectively than
-  single-agent,''
-
 \bibitem{survey_on_fed_learning}
 C.~Zhang, Y.~Xie, H.~Bai, B.~Yu, W.~Li, and Y.~Gao, ``A survey on federated
   learning,'' {\em Knowledge-Based Systems}, vol.~216, p.~106775, 2021.

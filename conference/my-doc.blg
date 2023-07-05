@@ -9,41 +9,39 @@ I was expecting a `,' or a `}'---line 241 of file final.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--empty booktitle in gdpr
-Warning--empty booktitle in swarmbetterthanone
-Warning--empty year in swarmbetterthanone
 Warning--empty journal in fed_learning
 Name 1 in "Warnat-Herresthal et al.," has a comma at the end for entry swarm_learning
 while executing---line 969 of file ieeetr.bst
-You've used 14 entries,
+You've used 13 entries,
             1876 wiz_defined-function locations,
-            561 strings with 6123 characters,
-and the built_in function-call counts, 4024 in all, are:
-= -- 364
-> -- 205
+            558 strings with 6015 characters,
+and the built_in function-call counts, 3880 in all, are:
+= -- 356
+> -- 201
 < -- 0
-+ -- 74
-- -- 60
-* -- 297
-:= -- 587
++ -- 72
+- -- 59
+* -- 288
+:= -- 568
 add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 14
+call.type$ -- 13
+change.case$ -- 13
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 219
-empty$ -- 356
-format.name$ -- 60
-if$ -- 966
+cite$ -- 15
+duplicate$ -- 207
+empty$ -- 334
+format.name$ -- 59
+if$ -- 933
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 14
-newline$ -- 46
-num.names$ -- 14
-pop$ -- 55
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 43
+num.names$ -- 13
+pop$ -- 45
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 143
+skip$ -- 141
 stack$ -- 0
 substring$ -- 210
 swap$ -- 91
@@ -51,8 +49,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 4
-while$ -- 33
-width$ -- 16
-write$ -- 135
+warning$ -- 2
+while$ -- 32
+width$ -- 15
+write$ -- 129
 (There were 2 error messages)
